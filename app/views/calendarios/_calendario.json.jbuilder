@@ -1,0 +1,2 @@
+json.extract! calendario, :id, :nombre, :registro, :examen_colocacion, :inicio_curso, :examen_medio, :examen_final, :entrega_boletas, :suspension_labores, :vacaciones, :created_at, :updated_at
+json.url calendario_url(calendario, format: :json)

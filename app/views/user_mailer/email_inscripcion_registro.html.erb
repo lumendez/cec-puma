@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hola! <%= @inscripcion_registro.nombre_completo %></h1>
+    <p>Le informamos que su inscipci&oacute;n en el grupo: <strong><%= @inscripcion_registro.grupo.nombre %></strong>
+    <% if @inscripcion_registro.documentos_validados == true %>
+    ha sido <strong>Validada</strong>. Por lo que deber&aacute; presentarse a su curso en la hora y fecha que se le hayan indicado.</p>
+    <% else %>
+    <strong>No ha sido validada</strong>. Por lo que deber&aacute; acudir al centro para obtener mayor informaci&oacute;n.</p>
+    <% end %>
+    <p>
+      Este correo se envía autom&aacute;ticamente, por favor no lo responda.
+    </p>
+  </body>
+</html>

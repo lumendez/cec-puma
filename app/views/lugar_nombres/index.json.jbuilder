@@ -1,0 +1,1 @@
+json.array! @lugar_nombres, partial: 'lugar_nombres/lugar_nombre', as: :lugar_nombre

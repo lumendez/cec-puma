@@ -1,0 +1,37 @@
+<%= form_for :grupo, url: update_multiple_grupos_path, :html => { :method => :patch } do |form| %>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <th>Nombre del grupo</td>
+      <th>Curso</th>
+      <th>A&ntilde;o</th>
+      <% @grupos.each do |grupo| %>
+      <tr>
+        <td><%= grupo.nombre %></td>
+        <td><%= grupo.curso %></td>
+        <td><%= grupo.anio %></td>
+        <%= hidden_field_tag "grupo_ids[]", grupo.id %>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-3">
+    <%= form.label :estado %>
+    <%= collection_select(:grupo, :estado, Estado.all, :nombre, :nombre,  {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <% if can? :habilitar_contancias_grupo, Grupo %>
+  <div class="form-group col-sm-3">
+    <%= form.label :habilitar_contancias_grupo, "¿Habilitar las constancias de estos grupos?" %>
+    <%= form.check_box :habilitar_constancias_grupo, class: 'form-control' %>
+  </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= form.submit "Enviar", class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>
+<%= link_to 'Regresar', grupos_path %>

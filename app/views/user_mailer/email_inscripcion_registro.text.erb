@@ -1,0 +1,10 @@
+Hola! <%= @inscripcion_registro.nombre_completo %>
+===================================================
+
+Le informamos que su inscripción en el grupo: <%= @inscripcion_registro.grupo.nombre %>
+<% if @inscripcion_registro.documentos_validados == true %>
+ha sido validada. Por lo que deberá acudir presentarse a su curso en la hora y fecha que se le hayan indicado.
+<% else %>
+No ha sido validada. Por lo que deberá acudir al centro para obtener mayor información.
+<% end %>
+Este correo se envía automáticamente , por favor no lo responda.

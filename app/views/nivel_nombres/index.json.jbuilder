@@ -1,0 +1,1 @@
+json.array! @nivel_nombres, partial: 'nivel_nombres/nivel_nombre', as: :nivel_nombre

@@ -1,0 +1,7 @@
+<% if user_signed_in? && current_user.centro.nombre == 'Ingeniero Eugenio Méndez Docurro' %>
+  <title>Centro de Educaci&oacute;n Continua: Ing. Eugenio M&eacute;ndez Docurro</title>
+<% elsif user_signed_in? && current_user.centro_id.present? %>
+  <title>Direcci&oacute;n de Educaci&oacute;n Continua</title>
+<% else %>
+  <title>Direcci&oacute;n de Educaci&oacute;n Continua</title>
+<% end %>

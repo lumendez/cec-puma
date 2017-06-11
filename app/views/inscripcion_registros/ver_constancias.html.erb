@@ -1,0 +1,35 @@
+<h1 class="sub">Constancias</h1>
+<%= form_for_filterrific @filterrific do |f| %>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.label :search_query, 'Buscar constancia por nombre' %>
+      <%= f.text_field(
+        :search_query,
+        class: 'filterrific-periodically-observed form-control'
+      ) %>
+    </div>
+  </div>
+</div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+<% end %>
+
+<%= render(
+  partial: 'inscripcion_registros/lista',
+  locals: { inscripcion_registros: @inscripcion_registros }
+) %>
+
+<script>
+$('#selectAll').click(function() {
+   if (this.checked) {
+       $(':checkbox').each(function() {
+           this.checked = true;
+       });
+   } else {
+      $(':checkbox').each(function() {
+           this.checked = false;
+       });
+   }
+});
+</script>

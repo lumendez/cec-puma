@@ -1,0 +1,27 @@
+<h1 class="sub">Historiales acad&eacute;micos</h1>
+<table class="table table-bordered">
+  <tr>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+    <th>Nombre</th>
+    <th>Historiales</th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td>
+      <%= user.paterno %>
+    </td>
+    <td>
+      <%= user.materno %>
+    </td>
+    <td>
+      <%= user.nombre %>
+    </td>
+    <td>
+      <%= link_to 'Ver historial de Inglés', historial_ingles_users_path(user) %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= paginate @users, theme: 'twitter-bootstrap-3', param_name: :pagina %>

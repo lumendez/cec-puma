@@ -1,0 +1,1 @@
+json.array! @tipo_oferta, partial: 'tipo_oferta/tipo_ofertum', as: :tipo_ofertum

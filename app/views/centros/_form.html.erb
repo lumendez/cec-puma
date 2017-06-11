@@ -1,0 +1,54 @@
+<%= form_for(centro) do |f| %>
+  <% if centro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(centro.errors.count, "error") %> prohibited this centro from being saved:</h2>
+
+      <ul>
+      <% centro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :nombre, 'Nombre del centro' %>
+    <%= f.text_field :nombre, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :lugar, 'Ciudad' %>
+    <%= f.text_field :lugar, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :direccion, 'Dirección' %>
+    <%= f.text_field :direccion, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :telefono, 'Teléfono' %>
+    <%= f.text_field :telefono, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :extension, 'Extensión' %>
+    <%= f.text_field :extension, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,52 @@
+<h2 class="sub">Mis grupos</h2>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Idioma</th>
+      <th>Horario</th>
+      <th>Nivel</th>
+      <th>Curso</th>
+      <th>A&ntilde;o</th>
+      <th>Estado</th>
+      <th colspan="2">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @grupos.each do |grupo| %>
+        <% if user_signed_in? && grupo.user_id == current_user.id %>
+        <tr>
+          <td><%= grupo.nombre %></td>
+          <td><%= grupo.idioma %></td>
+          <td align="center"><%= grupo.horario %></td>
+          <td><%= grupo.nivel %></td>
+          <td><%= grupo.curso %></td>
+          <td><%= grupo.anio %></td>
+          <% if grupo.estado == "Pendiente" %>
+            <td class="warning"><%= grupo.estado %></td>
+          <% elsif grupo.estado == "Abierto" %>
+            <td class="success"><%= grupo.estado %></td>
+          <% else %>
+            <td class="danger"><%= grupo.estado %></td>
+          <% end %>
+          <td align="center">
+            <%= link_to lista_asistencia_grupos_path(grupo) do %>
+              <span class="glyphicon glyphicon-list-alt" title="ver lista de asistencia"></span>
+            <% end %>
+          </td>
+          <td align="center">
+            <%= link_to grupo do %>
+              <span class="glyphicon glyphicon-eye-open" title="ver grupo"></span>
+            <% end %>
+          </td>
+          <% if can? :update, grupo %>
+          <td><%= link_to 'Editar', edit_grupo_path(grupo) %></td>
+          <td><%= link_to 'Eliminar', grupo, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      <% end %>
+  </tbody>
+</table>
+</div>

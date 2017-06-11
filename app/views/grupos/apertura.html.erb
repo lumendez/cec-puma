@@ -1,0 +1,283 @@
+<div id="apertura">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td width="200">
+          <p align="center"><%= image_tag "logoipn.jpg" %></p>
+        </td>
+        <td colspan="2" width="1400">
+          <p align="center">Instituto Polit&eacute;cnico Nacional<br>Secretar&iacute;a de Extensi&oacute;n e Integraci&oacute;n Social</p>
+          <p align="center">Direcci&oacute;n de Educaci&oacute;n Continua</p>
+          <p align="center">Solicitud de apertura de grupo en sistema</p>
+        </td>
+        <td width="200">
+          <p align="center"><%= image_tag "dec.png" %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="199">
+          <p>C&oacute;digo: DEC-PO-01-F01</p>
+        </td>
+        <td width="100">
+          <p>Fecha de revisi&oacute;n: 15.04.2016</p>
+        </td>
+        <td width="100">
+          <p>Versi&oacute;n: 01</p>
+        </td>
+        <td width="200">
+          <p>P&aacute;gina</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td width="299">
+          <p align="center">Lugar</p>
+        </td>
+        <td width="299">
+          <p align="center">Fecha</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="299">
+          <p align="center"><strong><%= @grupo.lugar %></strong></p>
+        </td>
+        <td width="299">
+          <p align="center"><strong><%= @grupo.fecha %></strong></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td width="299">
+          <p align="center">Grupo</p>
+        </td>
+        <td width="299">
+          <p align="center">Materia</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="299">
+          <p></p>
+        </td>
+        <td width="299">
+          <p></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td colspan="5" width="600">
+          <p align="center"><%= @grupo.nombre_grupo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="11" width="94" class="vertical">
+          <div class="vertical vertical_oferta"><strong>Informaci&oacute;n de la oferta educativa</strong></div>
+        </td>
+        <td width="253">
+          <p>Centro de educaci&oacute;n continua</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.centro %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>N&uacute;mero de registro del curso</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.registro %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Tipo de oferta</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.tipo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Modalidad de oferta</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.modalidad %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Cupo</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.cupo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Duraci&oacute;n del programa</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.duracion %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Periodo de impartici&oacute;n</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.periodo %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Horario</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.horario %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Cuota de recuperaci&oacute;n</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.cuota %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Clave de cat&aacute;logo fideicomiso o n&uacute;mero de convenio</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.clave %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Proyecto</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.proyecto %></p>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4" width="94" class="vertical">
+          <div class="vertical vertical_bancaria"><strong>Informaci&oacute;n bancaria</strong></div>
+        </td>
+        <td width="253">
+          <p>Instituci&oacute;n bancaria</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.institucion_bancaria %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Cuenta</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.cuenta %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Referencia</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.referencia %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Titular de la cuenta</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.titular %></p>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="3" width="94" class="vertical">
+          <div class="vertical vertical_instructor"><strong>Informaci&oacute;n del<br>instructor</strong></div>
+        </td>
+        <td width="253">
+          <p>Nombre del instructor</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.user.nombre_paterno_materno %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>RFC del instructor</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.user.rfc %></p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <p>Correo electr&oacute;nico del instructor</p>
+        </td>
+        <td colspan="3" width="253">
+          <p><%= @grupo.user.email %></p>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2" width="94" class="vertical">
+          <div class="vertical vertical_validacion"><strong>Validaci&oacute;n</strong></div>
+        </td>
+        <td width="253">
+          <p>Jefe de Educaci&oacute;n Continua CEC</p>
+        </td>
+        <td colspan="3" width="253">
+          <p align="center">Dise&ntilde;o de programas y proyectos (DEC)</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="253">
+          <br>
+          <br>
+          <br>
+          <p align="center"><%= @grupo.jefe_ec %></p>
+        </td>
+        <td colspan="2" width="127">
+          <br>
+          <br>
+          <br>
+          <p align="center">Vo.Bo.</p>
+        </td>
+        <td colspan="2" width="127">
+          <br>
+          <br>
+          <br>
+          <p align="center">Sistema de Registro</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <input type="button" id="btn-apertura" value="Imprimir" class="btn btn-md btn-primary">
+  </div>
+</div>
+<script>
+$("#btn-apertura").click(function () {
+    //Hide all other elements other than printarea.
+    $("#apertura").show();
+    window.print();
+});
+</script>
+
+<%= link_to 'Regresar', grupos_path %>

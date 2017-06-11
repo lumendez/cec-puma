@@ -1,0 +1,1 @@
+json.partial! "clave_catalogos/clave_catalogo", clave_catalogo: @clave_catalogo

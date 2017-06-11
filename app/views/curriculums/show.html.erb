@@ -1,0 +1,135 @@
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td width="200">
+        <p align="center"><%= image_tag "logoipn.jpg" %></p>
+      </td>
+      <td colspan="2" width="1400">
+        <p align="center">Instituto Polit&eacute;cnico Nacional<br>Secretar&iacute;a de Extensi&oacute;n e Integraci&oacute;n Social</p>
+        <p align="center">Direcci&oacute;n de Educaci&oacute;n Continua</p>
+        <p align="center">Curriculum de instructor</p>
+      </td>
+      <td width="200">
+        <p align="center"><%= image_tag "dec.png" %></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="199">
+        <p>C&oacute;digo: DEC-PO-01-F01</p>
+      </td>
+      <td width="100">
+        <p>Fecha de revisi&oacute;n: 15.04.2016</p>
+      </td>
+      <td width="100">
+        <p>Versi&oacute;n: 01</p>
+      </td>
+      <td width="200">
+        <p>P&aacute;gina</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td>
+        <p>&nbsp;</p>
+      </td>
+      <td colspan="9">
+        <p align="center">Datos generales</p>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="8" width="250px">
+        <p align="center"><%= image_tag @curriculum.foto.url('medium') %></p>
+      </td>
+      <td colspan="3">
+        <p>Apellido paterno</p>
+      </td>
+      <td colspan="4">
+        <p>Apellido materno</p>
+      </td>
+      <td colspan="2">
+        <p>Nombre</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <%= @curriculum.user.paterno %>
+      </td>
+      <td colspan="4">
+        <%= @curriculum.user.materno %>
+      </td>
+      <td colspan="2">
+        <%= @curriculum.user.nombre %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="9">
+        <p align="center">Domicilio</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <p>Calle</p>
+      </td>
+      <td colspan="6">
+        <%= @curriculum.calle %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <p>Colonia</p>
+      </td>
+      <td colspan="6">
+        <%= @curriculum.colonia %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <p>Municipio/Delegación </p>
+      </td>
+      <td colspan="6">
+        <%= @curriculum.municipui %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <p>Entidad federativa</p>
+      </td>
+      <td colspan="6">
+        <%= @curriculum.entidad %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <p>Correo electrónico</p>
+      </td>
+      <td colspan="6">
+        <%= @curriculum.user.email %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Teléfonos</p>
+      </td>
+      <td colspan="2">
+        <p>Particular</p>
+      </td>
+      <td colspan="3">
+        <%= @curriculum.telefono %>
+      </td>
+      <td colspan="3">
+        <p>Celular</p>
+      </td>
+      <td>
+        <%= @curriculum.celular %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Editar', edit_curriculum_path(@curriculum) %> |
+<%= link_to 'Regresar', curriculums_path %>

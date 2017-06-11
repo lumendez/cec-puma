@@ -1,0 +1,46 @@
+<div id="filterrific_results">
+  <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nombre del curso</th>
+      <th>A&ntilde;o</th>
+      <th>Registro</th>
+      <th>Examen de colocaci&oacute;n</th>
+      <th>Inicio  de curso</th>
+      <th>Examen medio</th>
+      <th>Examen final</th>
+      <th>Entrega de boletas</th>
+      <th>Suspension de labores</th>
+      <th>Vacaciones</th>
+      <th>Estado</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calendarios.each do |calendario| %>
+      <tr>
+        <td><%= calendario.nombre %></td>
+        <td><%= calendario.anio %></td>
+        <td><%= calendario.registro %></td>
+        <td><%= calendario.examen_colocacion %></td>
+        <td><%= calendario.inicio_curso %></td>
+        <td><%= calendario.examen_medio %></td>
+        <td><%= calendario.examen_final %></td>
+        <td><%= calendario.entrega_boletas %></td>
+        <td><%= calendario.suspension_labores %></td>
+        <td><%= calendario.vacaciones %></td>
+        <% if calendario.estado == "Abierto" %>
+          <td class="success"><%= calendario.estado %></td>
+        <% elsif calendario.estado == "Cerrado" %>
+          <td class="danger"><%= calendario.estado %></td>
+        <% end %>
+        <td><%= link_to 'Mostrar', calendario %></td>
+        <td><%= link_to 'Editar', edit_calendario_path(calendario) %></td>
+        <td><%= link_to 'Eliminar', calendario, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @calendarios, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+</div>

@@ -1,0 +1,126 @@
+<%= form_for(InscripcionRegistro.new) do |f| %>
+<div class="row">
+  <% @inscripcion_registros.each do |inscripcion_registro| %>
+  <div class="form-group col-sm-4">
+    <%= f.label :nombre, 'Nombre(s)' %>
+    <%= f.text_field :nombre, value: inscripcion_registro.nombre, class: 'form-control', readonly: :true %>
+  </div>
+  <div class="form-group col-sm-4">
+    <%= f.label :paterno, 'Apellido paterno' %>
+    <%= f.text_field :paterno, value: inscripcion_registro.paterno, class: 'form-control', readonly: :true %>
+  </div>
+  <div class="form-group col-sm-4">
+    <%= f.label :matern, 'Apellido materno' %>
+    <%= f.text_field :materno, value: inscripcion_registro.materno, class: 'form-control', readonly: :true %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :idioma %>
+    <%= collection_select(:inscripcion_registro, :idioma, Idioma.all, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-4">
+    <%= f.label :horario %>
+    <%= collection_select(:inscripcion_registro, :horario, Horario.all, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-4">
+    <%= f.label :nivel %>
+    <%= collection_select(:inscripcion_registro, :nivel, NivelNombre.all, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :curso %>
+    <%= collection_select(:inscripcion_registro, :curso, Calendario.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :periodo %>
+    <%= collection_select(:inscripcion_registro, :periodo, Calendario.all, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :opcion_uno, 'Horario opcional 1' %>
+    <%= collection_select(:inscripcion_registro, :opcion_uno, Horario.all, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :opcion_dos, 'Horario opcional 2' %>
+    <%= collection_select(:inscripcion_registro, :opcion_dos, Horario.all, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :telefono %>
+    <%= f.text_field :telefono, value: inscripcion_registro.telefono, class: 'form-control'%>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :correo %>
+    <%= f.text_field :correo, value: inscripcion_registro.correo, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :sexo %>
+    <%= f.text_field :sexo, value: inscripcion_registro.sexo, class: 'form-control', readonly: :true %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :cuota %>
+    <%= collection_select(:inscripcion_registro, :cuota, Cuotum.all, :cuota, :cuota, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :movimiento, 'Movimiento bancario' %>
+    <%= f.text_field :movimiento, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-4">
+    <%= f.label :procedencia %>
+    <%= f.text_field :procedencia, value: inscripcion_registro.procedencia, class: 'form-control', readonly: :true %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :boleta %>
+    <%= f.text_field :boleta, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :grupo_id %>
+    <%= collection_select(:inscripcion_registro, :grupo_id, Grupo.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :examen_medio %>
+    <%= f.text_field :examen_medio, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :examen_final %>
+    <%= f.text_field :examen_final, class: 'form-control' %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :documentos_validados, "Documentos validados" %>
+    <%= f.check_box :documentos_validados, class: 'form-control' %>
+  </div>
+</div>
+<div class="row">
+  <div class="actions col-sm-2">
+    <%= f.submit "Enviar", class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
+<% end %>
+<% end %>
+
+<script>
+function matchUp(selected, toselect)
+{
+  var idx = selected.prop('selectedIndex');
+  toselect.prop('selectedIndex', idx);
+}
+
+
+$('#inscripcion_registro_curso').change(
+  function() {
+    matchUp($('#inscripcion_registro_curso'), $('#inscripcion_registro_periodo'));
+  }
+);
+
+$('#inscripcion_registro_periodo').change(
+  function() {
+    matchUp($('#inscripcion_registro_periodo'), $('#inscripcion_registro_curso'));
+  }
+);
+</script>

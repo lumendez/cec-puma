@@ -1,0 +1,2 @@
+class NivelNombre < ApplicationRecord
+end

@@ -1,0 +1,1 @@
+json.array! @cuota, partial: 'cuota/cuotum', as: :cuotum

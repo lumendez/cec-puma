@@ -1,0 +1,22 @@
+<p>
+  <strong>Nombre de la instituci&oacute;n bancaria:</strong>
+  <%= @datos_banco.nombre %>
+</p>
+
+<p>
+  <strong>Cuenta:</strong>
+  <%= @datos_banco.cuenta %>
+</p>
+
+<p>
+  <strong>Referencia:</strong>
+  <%= @datos_banco.referencia %>
+</p>
+
+<p>
+  <strong>Titular de la cuenta:</strong>
+  <%= @datos_banco.titular %>
+</p>
+
+<%= link_to 'Editar', edit_datos_banco_path(@datos_banco) %> |
+<%= link_to 'Regresar', datos_bancos_path %>

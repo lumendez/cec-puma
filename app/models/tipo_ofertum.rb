@@ -1,0 +1,2 @@
+class TipoOfertum < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Procedencium < ApplicationRecord
+end

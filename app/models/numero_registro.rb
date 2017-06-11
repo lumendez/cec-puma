@@ -1,0 +1,2 @@
+class NumeroRegistro < ApplicationRecord
+end

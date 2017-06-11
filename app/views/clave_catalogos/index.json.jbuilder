@@ -1,0 +1,1 @@
+json.array! @clave_catalogos, partial: 'clave_catalogos/clave_catalogo', as: :clave_catalogo

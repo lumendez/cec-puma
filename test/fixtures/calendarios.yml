@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  registro: MyString
+  examen_colocacion: MyString
+  inicio_curso: MyString
+  examen_medio: MyString
+  examen_final: MyString
+  entrega_boletas: MyString
+  suspension_labores: MyString
+  vacaciones: MyString
+
+two:
+  nombre: MyString
+  registro: MyString
+  examen_colocacion: MyString
+  inicio_curso: MyString
+  examen_medio: MyString
+  examen_final: MyString
+  entrega_boletas: MyString
+  suspension_labores: MyString
+  vacaciones: MyString

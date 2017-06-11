@@ -1,0 +1,1 @@
+json.partial! "modalidad_oferta/modalidad_ofertum", modalidad_ofertum: @modalidad_ofertum

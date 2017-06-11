@@ -1,0 +1,1 @@
+json.partial! "nivel_nombres/nivel_nombre", nivel_nombre: @nivel_nombre

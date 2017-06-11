@@ -1,0 +1,2 @@
+module PanelProfesoresHelper
+end

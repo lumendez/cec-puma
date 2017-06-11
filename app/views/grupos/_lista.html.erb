@@ -1,0 +1,89 @@
+<div id="filterrific_results">
+  <%= form_tag edit_multiple_grupos_path do %>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Seleccionar</td>
+        <!--<th>Nombre</th>-->
+        <th>Idioma</th>
+        <th>Curso</th>
+        <th>Horario</th>
+        <th>Nivel</th>
+        <th>Nombre del instructor</th>
+        <th>Estado</th>
+        <th colspan="3">Acciones</th>
+        <% if can? :update, Grupo %>
+        <th colspan="3">Opciones</th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @grupos.each do |grupo| %>
+        <tr>
+          <td><%= check_box_tag "grupo_ids[]", grupo.id %></td>
+          <!--<td><%#= grupo.nombre %></td>-->
+          <td><%= grupo.idioma %></td>
+          <td><%= grupo.curso %></td>
+          <td align="center"><%= grupo.horario %></td>
+          <td><%= grupo.nivel %></td>
+          <td><%= grupo.user.nombre_paterno_materno %></td>
+          <% if grupo.estado == "Pendiente" %>
+            <td class="warning"><%= grupo.estado %></td>
+          <% elsif grupo.estado == "Abierto" %>
+            <td class="success"><%= grupo.estado %></td>
+          <% else %>
+            <td class="danger"><%= grupo.estado %></td>
+          <% end %>
+          <td align="center">
+            <%= link_to grupo do %>
+              <span class="glyphicon glyphicon-eye-open" title="ver grupo"></span>
+            <% end %>
+          </td>
+          <% if can? :habilitar_constancias, grupo %>
+            <% if grupo.habilitar_constancias_grupo == true %>
+            <td align="center">
+              <%= link_to crear_constancias_grupos_path(grupo) do %>
+                <span class="glyphicon glyphicon-education" title="habilitar constancias"></span>
+              <% end %>
+            </td>
+            <% else %>
+            <td align="center">
+              <span class="glyphicon glyphicon-education glyphicon-education-inactivo" title="habilitar constancias"></span>
+            </td>
+            <% end %>
+          <% end %>
+          <td align="center">
+            <%= link_to apertura_grupos_path(grupo) do %>
+              <span class="glyphicon glyphicon-folder-open" title="ver apertura"></span>
+            <% end %>
+          </td>
+          <% if can? :update, grupo %>
+          <td><%= link_to 'Editar', edit_grupo_path(grupo) %></td>
+          <td><%= link_to 'Eliminar', grupo, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+          <td><%= link_to 'Supervisar', supervisar_grupos_path(grupo) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+  <%= submit_tag "Abrir / Cerrar seleccionados", class: 'btn btn-primary' %>
+  <% end %>
+  <%= paginate @grupos, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+  <br>
+
+  <script>
+  $('#selectAll').click(function() {
+     if (this.checked) {
+         $(':checkbox').each(function() {
+             this.checked = true;
+         });
+     } else {
+        $(':checkbox').each(function() {
+             this.checked = false;
+         });
+     }
+  });
+  </script>
+</div>

@@ -1,0 +1,27 @@
+<h1 class="sub">Cuotas de los cursos</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Cuota del curso</th>
+      <th>Descripci&oacute;n</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cuota_cursos.each do |cuota_curso| %>
+      <tr>
+        <td><%= cuota_curso.nombre %></td>
+        <td><%= cuota_curso.descripcion %></td>
+        <td><%= link_to 'Detalles', cuota_curso %></td>
+        <td><%= link_to 'Editar', edit_cuota_curso_path(cuota_curso) %></td>
+        <td><%= link_to 'Eliminar', cuota_curso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar nueva cuota de curso', new_cuota_curso_path %>

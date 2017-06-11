@@ -1,0 +1,38 @@
+<h1 class="sub">Usuarios</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Rol</th>
+      <th>Correo electrónico</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nombre_completo %></td>
+        <% if user.role.nombre == "Administrador" %>
+          <td class="administrador"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Invitado" %>
+          <td class="invitado"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Control escolar" %>
+          <td class="control-escolar"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Profesor" %>
+          <td class="profesor"><%= user.role.nombre %></td>
+        <% end %>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Mostrar', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @users, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+
+<br>
+
+<%= link_to 'Agregar nuevo usuario', new_user_path %>

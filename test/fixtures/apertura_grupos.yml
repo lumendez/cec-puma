@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lugar: MyString
+  fecha: MyString
+  grupo: MyString
+  materia: MyString
+  nombre: MyString
+  centro: MyString
+  registro: MyString
+  tipo: MyString
+  modalidad: MyString
+  cupo: MyString
+  duracion: MyString
+  periodo: MyString
+  horario: MyString
+  cuota: MyString
+  clave: MyString
+  proyecto: MyString
+  institucion_bancaria: MyString
+  cuenta: MyString
+  referencia: MyString
+  titutlar: MyString
+  instructor: MyString
+  instructor_rfc: MyString
+  instructor_correo: MyString
+  jefe_ec: MyString
+
+two:
+  lugar: MyString
+  fecha: MyString
+  grupo: MyString
+  materia: MyString
+  nombre: MyString
+  centro: MyString
+  registro: MyString
+  tipo: MyString
+  modalidad: MyString
+  cupo: MyString
+  duracion: MyString
+  periodo: MyString
+  horario: MyString
+  cuota: MyString
+  clave: MyString
+  proyecto: MyString
+  institucion_bancaria: MyString
+  cuenta: MyString
+  referencia: MyString
+  titutlar: MyString
+  instructor: MyString
+  instructor_rfc: MyString
+  instructor_correo: MyString
+  jefe_ec: MyString

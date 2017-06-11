@@ -1,0 +1,1 @@
+json.partial! "inscripcion_registros/inscripcion_registro", inscripcion_registro: @inscripcion_registro

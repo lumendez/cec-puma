@@ -1,0 +1,12 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @role.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @role.descripcion %>
+</p>
+
+<%= link_to 'Editar', edit_role_path(@role) %> |
+<%= link_to 'Regresar', roles_path %>

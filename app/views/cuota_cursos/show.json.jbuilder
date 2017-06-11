@@ -1,0 +1,1 @@
+json.partial! "cuota_cursos/cuota_curso", cuota_curso: @cuota_curso

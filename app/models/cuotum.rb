@@ -1,0 +1,2 @@
+class Cuotum < ApplicationRecord
+end

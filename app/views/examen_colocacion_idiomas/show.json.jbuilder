@@ -1,0 +1,1 @@
+json.partial! "examen_colocacion_idiomas/examen_colocacion_idioma", examen_colocacion_idioma: @examen_colocacion_idioma

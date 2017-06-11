@@ -1,0 +1,62 @@
+<%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :paterno, 'Apellido paterno' %>
+    <%= f.text_field :paterno, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :materno, 'Apellido materno' %>
+    <%= f.text_field :materno, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :rfc, 'RFC' %>
+    <%= f.text_field :rfc, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :role_id, 'Rol' %>
+    <%= collection_select(:user, :role_id, Role.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-3">
+    <%= f.label :centro_id, 'Centro al que pertenece' %>
+    <%= collection_select(:user, :centro_id, Centro.all, :id, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>

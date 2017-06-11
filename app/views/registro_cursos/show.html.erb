@@ -1,0 +1,27 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @registro_curso.nombre %>
+</p>
+
+<p>
+  <strong>Horas:</strong>
+  <%= @registro_curso.horas %>
+</p>
+
+<p>
+  <strong>Periodo:</strong>
+  <%= @registro_curso.periodo %>
+</p>
+
+<p>
+  <strong>Temas:</strong>
+  <%= @registro_curso.temas %>
+</p>
+
+<p>
+  <strong>Instructor:</strong>
+  <%= @registro_curso.instructor %>
+</p>
+
+<%= link_to 'Editar', edit_registro_curso_path(@registro_curso) %> |
+<%= link_to 'Regresar', registro_cursos_path %>

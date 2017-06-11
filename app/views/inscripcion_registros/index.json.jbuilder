@@ -1,0 +1,1 @@
+json.array! @inscripcion_registros, partial: 'inscripcion_registros/inscripcion_registro', as: :inscripcion_registro

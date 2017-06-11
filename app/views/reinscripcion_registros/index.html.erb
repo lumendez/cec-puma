@@ -1,0 +1,11 @@
+<h2 class="sub">Buscar boleta</h2>
+<div class="row">
+  <div class="col-md-3">
+    <%= form_tag(boleta_reinscripcion_registros_path, method: :get) do %>
+      <%= label_tag 'Escriba su número de boleta' %>
+      <%= text_field_tag :noboleta, params[:noboleta], class:'form-control inicio' %>
+      <br>
+      <%= submit_tag 'Buscar boleta', name: nil, class:'btn btn-md btn-primary' %>
+    <% end %>
+  </div>
+</div>

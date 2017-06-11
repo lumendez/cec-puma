@@ -1,0 +1,280 @@
+<h2 class="sub">Lista de asistencia del grupo: <%= @grupo.nombre_grupo %> <%= @grupo.horario %></h2>
+<div id="lista-asistencia">
+  <table class="table table-bordered table-lista">
+    <tbody>
+      <tr>
+        <td colspan="5" width="292" align="center">
+        <%= image_tag "logoipn.jpg" %>
+        </td>
+        <td colspan="16" width="292" align="center">
+          <strong>Instituto Politécnico Nacional</strong><br>
+            Secretaría de Extensión e Integración Social<br>
+            Dirección de Educación Continua<br>
+            Lista de asistencia y calificaciones
+        </td>
+        <td colspan="13" width="293" align="center">
+        <%= image_tag "dec.png" %>
+        </td>
+      </tr>
+      <tr>
+        <td width="294" colspan="5" valign="top">Código: DEC-PO-02-F01</td>
+        <td width="210" colspan="11" valign="top">Fecha de revisión: </td>
+        <td width="83" colspan="5" valign="top">Versión:</td>
+        <td width="294" colspan="13" valign="top">Página:</td>
+      </tr>
+        <tr>
+          <td width="534" colspan="8" valign="top">Nombre del curso</td>
+          <td width="347" colspan="26" valign="top"><%= @grupo.nombre_grupo %></td>
+        </tr>
+        <tr>
+          <td width="534" colspan="8" valign="top">Clave de registro</td>
+          <td width="347" colspan="26" valign="top"><%= @grupo.registro %></td>
+        </tr>
+        <tr>
+          <td width="534" colspan="8" valign="top">Periodo</td>
+          <td width="117" colspan="13" valign="top"><%= @grupo.periodo %></td>
+          <td width="84" colspan="4" valign="top">Horario</td>
+          <td width="146" colspan="5" valign="top"><%= @grupo.horario %></td>
+        </tr>
+        <tr>
+          <td width="534" colspan="8" valign="top">Nombre del instructor</td>
+          <td width="347" colspan="20" valign="top">C. <%= @grupo.user.nombre_paterno_materno %></td>
+        </tr>
+      <tr>
+        <td rowspan="3" width="31">
+        N&uacute;m.
+        </td>
+        <td colspan="3" width="94">
+        Usuario
+        </td>
+        <td rowspan="3" width="31">
+        R.F.C.
+        </td>
+        <td colspan="21" width="658">
+        Asistencia
+        </td>
+        <td colspan="2" width="63">
+        Calificaci&oacute;n
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2" width="31">
+        Apellido paterno
+        </td>
+        <td rowspan="2" width="31">
+        Apellido materno
+        </td>
+        <td rowspan="2" width="31">
+        Nombre(s)
+        </td>
+        <td colspan="20" width="627">
+        Sesi&oacute;n
+        </td>
+        <td rowspan="2" width="31">
+        %
+        </td>
+        <td rowspan="2" width="31">
+        N&uacute;m.
+        </td>
+        <td rowspan="2" width="31">
+        Letra
+        </td>
+      </tr>
+      <tr>
+        <td width="31">
+        1
+        </td>
+        <td width="31">
+        2
+        </td>
+        <td width="31">
+        3
+        </td>
+        <td width="31">
+        4
+        </td>
+        <td width="31">
+        5
+        </td>
+        <td width="31">
+        6
+        </td>
+        <td width="31">
+        7
+        </td>
+        <td width="31">
+        8
+        </td>
+        <td width="32">
+        9
+        </td>
+        <td width="31">
+        10
+        </td>
+        <td width="31">
+        11
+        </td>
+        <td width="31">
+        12
+        </td>
+        <td width="31">
+        13
+        </td>
+        <td width="31">
+        14
+        </td>
+        <td width="31">
+        15
+        </td>
+        <td width="31">
+        16
+        </td>
+        <td width="31">
+        17
+        </td>
+        <td width="31">
+        18
+        </td>
+        <td width="31">
+        19
+        </td>
+        <td width="31">
+        20
+        </td>
+      </tr>
+      <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
+        <% if inscripcion_registro.grupo.nombre == @grupo.nombre %>
+          <tr>
+            <td width="31">
+            <%= index + 1 %>
+            </td>
+            <td width="31">
+            <%= inscripcion_registro.paterno %>
+            </td>
+            <td width="31">
+            <%= inscripcion_registro.materno %>
+            </td>
+            <td width="31">
+            <%= inscripcion_registro.nombre %>
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="32">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+            <td width="31">
+            &nbsp;
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr>
+        <td colspan="5" width="292" align="center">
+          <br>
+          <br>
+          _________________________________________
+          <br>
+          C. <%= @grupo.user.nombre_paterno_materno %>
+          <br>
+          Instructor
+          </td>
+        <td colspan="16" width="292" align="center">
+          <br>
+          <br>
+          _________________________________________
+          <br>
+        <%= @grupo.jefe_ec %>
+        <br>
+        Jefa del Departamento de Educaci&oacute;n Continua
+        </td>
+        <td colspan="13" width="293" align="center">
+          <br>
+          <br>
+          _________________________________________
+          <br>
+          Sello
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<%# paginate @inscripcion_registros, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+<div class="row">
+    <div class="col-md-12">
+      <input type="button" id="btn-lista" value="Imprimir lista" class="btn btn-md btn-primary">
+    </div>
+    <div class="col-md-12">
+      <%= link_to 'Regresar', panel_profesores_path %>
+    </div>
+</div>
+<script>
+$("#btn-lista").click(function () {
+    //Hide all other elements other than printarea.
+    $("#lista-asistencia").show();
+    window.print();
+});
+</script>

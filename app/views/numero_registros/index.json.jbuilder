@@ -1,0 +1,1 @@
+json.array! @numero_registros, partial: 'numero_registros/numero_registro', as: :numero_registro

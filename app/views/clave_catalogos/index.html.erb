@@ -1,0 +1,25 @@
+<h1 class="sub">Claves de cat&aacute;logos, fideicomiso o n&uacute;mero de convenio</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Clave de cat&aacute;logo</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clave_catalogos.each do |clave_catalogo| %>
+      <tr>
+        <td><%= clave_catalogo.nombre %></td>
+        <td><%= link_to 'Detalles', clave_catalogo %></td>
+        <td><%= link_to 'Editar', edit_clave_catalogo_path(clave_catalogo) %></td>
+        <td><%= link_to 'Eliminar', clave_catalogo, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar nueva clave de catálogo', new_clave_catalogo_path %>

@@ -1,0 +1,144 @@
+<%= form_for(calendario) do |f| %>
+  <% if calendario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(calendario.errors.count, "error") %> prohibited this calendario from being saved:</h2>
+
+      <ul>
+      <% calendario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :nombre, 'Nombre del curso' %><br>
+    <%= collection_select(:calendario, :nombre, CursoNombre.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :anio, 'Año' %><br>
+    <div class="input-group date">
+      <%= f.text_field :anio, class:'anio form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :periodo, 'Periodo del curso' %><br>
+    <div class="input-group date">
+      <%= f.text_field :periodo, class:'periodo form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+
+  <div class="form-group col-sm-2">
+    <%= f.label :registro, 'Fechas de registro' %><br>
+    <div class="input-group date">
+      <%= f.text_field :registro, class:'registro form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :examen_colocacion, 'Examen de colocación' %><br>
+    <div class="input-group date">
+      <%= f.text_field :examen_colocacion, class:'examen_colocacion form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :inicio_curso, 'Inicio de curso' %><br>
+    <div class="input-group date">
+      <%= f.text_field :inicio_curso, class:'inicio_curso form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :examen_medio, 'Examen medio' %><br>
+    <div class="input-group date">
+      <%= f.text_field :examen_medio, class:'examen_medio form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :examen_final, 'Examen final' %><br>
+    <div class="input-group date">
+      <%= f.text_field :examen_final, class:'examen_final form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :entrega_boletas, 'Entrega de boletas' %><br>
+    <div class="input-group date">
+      <%= f.text_field :entrega_boletas, class:'entrega_boletas form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :suspension_labores, 'Suspensión de labores' %><br>
+    <div class="input-group date">
+      <%= f.text_field :suspension_labores, class:'suspension_labores form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :vacaciones, 'Vacaciones' %><br>
+    <div class="input-group date">
+      <%= f.text_field :vacaciones, class:'vacaciones form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-2">
+      <%= f.label :estado, 'Estado' %><br>
+      <%= collection_select :calendario, :estado, Estado.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control' %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="actions col-sm-1">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary form-control" %>
+  </div>
+</div>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.anio').datepicker({language: 'es', format: 'yyyy', minViewMode: 'years'});
+    $('.periodo').datepicker({language: 'es', format: 'd - MM', multidate: true, multidateSeparator: ' al '});
+    $('.registro').datepicker({language: 'es', format: 'd-M', multidate: true});
+    $('.examen_colocacion').datepicker({language: 'es', format: 'd-M', multidate: true});
+    $('.inicio_curso').datepicker({language: 'es', format: 'd-M'});
+    $('.examen_medio').datepicker({language: 'es', format: 'd-M'});
+    $('.examen_final').datepicker({language: 'es', format: 'd-M'});
+    $('.entrega_boletas').datepicker({language: 'es', format: 'd-M'});
+    $('.suspension_labores').datepicker({language: 'es', format: 'd-M'});
+    $('.vacaciones').datepicker({language: 'es', format: 'd-M', multidate: true});
+  });
+</script>

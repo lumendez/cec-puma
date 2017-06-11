@@ -1,0 +1,287 @@
+<h2 class="sub">Registro de inscripci&oacute;n</h2>
+<div class="row">
+  <div class="col-md-8">
+    <input type="button" id="btn-talon" value="Imprimir talón de inscipción" class="btn btn-md btn-primary">
+  </div>
+</div>
+<br>
+<div class="row" id="talon">
+  <div class="col-md-8">
+    <table class="table">
+			<tbody>
+        <tr>
+            <td><%= image_tag "ipn.png" %></td>
+            <td><p align="center" class="texto-cec"><strong>INSTITUTO POLIT&Eacute;CNICO NACIONAL</strong><br>
+            <span>CENTRO DE EDUCACIÓN CONTINUA<br>
+            Cursos Extracurriculares de Lenguas Extranjeras</span><br>
+            <strong>TALÓN DE INSCRIPCIÓN</strong></p></td>
+            <td><%= image_tag "celex.jpg" %> <%= image_tag "cec.jpg" %></td>
+        </tr>
+				<tr>
+					<td rowspan="8" style="width:3cm">
+						<p align="center" class="texto-cec">
+              <br>
+              <br>
+              <br>
+              <br>
+              Fotograf&iacute;a
+						</p>
+					</td>
+					<td colspan="2">
+						<p>
+							<strong>Nombre:</strong> <%= @inscripcion_registro.nombre %> <%= @inscripcion_registro.paterno %> <%= @inscripcion_registro.materno %>
+            </p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							<strong>Idioma:</strong> <%= @inscripcion_registro.idioma %>
+            </p>
+					</td>
+					<td>
+						<p>
+							<strong>Horario:</strong> <%= @inscripcion_registro.horario %>
+            </p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							<strong>Nivel:</strong> <%= @inscripcion_registro.nivel %>
+            </p>
+					</td>
+					<td>
+						<p>
+							<strong>Curso:</strong> <%= @inscripcion_registro.curso %>
+            </p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							<strong>Horario opcional 1:</strong> <%= @inscripcion_registro.opcion_uno %>
+            </p>
+					</td>
+					<td>
+						<p>
+							<strong>Horario opcional 2:</strong> <%= @inscripcion_registro.opcion_dos %>
+            </p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							<strong>N&uacute;mero telef&oacute;nico:</strong> <%= @inscripcion_registro.telefono %>
+            </p>
+					</td>
+					<td>
+						<p>
+							<strong>Periodo:</strong> <%= @inscripcion_registro.periodo %>
+            </p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							<strong>Correo electr&oacute;nico:</strong> <%= @inscripcion_registro.correo %>
+            </p>
+					</td>
+					<td>
+						<p>
+							<strong>Sexo:</strong> <%= @inscripcion_registro.sexo %>
+            </p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							<strong>Cuota:</strong> $<%= @inscripcion_registro.cuota %>
+            </p>
+					</td>
+					<td>
+						<p>
+							<strong>Movimiento bancario:</strong>
+              <% if @inscripcion_registro.imagen.exists? %>
+              Pagado
+              <% else %>
+              Pendiente
+              <% end %>
+            </p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p>
+							<strong>Escuela de procedencia:</strong> <%= @inscripcion_registro.procedencia %>
+            </p>
+					</td>
+				</tr>
+        <tr>
+          <td colspan="3"><p><strong>Usuario CELEX CEC Allende.</strong><br>Le solicitamos de conserve este comprobante
+             de inscripci&oacute;n durante el desarrollo de su curso, este documento le servir&aacute; para poder tener acceso
+           al Centro de Educaci&oacute;n Continua.</p></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <p class="privacidad">
+               <strong>Pol&iacute;tica de privacidad y manejo de datos personales</strong>
+               <br>En cumplimiento con lo establecido por la Ley Federal de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica Gubernamental
+               te informamos nuestra pol&iacute;tica de privacidad y manejo de datos personales y hacemos el siguiente compromiso:
+            </p>
+            <ol type="1" class="privacidad">
+              <li>Los datos que te solicitamos en el formulario &uacute;nicamente ser&aacute;n utilizados para poder establecer contacto contigo en relaci&oacute;n a tu curso.</li>
+              <li>Los datos que ingreses en el formulario no ser&aacute;n difundidos, distribuidos o comercializados</li>
+            </ol>
+          </td>
+        </tr>
+			</tbody>
+		</table>
+  </div>
+  <div class="col-md-8">
+    <table class="table">
+      <tbody>
+        <tr>
+            <td><%= image_tag "ipn.png" %></td>
+            <td><p align="center" class="texto-cec"><strong>INSTITUTO POLIT&Eacute;CNICO NACIONAL</strong><br>
+            <span>CENTRO DE EDUCACIÓN CONTINUA<br>
+            Cursos Extracurriculares de Lenguas Extranjeras</span><br>
+            <strong>TALÓN DE INSCRIPCIÓN</strong></p></td>
+            <td><%= image_tag "celex.jpg" %> <%= image_tag "cec.jpg" %></td>
+        </tr>
+        <tr>
+          <td rowspan="8" style="width:3cm">
+            <p align="center" class="texto-cec">
+              <br>
+              <br>
+              <br>
+              <br>
+            </p>
+          </td>
+          <td colspan="2">
+            <p>
+              <strong>Nombre:</strong> <%= @inscripcion_registro.nombre %> <%= @inscripcion_registro.paterno %> <%= @inscripcion_registro.materno %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Idioma:</strong> <%= @inscripcion_registro.idioma %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Horario:</strong> <%= @inscripcion_registro.horario %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Nivel:</strong> <%= @inscripcion_registro.nivel %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Curso:</strong> <%= @inscripcion_registro.curso %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Horario opcional 1:</strong> <%= @inscripcion_registro.opcion_uno %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Horario opcional 2:</strong> <%= @inscripcion_registro.opcion_dos %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>N&uacute;mero telef&oacute;nico:</strong> <%= @inscripcion_registro.telefono %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Periodo:</strong> <%= @inscripcion_registro.periodo %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Correo electr&oacute;nico:</strong> <%= @inscripcion_registro.correo %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Sexo:</strong> <%= @inscripcion_registro.sexo %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Cuota:</strong> $<%= @inscripcion_registro.cuota %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Movimiento bancario:</strong>
+              <% if @inscripcion_registro.imagen.exists? %>
+              Pagado
+              <% else %>
+              Pendiente
+              <% end %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <p>
+              <strong>Escuela de procedencia:</strong> <%= @inscripcion_registro.procedencia %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3"><p><strong>Usuario CELEX CEC Allende.</strong><br>Le solicitamos de conserve este comprobante
+             de inscripci&oacute;n durante el desarrollo de su curso, este documento le servir&aacute; para poder tener acceso
+           al Centro de Educaci&oacute;n Continua.</p></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <p class="privacidad">
+               <strong>Pol&iacute;tica de privacidad y manejo de datos personales</strong>
+               <br>En cumplimiento con lo establecido por la Ley Federal de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica Gubernamental
+               te informamos nuestra pol&iacute;tica de privacidad y manejo de datos personales y hacemos el siguiente compromiso:
+            </p>
+            <ol type="1" class="privacidad">
+              <li>Los datos que te solicitamos en el formulario &uacute;nicamente ser&aacute;n utilizados para poder establecer contacto contigo en relaci&oacute;n a tu curso.</li>
+              <li>Los datos que ingreses en el formulario no ser&aacute;n difundidos, distribuidos o comercializados</li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= render 'inscripcion_registros/links' %>
+  </div>
+</div>
+<script>
+$("#btn-talon").click(function () {
+    //Hide all other elements other than printarea.
+    $("#talon").show();
+    window.print();
+});
+</script>

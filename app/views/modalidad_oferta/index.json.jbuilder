@@ -1,0 +1,1 @@
+json.array! @modalidad_oferta, partial: 'modalidad_oferta/modalidad_ofertum', as: :modalidad_ofertum

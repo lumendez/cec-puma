@@ -1,0 +1,8 @@
+<% if user_signed_in? && current_user.role.nombre == 'Administrador' %>
+  <%= link_to 'Editar', edit_grupo_path(@grupo) %>
+  <%= link_to 'Regresar', grupos_path %>
+<% elsif user_signed_in? && current_user.role.nombre == 'Control escolar' %>
+  <%= link_to 'Regresar', grupos_path %>
+<% elsif user_signed_in? && current_user.role.nombre == 'Profesor' %>
+  <%= link_to 'Regresar', panel_profesores_path %>
+<% end %>

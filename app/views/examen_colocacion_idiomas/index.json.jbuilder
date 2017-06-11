@@ -1,0 +1,1 @@
+json.array! @examen_colocacion_idiomas, partial: 'examen_colocacion_idiomas/examen_colocacion_idioma', as: :examen_colocacion_idioma

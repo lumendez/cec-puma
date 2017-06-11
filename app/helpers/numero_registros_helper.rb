@@ -1,0 +1,2 @@
+module NumeroRegistrosHelper
+end

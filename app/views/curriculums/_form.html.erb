@@ -1,0 +1,103 @@
+<%= form_for(curriculum) do |f| %>
+  <% if curriculum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(curriculum.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
+
+      <ul>
+      <% curriculum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre, value: current_user.nombre, class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :paterno %>
+      <%= f.text_field :paterno, value: current_user.paterno, class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :materno %>
+      <%= f.text_field :materno, value: current_user.materno, class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :calle %>
+      <%= f.text_field :calle, class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :colonia %>
+      <%= f.text_field :colonia, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :municipui, "Municipio" %>
+      <%= f.text_field :municipui, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :entidad %>
+      <%= f.text_field :entidad, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :correo %>
+      <%= f.text_field :correo, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :telefono %>
+      <%= f.text_field :telefono, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :celular %>
+      <%= f.text_field :celular, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :lugar %>
+      <%= f.text_field :lugar, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :foto, 'Suba su fotografía' %>
+      <%= f.file_field :foto %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="actions col-sm-4">
+      <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+    </div>
+  </div>
+<% end %>

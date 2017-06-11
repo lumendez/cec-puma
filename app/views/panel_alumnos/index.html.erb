@@ -1,0 +1,177 @@
+<div class="bs-callout bs-callout-danger">
+  <h4>Importante</h4>
+  <p>Antes de crear cualquier registro de inscripci&oacute;n lea cuidadosamente las <strong><a href="#" data-toggle="modal" data-target="#myModal">Pol&iacute;ticas de registro de usuarios</a></strong></p>
+</div>
+<h2 class="sub">Mis solicitudes de inscripci&oacute;n</h2>
+<% if @inscripcion_registros.blank? %>
+  <p>Usted no tiene ning&uacute;n registro de inscripci&oacute;n</p>
+<% else %>
+  <% @inscripcion_registros.each do |inscripcion_registro| %>
+    <table class="table table-bordered">
+      <thead>
+        <th>Movimiento bancario</th>
+        <th>Documentos validados</th>
+        <th>Grupo</th>
+        <th>Periodo</th>
+        <th>A&ntilde;o</th>
+        <th colspan="2">Opciones</th>
+      </thead>
+      <tr>
+        <% if inscripcion_registro.imagen.exists? %>
+          <td>
+            <%= link_to inscripcion_registro.imagen.url(:medium), target: '_blank', class:'btn btn-comprobante' do %>
+              <span class="glyphicon glyphicon-paperclip"></span> Comprobante
+            <% end %>
+          </td>
+        <% else %>
+          <td>
+            <strong>Sin comprobante</strong>
+          </td>
+        <% end %>
+        <% if inscripcion_registro.documentos_validados == true %>
+          <td class="success"><%= inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+        <% else %>
+          <td class="danger"><%= inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+        <% end %>
+        <td class="info"><%= inscripcion_registro.grupo.nombre %></td>
+        <td><%= inscripcion_registro.grupo.periodo %></td>
+        <td><%= inscripcion_registro.grupo.anio %></td>
+        <td><%= link_to 'Talón', inscripcion_registro %></td>
+        <td><%= link_to 'Editar', edit_inscripcion_registro_path(inscripcion_registro) %></td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
+
+<h2 class="sub">Mis solicitudes de examen de colocaci&oacute;n</h2>
+<% if @examen_colocacion_idiomas.blank? %>
+  <p>Usted no tiene ning&uacute;n examen de coloaci&oacute;n</p>
+<% else %>
+  <% @examen_colocacion_idiomas.each do |examen_colocacion_idioma| %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Idioma</th>
+        <th>Movimiento bancario</th>
+        <th>Nivel asignado</th>
+        <th>Examinador</th>
+        <th>Expira el</th>
+        <th colspan="2">Opciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+          <td><%= examen_colocacion_idioma.idioma %></td>
+          <% if examen_colocacion_idioma.imagen.exists? %>
+            <td align="center">
+              <%= link_to examen_colocacion_idioma.imagen.url, target: '_blank', class:'btn btn-comprobante' do %>
+                <span class="glyphicon glyphicon-paperclip"></span> Comprobante
+              <% end %>
+            </td>
+          <% else %>
+            <td>
+              <strong>Sin comprobante</strong>
+            </td>
+          <% end %>
+          <% if examen_colocacion_idioma.nivel_asignado.blank? %>
+            <td>Pendiente</td>
+          <% else %>
+            <td><%= examen_colocacion_idioma.nivel_asignado %></td>
+          <% end %>
+          <% if examen_colocacion_idioma.examinador.blank? %>
+            <td>Pendiente</td>
+          <% else %>
+            <td><%= examen_colocacion_idioma.examinador %></td>
+          <% end %>
+          <td><%= examen_colocacion_idioma.fecha_expiracion %></td>
+          <td><%= link_to 'Talón', examen_colocacion_idioma %></td>
+          <td><%= link_to 'Editar', edit_examen_colocacion_idioma_path(examen_colocacion_idioma) %></td>
+        </tr>
+    </tbody>
+  </table>
+  <% end %>
+<% end %>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header panel-head-azul">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel" align="center"><strong>Pol&iacute;ticas de registro de usuarios</strong></h3>
+      </div>
+      <div class="modal-body">
+        <p><strong>Cuotas</strong></p>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Pago del curso de idiomas</th>
+              <th>B&aacute;sico</th>
+              <th>Intermedio</th>
+              <th>Avanzado</th>
+              <th>Certificaci&oacute;n</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Comunidad Polit&eacute;cnica.</td>
+            <td>$510.00</td>
+            <td>$510.00</td>
+            <td>$510.00</td>
+            <td>$1,163.50</td>
+          </tr>
+          <tr>
+            <td>P&uacute;blico general.</td>
+            <td>$940.00</td>
+            <td>$987.50</td>
+            <td>$1,018.50</td>
+            <td>$1,428.50</td>
+          </tr>
+        </table>
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                <th>Examen de colocaci&oacute;n</th>
+                <th>Costo</th>
+              </tr>
+          </thead>
+          <tr>
+              <td>Comunidad polit&eacute;cnica.</td>
+              <td>$301.00</th>
+          </tr>
+          <tr>
+              <td>P&uacute;blico general.</td>
+              <td>$108.50</th>
+          </tr>
+        </table>
+        <p><strong>Leer atentamente:</strong></p>
+        <p>Los CELEX CEC Ingeniero Eugenio M&eacute;ndez Docurro <strong>se reservan el derecho de apertura o cancelaci&oacute;n de grupos
+    de acuerdo a la demanda</strong>, a su vez, los CELEX &uacute;nicamente <strong>recibir&aacute;n dep&oacute;sitos bancarios por los importes
+    exactos</strong> antes mencionados y en las fechas establecidas anualmente en el calendario de actividades.</p>
+        <p>Se deber&aacute; entregar el <strong>comprobante de pago en original, para hacer v&aacute;lida su inscripci&oacute;n</strong>.</p>
+        <p>En el caso de la no apertura del curso en el nivel y horario solicitado, se le realizar&aacute; una <strong>Postergaci&oacute;n
+          Acad&eacute;mica</strong> para los siguientes cursos, ya que <strong>no existe el instrumento de devoluci&oacute;n del importe pagado</strong>.</p>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Banco</th>
+              <th>Dep&oacute;sitos a cuenta</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>BBVA Bancomer</td>
+            <td>0168358273</td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Acepto los t&eacute;rminos y condiciones</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(window).load(function(){
+    $('#myModal').modal('show');
+  });
+</script>

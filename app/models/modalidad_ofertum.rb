@@ -1,0 +1,2 @@
+class ModalidadOfertum < ApplicationRecord
+end

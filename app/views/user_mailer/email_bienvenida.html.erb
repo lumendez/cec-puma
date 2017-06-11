@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hola! <%= @user.nombre_paterno_materno %></h1>
+    <h2>Usted se ha registrado en la plataforma CELEX con las siguientes credenciales:</h2>
+    <p>Correo: <%= @user.email %>.</p>
+    <p>Contraseña: <%= @user.password %>.</p>
+    <p>
+      Este correo se envía autom&aacute;ticamente, por favor no lo responda.
+    </p>
+  </body>
+</html>

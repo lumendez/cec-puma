@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%#= render 'layouts/head' %>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="Header"><!--Inicio Header-->
+    <!--Fin Menú utilerias-->
+      <div class="banner"><!--Inicio Banner IPN-->
+        <div class="contbanner">
+          <div class="logosep">
+            <div class="sep"><a href="http://www.sep.gob.mx/" target="_blank"></a></div>
+            <div class="gobernacion"><a href="http://www.gobernacion.gob.mx" target="_blank"></a></div>
+          </div>
+          <div class="logoipn">
+          <div class="derecha" style="width: 308px">
+                <div class="escudoipn" id="clickeable" ><a href="http://www.ipn.mx/" title="Página Inicio IPN"></a></div>
+              <span >
+                <a href="http://www.ipn.mx">Instituto Politécnico Nacional
+                <span>"La Técnica al Servicio de la Patria"</span></a>
+                </span>
+            </div>
+            <%#= render 'layouts/escudo' %>
+          </div>
+
+        </div>
+      </div><!--Fin Banner IPN-->
+      <div class="navbar navbar-inverse navbar-static-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div class="navbar-collapse collapse borde">
+                  <%= render 'layouts/menu' %>
+                </div>
+                <!--/.navbar-collapse -->
+              </div>
+            </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div id="flash">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+    <footer>
+        <!-- inicia footer institucional-->
+        	<div class="PiePagina">
+            	<hr>
+                <h1 align="center">
+                  Instituto Polit&eacute;cnico Nacional
+                </h1>
+              <%#= render 'layouts/footer' %>
+              <br>
+              <br>
+              <strong>M&eacute;xico <%= Time.now.year %></strong>
+            </p>
+        	</div>
+        <!-- termina el footer institucional -->
+    	</footer>
+
+    <!--<script type="text/javascript">
+    $(document).ready(function(){
+      setTimeout(function(){
+        $('#flash').fadeOut(function() { $(this).remove(); });
+      }, 3000);
+     })
+   </script>-->
+  </body>
+</html>

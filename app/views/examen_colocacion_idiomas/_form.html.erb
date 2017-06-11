@@ -1,0 +1,94 @@
+<%= form_for(examen_colocacion_idioma) do |f| %>
+  <% if examen_colocacion_idioma.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(examen_colocacion_idioma.errors.count, "error") %> prohibited this examen_colocacion_idioma from being saved:</h2>
+
+      <ul>
+      <% examen_colocacion_idioma.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% if user_signed_in? && current_user.role.nombre == "Invitado" %>
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre, value: current_user.nombre, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :paterno %>
+    <%= f.text_field :paterno, value: current_user.paterno, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :materno %>
+    <%= f.text_field :materno, value: current_user.materno, class:'form-control' %>
+  </div>
+</div>
+<% else %>
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :paterno %>
+    <%= f.text_field :paterno, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :materno %>
+    <%= f.text_field :materno, class:'form-control' %>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :idioma %>
+    <%= collection_select(:examen_colocacion_idioma, :idioma, Idioma.all, :idioma, :idioma, {prompt: 'Seleccione'}, class:'form-control') %>
+  </div>
+</div>
+
+<% if can? :asignar_nivel, examen_colocacion_idioma %>
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :nivel_asignado %>
+    <%= collection_select(:examen_colocacion_idioma, :nivel_asignado,NivelNombre.all, :nivel, :nivel, {prompt: 'Seleccione'}, class:'form-control') %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :examinador %>
+    <%= collection_select(:examen_colocacion_idioma, :examinador, User.instructores, :nombre_completo, :nombre_completo, {prompt: 'Seleccione'}, class:'form-control') %>
+  </div>
+</div>
+<% end %>
+
+<% if can? :subir_comprobante, examen_colocacion_idioma %>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :imagen, 'Ingrese su voucher' %>
+      <%= f.file_field :imagen %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>

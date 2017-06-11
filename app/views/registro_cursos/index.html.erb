@@ -1,0 +1,33 @@
+<h1 class="sub">Registro Cursos</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Horas</th>
+      <th>Periodo</th>
+      <th>Temas</th>
+      <th>Instructor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registro_cursos.each do |registro_curso| %>
+      <tr>
+        <td><%= registro_curso.nombre %></td>
+        <td><%= registro_curso.horas %></td>
+        <td><%= registro_curso.periodo %></td>
+        <td><%= registro_curso.temas %></td>
+        <td><%= registro_curso.instructor %></td>
+        <td><%= link_to 'Mostrar', registro_curso %></td>
+        <td><%= link_to 'Editar', edit_registro_curso_path(registro_curso) %></td>
+        <td><%= link_to 'Eliminar', registro_curso, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear nuevo registro de curso', new_registro_curso_path %>

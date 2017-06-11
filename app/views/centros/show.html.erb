@@ -1,0 +1,20 @@
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Ciudad</th>
+        <th>Direcci&oacute;n</th>
+        <th>Tel&eacute;fono</th>
+        <th>Extensi&oacute;n</th>
+    </tr>
+  </thead>
+    <tr>
+      <td><%= @centro.nombre %></td>
+      <td><%= @centro.lugar %></td>
+      <td><%= @centro.direccion %></td>
+      <td><%= @centro.telefono %></td>
+      <td><%= @centro.extension %></td>
+    </tr>
+</table>
+<%= link_to 'Editar', edit_centro_path(@centro) %> |
+<%= link_to 'Regresar', centros_path %>

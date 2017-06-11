@@ -1,0 +1,1 @@
+json.partial! "datos_bancos/datos_banco", datos_banco: @datos_banco

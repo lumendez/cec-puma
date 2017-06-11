@@ -1,0 +1,47 @@
+<%= form_for(datos_banco) do |f| %>
+  <% if datos_banco.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(datos_banco.errors.count, "error") %> prohibited this datos_banco from being saved:</h2>
+
+      <ul>
+      <% datos_banco.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :nombre, 'Nombre de la institución bancaria' %>
+    <%= f.text_field :nombre, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :cuenta %>
+    <%= f.text_field :cuenta, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :referencia %>
+    <%= f.text_field :referencia, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :titular, 'Titular de la cuenta' %>
+    <%= f.text_field :titular, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>

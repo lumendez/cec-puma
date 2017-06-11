@@ -1,0 +1,13 @@
+<% if user_signed_in? && current_user.centro.nombre == 'Ingeniero Eugenio Méndez Docurro' %>
+  <div class="institucion" style="width: 208px">
+                  <p><span class="sepi"><strong>Centro de Educaci&oacute;n Continua</strong></span><br>
+                  <strong>Ing. Eugenio M&eacute;ndez Docurro</strong></p>
+  </div>
+  <%= image_tag "cec.jpg" %>
+<% else %>
+  <div class="institucion" style="width: 208px">
+                  <!--<p><span class="sepi"><strong>Centro de Educaci&oacute;n Continua</strong></span><br>
+                  <strong>Ing. Eugenio M&eacute;ndez Docurro</strong></p>-->
+  </div>
+  <%= image_tag "dec.png" %>
+  <% end %>

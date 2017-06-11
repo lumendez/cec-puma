@@ -1,0 +1,2 @@
+class ClaveCatalogo < ApplicationRecord
+end

@@ -1,0 +1,1 @@
+json.partial! "lugar_nombres/lugar_nombre", lugar_nombre: @lugar_nombre

@@ -1,0 +1,1 @@
+json.partial! "registro_cursos/registro_curso", registro_curso: @registro_curso

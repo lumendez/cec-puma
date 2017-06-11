@@ -1,0 +1,1 @@
+json.array! @cuota_cursos, partial: 'cuota_cursos/cuota_curso', as: :cuota_curso

@@ -1,0 +1,34 @@
+<div id="filterrific_results">
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Nombre</th>
+      <th>Rol en el sistema</th>
+      <th>Correo electrónico</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nombre_completo %></td>
+        <% if user.role.nombre == "Administrador" %>
+          <td class="administrador"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Invitado" %>
+          <td class="invitado"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Control escolar" %>
+          <td class="control-escolar"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Profesor" %>
+          <td class="profesor"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Jefe Educación Continua" %>
+          <td class="jefe-educacion"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Director del Centro" %>
+          <td class="director-centro"><%= user.role.nombre %></td>
+        <% end %>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Mostrar', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= paginate @users, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+</div>

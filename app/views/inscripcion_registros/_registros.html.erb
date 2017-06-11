@@ -1,0 +1,52 @@
+<div id="filterrific_results">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Monto de la cuota</th>
+        <th>Monto pagado</th>
+        <th>Movimiento bancario</th>
+        <th>Comprobante</th>
+        <th>Documentos validados</th>
+        <th>Fecha de creaci&oacute;n</th>
+        <th>Fecha de actualizaci&oacute;n</th>
+        <th>Grupo</th>
+        <th colspan="3">Opciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @inscripcion_registros.each do |inscripcion_registro| %>
+        <tr>
+          <td><%= inscripcion_registro.nombre_upcase %> <%= inscripcion_registro.paterno_upcase %> <%= inscripcion_registro.materno_upcase %></td>
+          <td>$<%= inscripcion_registro.cuota %></td>
+          <td>$<%= inscripcion_registro.monto_pagado %></td>
+          <td><%= inscripcion_registro.movimiento %></td>
+          <% if inscripcion_registro.imagen.exists? %>
+            <td>
+              <%= link_to inscripcion_registro.imagen.url(:medium), target: '_blank', class:'btn btn-comprobante' do %>
+                <span class="glyphicon glyphicon-paperclip"></span> Comprobante
+              <% end %>
+            </td>
+          <% else %>
+            <td>
+              <strong>Sin comprobante</strong>
+            </td>
+          <% end %>
+          <% if inscripcion_registro.documentos_validados == true %>
+            <td class="success"><%= inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+          <% else %>
+            <td class="danger"><%= inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+          <% end %>
+          <td><%= inscripcion_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+          <td><%= inscripcion_registro.updated_at.strftime("%d/%m/%y a las %T %P") %></td>
+          <td class="info"><%= inscripcion_registro.grupo.nombre %></td>
+          <td><%= link_to 'Talón', inscripcion_registro %></td>
+          <td><%= link_to 'Editar', edit_inscripcion_registro_path(inscripcion_registro) %></td>
+          <td><%= link_to 'Eliminar', inscripcion_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @inscripcion_registros, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+</div>

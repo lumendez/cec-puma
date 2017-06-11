@@ -1,0 +1,398 @@
+<%= form_for(grupo) do |f| %>
+  <% if grupo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grupo.errors.count, "error") %> prohibited this grupo from being saved:</h2>
+
+      <ul>
+      <% grupo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row  jumbotron">
+  <h4 class="subs"><strong>Informaci&oacute;n general del grupo</strong></h4>
+  <div class="form-group col-sm-2">
+    <%= f.label :idioma %>
+    <%= collection_select(:grupo, :idioma, Idioma.all, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= f.label :nivel %>
+    <%= collection_select(:grupo, :nivel, NivelNombre.all, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :horario %>
+    <%= collection_select(:grupo, :horario, Horario.all, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-4">
+    <%= f.label :nombre, "Nombre del grupo" %>
+    <%= f.text_field :nombre, class:'form-control' %>
+  </div>
+  <div class="form-group col-sm-3">
+    <%= f.label :user_id, "Nombre del profesor" %>
+    <%= collection_select(:grupo, :user_id, User.instructores.order("paterno ASC"), :id, :nombre_completo, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :curso, "Curso" %>
+    <%= collection_select(:grupo, :curso, Calendario.where(estado: "Abierto"), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :periodo, "Periodo" %>
+    <%= collection_select(:grupo, :periodo, Calendario.where(estado: "Abierto"), :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :anio, 'Año' %><br>
+    <%= collection_select(:grupo, :anio, Calendario.where(estado: "Abierto"), :anio, :anio, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <div class="form-group col-sm-2">
+    <%= f.label :estado, "Estado" %>
+    <%= collection_select(:grupo, :estado, Estado.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+  <% if can? :habilitar_constancias, grupo %>
+    <div class="row">
+      <div class="form-group col-sm-3">
+        <%= f.label :habilitar_contancias_grupo, "¿Habilitar constancias de este grupo?" %>
+        <%= f.check_box :habilitar_constancias_grupo, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Informaci&oacute;n de la oferta educativa</strong></h4>
+  <br>
+
+  <div class="form-group col-md-4">
+    <%= f.label :lugar, "Lugar" %>
+    <%= collection_select(:grupo, :lugar, Centro.all, :lugar, :lugar, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :fecha, "Fecha" %>
+    <%= f.text_field :fecha, class: 'form-control' %>
+  </div>
+  <div class="form-group col-md-4">
+    <%= f.label :centro, "Centro de educación continua" %>
+    <%= collection_select(:grupo, :centro, Centro.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :registro, "Número de registro del curso" %>
+    <%= collection_select(:grupo, :registro, NumeroRegistro.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :tipo, "Tipo de oferta" %>
+    <%= collection_select(:grupo, :tipo, TipoOfertum.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :modalidad, "Modalidad de oferta" %>
+    <%= collection_select(:grupo, :modalidad, ModalidadOfertum.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :cupo, "Cupo" %>
+    <%= f.text_field :cupo, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :duracion, "Duración del programa" %>
+    <%= f.text_field :duracion, class: 'form-control'  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :periodo, "Periodo de impartición" %>
+    <%= f.text_field :periodo, class: 'form-control'  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :cuota, "Cuota de recuperación" %>
+    <%= collection_select(:grupo, :cuota, CuotaCurso.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :clave, "Clave del catálogo fideicomiso o número de convenio" %>
+    <%= collection_select(:grupo, :clave, ClaveCatalogo.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :proyecto, "Proyecto" %>
+    <%= collection_select(:grupo, :proyecto, Proyecto.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+</div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Informaci&oacute;n bancaria</strong></h4>
+  <br>
+  <div class="form-group col-md-4">
+    <%= f.label :institucion_bancaria, "Institución bancaria" %>
+    <%= collection_select(:grupo, :institucion_bancaria, DatosBanco.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :cuenta, "Cuenta" %>
+    <%= collection_select(:grupo, :cuenta, DatosBanco.all, :cuenta, :cuenta, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :referencia, "Referencia" %>
+    <%= collection_select(:grupo, :referencia, DatosBanco.all, :referencia, :referencia, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :titutlar, "Titular de la cuenta" %>
+    <%= collection_select(:grupo, :titular, DatosBanco.all, :titular, :titular, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+</div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Informaci&oacute;n del instructor</strong></h4>
+  <br>
+  <div class="form-group col-md-4">
+    <%= f.label :instructor, "Nombre del instructor" %>
+    <%= collection_select(:grupo, :instructor, User.instructores.order("paterno ASC"), :id, :nombre_completo, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :instructor_rfc, "RFC del instructor" %>
+    <%= collection_select(:grupo, :instructor_rfc, User.instructores.order("paterno ASC"), :id, :rfc, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :instructor_correo, "Correo electrónico del instructor" %>
+    <%= collection_select(:grupo, :instructor_correo, User.instructores.order("paterno ASC"), :id, :email, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+</div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Validaci&oacute;n</strong></h4>
+  <br>
+  <div class="form-group col-md-4">
+    <%= f.label :jefe_ec, "Jefe de educación coninua CEC" %>
+    <%= f.text_field :jefe_ec, value: grupo.jefe_educacion_continua, class: 'form-control'  %>
+  </div>
+</div>
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>
+
+<script>
+  function matchUp(selected, toselect)
+    {
+      var idx = selected.prop('selectedIndex');
+      toselect.prop('selectedIndex', idx);
+    }
+
+    $('#grupo_curso').change(
+      function() {
+        matchUp($('#grupo_curso'), $('#grupo_periodo'));
+      }
+    );
+
+    $('#grupo_periodo').change(
+      function() {
+        matchUp($('#grupo_periodo'), $('#grupo_curso'));
+      }
+    );
+
+    $('#grupo_curso').change(
+      function() {
+        matchUp($('#grupo_curso'), $('#grupo_anio'));
+      }
+    );
+
+    $('#grupo_anio').change(
+      function() {
+        matchUp($('#grupo_anio'), $('#grupo_curso'));
+      }
+    );
+
+    $('#grupo_periodo').change(
+      function() {
+        matchUp($('#grupo_periodo'), $('#grupo_anio'));
+      }
+    );
+
+    $('#grupo_anio').change(
+      function() {
+        matchUp($('#grupo_anio'), $('#grupo_periodo'));
+      }
+    );
+
+    $('#grupo_institucion_bancaria').change(
+      function() {
+        matchUp($('#grupo_institucion_bancaria'), $('#grupo_cuenta'));
+      }
+    );
+
+    $('#grupo_cuenta').change(
+      function() {
+        matchUp($('#grupo_cuenta'), $('#grupo_institucion_bancaria'));
+      }
+    );
+
+    $('#grupo_institucion_bancaria').change(
+      function() {
+        matchUp($('#grupo_institucion_bancaria'), $('#grupo_referencia'));
+      }
+    );
+
+    $('#grupo_referencia').change(
+      function() {
+        matchUp($('#grupo_referencia'), $('#grupo_institucion_bancaria'));
+      }
+    );
+
+    $('#grupo_institucion_bancaria').change(
+      function() {
+        matchUp($('#grupo_institucion_bancaria'), $('#grupo_titular'));
+      }
+    );
+
+    $('#grupo_titular').change(
+      function() {
+        matchUp($('#grupo_titular'), $('#grupo_institucion_bancaria'));
+      }
+    );
+    <!-- //Cuenta del banco-->
+
+    $('#grupo_cuenta').change(
+      function() {
+        matchUp($('#grupo_cuenta'), $('#grupo_referencia'));
+      }
+    );
+
+    $('#grupo_referencia').change(
+      function() {
+        matchUp($('#grupo_referencia'), $('#grupo_cuenta'));
+      }
+    );
+
+    $('#grupo_cuenta').change(
+      function() {
+        matchUp($('#grupo_cuenta'), $('#grupo_titular'));
+      }
+    );
+
+    $('#grupo_titular').change(
+      function() {
+        matchUp($('#grupo_titular'), $('#grupo_cuenta'));
+      }
+    );
+
+    <!-- //Referencia bancaria-->
+
+    $('#grupo_referencia').change(
+      function() {
+        matchUp($('#grupo_referencia'), $('#grupo_titular'));
+      }
+    );
+
+    $('#grupo_titular').change(
+      function() {
+        matchUp($('#grupo_titular'), $('#grupo_referencia'));
+      }
+    );
+
+    <!-- //Nombre del profesor-->
+
+    $('#grupo_instructor').change(
+      function() {
+        matchUp($('#grupo_instructor'), $('#grupo_instructor_rfc'));
+      }
+    );
+
+    $('#grupo_instructor_rfc').change(
+      function() {
+        matchUp($('#grupo_instructor_rfc'), $('#grupo_instructor'));
+      }
+    );
+
+    $('#grupo_instructor').change(
+      function() {
+        matchUp($('#grupo_instructor'), $('#grupo_instructor_correo'));
+      }
+    );
+
+    $('#grupo_instructor_correo').change(
+      function() {
+        matchUp($('#grupo_instructor_correo'), $('#grupo_instructor'));
+      }
+    );
+
+
+    <!-- //RFC del instructor -->
+
+    $('#grupo_instructor_rfc').change(
+      function() {
+        matchUp($('#grupo_instructor_rfc'), $('#grupo_instructor_correo'));
+      }
+    );
+
+    $('#grupo_instructor_correo').change(
+      function() {
+        matchUp($('#grupo_instructor_correo'), $('#grupo_instructor_rfc'));
+      }
+    );
+
+    $('#grupo_lugar').change(
+      function() {
+        matchUp($('#grupo_lugar'), $('#grupo_centro'));
+      }
+    );
+
+    $('#grupo_centro').change(
+      function() {
+        matchUp($('#grupo_centro'), $('#grupo_lugar'));
+      }
+    );
+
+    $('#grupo_user_id').change(
+      function() {
+        matchUp($('#grupo_user_id'), $('#grupo_instructor'));
+      }
+    );
+
+    $('#grupo_instructor').change(
+      function() {
+        matchUp($('#grupo_instructor'), $('#grupo_user_id'));
+      }
+    );
+
+    $('#grupo_user_id').change(
+      function() {
+        matchUp($('#grupo_user_id'), $('#grupo_instructor_rfc'));
+      }
+    );
+
+    $('#grupo_instructor_rfc').change(
+      function() {
+        matchUp($('#grupo_instructor_rfc'), $('#grupo_user_id'));
+      }
+    );
+
+    $('#grupo_user_id').change(
+      function() {
+        matchUp($('#grupo_user_id'), $('#grupo_instructor_correo'));
+      }
+    );
+
+    $('#grupo_instructor_correo').change(
+      function() {
+        matchUp($('#grupo_instructor_correo'), $('#grupo_user_id'));
+      }
+    );
+  </script>
+
+  <script>
+    function crearNombre(){
+      var idioma = $("#grupo_idioma").val();
+      var nivel = $("#grupo_nivel").val();
+      var horario = $("#grupo_horario").val();
+      var curso = $("#grupo_curso").val();
+      $('#grupo_nombre').val(idioma  + ' | ' + nivel + ' | ' + horario + ' | ' + curso);
+    }
+
+    $("select").change( crearNombre );
+    crearNombre();
+  </script>

@@ -1,0 +1,92 @@
+<h1 class="sub">Supervisi&oacute;n del grupo</h1>
+<table class="table table-bordered table-condensed">
+    <tr>
+      <th colspan="2">
+        <p><strong>Nombre del grupo:</strong> <%= @grupo.nombre %></p>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <p><strong>Creado por:</strong> <%= @grupo.quien_creo.nombre_paterno_materno %></p>
+      </td>
+      <td>
+        <p><strong>Fecha de creaci&oacute;n:</strong> <%= @grupo.created_at.strftime("%d/%m/%y a las %T %P") %></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><strong>&Uacute;ltima modificaci&oacute;n realizada por:</strong> <%= @grupo.quien_actualizo.nombre_paterno_materno %></p>
+      </td>
+      <td>
+        <p><strong>Modificaci&oacute;n realizada:</strong> <%= @grupo.ultimo_evento %></p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <p><strong>Fecha de la &uacute;ltima modificaci&oacute;n: </strong><%= @grupo.versions.last.created_at.strftime("%d/%m/%y a las %T %P") %></p>
+      </td>
+    </tr>
+</table>
+&nbsp;
+<table class="table table-bordered table-condensed">
+  <tr>
+    <th colspan="2">
+      <p><strong>Constancias</strong></p>
+    </th>
+  </tr>
+  <tr>
+      <td>
+        <p><strong>Estado anterior de las constancias:</strong> <%= @grupo.trail_habilitar_constancias ? 'Hablitadas' : 'No habilitadas' %></p>
+      </td>
+      <td>
+        <p><strong>Estado actual de las constancias:</strong> <%= @grupo.habilitar_constancias_grupo ? 'Hablitadas' : 'No habilitadas' %></p>
+      </td>
+  </tr>
+</table>
+&nbsp;
+<table class="table table-bordered table-condensed">
+  <tr>
+    <th colspan="2">
+      <p><strong>Estado del grupo</strong></p>
+    </th>
+  </tr>
+  <tr>
+      <td>
+        <p><strong>Estado anterior del grupo:</strong> <%= @grupo.trail_estado %></p>
+      </td>
+      <td>
+        <p><strong>Estado actual del grupo:</strong> <%= @grupo.estado %></p>
+      </td>
+  </tr>
+</table>
+&nbsp;
+<table class="table table-bordered table-condensed">
+  <tr>
+    <th colspan="2">
+    <p><strong>Instructor del grupo</strong></p>
+    </th>
+  </tr>
+  <tr>
+      <td>
+        <p><strong>Instructor anterior del grupo:</strong> <%= @grupo.trail_instructor %></p>
+      </td>
+      <td>
+        <p><strong>Instructor actual del grupo:</strong> <%= @grupo.user.nombre_paterno_materno %></p>
+      </td>
+  </tr>
+</table>
+<%# @grupo.cambios.each do |key, value| %>
+  <!--<p>campo: <%# key %> </p>
+  <%# value.each do |valor1, valor2| %>
+    <p><%# valor1 %></p>
+    <p><%# valor2 %></p>-->
+  <%# end %>
+<%# end %>
+<!-- hash completo -->
+<%# @grupo.cambios.each do |key, value| %>
+  <!--<p><strong><%# key.humanize %></strong></p>
+  <%# value.each do |valor1, valor2| %>
+    <p><%# valor1 %></p>
+    <p><%# valor2 %></p>-->
+  <%# end %>
+<%# end %>

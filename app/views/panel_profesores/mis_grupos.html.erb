@@ -1,0 +1,34 @@
+<div id="grupos">
+<p><strong>Nombre del profesor:</strong> <%= @grupo.profesor_nombre.nombre %></p>
+<p><strong>Grupo:</strong> <%= @grupo.nombre %></p>
+<p><strong>Idioma:</strong> <%= @grupo.idioma %></p>
+<p><strong>Horario:</strong> <%= @grupo.horario %></p>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Examen medio</th>
+      <th>Examen final</th>
+      <th>Editar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @inscripcion_registros.each do |inscripcion_registro| %>
+        <% if inscripcion_registro.grupo.nombre == @grupo.nombre %>
+          <tr>
+            <td><%= inscripcion_registro.nombre %></td>
+            <td><%= inscripcion_registro.paterno %></td>
+            <td><%= inscripcion_registro.materno %></td>
+            <td><%= inscripcion_registro.examen_medio %></td>
+            <td><%= inscripcion_registro.examen_final %></td>
+            <td><%= link_to 'Editar', edit_inscripcion_registro_path(inscripcion_registro) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,43 @@
+<h1 class="sub">Curriculums</h1>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Fotografía</th>
+      <th>Nombre</th>
+      <th>Calle</th>
+      <th>Colonia</th>
+      <th>Municipio</th>
+      <th>Entidad</th>
+      <th>Correo</th>
+      <th>Telefono</th>
+      <th>Celular</th>
+      <th>Lugar</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @curriculums.each do |curriculum| %>
+      <tr>
+        <td><%= image_tag curriculum.foto.url('thumb') %></td>
+        <td><%=curriculum.user.nombre_paterno_materno %></td>
+        <td><%= curriculum.calle %></td>
+        <td><%= curriculum.colonia %></td>
+        <td><%= curriculum.municipui %></td>
+        <td><%= curriculum.entidad %></td>
+        <td><%= curriculum.correo %></td>
+        <td><%= curriculum.telefono %></td>
+        <td><%= curriculum.celular %></td>
+        <td><%= curriculum.lugar %></td>
+        <td><%= link_to 'Show', curriculum %></td>
+        <td><%= link_to 'Edit', edit_curriculum_path(curriculum) %></td>
+        <td><%= link_to 'Destroy', curriculum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo curriculum', new_curriculum_path %>

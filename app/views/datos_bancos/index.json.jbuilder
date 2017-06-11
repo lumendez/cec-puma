@@ -1,0 +1,1 @@
+json.array! @datos_bancos, partial: 'datos_bancos/datos_banco', as: :datos_banco

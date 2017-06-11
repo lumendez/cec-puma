@@ -1,0 +1,1 @@
+json.array! @procedencia, partial: 'procedencia/procedencium', as: :procedencium

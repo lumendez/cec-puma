@@ -1,0 +1,2 @@
+json.extract! examen_colocacion_idioma, :id, :nombre, :paterno, :materno, :idioma, :nivel_asignado, :examinador, :created_at, :updated_at
+json.url examen_colocacion_idioma_url(examen_colocacion_idioma, format: :json)

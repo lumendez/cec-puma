@@ -1,0 +1,26 @@
+<%= form_for(clave_catalogo) do |f| %>
+  <% if clave_catalogo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clave_catalogo.errors.count, "error") %> prohibited this clave_catalogo from being saved:</h2>
+
+      <ul>
+      <% clave_catalogo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :nombre, 'Clave de catálogo' %>
+    <%= f.text_field :nombre, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,33 @@
+.texto-cec{font-size: 12px;}
+.texto-cec span {font-size: 10px;}
+/*.texto-politicas span {font-size: 16px; letter-spacing: 5px;}*/
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #talon, #talon * {
+    visibility: visible;
+  }
+  #talon {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #grupos, #grupos * {
+    visibility: visible;
+  }
+  #grupos {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #apertura, #apertura * {
+    visibility: visible;
+  }
+  #apertura {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

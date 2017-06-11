@@ -1,0 +1,25 @@
+<%= form_for(cuotum) do |f| %>
+  <% if cuotum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cuotum.errors.count, "error") %> prohibited this cuotum from being saved:</h2>
+
+      <ul>
+      <% cuotum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+    <%= f.label :cuota %>
+    <%= f.text_field :cuota, class:'form-control' %>
+  </div>
+</div>
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>
