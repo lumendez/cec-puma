@@ -83,4 +83,4 @@ gem 'puma', '~> 3.0'
 
 gem "therubyracer"
 
-gem "sqlite3"
+#gem "sqlite3"
