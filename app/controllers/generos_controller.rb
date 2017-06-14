@@ -70,6 +70,10 @@ class GenerosController < ApplicationController
       @genero = Genero.find(params[:id])
     end
 
+    def genero
+      @genero = Genero.new(genero_params)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def genero_params
       params.require(:genero).permit(:genero)
