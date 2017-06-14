@@ -70,6 +70,10 @@ class ProyectosController < ApplicationController
       @proyecto = Proyecto.find(params[:id])
     end
 
+    def proyecto
+      @proyecto = Proyecto.new(proyecto_params)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def proyecto_params
       params.require(:proyecto).permit(:nombre)
