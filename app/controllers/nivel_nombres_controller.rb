@@ -70,6 +70,10 @@ class NivelNombresController < ApplicationController
       @nivel_nombre = NivelNombre.find(params[:id])
     end
 
+    def nivel_nombre
+      @nivel_nombre = NivelNombre.new(nivel_nombre_params)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def nivel_nombre_params
       params.require(:nivel_nombre).permit(:nivel)
