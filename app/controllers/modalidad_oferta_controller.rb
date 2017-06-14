@@ -70,6 +70,10 @@ class ModalidadOfertaController < ApplicationController
       @modalidad_ofertum = ModalidadOfertum.find(params[:id])
     end
 
+    def modalidad_ofertum
+      @modalidad_ofertum = ModalidadOfertum.new(modalidad_ofertum_params)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def modalidad_ofertum_params
       params.require(:modalidad_ofertum).permit(:nombre)
