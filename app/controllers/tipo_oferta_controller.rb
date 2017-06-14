@@ -70,6 +70,10 @@ class TipoOfertaController < ApplicationController
       @tipo_ofertum = TipoOfertum.find(params[:id])
     end
 
+    def role
+      @tipo_ofertum = TipoOfertum.new(tipo_ofertum_params)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def tipo_ofertum_params
       params.require(:tipo_ofertum).permit(:nombre)
