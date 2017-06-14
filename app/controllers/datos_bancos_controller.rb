@@ -70,6 +70,10 @@ class DatosBancosController < ApplicationController
       @datos_banco = DatosBanco.find(params[:id])
     end
 
+    def datos_banco
+      @datos_banco = DatosBanco.new(datos_banco_params)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def datos_banco_params
       params.require(:datos_banco).permit(:nombre, :cuenta, :referencia, :titular)
