@@ -70,7 +70,7 @@ class TipoOfertaController < ApplicationController
       @tipo_ofertum = TipoOfertum.find(params[:id])
     end
 
-    def role
+    def tipo_ofertum
       @tipo_ofertum = TipoOfertum.new(tipo_ofertum_params)
     end
 
