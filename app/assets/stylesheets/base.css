@@ -27,7 +27,7 @@ body {
 }
 .menusup ul, .banner .contbanner {
     margin: auto;
-    max-width: 970px;
+    max-width: 1170px;
     min-width: 240px;
     overflow: hidden;
     position: relative;
@@ -38,25 +38,26 @@ body {
 .banner .contbanner {
     /*height: 100px;*/
 }
-.logosep, .escudoipn, .gplus, .rss, .yutu, .face, .twt, .blog {
+.gplus, .rss, .yutu, .face, .twt, .blog {
     background: rgba(0, 0, 0, 0) url("Icons601_01.png") repeat scroll 0 0;
     float: right;
 }
 .logosep {
     background-position: 0 -68px;
     float: left;
-    height: 72px;
+    height: 100px;
     margin-bottom: 14px;
     margin-top: 14px;
-    width: 270px;
+    /*width: 270px;*/
+    margin-right: 100px;
 }
 .escudoipn {
-	float:right;
-    background-position: -53px -141px;
-    height: 44px;
+	/*float:left;*/
+    /*background-position: -53px -141px;*/
+    /*height: 44px;*/
     margin-left: 3px;
     margin-top: 22px;
-    width: 30px;
+    /*width: 30px;*/
 }
 .escudoipn a {
     display: block;
@@ -111,7 +112,7 @@ body {
     width: 100%;
 }
 .institucion {
-	float:right;
+	/*float:right;*/
 	padding-top:20px;
 	padding-left: 15px;
   margin-right: 60px;
@@ -239,10 +240,10 @@ a.PieLink:hover {
     top: auto;
     width: 100%;
 }
-.escudoipn {
+/*.escudoipn {
     float: none;
     margin: 2px auto;
-}
+}*/
 }
 .elemen {
     background: red none repeat scroll 0 0;
