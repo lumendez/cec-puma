@@ -14,20 +14,20 @@
       <div class="banner"><!--Inicio Banner IPN-->
         <div class="contbanner">
           <div class="logosep">
-            <div class="sep"><a href="http://www.sep.gob.mx/" target="_blank"></a></div>
-            <div class="gobernacion"><a href="http://www.gobernacion.gob.mx" target="_blank"></a></div>
+            <div><a href="www.gob.mx/sep" target="_blank"><%= image_tag "sep.png" %></a></div>
           </div>
-          <div class="logoipn">
-          <div class="derecha" style="width: 308px">
-                <div class="escudoipn" id="clickeable" ><a href="http://www.ipn.mx/" title="Página Inicio IPN"></a></div>
-              <span >
-                <a href="http://www.ipn.mx">Instituto Politécnico Nacional
-                <span>"La Técnica al Servicio de la Patria"</span></a>
-                </span>
+          <div class="logosep">
+            <div><a href="www.gob.mx/sep" target="_blank"><%= image_tag "ipn.png", style:"float: left; margin: 0px 15px 15px 0px;"%></a>
+              <p>
+                Instituto Politécnico Nacional<br>
+                "La técnica al servicio de la Patria"
+              </p>
             </div>
+            <%#= render 'layouts/escudo' %>
+          </div>
+          <div class="logosep">
             <%= render 'layouts/escudo' %>
           </div>
-
         </div>
       </div><!--Fin Banner IPN-->
       <div class="navbar navbar-inverse navbar-static-top">
