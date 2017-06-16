@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%#= render 'layouts/head' %>
+    <%= render 'layouts/head' %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -25,7 +25,7 @@
                 <span>"La Técnica al Servicio de la Patria"</span></a>
                 </span>
             </div>
-            <%#= render 'layouts/escudo' %>
+            <%= render 'layouts/escudo' %>
           </div>
 
         </div>
@@ -63,7 +63,7 @@
                 <h1 align="center">
                   Instituto Polit&eacute;cnico Nacional
                 </h1>
-              <%#= render 'layouts/footer' %>
+              <%= render 'layouts/footer' %>
               <br>
               <br>
               <strong>M&eacute;xico <%= Time.now.year %></strong>
