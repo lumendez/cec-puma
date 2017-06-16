@@ -18,6 +18,8 @@
           <td class="control-escolar"><%= user.role.nombre %></td>
         <% elsif user.role.nombre == "Profesor" %>
           <td class="profesor"><%= user.role.nombre %></td>
+          <% elsif user.role.nombre == "Coordinación CELEX" %>
+            <td class="coordinador_celex"><%= user.role.nombre %></td>
         <% elsif user.role.nombre == "Jefe Educación Continua" %>
           <td class="jefe-educacion"><%= user.role.nombre %></td>
         <% elsif user.role.nombre == "Director del Centro" %>
