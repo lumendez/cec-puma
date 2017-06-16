@@ -1,7 +1,7 @@
 <%= form_for(grupo) do |f| %>
   <% if grupo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(grupo.errors.count, "error") %> prohibited this grupo from being saved:</h2>
+      <h2>Los siguientes errores no permitieron que el grupo se guardara:</h2>
 
       <ul>
       <% grupo.errors.full_messages.each do |message| %>

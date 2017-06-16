@@ -46,6 +46,8 @@ class Ability
         can :apertura, Grupo
         can :edit_multiple, Grupo
         can :update_multiple, Grupo
+        can :update, Grupo
+        can :destroy, Grupo
         can :read, InscripcionRegistro
         can :create, InscripcionRegistro
         can :update, InscripcionRegistro

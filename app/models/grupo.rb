@@ -1,5 +1,7 @@
 class Grupo < ApplicationRecord
 
+  validates :cupo, :duracion, :periodo, :fecha, presence: true
+
   belongs_to :profesor_nombre
 
   belongs_to :user

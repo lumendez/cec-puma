@@ -61,6 +61,8 @@
           <% if can? :update, grupo %>
           <td><%= link_to 'Editar', edit_grupo_path(grupo) %></td>
           <td><%= link_to 'Eliminar', grupo, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+          <% end %>
+          <% if can? :supervisar, grupo %>
           <td><%= link_to 'Supervisar', supervisar_grupos_path(grupo) %></td>
           <% end %>
         </tr>
