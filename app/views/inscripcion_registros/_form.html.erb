@@ -280,7 +280,8 @@
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :grupo_id, 'Grupo' %>
-      <%= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%#= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:inscripcion_registro, :grupo_id, Grupo.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
   </div>
 </div>
