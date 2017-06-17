@@ -60,6 +60,8 @@ class Ability
         can :ver_constancias, InscripcionRegistro
         can :constancia, InscripcionRegistro
         can :imprimir, InscripcionRegistro
+        can :read, User
+        can :instructores, User
         can :historiales_ingles, User
         can :historial_ingles, User
       elsif user.profesor?
@@ -154,6 +156,8 @@ class Ability
         can :imprimir, InscripcionRegistro
         can :reporte_curso, InscripcionRegistro
         can :reporte_dec, InscripcionRegistro
+        can :read, User
+        can :instructores, User
       end
   end
 

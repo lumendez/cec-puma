@@ -40,6 +40,7 @@ class InscripcionRegistrosController < ApplicationController
     #corresponde al último registro que haya tenido el usuario en el sistema. @registros_no_aprobados
     #cuenta los registro que el usuario tenga previamente reprobados y @examen_colocacion si tiene
     #algún examen y que nivel alcanzó a través de él.
+=begin
     @registro_anterior = InscripcionRegistro.where(user_id: current_user.id).last
     @registros_no_aprobados = InscripcionRegistro.where("user_id = ? AND examen_medio < ? AND examen_final < ? AND idioma = ? OR ? OR ? AND nivel LIKE ? OR ? OR ?", current_user.id, 80, 80, "Inglés", "Francés", "Italiano", "%Básico%", "%Intermedio%", "%Avanzado%").last(3)
     @examen_colocacion = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ?", current_user.id, Date.today.months_ago(2)).last
@@ -51,18 +52,20 @@ class InscripcionRegistrosController < ApplicationController
       @inscripcion_registro = current_user.inscripcion_registros.build
     else
       #Cambiar months_ago(2) que es el valor original
-      if @registro_anterior.curso.include?("Intensivo") && 1.minute.ago >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
+      if @registro_anterior.curso.include?("Intensivo") && months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
         flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
         #Cambiar months_ago(2) que es el valor original
-      elsif @registro_anterior.curso.include?("Sabatino") && 1.minute.ago >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
+      elsif @registro_anterior.curso.include?("Sabatino") && months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
         flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
       elsif @registros_no_aprobados.present?
         flash[:error] = "Usted no ha aprobado los últimos tres cursos en este nivel, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
       else
+=end
         @inscripcion_registro = current_user.inscripcion_registros.build
+=begin
       end
 
     end
@@ -131,7 +134,7 @@ class InscripcionRegistrosController < ApplicationController
     elsif @registro_anterior.nivel == 'Avanzado 4'
       @grupos = Grupo.where(nivel: 'Avanzado 5', estado: 'Abierto')
     end
-
+=end
   end
 
   # GET /inscripcion_registros/1/edit
@@ -212,7 +215,7 @@ class InscripcionRegistrosController < ApplicationController
       #Si el cupo del grupo excede los 25 alunos se le muestra un mensaje al usuario donde se le indica
       #que deberá elegir un grupo distinto, el registro de inscripción no se guardará en la base dde datos_bancos
       #hay que agregar este metodo a las rb de el modelo correspondiente.
-      if cupos > 25
+      if cupos > 40
         redirect_to new_inscripcion_registro_path, notice: "El grupo ha alcanzado su ocupación máxima. Por favor elija otro grupo"
       else
 

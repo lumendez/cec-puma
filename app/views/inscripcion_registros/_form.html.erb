@@ -16,39 +16,47 @@
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :grupo_id, 'Grupos' %>
-      <%= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: inscripcion_registro.creado ) %>
+      <%#= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: inscripcion_registro.creado ) %>
+      <%= collection_select(:inscripcion_registro, :grupo_id, Grupo.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: inscripcion_registro.creado ) %>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :idioma %>
-      <%= collection_select(:inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :idioma, Grupo.all, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :horario %>
-      <%= collection_select(:inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :horario, Grupo.all, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :nivel %>
-      <%= collection_select(:inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :nivel, Grupo.all, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :curso %>
-      <%= collection_select(:inscripcion_registro, :curso, @grupos, :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :curso, @grupos, :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :curso, Grupo.all, :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-3">
       <%= f.label :periodo %>
-      <%= collection_select(:inscripcion_registro, :periodo, @grupos, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :periodo, @grupos, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :periodo, Grupo.all, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-3">
       <%= f.label :opcion_uno, 'Horario opcional 1' %>
-      <%= collection_select(:inscripcion_registro, :opcion_uno, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%#= collection_select(:inscripcion_registro, :opcion_uno, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:inscripcion_registro, :opcion_uno, Grupo.all, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
     <div class="form-group col-sm-3">
       <%= f.label :opcion_dos, 'Horario opcional 2' %>
-      <%= collection_select(:inscripcion_registro, :opcion_dos, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%#= collection_select(:inscripcion_registro, :opcion_dos, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:inscripcion_registro, :opcion_dos, Grupo.all, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
   </div>
 </div>
@@ -136,39 +144,47 @@
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :grupo_id, 'Grupos' %>
-      <%= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :grupo_id, Grupo.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: true) %>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :idioma %>
-      <%= collection_select(:inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :idioma, Grupo.all, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :horario %>
-      <%= collection_select(:inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :horario, Grupo.all, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :nivel %>
-      <%= collection_select(:inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :nivel, Grupo.all, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :curso %>
-      <%= collection_select(:inscripcion_registro, :curso, @grupos, :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :curso, @grupos, :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :curso, Grupo.all, :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-3">
       <%= f.label :periodo %>
-      <%= collection_select(:inscripcion_registro, :periodo, @grupos, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :periodo, @grupos, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :periodo, Grupo.all, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-3">
       <%= f.label :opcion_uno, 'Horario opcional 1' %>
-      <%= collection_select(:inscripcion_registro, :opcion_uno, @grupos, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :opcion_uno, @grupos, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :opcion_uno, Grupo.all, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
     <div class="form-group col-sm-3">
       <%= f.label :opcion_dos, 'Horario opcional 2' %>
-      <%= collection_select(:inscripcion_registro, :opcion_dos, @grupos, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%#= collection_select(:inscripcion_registro, :opcion_dos, @grupos, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :opcion_dos, Grupo.all, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
   </div>
 </div>
