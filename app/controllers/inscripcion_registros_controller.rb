@@ -12,7 +12,8 @@ class InscripcionRegistrosController < ApplicationController
     InscripcionRegistro,
     params[:filterrific],
     select_options:{
-      sorted_by: InscripcionRegistro.options_for_sorted_by
+      sorted_by: InscripcionRegistro.options_for_sorted_by,
+      with_grupo_id: Grupo.options_for_select
     },
     ) or return
     @inscripcion_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])

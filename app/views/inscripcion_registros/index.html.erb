@@ -14,6 +14,10 @@
       <%= f.label :sorted_by, 'Ordenar por' %>
       <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], { include_blank: '- Por defecto -'}, class:'form-control') %>
     </div>
+    <div class="col-md-4">
+      <%= f.label :with_grupo_id, 'Ordenar por grupo' %>
+      <%= f.select(:with_grupo_id, @filterrific.select_options[:with_grupo_id], { include_blank: '- Por defecto -'}, class:'form-control') %>
+    </div>
   </div>
   <br>
   <div class="row">
