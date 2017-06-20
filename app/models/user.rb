@@ -21,8 +21,6 @@ class User < ApplicationRecord
 
   has_many :inscripcion_registros, dependent: :destroy
 
-  has_many :historial_carta, dependent: :destroy
-
   before_save :assign_role
 
   has_many :grupos
