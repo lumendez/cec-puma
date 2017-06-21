@@ -7,7 +7,8 @@ class InscripcionRegistro < ApplicationRecord
     available_filters: [
       :sorted_by,
       :search_query,
-      :with_curso
+      :with_curso,
+      :with_grupo_id
     ]
   )
 
@@ -129,6 +130,10 @@ class InscripcionRegistro < ApplicationRecord
 
   scope :with_curso, lambda { |cursos|
     where(curso: [*cursos])
+  }
+
+  scope :with_grupo_id, lambda { |grupo_ids|
+    where(grupo_id: [*grupo_ids])
   }
 
   def self.options_for_sorted_by
