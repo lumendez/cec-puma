@@ -123,11 +123,19 @@
       <%= f.label :cuota, 'Cuota (en pesos)' %>
       <%= f.text_field :cuota, class:'form-control', disabled: inscripcion_registro.creado %>
     </div>
+    <% if user_signed_in? && current_user.role.nombre == "Invitado" %>
     <div class="form-group col-sm-3">
       <%= f.label :movimiento, 'Movimiento bancario' %>
       <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"  data-html="true" title="Según el método de pago" data-content="En el recibo de pago en <strong>ventanilla</strong> aparece como: <u>Movimiento</u>.<br>En el recibo de pago en <strong>PractiCaja</strong> aparece como: <u>AUT</u>.<br>Por <strong>transferencia bancaria</strong> aparece como: <u>Folio de internet</u>."><span class="badge">?</span></a>
       <%= f.text_field :movimiento, placeholder: 'No. del movimiento', class:'form-control', disabled: inscripcion_registro.creado %>
     </div>
+    <% else %>
+    <div class="form-group col-sm-3">
+      <%= f.label :movimiento, 'Movimiento bancario' %>
+      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"  data-html="true" title="Según el método de pago" data-content="En el recibo de pago en <strong>ventanilla</strong> aparece como: <u>Movimiento</u>.<br>En el recibo de pago en <strong>PractiCaja</strong> aparece como: <u>AUT</u>.<br>Por <strong>transferencia bancaria</strong> aparece como: <u>Folio de internet</u>."><span class="badge">?</span></a>
+      <%= f.text_field :movimiento, placeholder: 'No. del movimiento', class:'form-control' %>
+    </div>
+    <% end %>
     <div class="form-group col-sm-2" style="display:none" id="prestacion">
       <%= f.label :oficio_prestacion, 'Oficio de la prestación' %>
       <%= f.text_field :oficio_prestacion, placeholder: 'No. de oficio', class:'form-control', disabled: inscripcion_registro.creado %>
