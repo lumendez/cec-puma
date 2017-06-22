@@ -60,6 +60,7 @@ class Ability
         can :ver_constancias, InscripcionRegistro
         can :constancia, InscripcionRegistro
         can :imprimir, InscripcionRegistro
+        can :editar_datos, InscripcionRegistro
         can :read, User
         can :instructores, User
         can :historiales_ingles, User
