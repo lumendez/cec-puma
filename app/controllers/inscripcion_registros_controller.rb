@@ -432,6 +432,17 @@ class InscripcionRegistrosController < ApplicationController
     redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
+  def editar_datos
+    @inscripcion_registros = InscripcionRegistro.find(params[:inscripcion_registro_ids])
+  end
+
+  def actualizar_editar_datos
+    #@inscripcion_registros = InscripcionRegistro.find(params[:inscripcion_registro_ids])
+    InscripcionRegistro.update(params[:inscripcion_registros].keys, params[:inscripcion_registros].values)
+    flash[:notice] = "Datos guardados"
+    redirect_to inscripcion_registros_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inscripcion_registro
@@ -470,6 +481,10 @@ class InscripcionRegistrosController < ApplicationController
 
     def calificaciones_params
       params.require(:inscripcion_registro).permit(:examen_medio, :examen_final)
+    end
+
+    def editar_datos_params
+      params.require(:inscripcion_registro).permit(:movimiento, :monto_pagado)
     end
 
 end
