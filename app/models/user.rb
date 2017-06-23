@@ -23,6 +23,8 @@ class User < ApplicationRecord
 
   before_save :assign_role
 
+  before_save :assign_centro
+
   has_many :grupos
 
   has_many :calendarios
@@ -37,6 +39,11 @@ class User < ApplicationRecord
   #Definición de roles para devise
   def assign_role
     self.role = Role.find_by nombre: "Invitado" if self.role.nil?
+  end
+
+  #Definición de roles para devise
+  def assign_centro
+    self.centro = Centro.find_by nombre: "Ingeniero Eugenio Méndez Docurro" if self.centro.nil?
   end
 
   #Definiciones de los roles dentro del sistema
