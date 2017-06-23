@@ -13,6 +13,32 @@
 <% if user_signed_in? && current_user.role.nombre == "Invitado" || current_user.role.nombre == "Control escolar" || current_user.role.nombre == "Administrador" %>
 <div class="row jumbotron">
   <h4 class="subs"><strong>Oferta actual</strong></h4>
+  <% if current_user.role.nombre == "Control escolar" || current_user.role.nombre == "Administrador" %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :grupo_id, 'Grupos' %>
+      <%#= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: inscripcion_registro.creado ) %>
+      <%= collection_select(:inscripcion_registro, :grupo_id, Grupo.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :idioma %>
+      <%#= collection_select(:inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :idioma, Grupo.all, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :horario %>
+      <%#= collection_select(:inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :horario, Grupo.all, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :nivel %>
+      <%#= collection_select(:inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :nivel, Grupo.all, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+  <% else %>
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :grupo_id, 'Grupos' %>
@@ -37,6 +63,7 @@
       <%= collection_select(:inscripcion_registro, :nivel, Grupo.all, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
   </div>
+  <% end %>
   <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :curso %>
