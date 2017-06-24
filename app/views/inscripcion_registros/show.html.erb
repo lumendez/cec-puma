@@ -101,12 +101,7 @@
 					</td>
 					<td>
 						<p>
-							<strong>Movimiento bancario:</strong>
-              <% if @inscripcion_registro.imagen.exists? %>
-              Pagado
-              <% else %>
-              Pendiente
-              <% end %>
+							<strong>Movimiento bancario:</strong><%= @inscripcion_registro.movimiento %>
             </p>
 					</td>
 				</tr>
@@ -232,12 +227,7 @@
           </td>
           <td>
             <p>
-              <strong>Movimiento bancario:</strong>
-              <% if @inscripcion_registro.imagen.exists? %>
-              Pagado
-              <% else %>
-              Pendiente
-              <% end %>
+              <strong>Movimiento bancario:</strong><%= @inscripcion_registro.movimiento %>
             </p>
           </td>
         </tr>
@@ -249,7 +239,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="3"><p><strong>Usuario CELEX CEC Allende.</strong><br>Le solicitamos de conserve este comprobante
+          <td colspan="3"><p><strong>Usuario CELEX CEC IEMD.</strong><br>Le solicitamos de conserve este comprobante
              de inscripci&oacute;n durante el desarrollo de su curso, este documento le servir&aacute; para poder tener acceso
            al Centro de Educaci&oacute;n Continua.</p></td>
         </tr>
