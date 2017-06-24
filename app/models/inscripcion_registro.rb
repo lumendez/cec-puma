@@ -26,7 +26,7 @@ class InscripcionRegistro < ApplicationRecord
     self.where("inscripcion_registros.boleta = ?", "#{noboleta}")
   end
 
-  paginates_per 20
+  paginates_per 35
 
   def nombre_upcase
     self.nombre.parameterize(separator: ' ').upcase
