@@ -41,7 +41,6 @@
       <% end %>
   </tbody>
 </table>
-<% end %>
 </div>
 <% if can? :asignar_calificaciones, @grupo %>
   <% if @grupo.estado == "Abierto" %>
@@ -49,6 +48,8 @@
     <%= submit_tag "Asignar calificaciones", class:'btn btn-primary' %>
   <% end %>
 <% end %>
+<% end %>
+
 <input type="button" id="btn-imprimir" value="Imprimir" class="btn btn-md btn-default">
 <br>
 <%= render 'grupos/links' %>
