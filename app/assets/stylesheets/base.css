@@ -443,6 +443,14 @@ table th{
     left: 0;
     top: 0;
   }
+  #grupos, #grupos * {
+    visibility: visible;
+  }
+  #grupos {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
     #constancia, #constancia * {
       visibility: visible;
     }
