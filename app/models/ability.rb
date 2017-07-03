@@ -66,6 +66,8 @@ class Ability
         can :instructores, User
         can :historiales_ingles, User
         can :historial_ingles, User
+        can :destroy, User
+        can :update, User
       elsif user.profesor?
         can :read, InscripcionRegistro
         can :update, InscripcionRegistro
