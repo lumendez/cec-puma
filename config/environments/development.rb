@@ -59,12 +59,12 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "correo.ipn.mx",
     port: 587,
-    domain: "app.celex.ipn.mx",
+    domain: "activedirectory",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV['gmail_username'],
-    password: ENV['gmail_password']
+    user_name: ENV['ipn_username'],
+    password: ENV['ipn_password']
 }
 end
