@@ -62,7 +62,7 @@ Rails.application.configure do
     address: "correo.ipn.mx",
     port: 587,
     domain: "activedirectory",
-    authentication: "plain",
+    authentication: "login",
     enable_starttls_auto: true,
     user_name: ENV['ipn_username'],
     password: ENV['ipn_password']
