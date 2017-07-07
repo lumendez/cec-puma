@@ -29,4 +29,6 @@
   </div>
 </div>
 <% end %>
-<%# link_to 'Regresar', inicio_path %>
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <strong><%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name) %></strong><br />
+<% end -%>

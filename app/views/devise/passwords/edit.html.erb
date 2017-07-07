@@ -1,4 +1,4 @@
-<h1 class="sub">Change your password</h1>
+<h1 class="sub">Cambie su contraseña</h1>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -10,13 +10,13 @@
     <% if @minimum_password_length %>
       <em>Por lo menos (<%= @minimum_password_length %> caracteres)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "off", class:'form-control' %>
   </div>
 </div>
 <div class="row">
   <div class="col-md-5">
     <%= f.label :password_confirmation, "Confirmar nueva contraseña" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
   </div>
 </div>
 <div class="row">
