@@ -49,14 +49,14 @@ class InscripcionRegistro < ApplicationRecord
   end
 
   def promedio
-    if "#{examen_medio}".to_f <= 79
-      promedio_decimal = "#{examen_medio}".to_i
-    elsif "#{examen_final}".to_f <= 79
-      promedio_decimal = "#{examen_final}".to_i
-    else
+    #if "#{examen_medio}".to_f <= 79
+      #promedio_decimal = "#{examen_medio}".to_i
+    #elsif "#{examen_final}".to_f <= 79
+      #promedio_decimal = "#{examen_final}".to_i
+    #else
     promedio_decimal = ("#{examen_medio}".to_f + "#{examen_final}".to_f) / 2
     promedio_decimal.round
-    end
+    #end
   end
 
   def anio_cursado
