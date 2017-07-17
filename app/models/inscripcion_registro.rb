@@ -8,7 +8,8 @@ class InscripcionRegistro < ApplicationRecord
       :sorted_by,
       :search_query,
       :with_curso,
-      :with_grupo_id
+      :with_grupo_id,
+      :with_documentos_validados
     ]
   )
 
@@ -135,6 +136,17 @@ class InscripcionRegistro < ApplicationRecord
   scope :with_grupo_id, lambda { |grupo_ids|
     where(grupo_id: [*grupo_ids])
   }
+
+  scope :with_documentos_validados, lambda { |documentos_validados|
+    where(documentos_validados: [*documentos_validados])
+  }
+
+  def self.options_for_documentos_validados
+    [
+      ['Validado','1'],
+      ['No validado', '0']
+    ]
+  end
 
   def self.options_for_sorted_by
     [
