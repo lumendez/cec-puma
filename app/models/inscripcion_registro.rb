@@ -56,8 +56,11 @@ class InscripcionRegistro < ApplicationRecord
       #promedio_decimal = "#{examen_final}".to_i
     #else
     promedio_decimal = ("#{examen_medio}".to_f + "#{examen_final}".to_f) / 2
-    promedio_decimal.round
-    #end
+    if promedio_decimal.modulo(2) == 1.5
+      promedio_decimal.floor
+    else
+      promedio_decimal.ceil
+    end
   end
 
   def anio_cursado
