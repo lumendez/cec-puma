@@ -14,7 +14,12 @@
         <th>Grupo</th>
         <th>Periodo</th>
         <th>A&ntilde;o</th>
+        <% if inscripcion_registro.examen_medio.blank? || inscripcion_registro.examen_final.blank? %>
         <th colspan="2">Opciones</th>
+        <% else %>
+        <th>Calificación final</td>
+        <th colspan="2">Opciones</th>
+        <% end %>
       </thead>
       <tr>
         <% if inscripcion_registro.imagen.exists? %>
@@ -35,7 +40,11 @@
         <% end %>
         <td class="info"><%= inscripcion_registro.grupo.nombre %></td>
         <td><%= inscripcion_registro.grupo.periodo %></td>
-        <td><%= inscripcion_registro.grupo.anio %></td>
+        <td align="center"><%= inscripcion_registro.grupo.anio %></td>
+        <% if inscripcion_registro.examen_medio.blank? || inscripcion_registro.examen_final.blank? %>
+        <% else %>
+        <td align="center"><%= inscripcion_registro.promedio %></td>
+        <% end %>
         <td><%= link_to 'Talón', inscripcion_registro %></td>
         <td><%= link_to 'Editar', edit_inscripcion_registro_path(inscripcion_registro) %></td>
       </tr>
