@@ -174,13 +174,27 @@
         </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Acepto los t&eacute;rminos y condiciones</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true" id="Aceptar">Acepto los t&eacute;rminos y condiciones</button>
       </div>
     </div>
   </div>
 </div>
-<script>
-  $(window).load(function(){
+
+<!--<script>
+  $(document).ready(function(){
     $('#myModal').modal('show');
   });
+</script>-->
+<script>
+    if(localStorage.getItem("DontShow")) {
+        $('#myModal').hide();
+    }
+    else {
+      $(document).ready(function(){
+        $('#myModal').modal('show');
+      });
+    }
+    $(document).on("click", "#Aceptar", function() {
+        localStorage.setItem("DontShow", "true");
+    });
 </script>
