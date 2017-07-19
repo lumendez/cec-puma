@@ -88,6 +88,10 @@ class User < ApplicationRecord
     "#{nombre} #{paterno} #{materno}"
   end
 
+  def nombre_upcase
+    self.nombre_completo.parameterize(separator: ' ').upcase
+  end
+
   #Se utiliza para obtener del Jefe de Educación Continua actual, éste aparece
   #principalmente en los formatos de apertura de grupos del Sistema de
   #Gestión de Calidad, en los historiales acedémicos y en las listas del grupos
