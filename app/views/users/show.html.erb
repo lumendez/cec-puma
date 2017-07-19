@@ -25,7 +25,11 @@
 
 <p>
   <strong>Solicitud de recuperación de contraseña:</strong>
-  <%= @user.reset_password_sent_at.strftime("%d/%m/%y a las %T %P") %>
+  <% if @user.reset_password_sent_at.blank? %>
+    No ha solicitado recuperación de contraseña
+  <% else %>
+    <%= @user.reset_password_sent_at.strftime("%d/%m/%y a las %T %P") %>
+  <% end %>
 </p>
 
 <%= link_to 'Editar', edit_user_path(@user) %> |
