@@ -24,8 +24,8 @@
 </p>
 
 <p>
-  <strong>Dirección IP del último inicio de sesión:</strong>
-  <%= @user.last_sign_in_ip %>
+  <strong>Solicitud de recuperación de contraseña:</strong>
+  <%= @user.reset_password_sent_at.strftime("%d/%m/%y a las %T %P") %>
 </p>
 
 <%= link_to 'Editar', edit_user_path(@user) %> |
