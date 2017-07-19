@@ -1,11 +1,31 @@
 <p>
   <strong>Nombre:</strong>
-  <%= @user.nombre %>
+  <%= @user.nombre_paterno_materno %>
 </p>
 
 <p>
   <strong>Rol:</strong>
   <%= @user.role.nombre %>
+</p>
+
+<p>
+  <strong>Creado el:</strong>
+  <%= @user.created_at.strftime("%d/%m/%y a las %T %P") %>
+</p>
+
+<p>
+  <strong>Correo electrónico:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Último inicio de sesión:</strong>
+  <%= @user.last_sign_in_at.strftime("%d/%m/%y a las %T %P") %>
+</p>
+
+<p>
+  <strong>Dirección IP del último inicio de sesión:</strong>
+  <%= @user.last_sign_in_ip %>
 </p>
 
 <%= link_to 'Editar', edit_user_path(@user) %> |
