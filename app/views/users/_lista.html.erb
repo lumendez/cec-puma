@@ -11,7 +11,7 @@
     </tr>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.nombre_completo %></td>
+        <td><%= user.nombre_upcase %></td>
         <% if user.role.nombre == "Administrador" %>
           <td class="administrador"><%= user.role.nombre %></td>
         <% elsif user.role.nombre == "Invitado" %>
