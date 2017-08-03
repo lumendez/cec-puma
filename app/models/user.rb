@@ -116,6 +116,12 @@ class User < ApplicationRecord
     usuarios = User.where(role: rol)
   end
 
+  def self.nombre_instructores
+    rol = Role.find_by(nombre: "Profesor").id
+    usuarios = User.where(role: rol)
+    usuarios.map { |e| [e.nombre_paterno_materno, e.id] }
+  end
+
   #Definición de los filtros para filterrific
   scope :search_query, lambda { |query|
 

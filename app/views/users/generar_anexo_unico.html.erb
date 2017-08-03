@@ -1,0 +1,17 @@
+<h2 class="sub">Buscar boleta</h2>
+<div class="row">
+  <div class="col-md-3">
+    <%= form_tag(datos_anexo_unico_users_path, method: :get) do %>
+      <%= label_tag 'Escriba su nombre' %>
+      <%= text_field_tag :nombre, params[:nombre], class:'form-control inicio' %>
+      <br>
+      <%= label_tag 'Escriba su número de boleta' %>
+      <%= text_field_tag :curso, params[:curso], class:'form-control inicio' %>
+      <br>
+      <%= label_tag 'Escriba su número de boleta' %>
+      <%= text_field_tag :anio, params[:anio], class:'form-control inicio' %>
+      <br>
+      <%= submit_tag 'generar anexo', name: nil, class:'btn btn-md btn-primary' %>
+    <% end %>
+  </div>
+</div>
