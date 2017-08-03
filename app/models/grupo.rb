@@ -18,7 +18,8 @@ class Grupo < ApplicationRecord
     available_filters: [
       :sorted_by,
       :search_query,
-      :with_curso
+      :with_curso,
+      :with_instructor
     ]
   )
 
@@ -94,6 +95,25 @@ class Grupo < ApplicationRecord
     self.versions.last.changeset
   end
 
+  def self.generar_anexo_unico(nombre, curso, anio)
+    self.where("grupos.user_id = ? AND grupos.curso = ? AND grupos.anio = ?", "#{nombre}","#{curso}","#{anio}")
+  end
+
+  #Se determina la oferta para el usuario a partir de sus registros previos
+  def self.oferta(ingles, frances, italiano)
+    #Si no tiene ningun registro previo, se le muestran todos los grupos de todos los idiomas disponibles
+    if ingles.blank? && frances.blank? && italiano.blank?
+      grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')
+    #Estaba inscrito en inglés básico 1 pero no aprobó, se le muestra la oferta de básico 1 de todos los idiomas
+    elsif ingles.nivel == 'Básico 1' && ingles.promedio < 80 && frances.blank? && italiano.blank?
+      grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')
+      #Estaba inscrito únicamente en inglés básico 1
+      if ingles.nivel == 'Básico 1' && ingles.promedio >= 80 && frances.blank? && italiano.blank?
+        grupos = Grupo.where(nivel: 'Básico 2', idioma: 'Inglés')
+      end
+    end
+  end
+
   scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
@@ -120,6 +140,10 @@ class Grupo < ApplicationRecord
 
   scope :with_curso, lambda { |cursos|
     where(curso: [*cursos])
+  }
+
+  scope :with_instructor, lambda { |instructores|
+    where(instructor: [*instructores])
   }
 
   def self.options_for_sorted_by

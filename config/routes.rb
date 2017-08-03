@@ -25,6 +25,10 @@ Rails.application.routes.draw do
       get 'instructores'
       get 'historiales_ingles'
       get 'historial_ingles/:id', to: 'users#historial_ingles', as: 'historial_ingles'
+      get 'anexos_unicos/:id', to: 'users#anexos_unicos', as: 'anexos_unicos'
+      get 'conclusion_eventos', to: 'users#conclusion_eventos', as: 'conclusion_eventos'
+      get 'datos_anexo_unico'
+      get 'generar_anexo_unico'
     end
   end
   resources :estados

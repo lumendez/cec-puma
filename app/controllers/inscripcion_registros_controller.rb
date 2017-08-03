@@ -42,10 +42,25 @@ class InscripcionRegistrosController < ApplicationController
     #corresponde al último registro que haya tenido el usuario en el sistema. @registros_no_aprobados
     #cuenta los registro que el usuario tenga previamente reprobados y @examen_colocacion si tiene
     #algún examen y que nivel alcanzó a través de él.
-=begin
+
+    #Se recupera el ultimo registro sin distincion del idioma
     @registro_anterior = InscripcionRegistro.where(user_id: current_user.id).last
-    @registros_no_aprobados = InscripcionRegistro.where("user_id = ? AND examen_medio < ? AND examen_final < ? AND idioma = ? OR ? OR ? AND nivel LIKE ? OR ? OR ?", current_user.id, 80, 80, "Inglés", "Francés", "Italiano", "%Básico%", "%Intermedio%", "%Avanzado%").last(3)
+
+    #Se recupera el ultimo registro que se tenga del usuario en el idioma inglés, francés o italiano, servirá para mostrarle la oferta
+    registro_anterior_ingles = InscripcionRegistro.where(user_id: current_user.id, idioma: 'Inglés').last
+    registro_anterior_frances = InscripcionRegistro.where(user_id: current_user.id, idioma: 'Francés').last
+    registro_anterior_italiano = InscripcionRegistro.where(user_id: current_user.id, idioma: 'Italiano').last
+
+    #Se utiliza para aplicar la condición de que si tiene 3 cursos reprobados tendrá que iniciar desde básico 1 o hacer examen de colocación
+    @registros_no_aprobados = InscripcionRegistro.where("user_id = ? AND examen_medio < ? AND examen_final < ? AND idioma = ? OR ? OR ? AND nivel LIKE ? OR ? OR ? OR ?", current_user.id, 80, 80, "Inglés", "Francés", "Italiano", "%Básico%", "%Intermedio%", "%Avanzado%", "%Certificación").last(3)
+
+    #Se utiliza para saber si está vigente el examen de colocación y mostrar la oferta
     @examen_colocacion = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ?", current_user.id, Date.today.months_ago(2)).last
+
+    #Se utiliza para conocer el ultimo de examen de colocación por idioma. Inglés, Francés o Italiano
+    examen_colocacion_ingles = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ? AND idioma = ?", current_user.id, Date.today.months_ago(2), "Inglés").last
+    examen_colocacion_frances = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ? AND idioma = ?", current_user.id, Date.today.months_ago(2), "Francés").last
+    examen_colocacion_italiano = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ? AND idioma = ?", current_user.id, Date.today.months_ago(2), "Italiano").last
 
     #Se revisa si el usuario no tiene un registro anterior y además, sino tiene registros anteriores
     #no aprobados. Si ambas condiciones se satisfacen, entonces se le permitirá crear un registro
@@ -54,27 +69,25 @@ class InscripcionRegistrosController < ApplicationController
       @inscripcion_registro = current_user.inscripcion_registros.build
     else
       #Cambiar months_ago(2) que es el valor original
-      if @registro_anterior.curso.include?("Intensivo") && months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
+      if @registro_anterior.curso.include?("Intensivo") && Date.today.months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
         flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
         #Cambiar months_ago(2) que es el valor original
-      elsif @registro_anterior.curso.include?("Sabatino") && months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
+      elsif @registro_anterior.curso.include?("Sabatino") && Date.today.months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
         flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
       elsif @registros_no_aprobados.present?
         flash[:error] = "Usted no ha aprobado los últimos tres cursos en este nivel, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
       else
-=end
         @inscripcion_registro = current_user.inscripcion_registros.build
-=begin
       end
-
     end
     #Las siguientes condiciones aplican si el usuario es de nuevo ingreso pero a través
     #de un examen de colocación quedó en cualquiera de los niveles señalados. Revisando
     #primero si existe algún registro previo y posteriormente si posee un examen de
     #colocación.
+=begin
     if @registro_anterior.blank? && @examen_colocacion.blank?
       @grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')
     elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 1'

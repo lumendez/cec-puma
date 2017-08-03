@@ -94,6 +94,26 @@ class UsersController < ApplicationController
       @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés')
       @examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Inglés')
   end
+=begin
+  def anexos_unicos
+    @numero_cursos_ingles = Grupo.where(user_id: @user.id, idioma: "Inglés").count
+  end
+
+  def conclusion_eventos
+    @users = User.instructores.order(:paterno).page params[:pagina]
+  end
+=end
+  def datos_anexo_unico
+    if params[:nombre] && params[:curso] && params[:anio]
+      @anexo_unico = generar_anexo_unico
+    else
+      @anexo_unico = Grupo.all
+    end
+  end
+
+  def generar_anexo_unico
+    @anexo_unico = Grupo.generar_anexo_unico(params[:nombre], params[:curso], params[:anio])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
