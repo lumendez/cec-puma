@@ -1,13 +1,12 @@
-<% if user_signed_in? && current_user.centro.nombre == 'Ingeniero Eugenio Méndez Docurro' %>
-  <div>
-                  <%= image_tag "cec.jpg", style:"float: right; margin: 0px 15px 15px 0px;" %>
-                  <p><span class="sepi"><strong>Centro de <br>Educaci&oacute;n<br> Continua</strong></span><br>
-                  <strong>Ing. Eugenio M&eacute;ndez Docurro</strong></p>
-  </div>
-<% else %>
-  <div>
-                  <!--<p><span class="sepi"><strong>Centro de Educaci&oacute;n Continua</strong></span><br>
-                  <strong>Ing. Eugenio M&eacute;ndez Docurro</strong></p>-->
-  </div>
-  <%= image_tag "dec.png" %>
+<div style="float: right; margin: -110px 0 0 0; width: 450px;">
+  <% if user_signed_in? && current_user.centro.nombre == 'Ingeniero Eugenio Méndez Docurro' %>
+    <%= image_tag "cec.jpg", style:"float: right; margin: 0px 15px 15px 0px;" %>
+    <br>
+    <p align="center"><span class="sepi"><strong>Centro de Educaci&oacute;n Continua</strong></span><br>
+    <strong>Ing. Eugenio M&eacute;ndez Docurro</strong></p>
+  <% else %>
+    <%= image_tag "dec.png", style:"float: right; margin: 0px 15px 15px 0px;" %>
+    <br>
+    <p align="center"><span class="sepi"><strong>Direcci&oacute;n de Educaci&oacute;n Continua</strong></span></p>
   <% end %>
+</div>
