@@ -9,43 +9,46 @@
   </head>
 
   <body>
-    <div id="Header"><!--Inicio Header-->
-    <!--Fin Menú utilerias-->
-      <div class="banner"><!--Inicio Banner IPN-->
-        <div class="contbanner">
-          <div class="logosep">
-            <div><a href="www.gob.mx/sep" target="_blank"><%= image_tag "sep.png" %></a></div>
-          </div>
-          <div class="logosep">
-            <div><a href="www.gob.mx/sep" target="_blank"><%= image_tag "ipn.png", style:"float: left; margin: 0px 15px 15px 0px;"%></a>
-              <p>
-                Instituto Politécnico Nacional<br>
-                "La técnica al servicio de la Patria"
-              </p>
-            </div>
-            <%#= render 'layouts/escudo' %>
-          </div>
-          <div class="logosep">
-            <%= render 'layouts/escudo' %>
-          </div>
-        </div>
-      </div><!--Fin Banner IPN-->
-      <div class="navbar navbar-inverse navbar-static-top">
-              <div class="container">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                </div>
-                <div class="navbar-collapse collapse borde">
-                  <%= render 'layouts/menu' %>
-                </div>
-                <!--/.navbar-collapse -->
+    <div id="Cabecera"><!--Inicio Header-->
+      <div class="MenuAuxiliar"><!--Inicio menú utilerias-->
+          <ul>
+          <li style="float:left"><a href="http://www.gob.mx"><img src="https://framework-gb.cdn.gob.mx/assets/images/gobmxlogo.svg" /></a></li>
+          <li itemprop="event"><a href="http://www.ipn.mx/Paginas/Calendario-Academico.aspx" itemprop="url">CALENDARIO</a></li>
+          <li itemprop = "email"><a href="http://www.ipn.mx/Paginas/Correo-Electronico.aspx" itemprop="url">CORREO ELECTRÓNICO</a></li>
+          <li itemprop = "contactPoint"><a href="http://www.ipn.mx/Paginas/directorio.aspx" itemprop="url">DIRECTORIO</a></li>
+        </ul>
+      </div><!--Fin Menú utilerias-->
+        <div class="CabeceraTitulo"><!--Inicio Banner IPN-->
+          <div class="CabeceraContenido">
+            <div class="LogoSEP" itemprop = "logo"></div>
+              <div class="LogoIPN" itemprop = "logo">
+                  <a href="http://www.ipn.mx"><div class="EscudoIPN"></div></a>
+                  <span><a href="http://www.ipn.mx" itemprop = "url">Instituto Politécnico Nacional
+                    <span>"La Técnica al Servicio de la Patria"</span></a>
+                    </span>
+                 </div>
+
+                  <%= render 'layouts/escudo' %>
+
+             </div>
+         </div><!--Fin Banner IPN-->
+         <div class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
               </div>
+              <div class="navbar-collapse collapse borde">
+                <%= render 'layouts/menu' %>
+              </div>
+              <!--/.navbar-collapse -->
             </div>
+          </div>
     </div>
+    </div><!--Fin Header-->
     <div class="container">
       <div class="row">
         <div id="flash">
