@@ -76,7 +76,7 @@ class InscripcionRegistrosController < ApplicationController
       elsif @registro_anterior.curso.include?("Sabatino") && Date.today.months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
         flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
-      elsif @registros_no_aprobados.present?
+      elsif @registros_no_aprobados.present? && @registros_no_aprobados.count >= 3
         flash[:error] = "Usted no ha aprobado los últimos tres cursos en este nivel, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
       else

@@ -17,7 +17,36 @@ class ExamenColocacionIdiomasController < ApplicationController
 
   # GET /examen_colocacion_idiomas/new
   def new
-    @examen_colocacion_idioma = current_user.examen_colocacion_idiomas.build
+    #Las condiciones para la creación de un examend e colocación son las siguientes:
+    # 1) Que no exista otro con al menos dos meses de haberse creado.
+    # 2) Verificar que no tenga ningún curso inscrito con al menos dos meses de haberlo concluido.
+    # 3) Si ya tiene un curso en el idioma indicado se desplegará un mensaje y no le permitirá
+    # guardar su solicitud de examende colocación.
+
+    examen_anterior_ingles = ExamenColocacionIdioma.where(user_id: current_user.id, idioma: "Inglés").last
+    examen_anterior_frances = ExamenColocacionIdioma.where(user_id: current_user.id, idioma: "Francés").last
+    examen_anterior_italiano = ExamenColocacionIdioma.where(user_id: current_user.id, idioma: "Italiano").last
+
+    curso_anterior_ingles = InscripcionRegistro.where(user_id: current_user.id, idioma: "Inglés").last
+    curso_anterior_frances = InscripcionRegistro.where(user_id: current_user.id, idioma: "Francés").last
+    curso_anterior_italiano = InscripcionRegistro.where(user_id: current_user.id, idioma: "Italiano").last
+
+    if examen_anterior_ingles.blank? && examen_anterior_frances.blank? && examen_anterior_italiano.blank? && curso_anterior_ingles.blank? && curso_anterior_frances.blank? && curso_anterior_italiano.blank?
+      @examen_colocacion_idioma = current_user.examen_colocacion_idiomas.build
+      @idiomas = Idioma.all
+    elsif (examen_anterior_ingles.present? && Date.today.months_ago(2) <= examen_anterior_ingles.created_at) || (curso_anterior_ingles.present? && Date.today.months_ago(2) <= curso_anterior_ingles.created_at)
+      @examen_colocacion_idioma = current_user.examen_colocacion_idiomas.build
+      @idiomas = Idioma.where(idioma: "Francés").or(Idioma.where(idioma: "Italiano"))
+    elsif examen_anterior_frances.present? && Date.today.months_ago(2) <= examen_anterior_frances.created_at || (curso_anterior_frances.present? && Date.today.months_ago(2) <= curso_anterior_frances.created_at)
+      @examen_colocacion_idioma = current_user.examen_colocacion_idiomas.build
+      @idiomas = Idioma.where(idioma: "Inglés").or(Idioma.where(idioma: "Italiano"))
+    elsif examen_anterior_italiano.present? && Date.today.months_ago(2) <= examen_anterior_italiano.created_at || (curso_anterior_italiano.present? && Date.today.months_ago(2) <= curso_anterior_italiano.created_at)
+      @examen_colocacion_idioma = current_user.examen_colocacion_idiomas.build
+      @idiomas = Idioma.where(idioma: "Inglés").or(Idioma.where(idioma: "Francés"))
+    else
+      @examen_colocacion_idioma = current_user.examen_colocacion_idiomas.build
+      @idiomas = Idioma.all
+    end
   end
 
   # GET /examen_colocacion_idiomas/1/edit
