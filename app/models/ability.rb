@@ -69,7 +69,7 @@ class Ability
         can :destroy, User
         can :update, User
       elsif user.profesor?
-        can :read, InscripcionRegistro
+        #can :read, InscripcionRegistro
         can :update, InscripcionRegistro
         can :evaluacion_media, InscripcionRegistro
         can :evaluacion_final, InscripcionRegistro
