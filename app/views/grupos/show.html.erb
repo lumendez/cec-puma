@@ -42,10 +42,10 @@
   </tbody>
 </table>
 <% if can? :asignar_calificaciones, @grupo %>
-  <% if @grupo.estado == "Abierto" %>
+  <!--<#% if @grupo.estado == "Abierto" %>-->
     <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
     <%= submit_tag "Asignar calificaciones", class:'btn btn-primary' %>
-  <% end %>
+  <!--<#% end %>-->
 <% end %>
 <% end %>
 </div>
