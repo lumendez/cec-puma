@@ -29,7 +29,9 @@ class Ability
         end
         #can :read, ExamenColocacionIdioma
         can :create, ExamenColocacionIdioma
-        can :update, ExamenColocacionIdioma
+        can :update, ExamenColocacionIdioma do |examen_colocacion_idioma|
+          examen_colocacion_idioma.try(:user) == user
+        end
         can :show, ExamenColocacionIdioma
         can :subir_comprobante, ExamenColocacionIdioma
         can :manage, :panel_alumnos
