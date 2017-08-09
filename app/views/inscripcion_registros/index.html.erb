@@ -22,6 +22,10 @@
       <%= f.label :with_documentos_validados, 'Filtrar por estado' %>
       <%= f.select(:with_documentos_validados, @filterrific.select_options[:with_documentos_validados], { include_blank: '- Por defecto -'}, class:'form-control') %>
     </div>
+    <div class="col-md-4">
+      <%= f.label :with_curso, 'Filtrar por curso' %>
+      <%= f.select(:with_curso, @filterrific.select_options[:with_curso], { include_blank: '- Por defecto -'}, class:'form-control') %>
+    </div>
   </div>
   <br>
   <div class="row">
