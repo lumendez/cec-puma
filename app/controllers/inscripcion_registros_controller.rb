@@ -14,7 +14,8 @@ class InscripcionRegistrosController < ApplicationController
     select_options:{
       sorted_by: InscripcionRegistro.options_for_sorted_by,
       with_grupo_id: Grupo.options_for_select,
-      with_documentos_validados: InscripcionRegistro.options_for_documentos_validados
+      with_documentos_validados: InscripcionRegistro.options_for_documentos_validados,
+      with_curso: CursoNombre.options_for_select
     },
     ) or return
     @inscripcion_registros = @filterrific.find.order("created_at DESC").where(examen_medio: nil, examen_final: nil).page(params[:pagina])
