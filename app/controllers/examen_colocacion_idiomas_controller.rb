@@ -51,6 +51,7 @@ class ExamenColocacionIdiomasController < ApplicationController
 
   # GET /examen_colocacion_idiomas/1/edit
   def edit
+    @idiomas = Idioma.all
   end
 
   # POST /examen_colocacion_idiomas
