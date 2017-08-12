@@ -26,9 +26,9 @@
       <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
           <tr>
             <% if can? :asignar_calificaciones, @grupo %>
-              <% if @grupo.estado == "Abierto" %>
+              <!--<#% if @grupo.estado == "Abierto" %>-->
                 <td><%= check_box_tag "inscripcion_registro_ids[]", inscripcion_registro.id %></td>
-              <% end %>
+              <!--<#% end %>-->
             <% end %>
             <td><%= index + 1 %></td>
             <td><%= inscripcion_registro.paterno %></td>
