@@ -88,6 +88,10 @@ class InscripcionRegistrosController < ApplicationController
     #de un examen de colocación quedó en cualquiera de los niveles señalados. Revisando
     #primero si existe algún registro previo y posteriormente si posee un examen de
     #colocación.
+    if registro_anterior_ingles.blank? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
+      @grupos = InscripcionRegistro.oferta_nuevo_ingreso
+    elsif registro_anterior_ingles.present? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
+    end
 =begin
     if @registro_anterior.blank? && @examen_colocacion.blank?
       @grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')

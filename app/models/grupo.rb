@@ -114,6 +114,20 @@ class Grupo < ApplicationRecord
     end
   end
 
+  #Se obtiene la oferta de los grupos de Inglés que se encuentren actualmente
+  #abiertos. Se hace del mismo modo para los grupos de Francés e Italiano
+  def self.grupos_abiertos_ingles
+    grupos_ingles = Grupo.where(idioma: "Inglés", estado: "Abierto")
+  end
+
+  def self.grupos_abiertos_frances
+    grupos_frances = Grupo.where(idioma: "Francés", estado: "Abierto")
+  end
+
+  def self.grupos_abiertos_italiano
+    grupos_italiano = Grupo.where(idioma: "Italiano", estado: "Abierto")
+  end
+
   scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
