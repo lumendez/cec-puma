@@ -29,7 +29,7 @@
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :horario %>
-      <%= collection_select(:inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
       <%#= collection_select(:inscripcion_registro, :horario, Grupo.where(estado: "Abierto"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
     <div class="form-group col-sm-4">
