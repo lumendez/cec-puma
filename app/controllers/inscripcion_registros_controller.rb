@@ -13,7 +13,7 @@ class InscripcionRegistrosController < ApplicationController
     params[:filterrific],
     select_options:{
       sorted_by: InscripcionRegistro.options_for_sorted_by,
-      with_grupo_id: Grupo.options_for_select,
+      with_grupo_id: Grupo.where(estado: "Abierto").options_for_select,
       with_documentos_validados: InscripcionRegistro.options_for_documentos_validados,
       with_curso: CursoNombre.options_for_select
     },
