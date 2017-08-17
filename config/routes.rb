@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :anexos_unicos do
+    collection do
+      get 'index'
+      get 'imprimir_anexo_unico'
+    end
+  end
+
   resources :curriculums
   resources :registro_cursos
   resources :examen_colocacion_idiomas

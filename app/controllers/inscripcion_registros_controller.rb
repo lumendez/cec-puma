@@ -13,7 +13,7 @@ class InscripcionRegistrosController < ApplicationController
     params[:filterrific],
     select_options:{
       sorted_by: InscripcionRegistro.options_for_sorted_by,
-      with_grupo_id: Grupo.options_for_select,
+      with_grupo_id: Grupo.where(estado: "Abierto").options_for_select,
       with_documentos_validados: InscripcionRegistro.options_for_documentos_validados,
       with_curso: CursoNombre.options_for_select
     },
@@ -88,6 +88,10 @@ class InscripcionRegistrosController < ApplicationController
     #de un examen de colocación quedó en cualquiera de los niveles señalados. Revisando
     #primero si existe algún registro previo y posteriormente si posee un examen de
     #colocación.
+    if registro_anterior_ingles.blank? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
+      @grupos = InscripcionRegistro.oferta_nuevo_ingreso
+    elsif registro_anterior_ingles.present? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
+    end
 =begin
     if @registro_anterior.blank? && @examen_colocacion.blank?
       @grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')

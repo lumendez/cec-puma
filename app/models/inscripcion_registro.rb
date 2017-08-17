@@ -50,11 +50,6 @@ class InscripcionRegistro < ApplicationRecord
   end
 
   def promedio
-    #if "#{examen_medio}".to_f <= 79
-      #promedio_decimal = "#{examen_medio}".to_i
-    #elsif "#{examen_final}".to_f <= 79
-      #promedio_decimal = "#{examen_final}".to_i
-    #else
     promedio_decimal = ("#{examen_medio}".to_f + "#{examen_final}".to_f) / 2
     if promedio_decimal.modulo(2) == 1.5
       promedio_decimal.floor
@@ -71,15 +66,92 @@ class InscripcionRegistro < ApplicationRecord
      "#{periodo} de #{created_at.strftime("%Y")}"
   end
 
+  #Se obtiene el nombre del curso para mostrarlo en la pantalla de
+  #validaciones de los registros de inscripcion
   def nombre_curso
     "#{idioma} #{nivel}"
   end
 
+  #Se obtiene la fecha en que fue creado el registros de inscripción
+  #para mostrarlo en en la supervisión
   def creado
     if self.created_at?
       true
     else
       false
+    end
+  end
+
+  #Se obtiene la oferta para los alumnos de nuevo ingreso con base en que
+  #no se detectaron registros de inscripcion previos
+  def self.oferta_nuevo_ingreso
+    grupos = Grupo.grupos_abiertos_ingles.where(nivel: "Básico 1").
+    or(Grupo.grupos_abiertos_frances.where(nivel: "Básico 1").
+    or(Grupo.grupos_abiertos_italiano).where(nivel: "Básico 1"))
+  end
+
+  def self.oferta_solo_ingles(registro_anterior)
+    if registro_anterior.promedio == "0" || registro_anterior.promedio.blank?
+      #preguntar que sucede en este caso.
+      @grupos = grupos_abiertos_ingles.where(nivel: registro_anterior.nivel).or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 1" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Básico 2").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    #lo reprueba
+    elsif registro_anterior.nivel == "Básico 1" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Básico 1").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 2" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Básico 3").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 2" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Básico 2").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 3" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Básico 4").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 3" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Básico 3").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 4" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Básico 5").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 4" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Básico 4").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 5" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Intermedio 1").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Básico 5" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Básico 5").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Intermedio 1" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Intermedio 2%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "Intermedio 1" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "Intermedio 1").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Intermedio 2%" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Intermedio 3%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Intermedio 2%" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Intermedio 2%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Intermedio 3%" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Intermedio 4%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Intermedio 3%" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Intermedio 3%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Intermedio 4%" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Intermedio 5%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Intermedio 4%" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Intermedio 4%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Intermedio 5%" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 1%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Intermedio 5%" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Intermedio 5%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Avanzado 1%" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 2%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Avanzado 1%" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 1%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Avanzado 2%" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 3%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Avanzado 2%" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 2%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Avanzado 3%" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 4%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Avanzado 3%" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 3%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Avanzado 4%" && registro_anterior.promedio >= 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 5%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    elsif registro_anterior.nivel == "%Avanzado 4%" && registro_anterior.promedio < 80
+      @grupos = grupos_abiertos_ingles.where(nivel: "%Avanzado 4%").or(grupos_abiertos_frances.where(nivel: "Básico 1").or(grupos_abiertos_italiano.where(nivel: "Básico 1")))
+    #Hay que revisar el orden de las certificaciones para inscribirse.
     end
   end
 
