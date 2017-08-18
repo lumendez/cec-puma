@@ -30,4 +30,12 @@
     left: 0;
     top: 0;
   }
+  #anexos-unicos, #anexos-unicos * {
+    visibility: visible;
+  }
+  #anexos-unicos {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 }
