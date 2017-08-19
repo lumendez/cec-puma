@@ -232,11 +232,18 @@ class InscripcionRegistrosController < ApplicationController
       #de preinscripción, el id para el grupo actual se obtiene con @inscripcion_registro.grupo_id
       cupos = InscripcionRegistro.where(grupo_id: @inscripcion_registro.grupo_id).count
 
+      #Se localiza si el usuatio tiene un id previo con ese mismo grupo. Si existe se le envia un mensaje
+      # y no se permite guardar el registro por segunda ocasión.
+      usuario = User.find(current_user.id)
+      registro = InscripcionRegistro.find_by(user_id: usuario, grupo_id: @inscripcion_registro.grupo_id)
+
       #Si el cupo del grupo excede los 25 alunos se le muestra un mensaje al usuario donde se le indica
       #que deberá elegir un grupo distinto, el registro de inscripción no se guardará en la base dde datos_bancos
       #hay que agregar este metodo a las rb de el modelo correspondiente.
       if cupos > 40
         redirect_to new_inscripcion_registro_path, notice: "El grupo ha alcanzado su ocupación máxima. Por favor elija otro grupo"
+      elsif registro.grupo_id == @inscripcion_registro.grupo_id
+        redirect_to panel_alumnos_path, notice: "Usted ya tiene registrada una solicitud con este grupo."
       else
 
       respond_to do |format|
