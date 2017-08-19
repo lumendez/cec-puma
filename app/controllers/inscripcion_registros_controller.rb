@@ -259,7 +259,7 @@ class InscripcionRegistrosController < ApplicationController
         #Se envia un correo al usuario indicándole que su inscripción ha sido modificada en alguno de los
         #siguientes casos: la inscripción fue validada, su inscripción fue invalidada o, se le cambio de
         #grupo.
-        UserMailer.email_inscripcion_registro(inscripcion_registro).deliver
+        #UserMailer.email_inscripcion_registro(inscripcion_registro).deliver
         #Se redirige al usuario usuario que ha iniciado sesión con un mensaje diferente según sea el caso.
         #Si se agrega el otro rol al sistema se deberá de agregar también una nueva redirección y un nuevo
         #mensaje.

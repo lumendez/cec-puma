@@ -8,11 +8,15 @@ table
 
 table td
 {
-  border: 1px solid silver;
+  /*border: 1px solid silver;*/
   position: relative;
 }
 
 table td.crossed
 {
    background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), #c9c9c9, transparent calc(50% + 1px));
+}
+
+#anexos-unicos p,ul,li {
+  font-size: 9px;
 }

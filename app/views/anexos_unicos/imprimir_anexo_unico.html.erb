@@ -1,80 +1,93 @@
 <%# @users.each do |user| %>
   <%#= user.nombre %>
 <%# end %>
-
+<div id="anexos-unicos">
 <% @grupos.each do |grupo| %>
-<p align="center"><strong><u>ANEXO  ÚNICO</u></strong><br />
-  <strong>Ciudad de México, a 14 de  marzo de 2017</strong><br />
-  El  objeto de este documento consiste en el desarrollo de programa académico:</p>
-<div><br /><%= grupo.nivel %></div>
-<p>Nombre  del prestador:</p>
-<div><br />
-  <%= grupo.user.nombre %>                                                                           <strong> </strong></div>
-<p><strong>PROGRAMA  ACADÉMICO:</strong><strong> </strong><strong> </strong></p>
-<table border="1" cellspacing="0" cellpadding="0" width="659">
-  <tr>
-    <td width="149" colspan="2"><br />
-      <strong>TIPO DE PROGRAMA</strong></td>
-    <td width="161" colspan="3"><p><strong>ORDEN DE SERVICIO</strong></p></td>
-    <td width="350" colspan="5"><p><strong>CEC INGENIERO    EUGENIO MÉNDEZ DOCURRO</strong></p></td>
-  </tr>
-  <tr>
-    <td width="81"><p><strong>Instructor:</strong></p></td>
-    <td width="159" colspan="3"><p><strong>() Interno IPN</strong></p></td>
-    <td width="123" colspan="3"><p><strong>( ) Docente</strong></p></td>
-    <td width="151"><p><strong>( ) Administrativo</strong></p></td>
-    <td width="145" colspan="2"><p><strong>(X) Externo</strong></p></td>
-  </tr>
-  <tr>
-    <td width="81"><p><strong>&nbsp;</strong></p></td>
-    <td width="159" colspan="3"><p><strong>&nbsp;</strong></p></td>
-    <td width="123" colspan="3"><p><strong>&nbsp;</strong></p></td>
-    <td width="151"><p><strong>&nbsp;</strong></p></td>
-    <td width="145" colspan="2"><p><strong>&nbsp;</strong></p></td>
-  </tr>
-  <tr>
-    <td width="217" colspan="3"><p><strong>Periodo:</strong> <br />
-      01 de Febrero - 28    de Febrero 2017<strong></strong></p></td>
-    <td width="123" colspan="3"><p><strong>Duración:</strong><br />
-      28 días<strong></strong></p></td>
-    <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
-      $18,750.00<strong> </strong></p></td>
-    <td width="130"><p><strong>Pago único neto.</strong><br />
-      $15,000.00<strong> </strong></p></td>
-  </tr>
-  <tr>
-    <td width="659" colspan="10"><p><strong>Sesiones:</strong> 17:00    a 22:00 hrs. </p></td>
-  </tr>
-  <tr>
-    <td width="659" colspan="10"><p><strong>Sede:</strong><br />
-      Centro    de Educación Continua Unidad Ingeniero Eugenio Méndez Docurro. Belisario    Domínguez 22, Col. Centro<strong></strong></p></td>
-  </tr>
-</table>
-<p><strong>PROGRAMA  DE ACTIVIDADES:</strong></p>
-<ul>
-  <li><u>Elaboración y desarrollo de planeación de clase de acuerdo a los parámetros establecidos por los CELEX.</u></li>
-  <li><u>Elaboración y aplicación de examen medio y final, así como exámenes de ubicación cuando se le requiera.</u></li>
-  <li><u>Desarrollo de competencias lingüísticas y procesos de evaluación.</u></li>
-  <li><u>Desarrollo del enfoque basado en tareas (tarea integradora).</u></li>
-  <li><u>Retroalimentación académica, entrega de boletas.</u></li>
-</ul>
-<table border="0" cellspacing="0" cellpadding="0" width="690">
-  <tr>
-    <td width="196" valign="top"><p align="center"><strong>PRESTADOR</strong></p>
-      <div>
-        <p align="center"><strong>&nbsp;</strong></p>
-      </div>
-      <p align="center"><strong><%= grupo.user.nombre %></strong></p></td>
-    <td width="284" valign="top"><p align="center"><strong>RESPONSABLE DE SUPERVISAR Y VIGILAR</strong></p>
-      <div>
-        <p align="center"><strong>&nbsp;</strong></p>
-      </div>
-      <p align="center"><strong>M. EN C. JOSÉ ANTONIO    SIXTO BERROCAL </strong></p></td>
-    <td width="210" valign="top"><p align="center"><strong>DIRECTOR</strong></p>
-      <div>
-        <p align="center"><strong>&nbsp;</strong></p>
-      </div>
-      <p align="center"><strong>DR.    MAURO ALBERTO ENCISO AGUILAR</strong></p></td>
-  </tr>
-</table>
+<p style="page-break-before: always;">&nbsp;</p>
+    <table border="0" width="659">
+    <tr>
+      <td width="200">
+        <p align="left"><%= image_tag "logoipn.jpg" %></p>
+      </td>
+      <td colspan="2" width="1400">
+      </td>
+      <td width="200">
+        <p align="right"><%= image_tag "dec.png" %></p>
+      </td>
+    </tr>
+    </table>
+    <p align="center"><strong><u>ANEXO  ÚNICO</u></strong></p>
+    <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
+    <p>El  objeto de este documento consiste en el desarrollo de programa académico:
+      <br />Un curso del idioma <%= grupo.idioma %>
+      <hr>
+    </p>
+    <p>Nombre  del prestador:
+      <br /><%= grupo.user.nombre_completo %>
+      <hr>
+    </p>
+    <p><strong>PROGRAMA  ACADÉMICO:</strong><strong> </strong><strong> </strong></p>
+    <table class="table table-bordered" width="659">
+      <tr>
+        <td width="149" colspan="2"><p><strong>TIPO DE PROGRAMA</strong></p></td>
+        <td width="161" colspan="3"><p><strong>ORDEN DE SERVICIO</strong></p></td>
+        <td width="350" colspan="5"><p><strong>CEC INGENIERO EUGENIO MÉNDEZ DOCURRO</strong></p></td>
+      </tr>
+      <tr>
+        <td width="81"><p><strong>Instructor:</strong></p></td>
+        <td width="159" colspan="3"><p><strong>( ) Interno IPN</strong></p></td>
+        <td width="123" colspan="3"><p><strong>( ) Docente</strong></p></td>
+        <td width="151"><p><strong>( ) Administrativo</strong></p></td>
+        <td width="145" colspan="2"><p><strong>(X) Externo</strong></p></td>
+      </tr>
+    </table>
+    <table class="table table-bordered" width="659">
+      <tr>
+        <td width="217" colspan="3"><p><strong>Periodo:</strong>
+
+          <%= grupo.curso %> <%= grupo.periodo %><strong></strong></p></td>
+        <td width="123" colspan="3"><p><strong>Duración:</strong><br />
+          40 horas x 1 curso<strong></strong></p></td>
+        <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
+          40 x 85.00 = $3,944.00 + IVA<strong> </strong></p></td>
+        <td width="130"><p><strong>Pago único neto.</strong><br />
+          $3,173.90<strong> </strong></p></td>
+      </tr>
+      <tr>
+        <td width="659" colspan="10"><p><strong>Sesiones:</strong> Lunes a viernes: <%= grupo.nivel %> <%= grupo.horario %>. </p></td>
+      </tr>
+      <tr>
+        <td width="659" colspan="10"><p><strong>Sede:</strong><br />
+          Centro de Educación Continua Unidad Ingeniero Eugenio Méndez Docurro. Belisario Domínguez 22, Col. Centro<strong></strong></p></td>
+      </tr>
+    </table>
+    <p><strong>PROGRAMA  DE ACTIVIDADES:</strong></p>
+    <ul>
+      <li><u>Elaboración y desarrollo de planeación de clase de acuerdo a los parámetros establecidos por los CELEX.</u></li>
+      <li><u>Elaboración y aplicación de examen medio y final, así como exámenes de ubicación cuando se le requiera.</u></li>
+      <li><u>Desarrollo de competencias lingüísticas y procesos de evaluación.</u></li>
+      <li><u>Desarrollo del enfoque basado en tareas (tarea integradora).</u></li>
+      <li><u>Retroalimentación académica, entrega de boletas.</u></li>
+    </ul>
+    <table width="690">
+      <tr>
+        <td width="196" valign="top"><p align="center"><strong>PRESTADOR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong><%= grupo.user.nombre_upcase %></strong></p></td>
+        <td width="284" valign="top"><p align="center"><strong>RESPONSABLE DE SUPERVISAR Y VIGILAR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>M. EN C. JOSÉ ANTONIO SIXTO BERROCAL </strong></p></td>
+        <td width="210" valign="top"><p align="center"><strong>DIRECTOR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>DR. MAURO ALBERTO ENCISO AGUILAR</strong></p></td>
+      </tr>
+    </table>
+    <p style="page-break-after: always;">&nbsp;</p>
 <% end %>
+</div>
