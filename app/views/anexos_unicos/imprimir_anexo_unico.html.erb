@@ -2,7 +2,7 @@
   <%#= user.nombre %>
 <%# end %>
 <div id="anexos-unicos">
-<% @grupos.each do |grupo| %>
+<%# @grupos.each do |grupo| %>
 <p style="page-break-before: always;">&nbsp;</p>
     <table border="0" width="659">
     <tr>
@@ -19,11 +19,11 @@
     <p align="center"><strong><u>ANEXO  ÚNICO</u></strong></p>
     <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
     <p>El  objeto de este documento consiste en el desarrollo de programa académico:
-      <br />Un curso del idioma <%= grupo.idioma %>
+      <br />Un curso del idioma <%= @grupos_ingles.count %>
       <hr>
     </p>
     <p>Nombre  del prestador:
-      <br /><%= grupo.user.nombre_completo %>
+      <br /><%#= grupo.user.nombre_completo %>
       <hr>
     </p>
     <p><strong>PROGRAMA  ACADÉMICO:</strong><strong> </strong><strong> </strong></p>
@@ -45,7 +45,7 @@
       <tr>
         <td width="217" colspan="3"><p><strong>Periodo:</strong>
 
-          <%= grupo.curso %> <%= grupo.periodo %><strong></strong></p></td>
+          <%#= grupo.curso %> <%#= grupo.periodo %><strong></strong></p></td>
         <td width="123" colspan="3"><p><strong>Duración:</strong><br />
           40 horas x 1 curso<strong></strong></p></td>
         <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
@@ -54,7 +54,7 @@
           $3,173.90<strong> </strong></p></td>
       </tr>
       <tr>
-        <td width="659" colspan="10"><p><strong>Sesiones:</strong> Lunes a viernes: <%= grupo.nivel %> <%= grupo.horario %>. </p></td>
+        <td width="659" colspan="10"><p><strong>Sesiones:</strong> Lunes a viernes: <%#= grupo.nivel %> <%#= grupo.horario %>. </p></td>
       </tr>
       <tr>
         <td width="659" colspan="10"><p><strong>Sede:</strong><br />
@@ -75,7 +75,7 @@
 
             <p align="center"><strong>&nbsp;</strong></p>
 
-          <p align="center"><strong><%= grupo.user.nombre_upcase %></strong></p></td>
+          <p align="center"><strong><%#= grupo.user.nombre_upcase %></strong></p></td>
         <td width="284" valign="top"><p align="center"><strong>RESPONSABLE DE SUPERVISAR Y VIGILAR</strong></p>
 
             <p align="center"><strong>&nbsp;</strong></p>
@@ -89,5 +89,5 @@
       </tr>
     </table>
     <p style="page-break-after: always;">&nbsp;</p>
-<% end %>
+<%# end %>
 </div>
