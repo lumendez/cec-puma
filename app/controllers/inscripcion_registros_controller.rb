@@ -88,10 +88,10 @@ class InscripcionRegistrosController < ApplicationController
     #de un examen de colocación quedó en cualquiera de los niveles señalados. Revisando
     #primero si existe algún registro previo y posteriormente si posee un examen de
     #colocación.
-    if registro_anterior_ingles.blank? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
-      @grupos = InscripcionRegistro.oferta_nuevo_ingreso
-    elsif registro_anterior_ingles.present? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
-    end
+    #if registro_anterior_ingles.blank? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
+      #@grupos = InscripcionRegistro.oferta_nuevo_ingreso
+    #elsif registro_anterior_ingles.present? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
+    #end
 =begin
     if @registro_anterior.blank? && @examen_colocacion.blank?
       @grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')
@@ -242,7 +242,7 @@ class InscripcionRegistrosController < ApplicationController
       #hay que agregar este metodo a las rb de el modelo correspondiente.
       if cupos > 40
         redirect_to new_inscripcion_registro_path, notice: "El grupo ha alcanzado su ocupación máxima. Por favor elija otro grupo"
-      elsif registro.grupo_id == @inscripcion_registro.grupo_id
+      elsif registro.present? && registro.grupo_id == @inscripcion_registro.grupo_id
         redirect_to panel_alumnos_path, notice: "Usted ya tiene registrada una solicitud con este grupo."
       else
 

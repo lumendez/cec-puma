@@ -116,15 +116,15 @@ class Grupo < ApplicationRecord
 
   #Se obtiene la oferta de los grupos de Inglés que se encuentren actualmente
   #abiertos. Se hace del mismo modo para los grupos de Francés e Italiano
-  def self.grupos_abiertos_ingles
+  def self.grupos_ingles
     grupos_ingles = Grupo.where(idioma: "Inglés", estado: "Abierto")
   end
 
-  def self.grupos_abiertos_frances
+  def self.grupos_frances
     grupos_frances = Grupo.where(idioma: "Francés", estado: "Abierto")
   end
 
-  def self.grupos_abiertos_italiano
+  def self.grupos_italiano
     grupos_italiano = Grupo.where(idioma: "Italiano", estado: "Abierto")
   end
 
