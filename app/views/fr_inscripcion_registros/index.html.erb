@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fr Inscripcion Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Paterno</th>
+      <th>Materno</th>
+      <th>Idioma</th>
+      <th>Horario</th>
+      <th>Nivel</th>
+      <th>Curso</th>
+      <th>Opcion uno</th>
+      <th>Opcion dos</th>
+      <th>Telefono</th>
+      <th>Periodo</th>
+      <th>Correo</th>
+      <th>Sexo</th>
+      <th>Cuota</th>
+      <th>Movimiento</th>
+      <th>Procedencia</th>
+      <th>Grupo</th>
+      <th>Examen medio</th>
+      <th>Examen final</th>
+      <th>Documentos validados</th>
+      <th>Boleta</th>
+      <th>Oferta grupo</th>
+      <th>User</th>
+      <th>Habilitar constancia</th>
+      <th>Habilitar historial</th>
+      <th>Oficio prestacion</th>
+      <th>Monto pagado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fr_inscripcion_registros.each do |fr_inscripcion_registro| %>
+      <tr>
+        <td><%= fr_inscripcion_registro.nombre %></td>
+        <td><%= fr_inscripcion_registro.paterno %></td>
+        <td><%= fr_inscripcion_registro.materno %></td>
+        <td><%= fr_inscripcion_registro.idioma %></td>
+        <td><%= fr_inscripcion_registro.horario %></td>
+        <td><%= fr_inscripcion_registro.nivel %></td>
+        <td><%= fr_inscripcion_registro.curso %></td>
+        <td><%= fr_inscripcion_registro.opcion_uno %></td>
+        <td><%= fr_inscripcion_registro.opcion_dos %></td>
+        <td><%= fr_inscripcion_registro.telefono %></td>
+        <td><%= fr_inscripcion_registro.periodo %></td>
+        <td><%= fr_inscripcion_registro.correo %></td>
+        <td><%= fr_inscripcion_registro.sexo %></td>
+        <td><%= fr_inscripcion_registro.cuota %></td>
+        <td><%= fr_inscripcion_registro.movimiento %></td>
+        <td><%= fr_inscripcion_registro.procedencia %></td>
+        <td><%= fr_inscripcion_registro.grupo %></td>
+        <td><%= fr_inscripcion_registro.examen_medio %></td>
+        <td><%= fr_inscripcion_registro.examen_final %></td>
+        <td><%= fr_inscripcion_registro.documentos_validados %></td>
+        <td><%= fr_inscripcion_registro.boleta %></td>
+        <td><%= fr_inscripcion_registro.oferta_grupo %></td>
+        <td><%= fr_inscripcion_registro.user %></td>
+        <td><%= fr_inscripcion_registro.habilitar_constancia %></td>
+        <td><%= fr_inscripcion_registro.habilitar_historial %></td>
+        <td><%= fr_inscripcion_registro.oficio_prestacion %></td>
+        <td><%= fr_inscripcion_registro.monto_pagado %></td>
+        <td><%= link_to 'Show', fr_inscripcion_registro %></td>
+        <td><%= link_to 'Edit', edit_fr_inscripcion_registro_path(fr_inscripcion_registro) %></td>
+        <td><%= link_to 'Destroy', fr_inscripcion_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fr Inscripcion Registro', new_fr_inscripcion_registro_path %>

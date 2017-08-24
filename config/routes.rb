@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fr_inscripcion_registros
   resources :anexos_unicos do
     collection do
       get 'index'
