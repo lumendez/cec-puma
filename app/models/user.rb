@@ -21,6 +21,8 @@ class User < ApplicationRecord
 
   has_many :inscripcion_registros, dependent: :destroy
 
+  has_many :fr_inscripcion_registros, dependent: :destroy
+
   before_save :assign_role
 
   before_save :assign_centro

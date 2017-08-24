@@ -1,1 +1,1 @@
-json.partial! "fr_inscripcion_registros/fr_inscripcion_registro", fr_inscripcion_registro: @fr_inscripcion_registro
+json.partial! "inscripcion_registros/inscripcion_registro", inscripcion_registro: @inscripcion_registro

@@ -1,0 +1,37 @@
+<div id="grupos">
+<h2 class="sub">Asignar calificaciones</h2>
+<%= form_tag actualizar_asignar_calificaciones_inscripcion_registros_path, method: :patch do %>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th width="5%">N&uacute;mero de lista</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Nombre</th>
+      <th>Calificaci&oacute;n media</th>
+      <th>Calificaci&oacute;n final</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
+          <%= fields_for "inscripcion_registros[]", inscripcion_registro do |f| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= inscripcion_registro.paterno %></td>
+              <td><%= inscripcion_registro.materno %></td>
+              <td><%= inscripcion_registro.nombre %></td>
+              <td width="5%"><%= f.text_field :examen_medio, value: inscripcion_registro.examen_medio, class:'form-control' %></td>
+              <td width="5%"><%= f.text_field :examen_final, value: inscripcion_registro.examen_final, class:'form-control' %></td>
+            </tr>
+          <% end %>
+      <% end %>
+  </tbody>
+</table>
+<%= submit_tag "Guardar calificaciones", class: 'btn btn-primary' %>
+<br>
+<br>
+<% end %>
+</div>
+
+<%= link_to 'Regresar', grupos_path %>

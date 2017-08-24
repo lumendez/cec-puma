@@ -1,7 +1,7 @@
 <%= form_for(fr_inscripcion_registro) do |f| %>
   <% if fr_inscripcion_registro.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(fr_inscripcion_registro.errors.count, "error") %> prohibited this fr_inscripcion_registro from being saved:</h2>
+      <h2>El formulario no pudo guardarse debido a lo siguiente:</h2>
 
       <ul>
       <% fr_inscripcion_registro.errors.full_messages.each do |message| %>
@@ -10,143 +10,641 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+<% if user_signed_in? && current_user.role.nombre == "Invitado" || current_user.role.nombre == "Control escolar" || current_user.role.nombre == "Administrador" %>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Oferta actual</strong></h4>
+  <% if current_user.role.nombre == "Control escolar" || current_user.role.nombre == "Administrador" %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :grupo_id, 'Grupos' %>
+      <%#= collection_select(:fr_inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: fr_inscripcion_registro.creado ) %>
+      <%= collection_select(:fr_inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :paterno %>
-    <%= f.text_field :paterno %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :idioma %>
+      <%#= collection_select(:fr_inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :idioma, Grupo.where(estado: "Abierto"), :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :horario %>
+      <%#= collection_select(:fr_inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:fr_inscripcion_registro, :horario, Grupo.where(estado: "Abierto"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :nivel %>
+      <%#= collection_select(:fr_inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :nivel, Grupo.where(estado: "Abierto"), :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :materno %>
-    <%= f.text_field :materno %>
+  <% else %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :grupo_id, 'Grupos' %>
+      <%#= collection_select(:fr_inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: fr_inscripcion_registro.creado ) %>
+      <%= collection_select(:fr_inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: fr_inscripcion_registro.creado ) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :idioma %>
-    <%= f.text_field :idioma %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :idioma %>
+      <%#= collection_select(:fr_inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :idioma, Grupo.where(estado: "Abierto"), :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :horario %>
+      <%#= collection_select(:fr_inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :horario, Grupo.where(estado: "Abierto"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :nivel %>
+      <%#= collection_select(:fr_inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :nivel, Grupo.where(estado: "Abierto"), :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :horario %>
-    <%= f.text_field :horario %>
+  <% end %>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :curso %>
+      <%#= collection_select(:fr_inscripcion_registro, :curso, @grupos, :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :curso, Grupo.where(estado: "Abierto"), :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :periodo %>
+      <%#= collection_select(:fr_inscripcion_registro, :periodo, @grupos, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :periodo, Grupo.where(estado: "Abierto"), :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :opcion_uno, 'Horario opcional 1' %>
+      <%#= collection_select(:fr_inscripcion_registro, :opcion_uno, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:fr_inscripcion_registro, :opcion_uno, Grupo.where(estado: "Abierto"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :opcion_dos, 'Horario opcional 2' %>
+      <%#= collection_select(:fr_inscripcion_registro, :opcion_dos, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:fr_inscripcion_registro, :opcion_dos, Grupo.where(estado: "Abierto"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :nivel %>
-    <%= f.text_field :nivel %>
+</div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Datos personales</strong></h4>
+  <% if user_signed_in? && current_user.role.nombre == "Invitado" %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :nombre, 'Nombre(s)' %>
+      <%= f.text_field :nombre, value: current_user.nombre.parameterize(separator: ' ').upcase, required: true, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :paterno, 'Apellido paterno' %>
+      <%= f.text_field :paterno, value: current_user.paterno.parameterize(separator: ' ').upcase, required: true, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :materno, 'Apellido materno' %>
+      <%= f.text_field :materno, value: current_user.materno.parameterize(separator: ' ').upcase, required: true, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :curso %>
-    <%= f.text_field :curso %>
+  <% else %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :nombre, 'Nombre(s)' %>
+      <%= f.text_field :nombre, required: true, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :paterno, 'Apellido paterno' %>
+      <%= f.text_field :paterno, required: true, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :materno, 'Apellido materno' %>
+      <%= f.text_field :materno, required: true, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :opcion_uno %>
-    <%= f.text_field :opcion_uno %>
+  <% end %>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :telefono, 'Teléfono' %>
+      <%= f.telephone_field :telefono, placeholder: 'a 10 dígitos', class: 'form-control' %>
+    </div>
+    <% if user_signed_in? && current_user.role.nombre == "Invitado" %>
+    <div class="form-group col-sm-3">
+      <%= f.label :correo, 'Correo electrónico' %>
+      <%= f.email_field :correo, value: current_user.email, required: true, class: 'form-control' %>
+    </div>
+    <% else %>
+    <div class="form-group col-sm-3">
+      <%= f.label :correo, 'Correo electrónico' %>
+      <%= f.email_field :correo, required: true, class: 'form-control' %>
+    </div>
+    <% end %>
+    <div class="form-group col-sm-2">
+      <%= f.label :sexo %>
+      <%= collection_select(:fr_inscripcion_registro, :sexo, Genero.all, :genero, :genero, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :procedencia %>
+      <%= collection_select(:fr_inscripcion_registro, :procedencia, Procedencium.all, :procedencia, :procedencia, {prompt: 'Seleccione'}, class: 'form-control', disabled: fr_inscripcion_registro.creado) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :opcion_dos %>
-    <%= f.text_field :opcion_dos %>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :cuota, 'Cuota (en pesos)' %>
+      <%= f.text_field :cuota, class:'form-control', disabled: fr_inscripcion_registro.creado %>
+    </div>
+    <% if user_signed_in? && current_user.role.nombre == "Invitado" %>
+    <div class="form-group col-sm-3">
+      <%= f.label :movimiento, 'Movimiento bancario' %>
+      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"  data-html="true" title="Según el método de pago" data-content="En el recibo de pago en <strong>ventanilla</strong> aparece como: <u>Movimiento</u>.<br>En el recibo de pago en <strong>PractiCaja</strong> aparece como: <u>AUT</u>.<br>Por <strong>transferencia bancaria</strong> aparece como: <u>Folio de internet</u>."><span class="badge">?</span></a>
+      <%= f.text_field :movimiento, placeholder: 'No. del movimiento', class:'form-control', disabled: fr_inscripcion_registro.creado %>
+    </div>
+    <% else %>
+    <div class="form-group col-sm-3">
+      <%= f.label :movimiento, 'Movimiento bancario' %>
+      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"  data-html="true" title="Según el método de pago" data-content="En el recibo de pago en <strong>ventanilla</strong> aparece como: <u>Movimiento</u>.<br>En el recibo de pago en <strong>PractiCaja</strong> aparece como: <u>AUT</u>.<br>Por <strong>transferencia bancaria</strong> aparece como: <u>Folio de internet</u>."><span class="badge">?</span></a>
+      <%= f.text_field :movimiento, placeholder: 'No. del movimiento', class:'form-control' %>
+    </div>
+    <% end %>
+    <div class="form-group col-sm-2" style="display:none" id="prestacion">
+      <%= f.label :oficio_prestacion, 'Oficio de la prestación' %>
+      <%= f.text_field :oficio_prestacion, placeholder: 'No. de oficio', class:'form-control', disabled: fr_inscripcion_registro.creado %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :imagen, 'Ingrese su voucher' %>
+      <%= f.file_field :imagen, disabled: fr_inscripcion_registro.creado %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :telefono %>
-    <%= f.text_field :telefono %>
+</div>
+<% else %>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Oferta actual</strong></h4>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :grupo_id, 'Grupos' %>
+      <%#= collection_select(:fr_inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: true) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :periodo %>
-    <%= f.text_field :periodo %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :idioma %>
+      <%#= collection_select(:fr_inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :idioma, Grupo.where(estado: "Abierto"), :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :horario %>
+      <%#= collection_select(:fr_inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :horario, Grupo.where(estado: "Abierto"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :nivel %>
+      <%#= collection_select(:fr_inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :nivel, Grupo.where(estado: "Abierto"), :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :correo %>
-    <%= f.text_field :correo %>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :curso %>
+      <%#= collection_select(:fr_inscripcion_registro, :curso, @grupos, :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :curso, Grupo.where(estado: "Abierto"), :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :periodo %>
+      <%#= collection_select(:fr_inscripcion_registro, :periodo, @grupos, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :periodo, Grupo.where(estado: "Abierto"), :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :opcion_uno, 'Horario opcional 1' %>
+      <%#= collection_select(:fr_inscripcion_registro, :opcion_uno, @grupos, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :opcion_uno, Grupo.where(estado: "Abierto"), :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :opcion_dos, 'Horario opcional 2' %>
+      <%#= collection_select(:fr_inscripcion_registro, :opcion_dos, @grupos, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:fr_inscripcion_registro, :opcion_dos, Grupo.where(estado: "Abierto"), :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :sexo %>
-    <%= f.text_field :sexo %>
+</div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Datos personales</strong></h4>
+  <% if user_signed_in? && current_user.role.nombre == "Invitado" %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :nombre, 'Nombre(s)' %>
+      <%= f.text_field :nombre, value: current_user.nombre, required: true, class: 'form-control', disabled: true %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :paterno, 'Apellido paterno' %>
+      <%= f.text_field :paterno, value: current_user.paterno, required: true, class: 'form-control', disabled: true %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :materno, 'Apellido materno' %>
+      <%= f.text_field :materno, value: current_user.materno, required: true, class: 'form-control', disabled: true %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :cuota %>
-    <%= f.text_field :cuota %>
+  <% else %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :nombre, 'Nombre(s)' %>
+      <%= f.text_field :nombre, required: true, class: 'form-control', disabled: true %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :paterno, 'Apellido paterno' %>
+      <%= f.text_field :paterno, required: true, class: 'form-control', disabled: true %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :materno, 'Apellido materno' %>
+      <%= f.text_field :materno, required: true, class: 'form-control', disabled: true %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :movimiento %>
-    <%= f.text_field :movimiento %>
+  <% end %>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :telefono, 'Teléfono' %>
+      <%= f.telephone_field :telefono, required: true, class: 'form-control', disabled: true %>
+    </div>
+    <% if user_signed_in? && current_user.role.nombre == "Invitado" %>
+    <div class="form-group col-sm-3">
+      <%= f.label :correo, 'Correo electrónico' %>
+      <%= f.email_field :correo, value: current_user.email, required: true, class: 'form-control', disabled: true %>
+    </div>
+    <% else %>
+    <div class="form-group col-sm-3">
+      <%= f.label :correo, 'Correo electrónico' %>
+      <%= f.email_field :correo, required: true, class: 'form-control', disabled: true %>
+    </div>
+    <% end %>
+    <div class="form-group col-sm-2">
+      <%= f.label :sexo %>
+      <%= collection_select(:fr_inscripcion_registro, :sexo, Genero.all, :genero, :genero, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :procedencia %>
+      <%= collection_select(:fr_inscripcion_registro, :procedencia, Procedencium.all, :procedencia, :procedencia, {prompt: 'Seleccione'}, class: 'form-control', disabled: fr_inscripcion_registro.creado) %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :procedencia %>
-    <%= f.text_field :procedencia %>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :cuota, 'Cuota (en pesos)' %>
+      <%= f.text_field :cuota, class:'form-control', disabled: fr_inscripcion_registro.creado %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :movimiento, 'Número de movimiento bancario' %>
+      <%= f.text_field :movimiento, class:'form-control', disabled: fr_inscripcion_registro.creado %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :oficio_prestacion, 'Oficio de la prestación' %>
+      <%= f.text_field :oficio_prestacion, placeholder: 'No. de oficio', class:'form-control', disabled: fr_inscripcion_registro.creado %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :imagen, 'Ingrese su voucher' %>
+      <%= f.file_field :imagen, disabled: true %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :grupo_id %>
-    <%= f.text_field :grupo_id %>
+</div>
+<% end %>
+<% if can? :control_escolar, fr_inscripcion_registro %>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Control escolar</strong></h4>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :documentos_validados, "Documentos validados" %>
+      <%= f.check_box :documentos_validados, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :monto_pagado %>
+      <%= f.text_field :monto_pagado, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :grupo_id, 'Grupo' %>
+      <%#= collection_select(:fr_inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:fr_inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :examen_medio %>
-    <%= f.number_field :examen_medio %>
+</div>
+<% end %>
+<% if can? :habilitar_historial_academico, fr_inscripcion_registro %>
+<div class="row jumbotron">
+  <!--<div class="col-md-6">
+    <h4 class="subs"><strong>Habilitar historial</strong></h4>
+    <div class="form-group col-sm-4">
+        <%#= f.label :habilitar_historial, "Historial académico" %>
+        <%#= f.check_box :habilitar_historial, class: 'form-control' %>
+      </div>
+  </div>-->
+<% end %>
+<% if can? :habilitar_contancia, fr_inscripcion_registro %>
+  <div class="col-md-4">
+    <h4 class="subs"><strong>Habilitar constancia</strong></h4>
+      <div class="form-group col-sm-4">
+        <%= f.label :habilitar_constancia, "Constancia" %>
+        <%= f.check_box :habilitar_constancia, class: 'form-control' %>
+      </div>
   </div>
-
-  <div class="field">
-    <%= f.label :examen_final %>
-    <%= f.number_field :examen_final %>
-  </div>
-
-  <div class="field">
-    <%= f.label :documentos_validados %>
-    <%= f.check_box :documentos_validados %>
-  </div>
-
-  <div class="field">
-    <%= f.label :boleta %>
-    <%= f.text_field :boleta %>
-  </div>
-
-  <div class="field">
-    <%= f.label :oferta_grupo %>
-    <%= f.text_field :oferta_grupo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :habilitar_constancia %>
-    <%= f.check_box :habilitar_constancia %>
-  </div>
-
-  <div class="field">
-    <%= f.label :habilitar_historial %>
-    <%= f.check_box :habilitar_historial %>
-  </div>
-
-  <div class="field">
-    <%= f.label :oficio_prestacion %>
-    <%= f.text_field :oficio_prestacion %>
-  </div>
-
-  <div class="field">
-    <%= f.label :monto_pagado %>
-    <%= f.text_field :monto_pagado %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+</div>
+<% end %>
+<% if can? :evaluacion_media, fr_inscripcion_registro %>
+<div class="row jumbotron">
+  <div class="col-md-6">
+      <h4 class="subs"><strong>Evaluaci&oacute;n media</strong></h4>
+      <div class="row">
+        <div class="form-group col-sm-3">
+          <%= f.label :examen_medio %>
+          <%= f.text_field :examen_medio, class: 'form-control' %>
+        </div>
+      </div>
   </div>
 <% end %>
+<% if can? :evaluacion_final, fr_inscripcion_registro %>
+  <div class="col-md-6">
+      <h4 class="subs"><strong>Evaluaci&oacute;n final</strong></h4>
+      <div class="row">
+        <div class="form-group col-sm-3">
+          <%= f.label :examen_final %>
+          <%= f.text_field :examen_final, class: 'form-control' %>
+        </div>
+      </div>
+  </div>
+</div>
+<% end %>
+<div class="row">
+  <div class="actions col-sm-2">
+    <%= f.submit "Enviar", class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
+<% end %>
+
+<script>
+$('#new_fr_inscripcion_registro').submit(function() {
+    $('fr_inscripcion_registro_idioma').removeAttr('disabled');
+});
+
+</script>
+
+<script>
+  function matchUp(selected, toselect)
+    {
+      var idx = selected.prop('selectedIndex');
+      toselect.prop('selectedIndex', idx);
+    }
+
+    $('#fr_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_grupo_id'), $('#fr_inscripcion_registro_idioma'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_idioma'), $('#fr_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_grupo_id'), $('#fr_inscripcion_registro_horario'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_horario'), $('#fr_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_grupo_id'), $('#fr_inscripcion_registro_nivel'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_nivel'), $('#fr_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_grupo_id'), $('#fr_inscripcion_registro_curso'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_curso'), $('#fr_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_grupo_id'), $('#fr_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_periodo'), $('#fr_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_grupo_id'), $('#fr_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_grupo_id'), $('#fr_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    <!-- -->
+
+    $('#fr_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_idioma'), $('#fr_inscripcion_registro_horario'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_horario'), $('#fr_inscripcion_registro_idioma'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_idioma'), $('#fr_inscripcion_registro_nivel'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_nivel'), $('#fr_inscripcion_registro_idioma'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_idioma'), $('#fr_inscripcion_registro_curso'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_curso'), $('#fr_inscripcion_registro_idioma'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_idioma'), $('#fr_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_periodo'), $('#fr_inscripcion_registro_idioma'));
+      }
+    );
+
+    <!-- -->
+
+    $('#fr_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_horario'), $('#fr_inscripcion_registro_nivel'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_nivel'), $('#fr_inscripcion_registro_horario'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_horario'), $('#fr_inscripcion_registro_curso'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_curso'), $('#fr_inscripcion_registro_horario'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_horario'), $('#fr_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_periodo'), $('#fr_inscripcion_registro_horario'));
+      }
+    );
+
+    <!-- -->
+
+    $('#fr_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_nivel'), $('#fr_inscripcion_registro_curso'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_curso'), $('#fr_inscripcion_registro_nivel'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_nivel'), $('#fr_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_periodo'), $('#fr_inscripcion_registro_nivel'));
+      }
+    );
+
+    <!-- -->
+
+    $('#fr_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_curso'), $('#fr_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#fr_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#fr_inscripcion_registro_periodo'), $('#fr_inscripcion_registro_curso'));
+      }
+    );
+</script>
+<script>
+  function asignarCuota(){
+    var nivel = $("#fr_inscripcion_registro_nivel").val();
+    var procedencia = $("#fr_inscripcion_registro_procedencia").val();
+    var cuota;
+      if (procedencia == "Instituto Politécnico Nacional"  && (nivel.includes("Básico") || nivel.includes("Intermedio") || nivel.includes("Avanzado") )){
+        cuota = "510.00";
+      }
+      else if (procedencia == "Instituto Politécnico Nacional"  && (nivel.includes("Certificación") )){
+        cuota = "1163.50";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Básico")) ){
+        cuota = "940.00";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Intermedio")) ){
+        cuota = "987.50";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Avanzado")) ){
+        cuota = "1018.50";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Certificación")) ){
+        cuota = "1428.50";
+      }
+      else if (procedencia == "Prestación"  && (nivel.includes("Básico") || nivel.includes("Intermedio") || nivel.includes("Avanzado") )){
+        cuota = "0.00";
+        $('#prestacion').show();
+      }
+    $('#fr_inscripcion_registro_cuota').val(cuota);
+  }
+
+  $("select").change( asignarCuota );
+  asignarCuota();
+</script>
+<script>
+function oficio(){
+  var prestacion = $('#fr_inscripcion_registro_procedencia').val();
+  if (prestacion == "Prestación"){
+    $("#prestacion").show();
+  }
+  else {
+    $("#prestacion").hide();
+  }
+}
+$("select").change(oficio);
+oficio();
+</script>
+<script>
+$(function () {
+  $('[data-toggle="popover"]').popover({
+    container: 'body'
+  });
+})
+</script>
+<script>
+  $('#new_fr_inscripcion_registro').submit(function() {
+      $('#fr_inscripcion_registro_idioma').removeAttr('disabled');
+      $('#fr_inscripcion_registro_horario').removeAttr('disabled');
+      $('#fr_inscripcion_registro_nivel').removeAttr('disabled');
+      $('#fr_inscripcion_registro_curso').removeAttr('disabled');
+      $('#fr_inscripcion_registro_periodo').removeAttr('disabled');
+  });
+</script>
