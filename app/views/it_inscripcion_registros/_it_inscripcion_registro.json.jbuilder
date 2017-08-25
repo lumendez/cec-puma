@@ -1,0 +1,2 @@
+json.extract! it_inscripcion_registro, :id, :nombre, :paterno, :materno, :idioma, :horario, :nivel, :curso, :opcion_uno, :opcion_dos, :telefono, :periodo, :correo, :sexo, :cuota, :movimiento, :procedencia, :grupo_id, :examen_medio, :examen_final, :documentos_validados, :boleta, :oferta_grupo, :user_id, :habilitar_constancia, :habilitar_historial, :oficio_prestacion, :monto_pagado, :created_at, :updated_at
+json.url it_inscripcion_registro_url(it_inscripcion_registro, format: :json)

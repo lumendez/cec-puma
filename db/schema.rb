@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824235024) do
+ActiveRecord::Schema.define(version: 20170825230409) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -247,6 +247,44 @@ ActiveRecord::Schema.define(version: 20170824235024) do
     t.index ["user_id"], name: "index_inscripcion_registros_on_user_id", using: :btree
   end
 
+  create_table "it_inscripcion_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "nombre"
+    t.string   "paterno"
+    t.string   "materno"
+    t.string   "idioma"
+    t.string   "horario"
+    t.string   "nivel"
+    t.string   "curso"
+    t.string   "opcion_uno"
+    t.string   "opcion_dos"
+    t.string   "telefono"
+    t.string   "periodo"
+    t.string   "correo"
+    t.string   "sexo"
+    t.string   "cuota"
+    t.string   "movimiento"
+    t.string   "procedencia"
+    t.integer  "grupo_id"
+    t.integer  "examen_medio"
+    t.integer  "examen_final"
+    t.boolean  "documentos_validados"
+    t.string   "boleta"
+    t.string   "oferta_grupo"
+    t.integer  "user_id"
+    t.boolean  "habilitar_constancia"
+    t.boolean  "habilitar_historial"
+    t.string   "oficio_prestacion"
+    t.string   "monto_pagado"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
+    t.index ["grupo_id"], name: "index_it_inscripcion_registros_on_grupo_id", using: :btree
+    t.index ["user_id"], name: "index_it_inscripcion_registros_on_user_id", using: :btree
+  end
+
   create_table "lugar_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
@@ -349,6 +387,8 @@ ActiveRecord::Schema.define(version: 20170824235024) do
   add_foreign_key "grupos", "users"
   add_foreign_key "inscripcion_registros", "grupos"
   add_foreign_key "inscripcion_registros", "users"
+  add_foreign_key "it_inscripcion_registros", "grupos"
+  add_foreign_key "it_inscripcion_registros", "users"
   add_foreign_key "users", "centros"
   add_foreign_key "users", "roles"
 end

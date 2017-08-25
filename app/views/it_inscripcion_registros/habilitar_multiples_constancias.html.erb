@@ -1,0 +1,36 @@
+<h2 class="sub">Las siguientes contancias se van a crear:</h2>
+<%= form_for :it_inscripcion_registro, url: actualizar_multiples_constancias_it_inscripcion_registros_path, :html => { :method => :patch } do |form| %>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <th>Nombre del grupo</td>
+      <th>Grupo</th>
+      <th>Curso</th>
+      <th>A&ntilde;o</th>
+      <% @it_inscripcion_registros.each do |it_inscripcion_registro| %>
+      <tr>
+        <td><%= it_inscripcion_registro.nombre_completo %></td>
+        <td><%= it_inscripcion_registro.grupo.nombre %></td>
+        <td><%= it_inscripcion_registro.curso %></td>
+        <td><%= it_inscripcion_registro.grupo.anio %></td>
+        <%= hidden_field_tag "it_inscripcion_registro_ids[]", it_inscripcion_registro.id %>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= form.label :habilitar_constancia, 'Crear constancia(s)' %>
+    <%= form.check_box  :habilitar_constancia, class: 'form-control' %>
+  <br>
+  </div>
+</div>
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= form.submit "Guardar", class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>
+
+<%= link_to 'Regresar', grupos_path %>

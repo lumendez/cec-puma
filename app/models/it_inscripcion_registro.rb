@@ -1,4 +1,4 @@
-class FrInscripcionRegistro < ApplicationRecord
+class ItInscripcionRegistro < ApplicationRecord
   validates :nombre, :grupo_id, :paterno, :materno, :correo, :user_id, :sexo, presence: true
   has_attached_file :imagen, styles: { :medium => "640x" }
   validates_attachment_content_type :imagen, :content_type => /\Aimage\/.*\Z/
@@ -103,7 +103,7 @@ class FrInscripcionRegistro < ApplicationRecord
 
     where(
       terms.map { |term|
-        "(LOWER(fr_inscripcion_registros.nombre) LIKE ? OR LOWER(fr_inscripcion_registros.paterno) LIKE ? OR LOWER(fr_inscripcion_registros.materno) LIKE ?)"
+        "(LOWER(it_inscripcion_registros.nombre) LIKE ? OR LOWER(it_inscripcion_registros.paterno) LIKE ? OR LOWER(it_inscripcion_registros.materno) LIKE ?)"
       }.join(' AND '),
       *terms.map { |e| [e] * num_or_conds }.flatten
     )
@@ -118,10 +118,10 @@ class FrInscripcionRegistro < ApplicationRecord
     # Make sure to include the table name to avoid ambiguous column names.
     # Joining on other tables is quite common in Filterrific, and almost
     # every ActiveRecord table has a 'created_at' column.
-    order("fr_inscripcion_registros.created_at #{ direction }")
+    order("it_inscripcion_registros.created_at #{ direction }")
   when /^apellido_/
     # Simple sort on the name colums
-    order("LOWER(fr_inscripcion_registros.paterno) #{ direction }, LOWER(fr_inscripcion_registros.materno) #{ direction }")
+    order("LOWER(it_inscripcion_registros.paterno) #{ direction }, LOWER(it_inscripcion_registros.materno) #{ direction }")
   else
     raise(ArgumentError, "Opción no válida: #{ sort_option.inspect }")
   end
@@ -153,5 +153,4 @@ class FrInscripcionRegistro < ApplicationRecord
       ['Apellido (a-z)', 'apellido_asc']
     ]
   end
-
 end

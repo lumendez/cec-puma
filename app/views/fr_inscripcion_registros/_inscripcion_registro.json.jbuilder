@@ -1,2 +1,0 @@
-json.extract! inscripcion_registro, :id, :nombre, :idioma, :horario, :nivel, :curso, :opcion_uno, :opcion_dos, :telefono, :periodo, :correo, :sexo, :cuota, :movimiento, :procedencia, :created_at, :updated_at
-json.url inscripcion_registro_url(inscripcion_registro, format: :json)

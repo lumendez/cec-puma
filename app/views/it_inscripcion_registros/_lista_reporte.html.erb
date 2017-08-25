@@ -1,0 +1,40 @@
+<div id="filterrific_results">
+  <table class="table table-bordered table-condensed table-small-font">
+    <thead>
+      <tr>
+        <th>N&uacute;m prog.</th>
+        <th>A. Paterno</th>
+        <th>A. Materno</th>
+        <th>Nombre(s)</th>
+        <th>Nivel</th>
+        <th>Horario</th>
+        <th>Idioma</th>
+        <th>Cantidad depositada</th>
+        <th>Movimiento bancario</th>
+        <th>Comunidad</th>
+        <th>Curso</th>
+        <th>A&ntilde;o</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @it_inscripcion_registros.each_with_index do |it_inscripcion_registro, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= it_inscripcion_registro.paterno_upcase %></td>
+          <td><%= it_inscripcion_registro.materno_upcase %></td>
+          <td><%= it_inscripcion_registro.nombre_upcase %></td>
+          <td><%= it_inscripcion_registro.nivel.mb_chars.upcase %></td>
+          <td><%= it_inscripcion_registro.horario %></td>
+          <td><%= it_inscripcion_registro.idioma.mb_chars.upcase %></td>
+          <td>$<%= it_inscripcion_registro.monto_pagado %></td>
+          <td><%= it_inscripcion_registro.movimiento %></td>
+          <td><%= it_inscripcion_registro.procedencia.mb_chars.upcase %></td>
+          <td><%= it_inscripcion_registro.curso.upcase %></td>
+          <td><%= it_inscripcion_registro.created_at.strftime("%Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @it_inscripcion_registros, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+</div>
