@@ -1,4 +1,4 @@
-<%= form_tag editar_datos_inscripcion_registros_path do %>
+<%= form_tag editar_datos_fr_inscripcion_registros_path do %>
 <div id="filterrific_results">
   <table class="table table-bordered">
     <thead>
@@ -18,16 +18,16 @@
     </thead>
 
     <tbody>
-      <% @inscripcion_registros.each do |inscripcion_registro| %>
+      <% @fr_inscripcion_registros.each do |fr_inscripcion_registro| %>
         <tr>
-          <td><%= check_box_tag "inscripcion_registro_ids[]", inscripcion_registro.id %></td>
-          <td><%= inscripcion_registro.nombre_upcase %> <%= inscripcion_registro.paterno_upcase %> <%= inscripcion_registro.materno_upcase %></td>
-          <td>$<%= inscripcion_registro.cuota %></td>
-          <td>$<%= inscripcion_registro.monto_pagado %></td>
-          <td><%= inscripcion_registro.movimiento %></td>
-          <% if inscripcion_registro.imagen.exists? %>
+          <td><%= check_box_tag "fr_inscripcion_registro_ids[]", fr_inscripcion_registro.id %></td>
+          <td><%= fr_inscripcion_registro.nombre_upcase %> <%= fr_inscripcion_registro.paterno_upcase %> <%= fr_inscripcion_registro.materno_upcase %></td>
+          <td>$<%= fr_inscripcion_registro.cuota %></td>
+          <td>$<%= fr_inscripcion_registro.monto_pagado %></td>
+          <td><%= fr_inscripcion_registro.movimiento %></td>
+          <% if fr_inscripcion_registro.imagen.exists? %>
             <td>
-              <%= link_to inscripcion_registro.imagen.url(:medium), target: '_blank', class:'btn btn-comprobante' do %>
+              <%= link_to fr_inscripcion_registro.imagen.url(:medium), target: '_blank', class:'btn btn-comprobante' do %>
                 <span class="glyphicon glyphicon-paperclip"></span> Comprobante
               <% end %>
             </td>
@@ -36,22 +36,22 @@
               <strong>Sin comprobante</strong>
             </td>
           <% end %>
-          <% if inscripcion_registro.documentos_validados == true %>
-            <td class="success"><%= inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+          <% if fr_inscripcion_registro.documentos_validados == true %>
+            <td class="success"><%= fr_inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
           <% else %>
-            <td class="danger"><%= inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+            <td class="danger"><%= fr_inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
           <% end %>
-          <td><%= inscripcion_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-          <td><%= inscripcion_registro.updated_at.strftime("%d/%m/%y a las %T %P") %></td>
-          <td class="info"><%= inscripcion_registro.grupo.nombre %></td>
-          <td><%= link_to 'Talón', inscripcion_registro %></td>
-          <td><%= link_to 'Editar', edit_inscripcion_registro_path(inscripcion_registro) %></td>
-          <td><%= link_to 'Eliminar', inscripcion_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+          <td><%= fr_inscripcion_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+          <td><%= fr_inscripcion_registro.updated_at.strftime("%d/%m/%y a las %T %P") %></td>
+          <td class="info"><%= fr_inscripcion_registro.grupo.nombre %></td>
+          <td><%= link_to 'Talón', fr_inscripcion_registro %></td>
+          <td><%= link_to 'Editar', edit_fr_inscripcion_registro_path(fr_inscripcion_registro) %></td>
+          <td><%= link_to 'Eliminar', fr_inscripcion_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= paginate @inscripcion_registros, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+  <%= paginate @fr_inscripcion_registros, theme: 'twitter-bootstrap-3', param_name: :pagina %>
   <br><br>
   <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
   <%= submit_tag "Editar seleccionados", class: 'btn btn-primary' %>

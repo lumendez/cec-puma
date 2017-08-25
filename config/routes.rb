@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  resources :fr_inscripcion_registros
-  resources :anexos_unicos do
+  resources :fr_inscripcion_registros do
     collection do
-      get 'index'
-      get 'imprimir_anexo_unico'
+      delete 'destroy_multiple'
+      post 'habilitar_multiples_constancias'
+      patch 'actualizar_multiples_constancias'
+      get 'ver_constancias'
+      get 'constancia/:id', to: 'inscripcion_registros#constancia',  as: 'constancia'
+      post 'imprimir'
+      post 'asignar_calificaciones'
+      patch 'actualizar_asignar_calificaciones'
+      get 'reporte_curso'
+      get 'reporte_dec'
+      post 'editar_datos'
+      patch 'actualizar_editar_datos'
     end
   end
-
   resources :curriculums
   resources :registro_cursos
   resources :examen_colocacion_idiomas

@@ -4,50 +4,144 @@
 <p><strong>Idioma:</strong> <%= @grupo.idioma %></p>
 <p><strong>Horario:</strong> <%= @grupo.horario %></p>
 <p><strong>Inscritos:</strong> <%= @inscritos %></p>
-<%= form_tag asignar_calificaciones_inscripcion_registros_path do %>
-<table class="table table-bordered table-hover">
-  <thead>
+<% if @grupo.idioma == "Inglés"%>
+  <%= form_tag asignar_calificaciones_inscripcion_registros_path do %>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <% if can? :asignar_calificaciones, @grupo %>
+        <!--<#% if @grupo.estado == "Abierto" %>-->
+          <th></th>
+        <!--<#% end %>-->
+      <% end %>
+        <th width="5%">N&uacute;mero de lista</th>
+        <th>Apellido paterno</th>
+        <th>Apellido materno</th>
+        <th>Nombre</th>
+        <th>Examen medio</th>
+        <th>Examen final</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
+            <tr>
+              <% if can? :asignar_calificaciones, @grupo %>
+                <!--<#% if @grupo.estado == "Abierto" %>-->
+                  <td><%= check_box_tag "inscripcion_registro_ids[]", inscripcion_registro.id %></td>
+                <!--<#% end %>-->
+              <% end %>
+              <td><%= index + 1 %></td>
+              <td><%= inscripcion_registro.paterno %></td>
+              <td><%= inscripcion_registro.materno %></td>
+              <td><%= inscripcion_registro.nombre %></td>
+              <td><%= inscripcion_registro.examen_medio %></td>
+              <td><%= inscripcion_registro.examen_final %></td>
+              <td><%= inscripcion_registro.promedio %></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
     <% if can? :asignar_calificaciones, @grupo %>
       <!--<#% if @grupo.estado == "Abierto" %>-->
-        <th></th>
+        <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+        <%= submit_tag "Asignar calificaciones", class:'btn btn-primary' %>
       <!--<#% end %>-->
     <% end %>
-      <th width="5%">N&uacute;mero de lista</th>
-      <th>Apellido paterno</th>
-      <th>Apellido materno</th>
-      <th>Nombre</th>
-      <th>Examen medio</th>
-      <th>Examen final</th>
-      <th>Promedio</th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
-          <tr>
-            <% if can? :asignar_calificaciones, @grupo %>
-              <!--<#% if @grupo.estado == "Abierto" %>-->
-                <td><%= check_box_tag "inscripcion_registro_ids[]", inscripcion_registro.id %></td>
-              <!--<#% end %>-->
-            <% end %>
-            <td><%= index + 1 %></td>
-            <td><%= inscripcion_registro.paterno %></td>
-            <td><%= inscripcion_registro.materno %></td>
-            <td><%= inscripcion_registro.nombre %></td>
-            <td><%= inscripcion_registro.examen_medio %></td>
-            <td><%= inscripcion_registro.examen_final %></td>
-            <td><%= inscripcion_registro.promedio %></td>
-          </tr>
+  <% end %>
+<% elsif @grupo.idioma == "Francés" %>
+  <%= form_tag asignar_calificaciones_fr_inscripcion_registros_path do %>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <% if can? :asignar_calificaciones, @grupo %>
+        <!--<#% if @grupo.estado == "Abierto" %>-->
+          <th></th>
+        <!--<#% end %>-->
       <% end %>
-  </tbody>
-</table>
-<% if can? :asignar_calificaciones, @grupo %>
-  <!--<#% if @grupo.estado == "Abierto" %>-->
-    <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
-    <%= submit_tag "Asignar calificaciones", class:'btn btn-primary' %>
-  <!--<#% end %>-->
+        <th width="5%">N&uacute;mero de lista</th>
+        <th>Apellido paterno</th>
+        <th>Apellido materno</th>
+        <th>Nombre</th>
+        <th>Examen medio</th>
+        <th>Examen final</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% @fr_inscripcion_registros.each_with_index do |fr_inscripcion_registro, index| %>
+            <tr>
+              <% if can? :asignar_calificaciones, @grupo %>
+                <!--<#% if @grupo.estado == "Abierto" %>-->
+                  <td><%= check_box_tag "fr_inscripcion_registro_ids[]", fr_inscripcion_registro.id %></td>
+                <!--<#% end %>-->
+              <% end %>
+              <td><%= index + 1 %></td>
+              <td><%= fr_inscripcion_registro.paterno %></td>
+              <td><%= fr_inscripcion_registro.materno %></td>
+              <td><%= fr_inscripcion_registro.nombre %></td>
+              <td><%= fr_inscripcion_registro.examen_medio %></td>
+              <td><%= fr_inscripcion_registro.examen_final %></td>
+              <td><%= fr_inscripcion_registro.promedio %></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+    <% if can? :asignar_calificaciones, @grupo %>
+      <!--<#% if @grupo.estado == "Abierto" %>-->
+        <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+        <%= submit_tag "Asignar calificaciones", class:'btn btn-primary' %>
+      <!--<#% end %>-->
+    <% end %>
+  <% end %>
+<% elsif  @grupo.idioma == "Italiano" %>
+  <%= form_tag asignar_calificaciones_inscripcion_registros_path do %>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <% if can? :asignar_calificaciones, @grupo %>
+        <!--<#% if @grupo.estado == "Abierto" %>-->
+          <th></th>
+        <!--<#% end %>-->
+      <% end %>
+        <th width="5%">N&uacute;mero de lista</th>
+        <th>Apellido paterno</th>
+        <th>Apellido materno</th>
+        <th>Nombre</th>
+        <th>Examen medio</th>
+        <th>Examen final</th>
+        <th>Promedio</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
+            <tr>
+              <% if can? :asignar_calificaciones, @grupo %>
+                <!--<#% if @grupo.estado == "Abierto" %>-->
+                  <td><%= check_box_tag "inscripcion_registro_ids[]", inscripcion_registro.id %></td>
+                <!--<#% end %>-->
+              <% end %>
+              <td><%= index + 1 %></td>
+              <td><%= inscripcion_registro.paterno %></td>
+              <td><%= inscripcion_registro.materno %></td>
+              <td><%= inscripcion_registro.nombre %></td>
+              <td><%= inscripcion_registro.examen_medio %></td>
+              <td><%= inscripcion_registro.examen_final %></td>
+              <td><%= inscripcion_registro.promedio %></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+    <% if can? :asignar_calificaciones, @grupo %>
+      <!--<#% if @grupo.estado == "Abierto" %>-->
+        <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+        <%= submit_tag "Asignar calificaciones", class:'btn btn-primary' %>
+      <!--<#% end %>-->
+    <% end %>
+  <% end %>
 <% end %>
-<% end %>
+
+
 </div>
 
 <%= render 'grupos/links' %>

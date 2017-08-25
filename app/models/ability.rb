@@ -27,6 +27,11 @@ class Ability
         can :update, InscripcionRegistro do |inscripcion_registro|
           inscripcion_registro.try(:user) == user
         end
+        can :create, FrInscripcionRegistro
+        can :show, FrInscripcionRegistro
+        can :update, FrInscripcionRegistro do |fr_inscripcion_registro|
+          fr_inscripcion_registro.try(:user) == user
+        end
         #can :read, ExamenColocacionIdioma
         can :create, ExamenColocacionIdioma
         can :update, ExamenColocacionIdioma do |examen_colocacion_idioma|

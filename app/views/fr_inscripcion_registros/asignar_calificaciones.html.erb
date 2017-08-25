@@ -1,6 +1,6 @@
 <div id="grupos">
 <h2 class="sub">Asignar calificaciones</h2>
-<%= form_tag actualizar_asignar_calificaciones_inscripcion_registros_path, method: :patch do %>
+<%= form_tag actualizar_asignar_calificaciones_fr_inscripcion_registros_path, method: :patch do %>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -14,15 +14,15 @@
   </thead>
 
   <tbody>
-      <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
-          <%= fields_for "inscripcion_registros[]", inscripcion_registro do |f| %>
+      <% @fr_inscripcion_registros.each_with_index do |fr_inscripcion_registro, index| %>
+          <%= fields_for "fr_inscripcion_registros[]", fr_inscripcion_registro do |f| %>
             <tr>
               <td><%= index + 1 %></td>
-              <td><%= inscripcion_registro.paterno %></td>
-              <td><%= inscripcion_registro.materno %></td>
-              <td><%= inscripcion_registro.nombre %></td>
-              <td width="5%"><%= f.text_field :examen_medio, value: inscripcion_registro.examen_medio, class:'form-control' %></td>
-              <td width="5%"><%= f.text_field :examen_final, value: inscripcion_registro.examen_final, class:'form-control' %></td>
+              <td><%= fr_inscripcion_registro.paterno %></td>
+              <td><%= fr_inscripcion_registro.materno %></td>
+              <td><%= fr_inscripcion_registro.nombre %></td>
+              <td width="5%"><%= f.text_field :examen_medio, value: fr_inscripcion_registro.examen_medio, class:'form-control' %></td>
+              <td width="5%"><%= f.text_field :examen_final, value: fr_inscripcion_registro.examen_final, class:'form-control' %></td>
             </tr>
           <% end %>
       <% end %>

@@ -42,9 +42,9 @@
 <% end %>
 
 <%= render(
-  partial: 'inscripcion_registros/registros',
-  locals: { inscripcion_registros: @inscripcion_registros }
+  partial: 'fr_inscripcion_registros/registros',
+  locals: { fr_inscripcion_registros: @fr_inscripcion_registros }
 ) %>
 
 <br>
-<%= link_to 'Crear nuevo registro de inscripción', new_inscripcion_registro_path %>
+<%= link_to 'Crear nuevo registro de inscripción', new_fr_inscripcion_registro_path %>

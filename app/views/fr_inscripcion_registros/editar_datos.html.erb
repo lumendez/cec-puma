@@ -1,4 +1,4 @@
-<%= form_tag actualizar_editar_datos_inscripcion_registros_path, method: :patch do %>
+<%= form_tag actualizar_editar_datos_fr_inscripcion_registros_path, method: :patch do %>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -9,13 +9,13 @@
     </tr>
   </thead>
   <tbody>
-      <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
-          <%= fields_for "inscripcion_registros[]", inscripcion_registro do |f| %>
+      <% @fr_inscripcion_registros.each_with_index do |fr_inscripcion_registro, index| %>
+          <%= fields_for "fr_inscripcion_registros[]", fr_inscripcion_registro do |f| %>
             <tr>
-              <td><%= inscripcion_registro.nombre_paterno_materno %></td>
-              <td><%= f.text_field :monto_pagado, value: inscripcion_registro.monto_pagado, class:'form-control' %></td>
-              <td><%= f.text_field :movimiento, value: inscripcion_registro.movimiento, class:'form-control' %></td>
-              <td><%= f.check_box :documentos_validados, value: inscripcion_registro.documentos_validados, class: 'form-control' %></td>
+              <td><%= fr_inscripcion_registro.nombre_paterno_materno %></td>
+              <td><%= f.text_field :monto_pagado, value: fr_inscripcion_registro.monto_pagado, class:'form-control' %></td>
+              <td><%= f.text_field :movimiento, value: fr_inscripcion_registro.movimiento, class:'form-control' %></td>
+              <td><%= f.check_box :documentos_validados, value: fr_inscripcion_registro.documentos_validados, class: 'form-control' %></td>
             </tr>
           <% end %>
       <% end %>
@@ -23,5 +23,5 @@
 </table>
 <%= submit_tag "Guardar cambios", class: 'btn btn-primary' %>
 <br>
-<%= link_to 'Regresar', inscripcion_registros_path %>
+<%= link_to 'Regresar', fr_inscripcion_registros_path %>
 <% end %>

@@ -9,12 +9,12 @@ class FrInscripcionRegistrosController < ApplicationController
   # GET /fr_inscripcion_registros.json
   def index
     @filterrific = initialize_filterrific(
-    InscripcionRegistro,
+    FrInscripcionRegistro,
     params[:filterrific],
     select_options:{
-      sorted_by: InscripcionRegistro.options_for_sorted_by,
+      sorted_by: FrInscripcionRegistro.options_for_sorted_by,
       with_grupo_id: Grupo.where(estado: "Abierto").options_for_select,
-      with_documentos_validados: InscripcionRegistro.options_for_documentos_validados,
+      with_documentos_validados: FrInscripcionRegistro.options_for_documentos_validados,
       with_curso: CursoNombre.options_for_select
     },
     ) or return
@@ -45,15 +45,15 @@ class FrInscripcionRegistrosController < ApplicationController
     #algún examen y que nivel alcanzó a través de él.
 
     #Se recupera el ultimo registro sin distincion del idioma
-    @registro_anterior = InscripcionRegistro.where(user_id: current_user.id).last
+    @registro_anterior = FrInscripcionRegistro.where(user_id: current_user.id).last
 
     #Se recupera el ultimo registro que se tenga del usuario en el idioma inglés, francés o italiano, servirá para mostrarle la oferta
-    registro_anterior_ingles = InscripcionRegistro.where(user_id: current_user.id, idioma: 'Inglés').last
-    registro_anterior_frances = InscripcionRegistro.where(user_id: current_user.id, idioma: 'Francés').last
-    registro_anterior_italiano = InscripcionRegistro.where(user_id: current_user.id, idioma: 'Italiano').last
+    registro_anterior_ingles = FrInscripcionRegistro.where(user_id: current_user.id, idioma: 'Inglés').last
+    registro_anterior_frances = FrInscripcionRegistro.where(user_id: current_user.id, idioma: 'Francés').last
+    registro_anterior_italiano = FrInscripcionRegistro.where(user_id: current_user.id, idioma: 'Italiano').last
 
     #Se utiliza para aplicar la condición de que si tiene 3 cursos reprobados tendrá que iniciar desde básico 1 o hacer examen de colocación
-    @registros_no_aprobados = InscripcionRegistro.where("user_id = ? AND examen_medio < ? AND examen_final < ? AND idioma = ? OR ? OR ? AND nivel LIKE ? OR ? OR ? OR ?", current_user.id, 80, 80, "Inglés", "Francés", "Italiano", "%Básico%", "%Intermedio%", "%Avanzado%", "%Certificación").last(3)
+    @registros_no_aprobados = FrInscripcionRegistro.where("user_id = ? AND examen_medio < ? AND examen_final < ? AND idioma = ? OR ? OR ? AND nivel LIKE ? OR ? OR ? OR ?", current_user.id, 80, 80, "Inglés", "Francés", "Italiano", "%Básico%", "%Intermedio%", "%Avanzado%", "%Certificación").last(3)
 
     #Se utiliza para saber si está vigente el examen de colocación y mostrar la oferta
     @examen_colocacion = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ?", current_user.id, Date.today.months_ago(2)).last
@@ -89,7 +89,7 @@ class FrInscripcionRegistrosController < ApplicationController
     #primero si existe algún registro previo y posteriormente si posee un examen de
     #colocación.
     #if registro_anterior_ingles.blank? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
-      #@grupos = InscripcionRegistro.oferta_nuevo_ingreso
+      #@grupos = FrInscripcionRegistro.oferta_nuevo_ingreso
     #elsif registro_anterior_ingles.present? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
     #end
 =begin
@@ -230,12 +230,12 @@ class FrInscripcionRegistrosController < ApplicationController
       #Se cuenta cuantas personas se han preinscrito a un grupo. Se cuenta con todos los registros no
       #importando que éstos no hayan sido validados. El dato se obtiene a través de todos los registros
       #de preinscripción, el id para el grupo actual se obtiene con @fr_inscripcion_registro.grupo_id
-      cupos = InscripcionRegistro.where(grupo_id: @fr_inscripcion_registro.grupo_id).count
+      cupos = FrInscripcionRegistro.where(grupo_id: @fr_inscripcion_registro.grupo_id).count
 
       #Se localiza si el usuatio tiene un id previo con ese mismo grupo. Si existe se le envia un mensaje
       # y no se permite guardar el registro por segunda ocasión.
       usuario = User.find(current_user.id)
-      registro = InscripcionRegistro.find_by(user_id: usuario, grupo_id: @fr_inscripcion_registro.grupo_id)
+      registro = FrInscripcionRegistro.find_by(user_id: usuario, grupo_id: @fr_inscripcion_registro.grupo_id)
 
       #Si el cupo del grupo excede los 25 alunos se le muestra un mensaje al usuario donde se le indica
       #que deberá elegir un grupo distinto, el registro de inscripción no se guardará en la base dde datos_bancos
@@ -360,11 +360,11 @@ class FrInscripcionRegistrosController < ApplicationController
   end
 
   def habilitar_multiples_constancias
-    @fr_inscripcion_registros = InscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
+    @fr_inscripcion_registros = FrInscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
   end
 
   def actualizar_multiples_constancias
-    @fr_inscripcion_registros = InscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
+    @fr_inscripcion_registros = FrInscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
     @fr_inscripcion_registros.each do |fr_inscripcion_registro|
       fr_inscripcion_registro.update(habilitar_constancia_params)
     end
@@ -373,9 +373,9 @@ class FrInscripcionRegistrosController < ApplicationController
   end
 
   def ver_constancias
-    #@fr_inscripcion_registros = InscripcionRegistro.where(habilitar_constancia: true).order('paterno DESC').page params[:pagina]
+    #@fr_inscripcion_registros = FrInscripcionRegistro.where(habilitar_constancia: true).order('paterno DESC').page params[:pagina]
     @filterrific = initialize_filterrific(
-    InscripcionRegistro,
+    FrInscripcionRegistro,
     params[:filterrific],
     ) or return
     @fr_inscripcion_registros = @filterrific.find.page(params[:pagina])
@@ -397,15 +397,15 @@ class FrInscripcionRegistrosController < ApplicationController
   end
 
   def imprimir
-    @fr_inscripcion_registros = InscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
+    @fr_inscripcion_registros = FrInscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
   end
 
   def asignar_calificaciones
-    @fr_inscripcion_registros = InscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
+    @fr_inscripcion_registros = FrInscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
   end
 
   def actualizar_asignar_calificaciones
-    InscripcionRegistro.update(params[:fr_inscripcion_registros].keys, params[:fr_inscripcion_registros].values)
+    FrInscripcionRegistro.update(params[:fr_inscripcion_registros].keys, params[:fr_inscripcion_registros].values)
     flash[:notice] = "Calificaciones guardadas"
     if current_user.role.nombre == "Profesor"
       redirect_to panel_profesores_path
@@ -416,10 +416,10 @@ class FrInscripcionRegistrosController < ApplicationController
 
   def reporte_curso
     @filterrific = initialize_filterrific(
-    InscripcionRegistro,
+    FrInscripcionRegistro,
     params[:filterrific],
     select_options:{
-      sorted_by: InscripcionRegistro.options_for_sorted_by,
+      sorted_by: FrInscripcionRegistro.options_for_sorted_by,
       with_curso: CursoNombre.options_for_select
     },
     ) or return
@@ -438,10 +438,10 @@ class FrInscripcionRegistrosController < ApplicationController
 
   def reporte_dec
     @filterrific = initialize_filterrific(
-    InscripcionRegistro,
+    FrInscripcionRegistro,
     params[:filterrific],
     select_options:{
-      sorted_by: InscripcionRegistro.options_for_sorted_by,
+      sorted_by: FrInscripcionRegistro.options_for_sorted_by,
       with_curso: CursoNombre.options_for_select
     },
     ) or return
@@ -459,12 +459,12 @@ class FrInscripcionRegistrosController < ApplicationController
   end
 
   def editar_datos
-    @fr_inscripcion_registros = InscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
+    @fr_inscripcion_registros = FrInscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
   end
 
   def actualizar_editar_datos
-    #@fr_inscripcion_registros = InscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
-    InscripcionRegistro.update(params[:fr_inscripcion_registros].keys, params[:fr_inscripcion_registros].values)
+    #@fr_inscripcion_registros = FrInscripcionRegistro.find(params[:fr_inscripcion_registro_ids])
+    FrInscripcionRegistro.update(params[:fr_inscripcion_registros].keys, params[:fr_inscripcion_registros].values)
     flash[:notice] = "Datos guardados"
     redirect_to fr_inscripcion_registros_path
   end
@@ -472,7 +472,7 @@ class FrInscripcionRegistrosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fr_inscripcion_registro
-      @fr_inscripcion_registro = InscripcionRegistro.find(params[:id])
+      @fr_inscripcion_registro = FrInscripcionRegistro.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -482,7 +482,7 @@ class FrInscripcionRegistrosController < ApplicationController
     end
 
     def fr_inscripcion_registro
-      @fr_inscripcion_registro = InscripcionRegistro.new(fr_inscripcion_registro_params)
+      @fr_inscripcion_registro = FrInscripcionRegistro.new(fr_inscripcion_registro_params)
     end
 
     def control_escolar_params
