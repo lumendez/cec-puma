@@ -1,4 +1,4 @@
-<% @inscripcion_registros.each do |inscripcion_registro| %>
+<% @fr_inscripcion_registros.each do |fr_inscripcion_registro| %>
 <div id="constancias">
   <table class="constancia">
       <tr>
@@ -14,10 +14,10 @@
         <td colspan="4"><p align="center" class="otorga">Otorga la presente</p><p class="constancia" align="center">CONSTANCIA</p></td>
       </tr>
       <tr>
-        <td colspan="4"><p align="center" class="nombre_mayusculas">a: <%= inscripcion_registro.nombre_completo %></p></td>
+        <td colspan="4"><p align="center" class="nombre_mayusculas">a: <%= fr_inscripcion_registro.nombre_completo %></p></td>
       </tr>
       <tr>
-        <td colspan="4"><p align="center">Por haber participado en el curso: <strong>"<%= inscripcion_registro.curso %>"</strong>, del <%= inscripcion_registro.grupo.periodo %> de 2017, impartido en el Centro de Educación Continua Eugenio Mendez Docurro, con una duración de 40 horas.</p></td>
+        <td colspan="4"><p align="center">Por haber participado en el curso: <strong>"<%= fr_inscripcion_registro.curso %>"</strong>, del <%= fr_inscripcion_registro.grupo.periodo %> de 2017, impartido en el Centro de Educación Continua Eugenio Mendez Docurro, con una duración de 40 horas.</p></td>
       </tr>
       <tr>
         <td colspan="2"><p align="center">____________________________________<br><strong>C.P. Alfredo Wong Castañeda</strong><br>Contralor interno de la H. Cámara de Diputados</p></td>
@@ -29,7 +29,7 @@
 <div class="row">
   <input type="button" id="btn-constancia" value="Imprimir constancias" class="btn btn-md btn-primary">
 </div>
-<%= link_to 'Regresar', ver_constancias_inscripcion_registros_path %>
+<%= link_to 'Regresar', ver_constancias_fr_inscripcion_registros_path %>
 
 <script>
 $("#btn-constancia").click(function () {

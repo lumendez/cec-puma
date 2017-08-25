@@ -21,26 +21,26 @@
     </thead>
 
     <tbody>
-      <% @inscripcion_registros.each do |inscripcion_registro, index| %>
+      <% @fr_inscripcion_registros.each do |fr_inscripcion_registro, index| %>
         <tr>
-          <td><%= inscripcion_registro.paterno_upcase %></td>
-          <td><%= inscripcion_registro.materno_upcase %></td>
-          <td><%= inscripcion_registro.nombre_upcase %></td>
-          <td><%= inscripcion_registro.user.rfc %></td>
-          <td><%= inscripcion_registro.sexo.upcase %></td>
-          <td><%= inscripcion_registro.procedencia.mb_chars.upcase %></td>
-          <td><%= inscripcion_registro.telefono %></td>
-          <td><%= inscripcion_registro.correo %></td>
-          <td><%= inscripcion_registro.nivel.mb_chars.upcase %></td>
-          <td><%= inscripcion_registro.horario %></td>
-          <td><%= inscripcion_registro.idioma.mb_chars.upcase %></td>
-          <td>$<%= inscripcion_registro.monto_pagado %></td>
-          <td><%= inscripcion_registro.movimiento %></td>
-          <td><%= inscripcion_registro.curso.upcase %></td>
-          <td><%= inscripcion_registro.created_at.strftime("%Y") %></td>
+          <td><%= fr_inscripcion_registro.paterno_upcase %></td>
+          <td><%= fr_inscripcion_registro.materno_upcase %></td>
+          <td><%= fr_inscripcion_registro.nombre_upcase %></td>
+          <td><%= fr_inscripcion_registro.user.rfc %></td>
+          <td><%= fr_inscripcion_registro.sexo.upcase %></td>
+          <td><%= fr_inscripcion_registro.procedencia.mb_chars.upcase %></td>
+          <td><%= fr_inscripcion_registro.telefono %></td>
+          <td><%= fr_inscripcion_registro.correo %></td>
+          <td><%= fr_inscripcion_registro.nivel.mb_chars.upcase %></td>
+          <td><%= fr_inscripcion_registro.horario %></td>
+          <td><%= fr_inscripcion_registro.idioma.mb_chars.upcase %></td>
+          <td>$<%= fr_inscripcion_registro.monto_pagado %></td>
+          <td><%= fr_inscripcion_registro.movimiento %></td>
+          <td><%= fr_inscripcion_registro.curso.upcase %></td>
+          <td><%= fr_inscripcion_registro.created_at.strftime("%Y") %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= paginate @inscripcion_registros, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+  <%= paginate @fr_inscripcion_registros, theme: 'twitter-bootstrap-3', param_name: :pagina %>
 </div>

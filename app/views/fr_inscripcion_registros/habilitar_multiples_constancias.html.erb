@@ -1,5 +1,5 @@
 <h2 class="sub">Las siguientes contancias se van a crear:</h2>
-<%= form_for :inscripcion_registro, url: actualizar_multiples_constancias_inscripcion_registros_path, :html => { :method => :patch } do |form| %>
+<%= form_for :fr_inscripcion_registro, url: actualizar_multiples_constancias_fr_inscripcion_registros_path, :html => { :method => :patch } do |form| %>
 <div class="row">
   <div class="col-md-12">
     <table class="table table-bordered">
@@ -7,13 +7,13 @@
       <th>Grupo</th>
       <th>Curso</th>
       <th>A&ntilde;o</th>
-      <% @inscripcion_registros.each do |inscripcion_registro| %>
+      <% @fr_inscripcion_registros.each do |fr_inscripcion_registro| %>
       <tr>
-        <td><%= inscripcion_registro.nombre_completo %></td>
-        <td><%= inscripcion_registro.grupo.nombre %></td>
-        <td><%= inscripcion_registro.curso %></td>
-        <td><%= inscripcion_registro.grupo.anio %></td>
-        <%= hidden_field_tag "inscripcion_registro_ids[]", inscripcion_registro.id %>
+        <td><%= fr_inscripcion_registro.nombre_completo %></td>
+        <td><%= fr_inscripcion_registro.grupo.nombre %></td>
+        <td><%= fr_inscripcion_registro.curso %></td>
+        <td><%= fr_inscripcion_registro.grupo.anio %></td>
+        <%= hidden_field_tag "fr_inscripcion_registro_ids[]", fr_inscripcion_registro.id %>
       </tr>
       <% end %>
     </table>
