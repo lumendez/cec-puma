@@ -41,43 +41,33 @@ class FrInscripcionRegistrosController < ApplicationController
   def new
     #Definición de las condiciones para un usuario pueda registrarse. @registro_anterior
     #corresponde al último registro que haya tenido el usuario en el sistema. @registros_no_aprobados
-    #cuenta los registro que el usuario tenga previamente reprobados y @examen_colocacion si tiene
+    #cuenta los registro que el usuario tenga previamente reprobados y examen_colocacion si tiene
     #algún examen y que nivel alcanzó a través de él.
 
     #Se recupera el ultimo registro sin distincion del idioma
-    @registro_anterior = FrInscripcionRegistro.where(user_id: current_user.id).last
-
-    #Se recupera el ultimo registro que se tenga del usuario en el idioma inglés, francés o italiano, servirá para mostrarle la oferta
-    registro_anterior_ingles = FrInscripcionRegistro.where(user_id: current_user.id, idioma: 'Inglés').last
-    registro_anterior_frances = FrInscripcionRegistro.where(user_id: current_user.id, idioma: 'Francés').last
-    registro_anterior_italiano = FrInscripcionRegistro.where(user_id: current_user.id, idioma: 'Italiano').last
+    registro_anterior = FrInscripcionRegistro.where(user_id: current_user.id, idioma: "Francés").last
 
     #Se utiliza para aplicar la condición de que si tiene 3 cursos reprobados tendrá que iniciar desde básico 1 o hacer examen de colocación
-    @registros_no_aprobados = FrInscripcionRegistro.where("user_id = ? AND examen_medio < ? AND examen_final < ? AND idioma = ? OR ? OR ? AND nivel LIKE ? OR ? OR ? OR ?", current_user.id, 80, 80, "Inglés", "Francés", "Italiano", "%Básico%", "%Intermedio%", "%Avanzado%", "%Certificación").last(3)
+    registros_no_aprobados = FrInscripcionRegistro.where("user_id = ? AND examen_medio < ? AND examen_final < ? AND idioma = ? AND nivel LIKE ? OR ? OR ? OR ?", current_user.id, 80, 80, "Francés", "%Básico%", "%Intermedio%", "%Avanzado%", "%Certificación").last(3)
 
     #Se utiliza para saber si está vigente el examen de colocación y mostrar la oferta
-    @examen_colocacion = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ?", current_user.id, Date.today.months_ago(2)).last
-
-    #Se utiliza para conocer el ultimo de examen de colocación por idioma. Inglés, Francés o Italiano
-    examen_colocacion_ingles = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ? AND idioma = ?", current_user.id, Date.today.months_ago(2), "Inglés").last
-    examen_colocacion_frances = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ? AND idioma = ?", current_user.id, Date.today.months_ago(2), "Francés").last
-    examen_colocacion_italiano = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ? AND idioma = ?", current_user.id, Date.today.months_ago(2), "Italiano").last
+    examen_colocacion = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ?", current_user.id, Date.today.months_ago(2)).last
 
     #Se revisa si el usuario no tiene un registro anterior y además, sino tiene registros anteriores
     #no aprobados. Si ambas condiciones se satisfacen, entonces se le permitirá crear un registro
     #de inscripción.
-    if @registro_anterior.blank? && @registros_no_aprobados.blank?
+    if registro_anterior.blank? && registros_no_aprobados.blank?
       @fr_inscripcion_registro = current_user.fr_inscripcion_registros.build
     else
       #Cambiar months_ago(2) que es el valor original
-      if @registro_anterior.curso.include?("Intensivo") && Date.today.months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
+      if registro_anterior.curso.include?("Intensivo") && Date.today.months_ago(2) >= registro_anterior.created_at && registro_anterior.documentos_validados == false
         flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
         #Cambiar months_ago(2) que es el valor original
-      elsif @registro_anterior.curso.include?("Sabatino") && Date.today.months_ago(2) >= @registro_anterior.created_at && @registro_anterior.documentos_validados == false
+      elsif registro_anterior.curso.include?("Sabatino") && Date.today.months_ago(2) >= registro_anterior.created_at && registro_anterior.documentos_validados == false
         flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
-      elsif @registros_no_aprobados.present? && @registros_no_aprobados.count >= 3
+      elsif registros_no_aprobados.present? && registros_no_aprobados.count >= 3
         flash[:error] = "Usted no ha aprobado los últimos tres cursos en este nivel, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
       else
@@ -88,135 +78,173 @@ class FrInscripcionRegistrosController < ApplicationController
     #de un examen de colocación quedó en cualquiera de los niveles señalados. Revisando
     #primero si existe algún registro previo y posteriormente si posee un examen de
     #colocación.
-    #if registro_anterior_ingles.blank? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
-      #@grupos = FrInscripcionRegistro.oferta_nuevo_ingreso
-    #elsif registro_anterior_ingles.present? && registro_anterior_frances.blank? && registro_anterior_italiano.blank?
-    #end
-=begin
-    if @registro_anterior.blank? && @examen_colocacion.blank?
-      @grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 1'
-      @grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 2'
-      @grupos = Grupo.where(nivel: 'Básico 2', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 3'
-      @grupos = Grupo.where(nivel: 'Básico 3', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 4'
-      @grupos = Grupo.where(nivel: 'Básico 4', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 5'
-      @grupos = Grupo.where(nivel: 'Básico 5', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 1'
-      @grupos = Grupo.where(nivel: 'Intermedio 1', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 2'
-      @grupos = Grupo.where(nivel: 'Intermedio 2', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 3'
-      @grupos = Grupo.where(nivel: 'Intermedio 3', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 4'
-      @grupos = Grupo.where(nivel: 'Intermedio 4', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 5'
-      @grupos = Grupo.where(nivel: 'Intermedio 5', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 1'
-      @grupos = Grupo.where(nivel: 'Avanzado 1', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 2'
-      @grupos = Grupo.where(nivel: 'Avanzado 2', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 3'
-      @grupos = Grupo.where(nivel: 'Avanzado 3', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 4'
-      @grupos = Grupo.where(nivel: 'Avanzado 4', estado: 'Abierto')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 5'
-      @grupos = Grupo.where(nivel: 'Avanzado 5', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Básico 1'
-      @grupos = Grupo.where(nivel: 'Básico 2', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Básico 2'
-      @grupos = Grupo.where(nivel: 'Básico 3', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Básico 3'
-      @grupos = Grupo.where(nivel: 'Básico 4', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Básico 4'
-      @grupos = Grupo.where(nivel: 'Básico 5', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Básico 5'
-      @grupos = Grupo.where(nivel: 'Intermedio 1', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Intermedio 1'
-      @grupos = Grupo.where(nivel: 'Intermedio 2', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Intermedio 2'
-      @grupos = Grupo.where(nivel: 'Intermedio 3', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Intermedio 3'
-      @grupos = Grupo.where(nivel: 'Intermedio 4', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Intermedio 4'
-      @grupos = Grupo.where(nivel: 'Intermedio 5', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Intermedio 5'
-      @grupos = Grupo.where(nivel: 'Avanzado 1', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Avanzado 1'
-      @grupos = Grupo.where(nivel: 'Avanzado 2', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Avanzado 2'
-      @grupos = Grupo.where(nivel: 'Avanzado 3', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Avanzado 3'
-      @grupos = Grupo.where(nivel: 'Avanzado 4', estado: 'Abierto')
-    elsif @registro_anterior.nivel == 'Avanzado 4'
-      @grupos = Grupo.where(nivel: 'Avanzado 5', estado: 'Abierto')
+
+    # En este caso se muestra básico 1 porque no existe antecedente de examen de
+    # colocación o de algún registro previo.
+    if registro_anterior.blank? && examen_colocacion.blank?
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 1', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 1', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 2', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 3', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 4', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 5', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 1', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 2', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 3', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 4', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 5', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 1', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 2', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 3', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 4', estado: 'Abierto')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 5', estado: 'Abierto')
+    # Aquí se presentan los niveles basados en si existen registros anteriores y
+    # si están aprobados. Si están aprobados se les muestra el siguiente nivel,
+    # sino, se le presenta el mismo nivel en el que estaba.
+    elsif registro_anterior.nivel == 'Básico 1' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 1' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 1', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 2' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 2' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 3' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 4', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 3' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 4' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 5', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 4' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 4', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 5' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 1', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Básico 5' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 5', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 1' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 1' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 1', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 2' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 2' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 3' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 4', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 3' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 4' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 5', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 4' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 4', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 5' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 1', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Intermedio 5' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 5', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 1' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 1' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 1', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 2' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 2' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 3' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 4', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 3' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 4' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 5', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 4' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 4', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 5' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 5', estado: 'Abierto')
     end
-=end
   end
 
   # GET /fr_inscripcion_registros/1/edit
   def edit
+    registro_anterior = FrInscripcionRegistro.where(user_id: @fr_inscripcion_registro.user_id, idioma: "Francés").last
+    examen_colocacion = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ?", @fr_inscripcion_registro.user_id, Date.today.months_ago(2)).last
     #Las siguientes condiciones aplican para que el usuario pueda editar su registro
     #de preinscrición sin que le aparezcan otros grupos que no correspondan con su nivel.
-    if @registro_anterior.blank? && @examen_colocacion.blank?
-      @grupos = Grupo.where(nivel: 'Básico 1')
-    elsif @registro_anterior.blank? || @examen_colocacion.nivel_asignado == 'Básico 1'
-      @grupos = Grupo.where(nivel: 'Básico 1')
-    elsif @registro_anterior.blank? || @examen_colocacion.nivel_asignado == 'Básico 2'
-      @grupos = Grupo.where(nivel: 'Básico 3')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 3'
-      @grupos = Grupo.where(nivel: 'Básico 4')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 4'
-      @grupos = Grupo.where(nivel: 'Básico 5')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Básico 5'
-      @grupos = Grupo.where(nivel: 'Intermedio 1')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 1'
-      @grupos = Grupo.where(nivel: 'Intermedio 2')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 2'
-      @grupos = Grupo.where(nivel: 'Intermedio 3')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 3'
-      @grupos = Grupo.where(nivel: 'Intermedio 4')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 4'
-      @grupos = Grupo.where(nivel: 'Intermedio 5')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Intermedio 5'
-      @grupos = Grupo.where(nivel: 'Avanzado 1')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 1'
-      @grupos = Grupo.where(nivel: 'Avanzado 2')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 2'
-      @grupos = Grupo.where(nivel: 'Avanzado 3')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 3'
-      @grupos = Grupo.where(nivel: 'Avanzado 4')
-    elsif @registro_anterior.blank? && @examen_colocacion.nivel_asignado == 'Avanzado 4'
-      @grupos = Grupo.where(nivel: 'Avanzado 5')
-    elsif @registro_anterior.nivel == 'Básico 2'
-      @grupos = Grupo.where(nivel: 'Básico 3')
-    elsif @registro_anterior.nivel == 'Básico 3'
-      @grupos = Grupo.where(nivel: 'Básico 4')
-    elsif @registro_anterior.nivel == 'Básico 4'
-      @grupos = Grupo.where(nivel: 'Básico 5')
-    elsif @registro_anterior.nivel == 'Básico 5'
-      @grupos = Grupo.where(nivel: 'Intermedio 1')
-    elsif @registro_anterior.nivel == 'Intermedio 1'
-      @grupos = Grupo.where(nivel: 'Intermedio 2')
-    elsif @registro_anterior.nivel == 'Intermedio 2'
-      @grupos = Grupo.where(nivel: 'Intermedio 3')
-    elsif @registro_anterior.nivel == 'Intermedio 3'
-      @grupos = Grupo.where(nivel: 'Intermedio 4')
-    elsif @registro_anterior.nivel == 'Intermedio 4'
-      @grupos = Grupo.where(nivel: 'Intermedio 5')
-    elsif @registro_anterior.nivel == 'Intermedio 5'
-      @grupos = Grupo.where(nivel: 'Avanzado 1')
-    elsif @registro_anterior.nivel == 'Avanzado 1'
-      @grupos = Grupo.where(nivel: 'Avanzado 2')
-    elsif @registro_anterior.nivel == 'Avanzado 2'
-      @grupos = Grupo.where(nivel: 'Avanzado 3')
-    elsif @registro_anterior.nivel == 'Avanzado 3'
-      @grupos = Grupo.where(nivel: 'Avanzado 4')
-    elsif @registro_anterior.nivel == 'Avanzado 4'
-      @grupos = Grupo.where(nivel: 'Avanzado 5')
+    if registro_anterior.blank? && examen_colocacion.blank?
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 1')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 1')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 2')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 3')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 4')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Básico 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 5')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 1')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 2')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 3')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 4')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Intermedio 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 5')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 1')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 2')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 3')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 4')
+    elsif registro_anterior.blank? && examen_colocacion.nivel_asignado == 'Avanzado 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 5')
+    elsif registro_anterior.nivel == 'Básico 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 1')
+    elsif registro_anterior.nivel == 'Básico 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 2')
+    elsif registro_anterior.nivel == 'Básico 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 3')
+    elsif registro_anterior.nivel == 'Básico 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 4')
+    elsif registro_anterior.nivel == 'Básico 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Básico 5')
+    elsif registro_anterior.nivel == 'Intermedio 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 1')
+    elsif registro_anterior.nivel == 'Intermedio 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 2')
+    elsif registro_anterior.nivel == 'Intermedio 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 3')
+    elsif registro_anterior.nivel == 'Intermedio 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 4')
+    elsif registro_anterior.nivel == 'Intermedio 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Intermedio 5')
+    elsif registro_anterior.nivel == 'Avanzado 1'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 1')
+    elsif registro_anterior.nivel == 'Avanzado 2'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 2')
+    elsif registro_anterior.nivel == 'Avanzado 3'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 3')
+    elsif registro_anterior.nivel == 'Avanzado 4'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 4')
+    elsif registro_anterior.nivel == 'Avanzado 5'
+      @grupos = Grupo.where(idioma: "Francés", nivel: 'Avanzado 5')
     end
   end
 
