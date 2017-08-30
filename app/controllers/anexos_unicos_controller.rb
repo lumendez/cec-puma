@@ -6,9 +6,17 @@ class AnexosUnicosController < ApplicationController
   end
 
   def imprimir_anexo_unico
-    @grupos = Grupo.where(user_id: params[:user_ids], curso: params[:curso], anio: params[:anio])
-
+    @instructores = User.where(id: params[:user_ids])
+    @curso = CursoNombre.find_by(nombre: params[:curso]).nombre
+    @periodo = Grupo.find_by(curso: params[:curso]).periodo
+    # Se obtienen los grupos que tiene cada instructor en determinado idioma para
+    # enviarlos al formato de impresión
+    #@grupos_ingles = Grupo.where(user_id: params[:user_ids], curso: params[:curso], anio: params[:anio], idioma: "Inglés")
+    #@frances = Grupo.where(user_id: params[:user_ids], curso: params[:curso], anio: params[:anio], idioma: "Francés")
+    #@italiano = Grupo.where(user_id: params[:user_ids], curso: params[:curso], anio: params[:anio], idioma: "Italiano")
+    # Se traduce el mes para imprimir la fecha en que se genera el anexo
     @mes = mes
+    #@cursos_ingles = cursos_ingles
   end
 
   def mes
