@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825230409) do
+ActiveRecord::Schema.define(version: 20170831000426) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -194,6 +194,7 @@ ActiveRecord::Schema.define(version: 20170825230409) do
     t.string   "registro"
     t.string   "referencia"
     t.boolean  "habilitar_constancias_grupo"
+    t.string   "seccion"
     t.index ["user_id"], name: "index_grupos_on_user_id", using: :btree
   end
 
@@ -336,6 +337,12 @@ ActiveRecord::Schema.define(version: 20170825230409) do
     t.string   "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "seccion_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tipo_oferta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

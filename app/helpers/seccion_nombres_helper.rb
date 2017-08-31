@@ -1,0 +1,2 @@
+module SeccionNombresHelper
+end

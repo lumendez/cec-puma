@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :seccion_nombres
   resources :anexos_unicos do
     collection do
       get 'index'

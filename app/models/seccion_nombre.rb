@@ -1,0 +1,2 @@
+class SeccionNombre < ApplicationRecord
+end

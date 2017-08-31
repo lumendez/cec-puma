@@ -24,6 +24,10 @@
     <%= f.label :horario %>
     <%= collection_select(:grupo, :horario, Horario.all, :hora, :hora, {prompt: 'Seleccione'}, class: 'form-control') %>
   </div>
+  <div class="form-group col-sm-3">
+    <%= f.label :seccion %>
+    <%= collection_select(:grupo, :seccion, SeccionNombre.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
   <div class="form-group col-sm-4">
     <%= f.label :nombre, "Nombre del grupo" %>
     <%= f.text_field :nombre, class:'form-control' %>
@@ -390,7 +394,8 @@
       var nivel = $("#grupo_nivel").val();
       var horario = $("#grupo_horario").val();
       var curso = $("#grupo_curso").val();
-      $('#grupo_nombre').val(idioma  + ' | ' + nivel + ' | ' + horario + ' | ' + curso);
+      var seccion = $("#grupo_seccion").val();
+      $('#grupo_nombre').val(idioma  + ' | ' + nivel +' '+ seccion + ' | ' + horario + ' | ' + curso);
     }
 
     $("select").change( crearNombre );

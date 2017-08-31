@@ -173,7 +173,7 @@ class GruposController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupo_params
       params.require(:grupo).permit(:nombre, :horario, :idioma, :nivel, :user_id, :estado, :curso, :anio, :periodo, :lugar, :fecha, :centro, :tipo, :modalidad, :cupo, :duracion, :cuota,
-       :clave, :proyecto, :institucion_bancaria, :cuenta, :titular, :instructor, :instructor_rfc, :instructor_correo, :jefe_ec, :registro, :referencia, :habilitar_constancias_grupo)
+       :clave, :proyecto, :institucion_bancaria, :cuenta, :titular, :instructor, :instructor_rfc, :instructor_correo, :jefe_ec, :registro, :referencia, :habilitar_constancias_grupo, :seccion)
     end
 
     def abrir_grupo_params
