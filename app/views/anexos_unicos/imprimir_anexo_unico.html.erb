@@ -26,6 +26,18 @@
       <% elsif grupos_ingles > 1 %>
       <%= "#{grupos_ingles} cursos del idioma Inglés" %>
       <% end %>
+      <% grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count %>
+      <% if grupos_frances == 1 %>
+      <%= ", 1 curso del idioma Francés" %>
+      <% elsif grupos_frances > 1 %>
+      <%= ", #{grupos_frances} cursos del idioma Francés" %>
+      <% end %>
+      <% grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count %>
+      <% if grupos_italiano == 1 %>
+      <%= ", 1 curso del idioma Italiano" %>
+      <% elsif grupos_italiano > 1 %>
+      <%= ", #{grupos_italiano} cursos del idioma Italiano" %>
+      <% end %>
       <hr>
     </p>
     <p>Nombre  del prestador:
@@ -53,18 +65,67 @@
 
           <%= @curso %> <%= @periodo %><strong></strong></p></td>
         <td width="123" colspan="3"><p><strong>Duración:</strong><br />
-          40 horas x 1 curso<strong></strong></p></td>
+          40 horas x
+          <%= grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
+           grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
+           grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
+          total_grupos = grupos_ingles + grupos_italiano + grupos_frances
+           if total_grupos == 1
+           "1 curso"
+           elsif total_grupos > 1
+           "#{total_grupos} cursos"
+           end %>
+          <strong></strong></p></td>
         <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
-          40 x 85.00 = $3,944.00 + IVA<strong> </strong></p></td>
+          <%= grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
+           grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
+           grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
+          total_grupos = grupos_ingles + grupos_italiano + grupos_frances
+          horas = total_grupos * 40 %>
+          x 85.00 =
+          $<%= grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
+           grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
+           grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
+          total_grupos = grupos_ingles + grupos_italiano + grupos_frances
+          horas = total_grupos * 40
+          costo = horas * 85.00 %>
+           + IVA
+          <strong> </strong></p></td>
         <td width="130"><p><strong>Pago único neto.</strong><br />
-          $3,173.90<strong> </strong></p></td>
+          $<%= grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
+           grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
+           grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
+          total_grupos = grupos_ingles + grupos_italiano + grupos_frances
+          horas = total_grupos * 40
+          if horas == 40
+            "3,241.33"
+          elsif horas == 80
+            "6,482.66"
+          elsif horas == 120
+            "9,723.99"
+          elsif horas == 160
+            "12,965.32"
+          end %>
+        </p></td>
       </tr>
       <tr>
         <td width="659" colspan="10"><p><strong>Sesiones:</strong>
-          Lunes a viernes:
+          <% if @curso.include? "Intensivo" %>
+            <%= "Lunes a viernes:" %>
+          <% elsif @curso.includes? "Sabatino" %>
+            <%= "Sábados:" %>
+          <% end %>
           <% grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés") %>
           <% grupos_ingles.each do |grupo| %>
-            <%= "#{grupo.nivel} #{grupo.horario} horas" %>
+          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
+          <% end %>
+          <% grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés") %>
+          <% grupos_frances.each do |grupo| %>
+          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
+          <% end %>
+          <% grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano") %>
+          <% grupos_italiano.each do |grupo| %>
+          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
           <% end %>
           .
         </p></td>
