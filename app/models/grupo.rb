@@ -27,6 +27,10 @@ class Grupo < ApplicationRecord
     self.estado ||= 'Pendiente' if self.has_attribute? :estado
   end
 
+  def habilitar_constancias
+    self.habilitar_constancias_grupo ||= false if self.has_attribute? :habilitar_constancias_grupo
+  end
+
   paginates_per 25
 
   def nombre_completo
@@ -93,25 +97,6 @@ class Grupo < ApplicationRecord
 
   def cambios
     self.versions.last.changeset
-  end
-
-  def self.generar_anexo_unico(nombre, curso, anio)
-    self.where("grupos.user_id = ? AND grupos.curso = ? AND grupos.anio = ?", "#{nombre}","#{curso}","#{anio}")
-  end
-
-  #Se determina la oferta para el usuario a partir de sus registros previos
-  def self.oferta(ingles, frances, italiano)
-    #Si no tiene ningun registro previo, se le muestran todos los grupos de todos los idiomas disponibles
-    if ingles.blank? && frances.blank? && italiano.blank?
-      grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')
-    #Estaba inscrito en inglés básico 1 pero no aprobó, se le muestra la oferta de básico 1 de todos los idiomas
-    elsif ingles.nivel == 'Básico 1' && ingles.promedio < 80 && frances.blank? && italiano.blank?
-      grupos = Grupo.where(nivel: 'Básico 1', estado: 'Abierto')
-      #Estaba inscrito únicamente en inglés básico 1
-      if ingles.nivel == 'Básico 1' && ingles.promedio >= 80 && frances.blank? && italiano.blank?
-        grupos = Grupo.where(nivel: 'Básico 2', idioma: 'Inglés')
-      end
-    end
   end
 
   #Se obtiene la oferta de los grupos de Inglés que se encuentren actualmente
