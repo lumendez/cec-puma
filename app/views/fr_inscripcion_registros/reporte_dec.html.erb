@@ -1,0 +1,33 @@
+<h1 class="sub">Reporte DEC</h1>
+<%= form_for_filterrific @filterrific do |f| %>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.label :with_curso, 'Filtrar por curso' %>
+      <%= f.select(
+        :with_curso,
+        @filterrific.select_options[:with_curso],
+        { include_blank: '- Todos -' }, class:'form-control'
+      ) %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-sm-3">
+        <%= link_to(
+          'Quitar filtros',
+          reset_filterrific_url,
+          class: 'btn btn-primary'
+        ) %>
+      </div>
+  </div>
+</div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+<% end %>
+
+<%= render(
+  partial: 'fr_inscripcion_registros/lista_reporte_dec',
+  locals: { fr_inscripcion_registros: @fr_inscripcion_registros }
+) %>
+
+<br>

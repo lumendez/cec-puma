@@ -2,7 +2,7 @@
   <h4>Importante</h4>
   <p>Antes de crear cualquier registro de inscripci&oacute;n lea cuidadosamente las <strong><a href="#" data-toggle="modal" data-target="#myModal">Pol&iacute;ticas de registro de usuarios</a></strong></p>
 </div>
-<h2 class="sub">Mis solicitudes de inscripci&oacute;n</h2>
+<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Inglés</h2>
 <% if @inscripcion_registros.blank? %>
   <p>Usted no tiene ning&uacute;n registro de inscripci&oacute;n</p>
 <% else %>
@@ -42,9 +42,106 @@
         <td align="center"><%= inscripcion_registro.grupo.anio %></td>
         <% if inscripcion_registro.examen_medio.blank? || inscripcion_registro.examen_final.blank? %>
           <td><%= link_to 'Talón', inscripcion_registro %></td>
-          <td><%= link_to 'Editar', edit_inscripcion_registro_path(inscripcion_registro) %></td>
         <% else %>
           <td align="center"><%= inscripcion_registro.promedio %></td>
+        <% end %>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
+
+<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Francés</h2>
+<% if @fr_inscripcion_registros.blank? %>
+  <p>Usted no tiene ning&uacute;n registro de inscripci&oacute;n</p>
+<% else %>
+  <% @fr_inscripcion_registros.each do |fr_inscripcion_registro| %>
+    <table class="table table-bordered">
+      <thead>
+        <th>Movimiento bancario</th>
+        <th>Documentos validados</th>
+        <th>Grupo</th>
+        <th>Periodo</th>
+        <th>A&ntilde;o</th>
+        <% if fr_inscripcion_registro.examen_medio.blank? || fr_inscripcion_registro.examen_final.blank? %>
+        <th colspan="2">Opciones</th>
+        <% else %>
+        <th>Calificación final</td>
+        <% end %>
+      </thead>
+      <tr>
+        <% if fr_inscripcion_registro.imagen.exists? %>
+          <td>
+            <%= link_to fr_inscripcion_registro.imagen.url(:medium), target: '_blank', class:'btn btn-comprobante' do %>
+              <span class="glyphicon glyphicon-paperclip"></span> Comprobante
+            <% end %>
+          </td>
+        <% else %>
+          <td>
+            <strong>Sin comprobante</strong>
+          </td>
+        <% end %>
+        <% if fr_inscripcion_registro.documentos_validados == true %>
+          <td class="success"><%= fr_inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+        <% else %>
+          <td class="danger"><%= fr_inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+        <% end %>
+        <td class="info"><%= fr_inscripcion_registro.grupo.nombre %></td>
+        <td><%= fr_inscripcion_registro.grupo.periodo %></td>
+        <td align="center"><%= fr_inscripcion_registro.grupo.anio %></td>
+        <% if fr_inscripcion_registro.examen_medio.blank? || fr_inscripcion_registro.examen_final.blank? %>
+          <td><%= link_to 'Talón', fr_inscripcion_registro %></td>
+          <td><%= link_to 'Editar', edit_fr_inscripcion_registro_path(fr_inscripcion_registro) %></td>
+        <% else %>
+          <td align="center"><%= fr_inscripcion_registro.promedio %></td>
+        <% end %>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
+
+<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Italiano</h2>
+<% if @it_inscripcion_registros.blank? %>
+  <p>Usted no tiene ning&uacute;n registro de inscripci&oacute;n</p>
+<% else %>
+  <% @it_inscripcion_registros.each do |it_inscripcion_registro| %>
+    <table class="table table-bordered">
+      <thead>
+        <th>Movimiento bancario</th>
+        <th>Documentos validados</th>
+        <th>Grupo</th>
+        <th>Periodo</th>
+        <th>A&ntilde;o</th>
+        <% if it_inscripcion_registro.examen_medio.blank? || it_inscripcion_registro.examen_final.blank? %>
+        <th colspan="2">Opciones</th>
+        <% else %>
+        <th>Calificación final</td>
+        <% end %>
+      </thead>
+      <tr>
+        <% if it_inscripcion_registro.imagen.exists? %>
+          <td>
+            <%= link_to it_inscripcion_registro.imagen.url(:medium), target: '_blank', class:'btn btn-comprobante' do %>
+              <span class="glyphicon glyphicon-paperclip"></span> Comprobante
+            <% end %>
+          </td>
+        <% else %>
+          <td>
+            <strong>Sin comprobante</strong>
+          </td>
+        <% end %>
+        <% if it_inscripcion_registro.documentos_validados == true %>
+          <td class="success"><%= it_inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+        <% else %>
+          <td class="danger"><%= it_inscripcion_registro.documentos_validados ? 'Si' : 'No' %></td>
+        <% end %>
+        <td class="info"><%= it_inscripcion_registro.grupo.nombre %></td>
+        <td><%= it_inscripcion_registro.grupo.periodo %></td>
+        <td align="center"><%= it_inscripcion_registro.grupo.anio %></td>
+        <% if it_inscripcion_registro.examen_medio.blank? || it_inscripcion_registro.examen_final.blank? %>
+          <td><%= link_to 'Talón', it_inscripcion_registro %></td>
+          <td><%= link_to 'Editar', edit_it_inscripcion_registro_path(it_inscripcion_registro) %></td>
+        <% else %>
+          <td align="center"><%= it_inscripcion_registro.promedio %></td>
         <% end %>
       </tr>
     </table>

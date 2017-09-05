@@ -1,0 +1,9 @@
+<% if user_signed_in? && current_user.role.nombre == 'Invitado' %>
+  <%= link_to 'Regresar', panel_alumnos_path %>
+<% elsif user_signed_in? && current_user.role.nombre == 'Administrador' %>
+  <%= link_to 'Regresar', fr_inscripcion_registros_path %>
+<% elsif user_signed_in? && current_user.role.nombre == 'Control escolar' %>
+  <%= link_to 'Regresar', fr_inscripcion_registros_path %>
+<% elsif user_signed_in? && current_user.role.nombre == 'Profesor' %>
+  <%= link_to 'Regresar', :back %>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_tag actualizar_editar_datos_it_inscripcion_registros_path, method: :patch do %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Monto pagado</th>
+      <th>Movimiento bancario</th>
+      <th>Documentos validados</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @it_inscripcion_registros.each_with_index do |it_inscripcion_registro, index| %>
+          <%= fields_for "it_inscripcion_registros[]", it_inscripcion_registro do |f| %>
+            <tr>
+              <td><%= it_inscripcion_registro.nombre_paterno_materno %></td>
+              <td><%= f.text_field :monto_pagado, value: it_inscripcion_registro.monto_pagado, class:'form-control' %></td>
+              <td><%= f.text_field :movimiento, value: it_inscripcion_registro.movimiento, class:'form-control' %></td>
+              <td><%= f.check_box :documentos_validados, value: it_inscripcion_registro.documentos_validados, class: 'form-control' %></td>
+            </tr>
+          <% end %>
+      <% end %>
+  </tbody>
+</table>
+<%= submit_tag "Guardar cambios", class: 'btn btn-primary' %>
+<br>
+<%= link_to 'Regresar', it_inscripcion_registros_path %>
+<% end %>

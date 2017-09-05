@@ -1,0 +1,90 @@
+<div id="constancia">
+  <table class="constancia">
+      <tr>
+        <td width="50%"><%= image_tag "sep.jpg" %></td>
+        <td></td>
+        <td></td>
+        <td width="50%"><%= image_tag "logoipn.jpg", style: 'float: right; margin: 0px 0px 15px 0px;' %><p class="texto-ipn">Instituto Polit&eacute;cnico Nacional<br>&ldquo;La t&eacute;cnica al servicio de la Patria&rdquo;</p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center" class="dependencia">Secretaría de Extensión e Integración Social<br>Dirección de educación continua</p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center" class="otorga">Otorga la presente</p><p class="constancia" align="center">CONSTANCIA</p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center" class="nombre_mayusculas">a: <%= @fr_inscripcion_registro.nombre_completo %></p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center">Por haber participado en el curso: <strong>"<%= @fr_inscripcion_registro.grupo.nombre_grupo     %>"</strong>, del <%= @fr_inscripcion_registro.grupo.periodo %> de 2017, impartido en el Centro de Educación Continua Eugenio Mendez Docurro, con una duración de 40 horas.</p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center">____________________________________<br><strong>Ing. José Manuel Guillermo García Macías</strong><br>Director de Educación Continua<br></p></td>
+      </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p align="center" class="dependencia"><strong>INSTITUTO POLIT&Eacute;NICO NACIONAL</strong></p>
+  <p align="center" class="dependencia"><strong>SECRETAR&Iacute;A DE EXTENSI&Oacute;N E INTEGRACI&Oacute;N SOCIAL</strong></p>
+  <p align="center" class="dependencia"><strong>DIRECCI&Oacute;N DE EDUCACI&Oacute;N CONTINUA</strong></p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p align="center" class="dependencia">CURSO</p>
+  <p align="center" class="dependencia"><%= @fr_inscripcion_registro.grupo.registro %></p>
+  <p>&nbsp;</p>
+  <p align="center" class="dependencia"><strong><%= @fr_inscripcion_registro.grupo.nombre_grupo %></strong></p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table class="table table-bordered">
+    <tr>
+      <td><p align="center">PROGRAMA TEM&Aacute;TICO</p></td>
+      <td><p align="center">DURACI&Oacute;N</p></td>
+      <td><p align="center">PERIODO</p></td>
+    </tr>
+    <tr>
+      <td><p>1. Competencia A<br>2.Competencia B<br>3. Competencia C</p></td>
+      <td><p align="center"><%= @fr_inscripcion_registro.grupo.duracion %></p></td>
+      <td><p align="center"><%= @fr_inscripcion_registro.grupo.periodo %></p></td>
+    </tr>
+  </table>
+  <table width="100%">
+    <tr>
+      <td width="50%"><p>Nombre del participante: <%= @fr_inscripcion_registro.nombre_completo %> <br> Calificaci&oacute;n: <%= @fr_inscripcion_registro.promedio %></p></td>
+      <td width="50%"><p>El instituto Polit&eacute;cnico Nacional, a trav&eacute;s de la Direcci&oacute;n de Educaci&oacute;n Continua hace constrar que este Documento ha quedado registrado en sus archivos en el libro a&ntilde;o:</p></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="100%">
+  <tr>
+    <td colspan="2"><p align="center">AVALA EL REGISTRO</p><br><br></td>
+  </tr>
+  <tr>
+    <td width="50%"><p align="center">____________________________________<br><strong><%= @fr_inscripcion_registro.grupo.director_centro %></strong><br>Director del Centro de Educación Continua<br>Ingeniero Eugenio M&eacute;ndez Docurro</p></td>
+    <td width="50%"><p align="center">____________________________________<br><strong>Biol. Pilar Pi&ntilde;a Espallargas</strong><br>Directora de Formaci&oacute;n en Lenguas Extranjeras<br></p></td>
+  </tr>
+  <tr>
+    <td width="100" colspan="2"><p align="right"><%= image_tag @qr %></p></td>
+  </tr>
+</table>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <input type="button" id="btn-constancia" value="Imprimir constancia" class="btn btn-md btn-primary">
+    </div>
+    <div class="col-md-12">
+      <%= link_to 'Regresar', ver_constancias_fr_inscripcion_registros_path %>
+    </div>
+</div>
+
+<script>
+$("#btn-constancia").click(function () {
+    //Hide all other elements other than printarea.
+    $("#constancia").show();
+    window.print();
+});
+</script>

@@ -34,11 +34,37 @@ class GruposController < ApplicationController
   # GET /grupos/1
   # GET /grupos/1.json
   def show
+    if @grupo.idioma == "Inglés"
+      grupo_ingles
+    elsif @grupo.idioma == "Francés"
+      grupo_frances
+    elsif @grupo.idioma == "Italiano"
+      grupos_italiano
+    end
+  end
+
+  def grupo_ingles
     #Se ordenan alfabéticamente los registros mediante la gema 'sort_alphabetical'
     #@inscripcion_registros = InscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order('paterno DESC').sort_alphabetical_by(&:paterno)
     @inscripcion_registros = InscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order('paterno ASC, materno ASC, nombre ASC')
     #Se cuentan los usuarios que se encuentran en cada grupo basados en el id de la inscripcion y la validacion de la documentacion
     @inscritos = InscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).count
+  end
+
+  def grupo_frances
+    #Se ordenan alfabéticamente los registros mediante la gema 'sort_alphabetical'
+    #@inscripcion_registros = InscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order('paterno DESC').sort_alphabetical_by(&:paterno)
+    @fr_inscripcion_registros = FrInscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order('paterno ASC, materno ASC, nombre ASC')
+    #Se cuentan los usuarios que se encuentran en cada grupo basados en el id de la inscripcion y la validacion de la documentacion
+    @inscritos = FrInscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).count
+  end
+
+  def grupos_italiano
+    #Se ordenan alfabéticamente los registros mediante la gema 'sort_alphabetical'
+    #@inscripcion_registros = InscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order('paterno DESC').sort_alphabetical_by(&:paterno)
+    @it_inscripcion_registros = ItInscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order('paterno ASC, materno ASC, nombre ASC')
+    #Se cuentan los usuarios que se encuentran en cada grupo basados en el id de la inscripcion y la validacion de la documentacion
+    @inscritos = ItInscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).count
   end
 
   # GET /grupos/new
@@ -147,7 +173,7 @@ class GruposController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupo_params
       params.require(:grupo).permit(:nombre, :horario, :idioma, :nivel, :user_id, :estado, :curso, :anio, :periodo, :lugar, :fecha, :centro, :tipo, :modalidad, :cupo, :duracion, :cuota,
-       :clave, :proyecto, :institucion_bancaria, :cuenta, :titular, :instructor, :instructor_rfc, :instructor_correo, :jefe_ec, :registro, :referencia, :habilitar_constancias_grupo)
+       :clave, :proyecto, :institucion_bancaria, :cuenta, :titular, :instructor, :instructor_rfc, :instructor_correo, :jefe_ec, :registro, :referencia, :habilitar_constancias_grupo, :seccion)
     end
 
     def abrir_grupo_params

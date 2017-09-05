@@ -6,8 +6,9 @@ class AnexosUnicosController < ApplicationController
   end
 
   def imprimir_anexo_unico
-    grupos = Grupo.where(user_id: params[:user_ids], curso: params[:curso], anio: params[:anio])
-
+    @instructores = User.where(id: params[:user_ids])
+    @curso = CursoNombre.find_by(nombre: params[:curso]).nombre
+    @periodo = Grupo.find_by(curso: params[:curso]).periodo
     @mes = mes
   end
 

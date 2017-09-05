@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'it_inscripcion_registros/lista_reporte', locals: { it_inscripcion_registros: @it_inscripcion_registros })
+) %>
+$("#filterrific_results").html("<%= js %>");

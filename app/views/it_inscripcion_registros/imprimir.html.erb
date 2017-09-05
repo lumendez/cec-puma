@@ -1,0 +1,40 @@
+<% @it_inscripcion_registros.each do |it_inscripcion_registro| %>
+<div id="constancias">
+  <table class="constancia">
+      <tr>
+        <td width="50%"><%= image_tag "sep.jpg" %></td>
+        <td></td>
+        <td></td>
+        <td width="50%"><%= image_tag "logoipn.jpg", style: 'float: right; margin: 0px 0px 15px 0px;' %><p class="texto-ipn">Instituto Polit&eacute;cnico Nacional<br>&ldquo;La t&eacute;cnica al servicio de la Patria&rdquo;</p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center" class="dependencia">Secretaría de Extensión e Integración Social<br>Dirección de educación continua</p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center" class="otorga">Otorga la presente</p><p class="constancia" align="center">CONSTANCIA</p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center" class="nombre_mayusculas">a: <%= it_inscripcion_registro.nombre_completo %></p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center">Por haber participado en el curso: <strong>"<%= it_inscripcion_registro.curso %>"</strong>, del <%= it_inscripcion_registro.grupo.periodo %> de 2017, impartido en el Centro de Educación Continua Eugenio Mendez Docurro, con una duración de 40 horas.</p></td>
+      </tr>
+      <tr>
+        <td colspan="2"><p align="center">____________________________________<br><strong>C.P. Alfredo Wong Castañeda</strong><br>Contralor interno de la H. Cámara de Diputados</p></td>
+        <td colspan="2"><p align="center">____________________________________<br><strong>Ing. José Manuel Guillermo García Macías</strong><br>Director de Educación Continua<br></p></td>
+      </tr>
+  </table>
+</div>
+<% end %>
+<div class="row">
+  <input type="button" id="btn-constancia" value="Imprimir constancias" class="btn btn-md btn-primary">
+</div>
+<%= link_to 'Regresar', ver_constancias_it_inscripcion_registros_path %>
+
+<script>
+$("#btn-constancia").click(function () {
+    //Hide all other elements other than printarea.
+    $("#constancias").show();
+    window.print();
+});
+</script>

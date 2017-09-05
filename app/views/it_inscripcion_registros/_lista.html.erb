@@ -1,0 +1,39 @@
+<%= form_tag imprimir_it_inscripcion_registros_path do %>
+<div id="filterrific_results">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Seleccionar</td>
+        <th>N&uacute;mero</th>
+        <th>Nombre</th>
+        <th>Curso</th>
+        <th>Periodo</th>
+        <th>Grupo</th>
+        <th>Ver constancia</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @it_inscripcion_registros.where(habilitar_constancia: true).each_with_index do |it_inscripcion_registro, index| %>
+        <tr>
+          <td><%= check_box_tag "it_inscripcion_registro_ids[]", it_inscripcion_registro.id %></td>
+          <td><%= index + 1 %></td>
+          <td><%= it_inscripcion_registro.nombre_completo %></td>
+          <td><%= it_inscripcion_registro.grupo.curso %></td>
+          <td><%= it_inscripcion_registro.grupo.periodo %> de <%= it_inscripcion_registro.grupo.anio %></td>
+          <td><%= it_inscripcion_registro.grupo.nombre %></td>
+          <td align="center">
+            <%= link_to constancia_it_inscripcion_registros_path(it_inscripcion_registro), class:'btn btn-comprobante' do %>
+              <span class="glyphicon glyphicon-print"></span> Imprimir
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+  <%= submit_tag "Imprimir seleccionados", class: 'btn btn-primary' %>
+  <br>
+  <%= paginate @it_inscripcion_registros.where(habilitar_constancia: true), theme: 'twitter-bootstrap-3', param_name: :pagina %>
+</div>
+<% end %>
