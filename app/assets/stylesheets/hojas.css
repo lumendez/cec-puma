@@ -38,4 +38,12 @@
     left: 0;
     top: 0;
   }
+  #conclusiones-evento, #conclusiones-evento * {
+    visibility: visible;
+  }
+  #conclusiones-evento {
+    position: absolute;
+    left: 0;
+    top: 200%;
+  }
 }

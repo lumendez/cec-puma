@@ -1,18 +1,15 @@
-<%# @users.each do |user| %>
-  <%#= user.nombre %>
-<%# end %>
 <div id="anexos-unicos">
 <% @instructores.each do |instructor| %>
 <p style="page-break-before: always;">&nbsp;</p>
     <table border="0" width="659">
     <tr>
       <td width="200">
-        <p align="left"><%= image_tag "logoipn.jpg" %></p>
+        <p align="left"><%= image_tag "cabecera_sep.png" %></p>
       </td>
       <td colspan="2" width="1400">
       </td>
       <td width="200">
-        <p align="right"><%= image_tag "dec.png" %></p>
+        <p align="right"><%= image_tag "cabecera_cec.png" %></p>
       </td>
     </tr>
     </table>
@@ -195,6 +192,83 @@
             <p align="center"><strong>&nbsp;</strong></p>
 
           <p align="center"><strong>DR. MAURO ALBERTO ENCISO AGUILAR</strong></p></td>
+      </tr>
+    </table>
+    <p style="page-break-after: always;">&nbsp;</p>
+<% end %>
+</div>
+<div id="conclusiones-evento">
+<% @instructores.each do |instructor| %>
+<p style="page-break-before: always;">&nbsp;</p>
+    <table border="0" width="659">
+    <tr>
+      <td width="200">
+        <p align="left"><%= image_tag "cabecera_sep.png" %></p>
+      </td>
+      <td colspan="2" width="1400">
+      </td>
+      <td width="200">
+        <p align="right"><%= image_tag "cabecera_cec.png" %></p>
+      </td>
+    </tr>
+    </table>
+    <p align="left"><strong><u>CONCLUSIÓN DE EVENTO ACADÉMICO</u></strong></p>
+    <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
+    <p>C.P. JOAQUÍN TREJO BARRÓN<br>
+      JEFE DEL DEPARTAMENTO DE SERVICIOS<br>
+        ADMINISTRATIVOS Y TÉCNICOS<br>
+        P R E S E N T E :</p>
+      <p>Hago propicia la ocación para informarle que el (la)<strong><u>Prof. <%= instructor.nombre_completo %> </u></strong></p>
+      <p>Cumplió satisfacortiamente el (los) curso (s) que a continuación detallo:
+      <p align="center"><strong>&nbsp;</strong></p>
+        <% grupos= Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio]).order("horario ASC") %>
+        <table class="table table-bordered conclusiones">
+          <tr>
+            <th>NIVEL</th>
+            <th>IDIOMA</th>
+            <th>HORARIO</th>
+          </tr>
+          <% grupos.each do |grupo| %>
+          <tr>
+            <td align="center"><%= "#{grupo.nivel}" %></td>
+            <td align="center"><%= "#{grupo.idioma}" %></td>
+            <td align="center"><%= "#{grupo.horario} horas" %></td>
+          </tr>
+          <% end %>
+        </table>
+      <p align="center"><strong>&nbsp;</strong></p>
+      <p>Realizando las siguientes actividades:</p>
+      <ul>
+        <li><u>Elaboración y desarrollo de planeación de clase de acuerdo a los parámetros establecidos por los CELEX.</u></li>
+        <li><u>Elaboración y desarrollo aplicación de examen medio y final, así como exámenes de ubicación cuando se le requiera.</u></li>
+        <li><u>Desarrollo de competencias lingüísticas y procesos de evaluación.</u></li>
+        <li><u>Desarrollo del enfoque basado en tareas (tarea integradora).</u></li>
+        <li><u>Retroalimentación académica, entrega de boletas y reinscripción.</u></li>
+      </ul>
+      <p>Durante el periodo <%= @periodo %>,
+        <% if @curso.include? "Intensivo" %>
+          <%= "de lunes a viernes:" %>
+        <% elsif @curso.includes? "Sabatino" %>
+          <%= "los sábados:" %>
+        <% end %>,
+        con sede en las instalaciones de este CEC Ingeniero Méndez Docurro.</p>
+      <p>Además, hacemos de su conocimiento que las actividades realizadas fueron cubiertas en tiempo y forma, existiendo las evidencias
+        correspondientes bajo el resguardo en este departamento.</p>
+      <p>Se extiende la presente para notificar la autorización del pago correspondiente.</p>
+    <table width="690">
+      <tr>
+        <td width="284" valign="top">
+
+            <p align="center"><strong>&nbsp;</strong></p>
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>ANA LAURA DÍAZ BARROSO</strong><br><strong>COORDINADOR DE LOS CELEX CEC<br>INGENIERO EUGENIO MÉNDEZ DOCURRO.</strong></td>
+        <td width="210" valign="top">
+
+            <p align="center"><strong>&nbsp;</strong></p>
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong><p align="center">M. EN C. JOSÉ ANTONIO SIXTO BERROCAL<br><strong>SUBDIRECTOR DE SERVICIOS EDUCATIVOS</strong></p></strong></p></td>
       </tr>
     </table>
     <p style="page-break-after: always;">&nbsp;</p>
