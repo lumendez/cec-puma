@@ -80,6 +80,7 @@ class Ability
         can :historial_ingles, User
         can :destroy, User
         can :update, User
+        can :manage, :anexos_unicos 
       elsif user.profesor?
         #can :read, InscripcionRegistro
         can :update, InscripcionRegistro

@@ -1,5 +1,6 @@
 class AnexosUnicosController < ApplicationController
-
+before_action :authenticate_user!
+authorize_resource class: :anexos_unicos
   #Se obtienen los nombres de los instructores para generar su anexo unico
   def index
       @users = User.instructores.order(:paterno).page params[:pagina]
