@@ -32,7 +32,22 @@
             <% end %>
         </tbody>
       </table>
+      <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+      <script>
+      $('#selectAll').click(function() {
+         if (this.checked) {
+             $(':checkbox').each(function() {
+                 this.checked = true;
+             });
+         } else {
+            $(':checkbox').each(function() {
+                 this.checked = false;
+             });
+         }
+      });
+      </script>
       <%= submit_tag 'Enviar', name: nil, class:'btn btn-md btn-primary' %>
   </div>
 </div>
 <% end %>
+<br>
