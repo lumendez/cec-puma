@@ -114,20 +114,20 @@
     </thead>
 
     <tbody>
-        <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
+        <% @it_inscripcion_registros.each_with_index do |it_inscripcion_registro, index| %>
             <tr>
               <% if can? :asignar_calificaciones, @grupo %>
                 <!--<#% if @grupo.estado == "Abierto" %>-->
-                  <td><%= check_box_tag "inscripcion_registro_ids[]", inscripcion_registro.id %></td>
+                  <td><%= check_box_tag "it_inscripcion_registro_ids[]", it_inscripcion_registro.id %></td>
                 <!--<#% end %>-->
               <% end %>
               <td><%= index + 1 %></td>
-              <td><%= inscripcion_registro.paterno %></td>
-              <td><%= inscripcion_registro.materno %></td>
-              <td><%= inscripcion_registro.nombre %></td>
-              <td><%= inscripcion_registro.examen_medio %></td>
-              <td><%= inscripcion_registro.examen_final %></td>
-              <td><%= inscripcion_registro.promedio %></td>
+              <td><%= it_inscripcion_registro.paterno %></td>
+              <td><%= it_inscripcion_registro.materno %></td>
+              <td><%= it_inscripcion_registro.nombre %></td>
+              <td><%= it_inscripcion_registro.examen_medio %></td>
+              <td><%= it_inscripcion_registro.examen_final %></td>
+              <td><%= it_inscripcion_registro.promedio %></td>
             </tr>
         <% end %>
     </tbody>
