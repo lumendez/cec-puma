@@ -2,10 +2,12 @@
   <h4>Importante</h4>
   <p>Antes de crear cualquier registro de inscripci&oacute;n lea cuidadosamente las <strong><a href="#" data-toggle="modal" data-target="#myModal">Pol&iacute;ticas de registro de usuarios</a></strong></p>
 </div>
-<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Inglés</h2>
+
+<!-- Incian los registros de Inglés -->
 <% if @inscripcion_registros.blank? %>
-  <p>Usted no tiene ning&uacute;n registro de inscripci&oacute;n</p>
+  <!-- No aparece nada en el panel -->
 <% else %>
+<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Inglés</h2>
   <% @inscripcion_registros.each do |inscripcion_registro| %>
     <table class="table table-bordered">
       <thead>
@@ -49,11 +51,14 @@
     </table>
   <% end %>
 <% end %>
+<!-- terminan los registros de Inglés -->
 
-<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Francés</h2>
+<!-- Inician los registros de Francés -->
+
 <% if @fr_inscripcion_registros.blank? %>
-  <p>Usted no tiene ning&uacute;n registro de inscripci&oacute;n</p>
+  <!-- No aparece nada en el panel -->
 <% else %>
+<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Francés</h2>
   <% @fr_inscripcion_registros.each do |fr_inscripcion_registro| %>
     <table class="table table-bordered">
       <thead>
@@ -98,11 +103,13 @@
     </table>
   <% end %>
 <% end %>
+<!-- terminan los registros de Francés -->
 
-<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Italiano</h2>
+<!-- Inician registros de Italiano -->
 <% if @it_inscripcion_registros.blank? %>
-  <p>Usted no tiene ning&uacute;n registro de inscripci&oacute;n</p>
+  <!-- No aparece nada en el panel -->
 <% else %>
+<h2 class="sub">Mis solicitudes de inscripci&oacute;n a Italiano</h2>
   <% @it_inscripcion_registros.each do |it_inscripcion_registro| %>
     <table class="table table-bordered">
       <thead>
@@ -147,11 +154,14 @@
     </table>
   <% end %>
 <% end %>
+<!-- terminan registros de Italiano -->
 
-<h2 class="sub">Mis solicitudes de examen de colocaci&oacute;n</h2>
+<!-- Inician las solicitudes de examen de colocacion -->
+
 <% if @examen_colocacion_idiomas.blank? %>
-  <p>Usted no tiene ning&uacute;n examen de coloaci&oacute;n</p>
+  <!-- No aparece nada en el panel -->
 <% else %>
+<h2 class="sub">Mis solicitudes de examen de colocaci&oacute;n</h2>
   <% @examen_colocacion_idiomas.each do |examen_colocacion_idioma| %>
   <table class="table table-bordered">
     <thead>
@@ -197,6 +207,7 @@
   </table>
   <% end %>
 <% end %>
+<!-- terminan los examenes de colocación -->
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
