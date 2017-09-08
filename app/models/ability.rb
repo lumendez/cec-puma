@@ -74,13 +74,43 @@ class Ability
         can :imprimir, InscripcionRegistro
         can :editar_datos, InscripcionRegistro
         can :actualizar_editar_datos, InscripcionRegistro
+        #
+        can :read, FrInscripcionRegistro
+        can :create, FrInscripcionRegistro
+        can :update, FrInscripcionRegistro
+        can :control_escolar, FrInscripcionRegistro
+        can :destroy, FrInscripcionRegistro
+        can :habilitar_historial_academico, FrInscripcionRegistro
+        can :habilitar_contancia, FrInscripcionRegistro
+        can :reporte_curso, FrInscripcionRegistro
+        can :reporte_dec, FrInscripcionRegistro
+        can :ver_constancias, FrInscripcionRegistro
+        can :constancia, FrInscripcionRegistro
+        can :imprimir, FrInscripcionRegistro
+        can :editar_datos, FrInscripcionRegistro
+        can :actualizar_editar_datos, FrInscripcionRegistro
+        #
+        can :read, ItInscripcionRegistro
+        can :create, ItInscripcionRegistro
+        can :update, ItInscripcionRegistro
+        can :control_escolar, ItInscripcionRegistro
+        can :destroy, ItInscripcionRegistro
+        can :habilitar_historial_academico, ItInscripcionRegistro
+        can :habilitar_contancia, ItInscripcionRegistro
+        can :reporte_curso, ItInscripcionRegistro
+        can :reporte_dec, ItInscripcionRegistro
+        can :ver_constancias, ItInscripcionRegistro
+        can :constancia, ItInscripcionRegistro
+        can :imprimir, ItInscripcionRegistro
+        can :editar_datos, ItInscripcionRegistro
+        can :actualizar_editar_datos, ItInscripcionRegistro
         can :read, User
         can :instructores, User
         can :historiales_ingles, User
         can :historial_ingles, User
         can :destroy, User
         can :update, User
-        can :manage, :anexos_unicos 
+        can :manage, :anexos_unicos
       elsif user.profesor?
         #can :read, InscripcionRegistro
         can :update, InscripcionRegistro
