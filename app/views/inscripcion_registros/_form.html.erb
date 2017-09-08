@@ -17,7 +17,8 @@
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :grupo_id, 'Grupos' %>
-      <%= collection_select(:inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto", idioma: "Inglés"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+      <%= collection_select(:inscripcion_registro, :grupo_id, Grupo.where(idioma: "Inglés"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+      <%#= collection_select(:inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto", idioma: "Inglés"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
       <%#= collection_select(:inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
     </div>
   </div>
