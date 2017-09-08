@@ -18,7 +18,8 @@ class InscripcionRegistrosController < ApplicationController
       with_curso: CursoNombre.options_for_select
     },
     ) or return
-    @inscripcion_registros = @filterrific.find.order("created_at DESC").where(examen_medio: nil, examen_final: nil).page(params[:pagina])
+    #@inscripcion_registros = @filterrific.find.order("created_at DESC").where(examen_medio: nil, examen_final: nil).page(params[:pagina])
+    @inscripcion_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
 
     respond_to do |format|
       format.html
@@ -174,6 +175,26 @@ class InscripcionRegistrosController < ApplicationController
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Avanzado 4', estado: 'Abierto')
     elsif registro_anterior.nivel == 'Avanzado 5' && registro_anterior.promedio < 80
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Avanzado 5', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación de Metodología TKT 1' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación de Metodología TKT 2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación de Metodología TKT 1' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación de Metodología TKT 1', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación de Metodología TKT 2' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación de Metodología TKT 3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación de Metodología TKT 2' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación de Metodología TKT 2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación de Metodología TKT 3' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación de Metodología TKT 3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.1' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.1' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.1', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.2' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.3', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.2' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.2', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.3' && registro_anterior.promedio < 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.3', estado: 'Abierto')
     end
   end
 
