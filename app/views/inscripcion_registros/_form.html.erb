@@ -17,25 +17,37 @@
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :grupo_id, 'Grupos' %>
-      <%= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true, disabled: inscripcion_registro.creado ) %>
+      <%= collection_select(:inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto", idioma: "Inglés"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
       <%#= collection_select(:inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :idioma %>
-      <%= collection_select(:inscripcion_registro, :idioma, @grupos, :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :idioma, Grupo.where(estado: "Abierto", idioma: "Inglés"), :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control') %>
       <%#= collection_select(:inscripcion_registro, :idioma, Grupo.where(estado: "Abierto"), :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :horario %>
-      <%= collection_select(:inscripcion_registro, :horario, @grupos, :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= collection_select(:inscripcion_registro, :horario, Grupo.where(estado: "Abierto", idioma: "Inglés"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
       <%#= collection_select(:inscripcion_registro, :horario, Grupo.where(estado: "Abierto"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :nivel %>
-      <%= collection_select(:inscripcion_registro, :nivel, @grupos, :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+      <%= collection_select(:inscripcion_registro, :nivel, Grupo.where(estado: "Abierto", idioma: "Inglés"), :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control') %>
       <%#= collection_select(:inscripcion_registro, :nivel, Grupo.where(estado: "Abierto"), :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :curso %>
+      <%= collection_select(:inscripcion_registro, :curso, Grupo.where(estado: "Abierto", idioma: "Inglés"), :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%#= collection_select(:inscripcion_registro, :curso, Grupo.where(estado: "Abierto"), :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :periodo %>
+      <%= collection_select(:inscripcion_registro, :periodo, Grupo.where(estado: "Abierto", idioma: "Inglés"), :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%#= collection_select(:inscripcion_registro, :periodo, Grupo.where(estado: "Abierto"), :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
   </div>
   <% else %>
@@ -63,7 +75,6 @@
       <%#= collection_select(:inscripcion_registro, :nivel, Grupo.where(estado: "Abierto"), :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control', disabled: true) %>
     </div>
   </div>
-  <% end %>
   <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :curso %>
@@ -86,6 +97,7 @@
       <%#= collection_select(:inscripcion_registro, :opcion_dos, Grupo.where(estado: "Abierto"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
   </div>
+  <% end %>
 </div>
 <div class="row jumbotron">
   <h4 class="subs"><strong>Datos personales</strong></h4>
@@ -153,13 +165,13 @@
     <% if user_signed_in? && current_user.role.nombre == "Invitado" %>
     <div class="form-group col-sm-3">
       <%= f.label :movimiento, 'Movimiento bancario' %>
-      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"  data-html="true" title="Según el método de pago" data-content="En el recibo de pago en <strong>ventanilla</strong> aparece como: <u>Movimiento</u>.<br>En el recibo de pago en <strong>PractiCaja</strong> aparece como: <u>AUT</u>.<br>Por <strong>transferencia bancaria</strong> aparece como: <u>Folio de internet</u>."><span class="badge">?</span></a>
+      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"  data-html="true" title="Según el método de pago" data-content="En el recibo de pago en <strong>ventanilla</strong> aparece como: <u>Movimiento</u>.<br>En el recibo de pago en <strong>PractiCaja</strong> aparece como: <u>AUT</u>.<br>Por <strong>transferencia bancaria</strong> aparece como: <u>Folio de internet</u>."><span class="badge badge-warning">?</span></a>
       <%= f.text_field :movimiento, placeholder: 'No. del movimiento', class:'form-control', disabled: inscripcion_registro.creado %>
     </div>
     <% else %>
     <div class="form-group col-sm-3">
       <%= f.label :movimiento, 'Movimiento bancario' %>
-      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"  data-html="true" title="Según el método de pago" data-content="En el recibo de pago en <strong>ventanilla</strong> aparece como: <u>Movimiento</u>.<br>En el recibo de pago en <strong>PractiCaja</strong> aparece como: <u>AUT</u>.<br>Por <strong>transferencia bancaria</strong> aparece como: <u>Folio de internet</u>."><span class="badge">?</span></a>
+      <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus"  data-html="true" title="Según el método de pago" data-content="En el recibo de pago en <strong>ventanilla</strong> aparece como: <u>Movimiento</u>.<br>En el recibo de pago en <strong>PractiCaja</strong> aparece como: <u>AUT</u>.<br>Por <strong>transferencia bancaria</strong> aparece como: <u>Folio de internet</u>."><span class="badge badge-warning">?</span></a>
       <%= f.text_field :movimiento, placeholder: 'No. del movimiento', class:'form-control' %>
     </div>
     <% end %>
@@ -305,7 +317,7 @@
 <div class="row jumbotron">
   <h4 class="subs"><strong>Control escolar</strong></h4>
   <div class="row">
-    <div class="form-group col-sm-2">
+    <div class="form-group col-sm-3">
       <%= f.label :documentos_validados, "Documentos validados" %>
       <%= f.check_box :documentos_validados, class: 'form-control' %>
     </div>
@@ -313,16 +325,28 @@
       <%= f.label :monto_pagado %>
       <%= f.text_field :monto_pagado, class: 'form-control' %>
     </div>
-    <div class="form-group col-sm-4">
-      <%= f.label :grupo_id, 'Grupo' %>
-      <%= collection_select(:inscripcion_registro, :grupo_id, @grupos, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
-      <%#= collection_select(:inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
-    </div>
+    <% if can? :habilitar_contancia, inscripcion_registro %>
+      <div class="form-group col-sm-3">
+        <%= f.label :habilitar_constancia, "Constancia" %>
+        <%= f.check_box :habilitar_constancia, class: 'form-control' %>
+      </div>
+    <% end %>
+    <% if can? :evaluacion_media, inscripcion_registro %>
+      <div class="form-group col-sm-2">
+        <%= f.label :examen_medio %>
+        <%= f.text_field :examen_medio, class: 'form-control' %>
+      </div>
+    <% end %>
+    <% if can? :evaluacion_final, inscripcion_registro %>
+      <div class="form-group col-sm-2">
+        <%= f.label :examen_final %>
+        <%= f.text_field :examen_final, class: 'form-control' %>
+      </div>
+    <% end %>
   </div>
 </div>
 <% end %>
 <% if can? :habilitar_historial_academico, inscripcion_registro %>
-<div class="row jumbotron">
   <!--<div class="col-md-6">
     <h4 class="subs"><strong>Habilitar historial</strong></h4>
     <div class="form-group col-sm-4">
@@ -330,40 +354,6 @@
         <%#= f.check_box :habilitar_historial, class: 'form-control' %>
       </div>
   </div>-->
-<% end %>
-<% if can? :habilitar_contancia, inscripcion_registro %>
-  <div class="col-md-4">
-    <h4 class="subs"><strong>Habilitar constancia</strong></h4>
-      <div class="form-group col-sm-4">
-        <%= f.label :habilitar_constancia, "Constancia" %>
-        <%= f.check_box :habilitar_constancia, class: 'form-control' %>
-      </div>
-  </div>
-</div>
-<% end %>
-<% if can? :evaluacion_media, inscripcion_registro %>
-<div class="row jumbotron">
-  <div class="col-md-6">
-      <h4 class="subs"><strong>Evaluaci&oacute;n media</strong></h4>
-      <div class="row">
-        <div class="form-group col-sm-3">
-          <%= f.label :examen_medio %>
-          <%= f.text_field :examen_medio, class: 'form-control' %>
-        </div>
-      </div>
-  </div>
-<% end %>
-<% if can? :evaluacion_final, inscripcion_registro %>
-  <div class="col-md-6">
-      <h4 class="subs"><strong>Evaluaci&oacute;n final</strong></h4>
-      <div class="row">
-        <div class="form-group col-sm-3">
-          <%= f.label :examen_final %>
-          <%= f.text_field :examen_final, class: 'form-control' %>
-        </div>
-      </div>
-  </div>
-</div>
 <% end %>
 <div class="row">
   <div class="actions col-sm-2">
