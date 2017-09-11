@@ -50,6 +50,11 @@ class Ability
         can :create, Calendario
         can :update, Calendario
         can :destroy, Calendario
+        can :read, ExamenColocacionIdioma
+        can :create, ExamenColocacionIdioma
+        can :update, ExamenColocacionIdioma
+        can :destroy, ExamenColocacionIdioma
+        can :asignar_nivel, ExamenColocacionIdioma
         can :read, Grupo
         can :create, Grupo
         can :apertura, Grupo
