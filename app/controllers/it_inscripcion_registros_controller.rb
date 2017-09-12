@@ -179,8 +179,8 @@ class ItInscripcionRegistrosController < ApplicationController
 
   # GET /it_inscripcion_registros/1/edit
   def edit
-    registro_anterior = ItInscripcionRegistro.where(user_id: @inscripcion_registro.user_id, idioma: "Italiano").last
-    examen_colocacion = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ?", @inscripcion_registro.user_id, Date.today.months_ago(2)).last
+    registro_anterior = ItInscripcionRegistro.where(user_id: @it_inscripcion_registro.user_id, idioma: "Italiano").last
+    examen_colocacion = ExamenColocacionIdioma.where("user_id = ? AND created_at >= ?", @it_inscripcion_registro.user_id, Date.today.months_ago(2)).last
     #Las siguientes condiciones aplican para que el usuario pueda editar su registro
     #de preinscrición sin que le aparezcan otros grupos que no correspondan con su nivel.
     if registro_anterior.blank? && examen_colocacion.blank?
