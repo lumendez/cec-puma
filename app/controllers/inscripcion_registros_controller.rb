@@ -173,6 +173,8 @@ class InscripcionRegistrosController < ApplicationController
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Avanzado 5', estado: 'Abierto')
     elsif registro_anterior.nivel == 'Avanzado 4' && registro_anterior.promedio < 80
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Avanzado 4', estado: 'Abierto')
+    elsif registro_anterior.nivel == 'Avanzado 5' && registro_anterior.promedio >= 80
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.1', estado: 'Abierto')
     elsif registro_anterior.nivel == 'Avanzado 5' && registro_anterior.promedio < 80
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Avanzado 5', estado: 'Abierto')
     elsif registro_anterior.nivel == 'Certificación de Metodología TKT 1' && registro_anterior.promedio >= 80
@@ -266,6 +268,18 @@ class InscripcionRegistrosController < ApplicationController
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Avanzado 4')
     elsif registro_anterior.nivel == 'Avanzado 5'
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Avanzado 5')
+    elsif registro_anterior.nivel == 'Certificación de Metodología TKT 1'
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación de Metodología TKT 1')
+    elsif registro_anterior.nivel == 'Certificación de Metodología TKT 2'
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación de Metodología TKT 2')
+    elsif registro_anterior.nivel == 'Certificación de Metodología TKT 3'
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación de Metodología TKT 3')
+    elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.1'
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.1')
+    elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.2'
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.2')
+    elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.3'
+      @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.3')
     end
   end
 
