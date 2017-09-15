@@ -9,6 +9,8 @@
       <th>Idioma</th>
       <th>Nivel asignado</th>
       <th>Examinador</th>
+      <!--<th>Curso</th>
+      <th>Año</th>-->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +24,8 @@
         <td><%= examen_colocacion_idioma.idioma %></td>
         <td><%= examen_colocacion_idioma.nivel_asignado %></td>
         <td><%= examen_colocacion_idioma.examinador %></td>
+        <!--<td><%#= examen_colocacion_idioma.curso %></td>
+        <td><%#= examen_colocacion_idioma.anio %></td>-->
         <td><%= link_to 'Mostrar', examen_colocacion_idioma %></td>
         <td><%= link_to 'Editar', edit_examen_colocacion_idioma_path(examen_colocacion_idioma) %></td>
         <td><%= link_to 'Eliminar', examen_colocacion_idioma, method: :delete, data: { confirm: '¿Está seguro?' } %></td>

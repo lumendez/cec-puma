@@ -1,2 +1,276 @@
-<h1>AnexosUnicosExamen#imprimir_anexo_unico</h1>
-<p>Find me in app/views/anexos_unicos_examen/imprimir_anexo_unico.html.erb</p>
+<div id="anexos-unicos">
+<% @instructores.each do |instructor| %>
+<p style="page-break-before: always;">&nbsp;</p>
+    <table border="0" width="659">
+    <tr>
+      <td width="200">
+        <p align="left"><%= image_tag "cabecera_sep.png" %></p>
+      </td>
+      <td colspan="2" width="1400">
+      </td>
+      <td width="200">
+        <p align="right"><%= image_tag "cabecera_cec.png" %></p>
+      </td>
+    </tr>
+    </table>
+    <p align="center"><strong><u>ANEXO  ÚNICO</u></strong></p>
+    <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
+    <p>El  objeto de este documento consiste en el desarrollo de programa académico:
+      <br />
+      <% grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count %>
+      <% if grupos_ingles == 1 %>
+      <%= "1 curso del idioma Inglés" %>
+      <% elsif grupos_ingles > 1 %>
+      <%= "#{grupos_ingles} cursos del idioma Inglés" %>
+      <% end %>
+      <% grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count %>
+      <% if grupos_frances == 1 %>
+      <%= ", 1 curso del idioma Francés" %>
+      <% elsif grupos_frances > 1 %>
+      <%= ", #{grupos_frances} cursos del idioma Francés" %>
+      <% end %>
+      <% grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count %>
+      <% if grupos_italiano == 1 %>
+      <%= ", 1 curso del idioma Italiano" %>
+      <% elsif grupos_italiano > 1 %>
+      <%= ", #{grupos_italiano} cursos del idioma Italiano" %>
+      <% end %>
+      <hr>
+    </p>
+    <p>Nombre  del prestador:
+      <br /><%= instructor.nombre_completo %>
+      <hr>
+    </p>
+    <p><strong>PROGRAMA  ACADÉMICO:</strong><strong> </strong><strong> </strong></p>
+    <table class="table table-bordered" width="659">
+      <tr>
+        <td width="149" colspan="2"><p><strong>TIPO DE PROGRAMA</strong></p></td>
+        <td width="161" colspan="3"><p><strong>ORDEN DE SERVICIO</strong></p></td>
+        <td width="350" colspan="5"><p><strong>CEC INGENIERO EUGENIO MÉNDEZ DOCURRO</strong></p></td>
+      </tr>
+      <tr>
+        <td width="81"><p><strong>Instructor:</strong></p></td>
+        <td width="159" colspan="3"><p><strong>( ) Interno IPN</strong></p></td>
+        <td width="123" colspan="3"><p><strong>( ) Docente</strong></p></td>
+        <td width="151"><p><strong>( ) Administrativo</strong></p></td>
+        <td width="145" colspan="2"><p><strong>(X) Externo</strong></p></td>
+      </tr>
+    </table>
+    <table class="table table-bordered" width="659">
+      <tr>
+        <td width="217" colspan="3"><p><strong>Periodo:</strong>
+
+          <%= @curso %> <%= @periodo %><strong></strong></p></td>
+        <td width="123" colspan="3"><p><strong>Duración:</strong><br />
+          40 horas x
+          <%= grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
+           grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
+           grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
+          total_grupos = grupos_ingles + grupos_italiano + grupos_frances
+           if total_grupos == 1
+           "1 curso"
+           elsif total_grupos > 1
+           "#{total_grupos} cursos"
+           end %>
+          <strong></strong></p></td>
+        <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
+          <%=
+          grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
+          grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
+          grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
+          certificacion = 0
+          certificacion_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés")
+          certificacion_ingles.each do |normal_ingles|
+            if normal_ingles.nivel.include? "Certificación"
+              certificacion = certificacion + 1
+            end
+          end
+          total_grupos = grupos_ingles + grupos_italiano + grupos_frances - certificacion
+          horas = total_grupos * 40
+          total = horas * 85
+          "#{horas} x $85.00 = $#{total.round(2)} + IVA"
+          %>
+          <br>
+          <%=
+           certificacion = 0
+           grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés")
+           grupos_ingles.each do |normal_ingles|
+             if normal_ingles.nivel.include? "Certificación"
+               certificacion = certificacion + 1
+             end
+           end
+           horas_certificacion = certificacion * 40
+           total_certificacion = horas_certificacion * 107
+             if certificacion == 1
+               "#{horas_certificacion} x $107.00 = $#{total_certificacion.round(2)} + IVA"
+             elsif certificacion == 2
+               "#{horas_certificacion} x $107.00 = $#{total_certificacion.round(2)} + IVA"
+             elsif certificacion == 3
+               "#{horas_certificacion} x $107.00 = $#{total_certificacion.round(2)} + IVA"
+             elsif certificacion == 4
+               "#{horas_certificacion} x $107.00 = $#{total_certificacion.round(2)} + IVA"
+             end
+           %>
+          <strong> </strong></p></td>
+        <td width="130"><p><strong>Pago único neto.</strong><br />
+          <%=
+          grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
+          grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
+          grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
+          certificacion = 0
+          certificacion_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés")
+          certificacion_ingles.each do |normal_ingles|
+            if normal_ingles.nivel.include? "Certificación"
+              certificacion = certificacion + 1
+            end
+          end
+          total_grupos = grupos_ingles + grupos_italiano + grupos_frances - certificacion
+          horas = total_grupos * 40
+          total = horas * 85
+          horas_certificacion = certificacion * 40
+          total_certificacion = horas_certificacion * 107
+          total_final = total + total_certificacion
+          iva = total_final * 0.16
+          total_final_iva = total_final + iva
+          retencion_iva = total_final * 0.106666
+          retencion_isr = total_final * 0.1
+          retenciones = retencion_isr + retencion_iva
+          total_final_iva = total_final_iva - retenciones
+          "$#{total_final_iva.round(2)}"
+          %>
+        </p></td>
+      </tr>
+      <tr>
+        <td width="659" colspan="10"><p><strong>Sesiones:</strong>
+          <% if @curso.include? "Intensivo" %>
+            <%= "Lunes a viernes:" %>
+          <% elsif @curso.includes? "Sabatino" %>
+            <%= "Sábados:" %>
+          <% end %>
+          <% grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés") %>
+          <% grupos_ingles.each do |grupo| %>
+          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
+          <% end %>
+          <% grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés") %>
+          <% grupos_frances.each do |grupo| %>
+          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
+          <% end %>
+          <% grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano") %>
+          <% grupos_italiano.each do |grupo| %>
+          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
+          <% end %>
+          .
+        </p></td>
+      </tr>
+      <tr>
+        <td width="659" colspan="10"><p><strong>Sede:</strong><br />
+          Centro de Educación Continua Unidad Ingeniero Eugenio Méndez Docurro. Belisario Domínguez 22, Col. Centro<strong></strong></p></td>
+      </tr>
+    </table>
+    <p><strong>PROGRAMA  DE ACTIVIDADES:</strong></p>
+    <ul>
+      <li><u>Elaboración y desarrollo de planeación de clase de acuerdo a los parámetros establecidos por los CELEX.</u></li>
+      <li><u>Elaboración y aplicación de examen medio y final, así como exámenes de ubicación cuando se le requiera.</u></li>
+      <li><u>Desarrollo de competencias lingüísticas y procesos de evaluación.</u></li>
+      <li><u>Desarrollo del enfoque basado en tareas (tarea integradora).</u></li>
+      <li><u>Retroalimentación académica, entrega de boletas.</u></li>
+    </ul>
+    <table width="690">
+      <tr>
+        <td width="196" valign="top"><p align="center"><strong>PRESTADOR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong><%= instructor.nombre_upcase %></strong></p></td>
+        <td width="284" valign="top"><p align="center"><strong>RESPONSABLE DE SUPERVISAR Y VIGILAR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>M. EN C. JOSÉ ANTONIO SIXTO BERROCAL </strong></p></td>
+        <td width="210" valign="top"><p align="center"><strong>DIRECTOR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>DR. MAURO ALBERTO ENCISO AGUILAR</strong></p></td>
+      </tr>
+    </table>
+    <p style="page-break-after: always;">&nbsp;</p>
+<% end %>
+</div>
+<div id="conclusiones-evento">
+<% @instructores.each do |instructor| %>
+<p style="page-break-before: always;">&nbsp;</p>
+    <table border="0" width="659">
+    <tr>
+      <td width="200">
+        <p align="left"><%= image_tag "cabecera_sep.png" %></p>
+      </td>
+      <td colspan="2" width="1400">
+      </td>
+      <td width="200">
+        <p align="right"><%= image_tag "cabecera_cec.png" %></p>
+      </td>
+    </tr>
+    </table>
+    <p align="left"><strong><u>CONCLUSIÓN DE EVENTO ACADÉMICO</u></strong></p>
+    <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
+    <p>C.P. JOAQUÍN TREJO BARRÓN<br>
+      JEFE DEL DEPARTAMENTO DE SERVICIOS<br>
+        ADMINISTRATIVOS Y TÉCNICOS<br>
+        P R E S E N T E :</p>
+      <p>Hago propicia la ocación para informarle que el (la)<strong><u>Prof. <%= instructor.nombre_completo %> </u></strong></p>
+      <p>Cumplió satisfacortiamente el (los) curso (s) que a continuación detallo:
+      <p align="center"><strong>&nbsp;</strong></p>
+        <% grupos= Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio]).order("horario ASC") %>
+        <table class="table table-bordered conclusiones">
+          <tr>
+            <th>NIVEL</th>
+            <th>IDIOMA</th>
+            <th>HORARIO</th>
+          </tr>
+          <% grupos.each do |grupo| %>
+          <tr>
+            <td align="center"><%= "#{grupo.nivel}" %></td>
+            <td align="center"><%= "#{grupo.idioma}" %></td>
+            <td align="center"><%= "#{grupo.horario} horas" %></td>
+          </tr>
+          <% end %>
+        </table>
+      <p align="center"><strong>&nbsp;</strong></p>
+      <p>Realizando las siguientes actividades:</p>
+      <ul>
+        <li><u>Elaboración y desarrollo de planeación de clase de acuerdo a los parámetros establecidos por los CELEX.</u></li>
+        <li><u>Elaboración y desarrollo aplicación de examen medio y final, así como exámenes de ubicación cuando se le requiera.</u></li>
+        <li><u>Desarrollo de competencias lingüísticas y procesos de evaluación.</u></li>
+        <li><u>Desarrollo del enfoque basado en tareas (tarea integradora).</u></li>
+        <li><u>Retroalimentación académica, entrega de boletas y reinscripción.</u></li>
+      </ul>
+      <p>Durante el periodo <%= @periodo %>,
+        <% if @curso.include? "Intensivo" %>
+          <%= "de lunes a viernes:" %>
+        <% elsif @curso.includes? "Sabatino" %>
+          <%= "los sábados:" %>
+        <% end %>,
+        con sede en las instalaciones de este CEC Ingeniero Méndez Docurro.</p>
+      <p>Además, hacemos de su conocimiento que las actividades realizadas fueron cubiertas en tiempo y forma, existiendo las evidencias
+        correspondientes bajo el resguardo en este departamento.</p>
+      <p>Se extiende la presente para notificar la autorización del pago correspondiente.</p>
+    <table width="690">
+      <tr>
+        <td width="284" valign="top">
+
+            <p align="center"><strong>&nbsp;</strong></p>
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>ANA LAURA DÍAZ BARROSO</strong><br><strong>COORDINADOR DE LOS CELEX CEC<br>INGENIERO EUGENIO MÉNDEZ DOCURRO.</strong></td>
+        <td width="210" valign="top">
+
+            <p align="center"><strong>&nbsp;</strong></p>
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong><p align="center">M. EN C. JOSÉ ANTONIO SIXTO BERROCAL<br><strong>SUBDIRECTOR DE SERVICIOS EDUCATIVOS</strong></p></strong></p></td>
+      </tr>
+    </table>
+    <p style="page-break-after: always;">&nbsp;</p>
+<% end %>
+</div>
