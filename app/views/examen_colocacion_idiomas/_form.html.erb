@@ -13,42 +13,42 @@
 <% if user_signed_in? && current_user.role.nombre == "Invitado" %>
 <div class="row">
   <div class="form-group col-sm-2">
-    <%= f.label :nombre %>
+    <%= f.label :nombre, 'Nombre(s)' %>
     <%= f.text_field :nombre, value: current_user.nombre, class:'form-control' %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-sm-2">
-    <%= f.label :paterno %>
+    <%= f.label :paterno, 'Apellido paterno' %>
     <%= f.text_field :paterno, value: current_user.paterno, class:'form-control' %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-sm-2">
-    <%= f.label :materno %>
+    <%= f.label :materno, "Apellido materno" %>
     <%= f.text_field :materno, value: current_user.materno, class:'form-control' %>
   </div>
 </div>
 <% else %>
 <div class="row">
   <div class="form-group col-sm-2">
-    <%= f.label :nombre %>
+    <%= f.label :nombre, 'Nombre(s)' %>
     <%= f.text_field :nombre, class:'form-control' %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-sm-2">
-    <%= f.label :paterno %>
+    <%= f.label :paterno, 'Apellido paterno' %>
     <%= f.text_field :paterno, class:'form-control' %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-sm-2">
-    <%= f.label :materno %>
+    <%= f.label :materno, 'Apellido materno' %>
     <%= f.text_field :materno, class:'form-control' %>
   </div>
 </div>
@@ -86,14 +86,14 @@
 <div class="row">
   <div class="form-group col-sm-2">
     <%= f.label :curso %>
-    <%= collection_select(:examen_colocacion_idioma, :curso, CursoNombre.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    <%= collection_select(:examen_colocacion_idioma, :curso, CursoNombre.all.order('nombre DESC'), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-sm-2">
     <%= f.label :anio %>
-    <%= select_tag :anio, options_for_select([["2017","2017"],["2018","2018"]]), prompt: 'Seleccione', class: 'form-control' %>
+    <%= select(:examen_colocacion_idioma, :anio, options_for_select([["2017","2017"],["2018","2018"]]), {prompt: 'Seleccione'}, class: 'form-control') %>
   </div>
 </div>
 

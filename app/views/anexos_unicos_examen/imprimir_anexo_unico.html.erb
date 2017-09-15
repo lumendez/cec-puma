@@ -17,24 +17,7 @@
     <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
     <p>El  objeto de este documento consiste en el desarrollo de programa académico:
       <br />
-      <% grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count %>
-      <% if grupos_ingles == 1 %>
-      <%= "1 curso del idioma Inglés" %>
-      <% elsif grupos_ingles > 1 %>
-      <%= "#{grupos_ingles} cursos del idioma Inglés" %>
-      <% end %>
-      <% grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count %>
-      <% if grupos_frances == 1 %>
-      <%= ", 1 curso del idioma Francés" %>
-      <% elsif grupos_frances > 1 %>
-      <%= ", #{grupos_frances} cursos del idioma Francés" %>
-      <% end %>
-      <% grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count %>
-      <% if grupos_italiano == 1 %>
-      <%= ", 1 curso del idioma Italiano" %>
-      <% elsif grupos_italiano > 1 %>
-      <%= ", #{grupos_italiano} cursos del idioma Italiano" %>
-      <% end %>
+      Aplicación de Exámenes de Colocación de los CELEX. <%= @curso %>.
       <hr>
     </p>
     <p>Nombre  del prestador:
@@ -61,18 +44,7 @@
         <td width="217" colspan="3"><p><strong>Periodo:</strong>
 
           <%= @curso %> <%= @periodo %><strong></strong></p></td>
-        <td width="123" colspan="3"><p><strong>Duración:</strong><br />
-          40 horas x
-          <%= grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
-           grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
-           grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
-          total_grupos = grupos_ingles + grupos_italiano + grupos_frances
-           if total_grupos == 1
-           "1 curso"
-           elsif total_grupos > 1
-           "#{total_grupos} cursos"
-           end %>
-          <strong></strong></p></td>
+
         <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
           <%=
           grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
@@ -112,7 +84,7 @@
              end
            %>
           <strong> </strong></p></td>
-        <td width="130"><p><strong>Pago único neto.</strong><br />
+        <td width="130" colspan="3"><p><strong>Pago único neto.</strong><br />
           <%=
           grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
           grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
@@ -141,24 +113,23 @@
         </p></td>
       </tr>
       <tr>
-        <td width="659" colspan="10"><p><strong>Sesiones:</strong>
-          <% if @curso.include? "Intensivo" %>
-            <%= "Lunes a viernes:" %>
-          <% elsif @curso.includes? "Sabatino" %>
-            <%= "Sábados:" %>
-          <% end %>
-          <% grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés") %>
-          <% grupos_ingles.each do |grupo| %>
-          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
-          <% end %>
-          <% grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés") %>
-          <% grupos_frances.each do |grupo| %>
-          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
-          <% end %>
-          <% grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano") %>
-          <% grupos_italiano.each do |grupo| %>
-          <%= "#{grupo.nivel} #{grupo.horario} horas" %>
-          <% end %>
+        <td width="659" colspan="10"><p><strong>Exámenes:</strong>
+          <%=
+          examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count
+          examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Otro").count
+          if examenes_comunidad == 1
+            "1 examen de la Comunidad Politécnica"
+          elsif examenes_comunidad == 0
+          elsif examenes_comunidad > 1
+            "#{examenes_comunidad} exámenes de la Comunidad Politécnica"
+          end
+          if examenes_publico == 1
+            "1 examen de Público General"
+          elsif examenes_publico == 0
+          elsif examenes_publico > 1
+            "#{examenes_publico} exámenes de Público General"
+          end
+          %>
           .
         </p></td>
       </tr>
@@ -169,11 +140,7 @@
     </table>
     <p><strong>PROGRAMA  DE ACTIVIDADES:</strong></p>
     <ul>
-      <li><u>Elaboración y desarrollo de planeación de clase de acuerdo a los parámetros establecidos por los CELEX.</u></li>
-      <li><u>Elaboración y aplicación de examen medio y final, así como exámenes de ubicación cuando se le requiera.</u></li>
-      <li><u>Desarrollo de competencias lingüísticas y procesos de evaluación.</u></li>
-      <li><u>Desarrollo del enfoque basado en tareas (tarea integradora).</u></li>
-      <li><u>Retroalimentación académica, entrega de boletas.</u></li>
+      <li><u>Aplicación de exámenes de colocación de los CELEX.</u></li>
     </ul>
     <table width="690">
       <tr>
