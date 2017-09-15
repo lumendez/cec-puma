@@ -126,7 +126,7 @@ class ExamenColocacionIdiomasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def examen_colocacion_idioma_params
-      params.require(:examen_colocacion_idioma).permit(:nombre, :paterno, :materno, :idioma, :nivel_asignado, :examinador, :user_id, :imagen)
+      params.require(:examen_colocacion_idioma).permit(:nombre, :paterno, :materno, :idioma, :nivel_asignado, :examinador, :user_id, :imagen, :procedencia)
     end
 
     def subir_comprobante_params

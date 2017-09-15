@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'anexos_unicos_examen/imprimir_anexo_unico'
+
+  get 'anexos_unicos_examen/index'
+
   resources :seccion_nombres
   resources :anexos_unicos do
     collection do

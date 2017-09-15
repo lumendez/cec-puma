@@ -61,6 +61,13 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="form-group col-sm-2">
+    <%= f.label :procedencia %>
+    <%= collection_select(:examen_colocacion_idioma, :procedencia, Procedencium.all, :procedencia, :procedencia, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+</div>
+
 <% if can? :asignar_nivel, examen_colocacion_idioma %>
 <div class="row">
   <div class="form-group col-sm-2">

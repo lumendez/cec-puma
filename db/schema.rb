@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831000426) do
+ActiveRecord::Schema.define(version: 20170914015914) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20170831000426) do
     t.integer  "imagen_file_size"
     t.datetime "imagen_updated_at"
     t.integer  "user_id"
+    t.string   "procedencia"
     t.index ["user_id"], name: "index_examen_colocacion_idiomas_on_user_id", using: :btree
   end
 
