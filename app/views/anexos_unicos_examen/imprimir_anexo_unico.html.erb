@@ -47,65 +47,25 @@
 
         <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
           <%=
-          grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
-          grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
-          grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
-          certificacion = 0
-          certificacion_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés")
-          certificacion_ingles.each do |normal_ingles|
-            if normal_ingles.nivel.include? "Certificación"
-              certificacion = certificacion + 1
-            end
-          end
-          total_grupos = grupos_ingles + grupos_italiano + grupos_frances - certificacion
-          horas = total_grupos * 40
-          total = horas * 85
-          "#{horas} x $85.00 = $#{total.round(2)} + IVA"
+          examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count
+          examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Otro").count
+          total_comunidad = examenes_comunidad * 54.25
+          total_publico = examenes_publico * 180.50
+          total = total_comunidad + total_publico
+          "$#{total} + I.V.A."
           %>
-          <br>
-          <%=
-           certificacion = 0
-           grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés")
-           grupos_ingles.each do |normal_ingles|
-             if normal_ingles.nivel.include? "Certificación"
-               certificacion = certificacion + 1
-             end
-           end
-           horas_certificacion = certificacion * 40
-           total_certificacion = horas_certificacion * 107
-             if certificacion == 1
-               "#{horas_certificacion} x $107.00 = $#{total_certificacion.round(2)} + IVA"
-             elsif certificacion == 2
-               "#{horas_certificacion} x $107.00 = $#{total_certificacion.round(2)} + IVA"
-             elsif certificacion == 3
-               "#{horas_certificacion} x $107.00 = $#{total_certificacion.round(2)} + IVA"
-             elsif certificacion == 4
-               "#{horas_certificacion} x $107.00 = $#{total_certificacion.round(2)} + IVA"
-             end
-           %>
-          <strong> </strong></p></td>
+        </p></td>
         <td width="130" colspan="3"><p><strong>Pago único neto.</strong><br />
           <%=
-          grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
-          grupos_frances = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Francés").count
-          grupos_italiano = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Italiano").count
-          certificacion = 0
-          certificacion_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés")
-          certificacion_ingles.each do |normal_ingles|
-            if normal_ingles.nivel.include? "Certificación"
-              certificacion = certificacion + 1
-            end
-          end
-          total_grupos = grupos_ingles + grupos_italiano + grupos_frances - certificacion
-          horas = total_grupos * 40
-          total = horas * 85
-          horas_certificacion = certificacion * 40
-          total_certificacion = horas_certificacion * 107
-          total_final = total + total_certificacion
-          iva = total_final * 0.16
-          total_final_iva = total_final + iva
-          retencion_iva = total_final * 0.106666
-          retencion_isr = total_final * 0.1
+          examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count
+          examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Otro").count
+          total_comunidad = examenes_comunidad * 54.25
+          total_publico = examenes_publico * 180.50
+          total = total_comunidad + total_publico
+          iva = total * 0.16
+          total_final_iva = total + iva
+          retencion_iva = total * 0.106666
+          retencion_isr = total * 0.1
           retenciones = retencion_isr + retencion_iva
           total_final_iva = total_final_iva - retenciones
           "$#{total_final_iva.round(2)}"
@@ -114,22 +74,22 @@
       </tr>
       <tr>
         <td width="659" colspan="10"><p><strong>Exámenes:</strong>
-          <%=
-          examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count
-          examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Otro").count
-          if examenes_comunidad == 1
-            "1 examen de la Comunidad Politécnica"
-          elsif examenes_comunidad == 0
-          elsif examenes_comunidad > 1
-            "#{examenes_comunidad} exámenes de la Comunidad Politécnica"
-          end
-          if examenes_publico == 1
-            "1 examen de Público General"
-          elsif examenes_publico == 0
-          elsif examenes_publico > 1
-            "#{examenes_publico} exámenes de Público General"
-          end
-          %>
+          <% examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo,
+          curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count %>
+          <% examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo,
+          curso: params[:curso], anio: params[:anio], procedencia: "Otro").count %>
+          <% if examenes_comunidad == 1 %>
+            <%= "1 examen de la Comunidad Politécnica" %>
+          <% elsif examenes_comunidad == 0 %>
+          <% elsif examenes_comunidad > 1 %>
+            <%= "#{examenes_comunidad} exámenes de la Comunidad Politécnica" %>
+          <% end %>
+          <% if examenes_publico == 1 %>
+            <%= " y 1 examen de Público General" %>
+          <% elsif examenes_publico == 0 %>
+          <% elsif examenes_publico > 1 %>
+            <%= " y #{examenes_publico} exámenes de Público General" %>
+          <% end %>
           .
         </p></td>
       </tr>
@@ -185,39 +145,44 @@
       JEFE DEL DEPARTAMENTO DE SERVICIOS<br>
         ADMINISTRATIVOS Y TÉCNICOS<br>
         P R E S E N T E :</p>
-      <p>Hago propicia la ocación para informarle que el (la)<strong><u>Prof. <%= instructor.nombre_completo %> </u></strong></p>
-      <p>Cumplió satisfacortiamente el (los) curso (s) que a continuación detallo:
-      <p align="center"><strong>&nbsp;</strong></p>
-        <% grupos= Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio]).order("horario ASC") %>
-        <table class="table table-bordered conclusiones">
-          <tr>
-            <th>NIVEL</th>
-            <th>IDIOMA</th>
-            <th>HORARIO</th>
-          </tr>
-          <% grupos.each do |grupo| %>
-          <tr>
-            <td align="center"><%= "#{grupo.nivel}" %></td>
-            <td align="center"><%= "#{grupo.idioma}" %></td>
-            <td align="center"><%= "#{grupo.horario} horas" %></td>
-          </tr>
-          <% end %>
-        </table>
-      <p align="center"><strong>&nbsp;</strong></p>
-      <p>Realizando las siguientes actividades:</p>
+      <p>&nbsp;</p>
+      <p>Por este medio le informamos que el (la) <strong><u>Prof. <%= instructor.nombre_completo %> </u></strong></p>
+      <p>Cumplió satisfacortiamente</p>
+      <p>&nbsp;</p>
       <ul>
-        <li><u>Elaboración y desarrollo de planeación de clase de acuerdo a los parámetros establecidos por los CELEX.</u></li>
-        <li><u>Elaboración y desarrollo aplicación de examen medio y final, así como exámenes de ubicación cuando se le requiera.</u></li>
-        <li><u>Desarrollo de competencias lingüísticas y procesos de evaluación.</u></li>
-        <li><u>Desarrollo del enfoque basado en tareas (tarea integradora).</u></li>
-        <li><u>Retroalimentación académica, entrega de boletas y reinscripción.</u></li>
+        <li>La aplicación de Exámenes de colocación que a continuación enlisto:
+        <br>
+        <% examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo,
+        curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count %>
+        <% examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo,
+        curso: params[:curso], anio: params[:anio], procedencia: "Otro").count %>
+        <% if examenes_comunidad == 1 %>
+          <%= "1 examen de la Comunidad Politécnica" %>
+        <% elsif examenes_comunidad == 0 %>
+        <% elsif examenes_comunidad > 1 %>
+          <%= "#{examenes_comunidad} exámenes de la Comunidad Politécnica" %>
+        <% end %>
+        <% if examenes_publico == 1 %>
+          <%= " y 1 examen de Público General" %>
+        <% elsif examenes_publico == 0 %>
+        <% elsif examenes_publico > 1 %>
+          <%= " y #{examenes_publico} exámenes de Público General" %>
+        <% end %>
+        </li>
       </ul>
+      <p>&nbsp;</p>
+      <p>Realizando las siguientes actividades:</p>
+      <p>&nbsp;</p>
+      <ul>
+        <li><u>Aplicación de exámenes de colocación.</u></li>
+      </ul>
+      <p>&nbsp;</p>
       <p>Durante el periodo <%= @periodo %>,
         <% if @curso.include? "Intensivo" %>
-          <%= "de lunes a viernes:" %>
-        <% elsif @curso.includes? "Sabatino" %>
-          <%= "los sábados:" %>
-        <% end %>,
+          <%= "de lunes a viernes," %>
+        <% elsif @curso.include? "Sabatino" %>
+          <%= "los sábados," %>
+        <% end %>
         con sede en las instalaciones de este CEC Ingeniero Méndez Docurro.</p>
       <p>Además, hacemos de su conocimiento que las actividades realizadas fueron cubiertas en tiempo y forma, existiendo las evidencias
         correspondientes bajo el resguardo en este departamento.</p>
