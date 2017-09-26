@@ -1,0 +1,2 @@
+class Unitario < ApplicationRecord
+end

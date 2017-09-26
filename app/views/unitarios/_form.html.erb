@@ -1,0 +1,102 @@
+<%= form_for(unitario) do |f| %>
+  <% if unitario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(unitario.errors.count, "Los siguientes errores:") %> no permitieron que el registro se guradara:</h2>
+
+      <ul>
+      <% unitario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="form-group col-sm-3">
+    <%= f.label :curp, 'CURP' %><strong><%= link_to '¿No conoce su CURP?', 'http://consultas.curp.gob.mx', html_options = {target: '_blank'} %></strong>
+    <%= f.text_field :curp, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :nombre, 'Nombre (s)' %>
+    <%= f.text_field :nombre, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :paterno, 'Apellido paterno' %>
+    <%= f.text_field :paterno, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :materno, 'Apellido materno' %>
+    <%= f.text_field :materno, class:'form-control' %>
+  </div>
+</div>
+  <div class="form-group col-sm-4">
+    <%= f.label :sexo %>
+    <%= f.text_field :sexo, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :nacimiento, 'Fecha de nacimiento' %>
+    <%= f.text_field :nacimiento, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :domicilio %>
+    <%= f.text_field :domicilio, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :codigo_postal, 'Código postal'  %>
+    <%= f.text_field :codigo_postal, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :entidad, 'Entidad federativa' %>
+    <%= f.text_field :entidad, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :delegacion_municipio, 'Delegación o municipio' %>
+    <%= f.text_field :delegacion_municipio, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :telefono_celular, 'Teléfono celular' %>
+    <%= f.text_field :telefono_celular, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :telefono_fijo, 'Teléfono fijo' %>
+    <%= f.text_field :telefono_fijo, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :correo, 'Correo electrónico' %>
+    <%= f.text_field :correo, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :procedencia %>
+    <%= f.text_field :procedencia, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :nombre_padre, 'Nombre del padre o tutor' %>
+    <%= f.text_field :nombre_padre, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :correo_padre, 'Correo electrónico del padre o tutor' %>
+    <%= f.text_field :correo_padre, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-4">
+    <%= f.label :telefono_padre, 'Teléfono del padre o tutor' %>
+    <%= f.text_field :telefono_padre, class:'form-control' %>
+  </div>
+
+  <div class="actions col-sm-2">
+    <%= f.submit 'Enviar', class:'btn btn-primary' %>
+  </div>
+<% end %>

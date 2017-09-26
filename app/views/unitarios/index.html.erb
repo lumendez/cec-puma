@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Unitarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Curp</th>
+      <th>Nombre</th>
+      <th>Paterno</th>
+      <th>Materno</th>
+      <th>Sexo</th>
+      <th>Nacimiento</th>
+      <th>Domicilio</th>
+      <th>Codigo postal</th>
+      <th>Entidad</th>
+      <th>Delegacion municipio</th>
+      <th>Telefono celular</th>
+      <th>Telefono fijo</th>
+      <th>Correo</th>
+      <th>Procedencia</th>
+      <th>Nombre padre</th>
+      <th>Correo padre</th>
+      <th>Telefono padre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unitarios.each do |unitario| %>
+      <tr>
+        <td><%= unitario.curp %></td>
+        <td><%= unitario.nombre %></td>
+        <td><%= unitario.paterno %></td>
+        <td><%= unitario.materno %></td>
+        <td><%= unitario.sexo %></td>
+        <td><%= unitario.nacimiento %></td>
+        <td><%= unitario.domicilio %></td>
+        <td><%= unitario.codigo_postal %></td>
+        <td><%= unitario.entidad %></td>
+        <td><%= unitario.delegacion_municipio %></td>
+        <td><%= unitario.telefono_celular %></td>
+        <td><%= unitario.telefono_fijo %></td>
+        <td><%= unitario.correo %></td>
+        <td><%= unitario.procedencia %></td>
+        <td><%= unitario.nombre_padre %></td>
+        <td><%= unitario.correo_padre %></td>
+        <td><%= unitario.telefono_padre %></td>
+        <td><%= link_to 'Show', unitario %></td>
+        <td><%= link_to 'Edit', edit_unitario_path(unitario) %></td>
+        <td><%= link_to 'Destroy', unitario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unitario', new_unitario_path %>

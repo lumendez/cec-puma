@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :unitarios
   resources :anexos_unicos_examen do
     collection do
       get 'index'
