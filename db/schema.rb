@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926012147) do
+ActiveRecord::Schema.define(version: 20170929004744) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -201,6 +201,33 @@ ActiveRecord::Schema.define(version: 20170926012147) do
     t.index ["user_id"], name: "index_grupos_on_user_id", using: :btree
   end
 
+  create_table "grupos_unitarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "nombre"
+    t.string   "horario"
+    t.string   "estado"
+    t.string   "anio"
+    t.string   "periodo"
+    t.string   "lugar"
+    t.string   "fecha"
+    t.string   "centro"
+    t.string   "tipo"
+    t.string   "modalidad"
+    t.string   "cupo"
+    t.string   "duracion"
+    t.string   "cuota"
+    t.string   "clave"
+    t.string   "proyecto"
+    t.string   "institucion_bancaria"
+    t.string   "cuenta"
+    t.string   "titular"
+    t.string   "jefe_ec"
+    t.string   "registro"
+    t.string   "referencia"
+    t.boolean  "habilitar_constancias_grupo"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "horarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "hora"
     t.datetime "created_at", null: false
@@ -331,8 +358,16 @@ ActiveRecord::Schema.define(version: 20170926012147) do
     t.string   "periodo"
     t.string   "temas"
     t.string   "instructor"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "horario"
+    t.string   "registro"
+    t.string   "tipo_oferta"
+    t.string   "modalidad"
+    t.string   "cupo"
+    t.string   "cuota"
+    t.string   "clave_catalogo"
+    t.string   "proyecto"
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -374,6 +409,9 @@ ActiveRecord::Schema.define(version: 20170926012147) do
     t.string   "telefono_padre"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "grupos_unitario_id"
+    t.boolean  "documentos_validados"
+    t.index ["grupos_unitario_id"], name: "index_unitarios_on_grupos_unitario_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -421,6 +459,7 @@ ActiveRecord::Schema.define(version: 20170926012147) do
   add_foreign_key "inscripcion_registros", "users"
   add_foreign_key "it_inscripcion_registros", "grupos"
   add_foreign_key "it_inscripcion_registros", "users"
+  add_foreign_key "unitarios", "grupos_unitarios"
   add_foreign_key "users", "centros"
   add_foreign_key "users", "roles"
 end

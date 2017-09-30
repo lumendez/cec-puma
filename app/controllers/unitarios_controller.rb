@@ -5,6 +5,7 @@ class UnitariosController < ApplicationController
   # GET /unitarios.json
   def index
     @unitarios = Unitario.all
+    @grupos_unitarios = GruposUnitario.all
   end
 
   # GET /unitarios/1
@@ -69,6 +70,9 @@ class UnitariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unitario_params
-      params.require(:unitario).permit(:curp, :nombre, :paterno, :materno, :sexo, :nacimiento, :domicilio, :codigo_postal, :entidad, :delegacion_municipio, :telefono_celular, :telefono_fijo, :correo, :procedencia, :nombre_padre, :correo_padre, :telefono_padre)
+      params.require(:unitario).permit(:curp, :nombre, :paterno, :materno, :sexo,
+      :nacimiento, :domicilio, :codigo_postal, :entidad, :delegacion_municipio,
+      :telefono_celular, :telefono_fijo, :correo, :procedencia, :nombre_padre,
+      :correo_padre, :telefono_padre, :grupos_unitario_id)
     end
 end
