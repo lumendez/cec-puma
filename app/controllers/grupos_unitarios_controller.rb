@@ -10,6 +10,8 @@ class GruposUnitariosController < ApplicationController
   # GET /grupos_unitarios/1
   # GET /grupos_unitarios/1.json
   def show
+    @unitarios = Unitario.where(documentos_validados: true, grupos_unitario_id: @grupos_unitario.id).order('paterno ASC, materno ASC, nombre ASC')
+    @inscritos = Unitario.where(documentos_validados: true, grupos_unitario_id: @grupos_unitario.id).count
   end
 
   # GET /grupos_unitarios/new

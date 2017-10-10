@@ -116,6 +116,26 @@
     </div>
   </div>
 </div>
+<% if user_signed_in? %>
+  <% if can? :validar_documentos, unitario %>
+  <div class="row jumbotron">
+    <h4 class="subs"><strong>Control escolar</strong></h4>
+    <div class="row">
+      <div class="form-group col-sm-3">
+        <%= f.label :documentos_validados, "Documentos validados" %>
+        <%= f.check_box :documentos_validados, class: 'form-control' %>
+      </div>
+      <!--<%# if can? :habilitar_contancia, unitario %>
+        <div class="form-group col-sm-3">
+          <%#= f.label :habilitar_constancia, "Constancia" %>
+          <%#= f.check_box :habilitar_constancia, class: 'form-control' %>
+        </div>
+      <%# end %>-->
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
 <div class="row">
   <div class="actions col-sm-2">
     <%= f.submit 'Enviar', class:'btn btn-primary' %>

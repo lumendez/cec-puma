@@ -1,87 +1,73 @@
-<p>
-  <strong>Curp:</strong>
-  <%= @unitario.curp %>
-</p>
+<div class="row">
+  <div class="col-md-8">
+    <input type="button" id="btn-talon" value="Imprimir" class="btn btn-md btn-primary">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div id="carta_compromiso">
+      <p style="page-break-before: always;">&nbsp;</p>
+      <h3 align="center">CURSO DE PREPARACIÓN PARA EL EXAMEN DE ADMISIÓN AL NIVEL SUPERIOR</h3>
+      <h4 align="center">CARTA COMPROMISO</h4>
+      <h4>FOLIO <%= @unitario.id %></h4>
+      <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
+      <p><strong>DR. MAURO ALBERTO ENCISO AGUILAR<br>
+      DIRECTOR DEL CENTRO DE EDUCACIÓN CONTINUA<br>
+      INGENIERO EUGENIO MÉNDEZ DOCURRO DEL IPN<br>
+      P R E S E N T E</strong></p>
+      <br>
+      <br>
+      <br>
+      <table class="table table-bordered">
+      <tr>
+        <td rowspan="3"><p align="center"><strong>El que suscribe</strong></p></td>
+        <td colspan="3"><p align="center"><strong>Datos del interesado</strong></p></td>
+      </tr>
+      <tr>
+        <td><p align="center"><%= @unitario.paterno %></p></td>
+        <td><p align="center"><%= @unitario.materno %></p></td>
+        <td><p align="center"><%= @unitario.nombre %></p></td>
+      </tr>
+      <tr>
+        <td><p align="center"><strong>Apellido paterno</strong></p></td>
+        <td><p align="center"><strong>Apellido materno</strong></p></td>
+        <td><p align="center"><strong>Nombre(s)</strong></p></td>
+      </tr>
+    </table>
+    <br>
+    <p>Me comprometo con el Centro de Educación Continua Ingeniero Eugenio Méndez Docurro
+      del Instituto Politécnico Nacional, que usted dignamente dirige, a acatar las
+      disposiciones reglamentarias y de disciplina que rigen la vida institucional;
+      en el entendido de que si quebranto la normatividad, aceptaré las sanciones a que
+      me haga acreedor, incluyendo en su caso, reparar de inmediato cualquier desperfecto
+      ocasionado al inmueble, instalaciones o equipamiento; o en su caso, cubrir el total
+      del importe derivado de dicha reparación.</p>
+      <p>Cabe mencionar que estoy plenamente consciente de que el hecho de inscribirme,
+        sustentar y acreditar este curso propedéutico, de ninguna manera implica la aceptación
+        automática en el Instituto Politécnico Nacional ni en ninguna otra institución educativa
+        para el ciclo escolar 2017-2018.</p>
+      <br>
+      <br>
+      <p align="center">A T E N T A M E N T E</p>
+      <br>
+      <br>
+      <br>
+      <p align="center">_____________________________________</p>
+      <p align="center"><%= @unitario.nombre_paterno_materno %></p>
+      <p align="center">Firma del Interesado</p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @unitario.nombre %>
-</p>
 
-<p>
-  <strong>Paterno:</strong>
-  <%= @unitario.paterno %>
-</p>
 
-<p>
-  <strong>Materno:</strong>
-  <%= @unitario.materno %>
-</p>
+      <p style="page-break-after: always;">&nbsp;</p>
 
-<p>
-  <strong>Sexo:</strong>
-  <%= @unitario.sexo %>
-</p>
-
-<p>
-  <strong>Nacimiento:</strong>
-  <%= @unitario.nacimiento %>
-</p>
-
-<p>
-  <strong>Domicilio:</strong>
-  <%= @unitario.domicilio %>
-</p>
-
-<p>
-  <strong>Codigo postal:</strong>
-  <%= @unitario.codigo_postal %>
-</p>
-
-<p>
-  <strong>Entidad:</strong>
-  <%= @unitario.entidad %>
-</p>
-
-<p>
-  <strong>Delegacion municipio:</strong>
-  <%= @unitario.delegacion_municipio %>
-</p>
-
-<p>
-  <strong>Telefono celular:</strong>
-  <%= @unitario.telefono_celular %>
-</p>
-
-<p>
-  <strong>Telefono fijo:</strong>
-  <%= @unitario.telefono_fijo %>
-</p>
-
-<p>
-  <strong>Correo:</strong>
-  <%= @unitario.correo %>
-</p>
-
-<p>
-  <strong>Procedencia:</strong>
-  <%= @unitario.procedencia %>
-</p>
-
-<p>
-  <strong>Nombre padre:</strong>
-  <%= @unitario.nombre_padre %>
-</p>
-
-<p>
-  <strong>Correo padre:</strong>
-  <%= @unitario.correo_padre %>
-</p>
-
-<p>
-  <strong>Telefono padre:</strong>
-  <%= @unitario.telefono_padre %>
-</p>
-
-<%= link_to 'Edit', edit_unitario_path(@unitario) %> |
-<%= link_to 'Back', unitarios_path %>
+      <p style="page-break-after: always;">&nbsp;</p>
+    </div>
+  </div>
+</div>
+<script>
+$("#btn-talon").click(function () {
+    //Hide all other elements other than printarea.
+    $("#carta_compromiso").show();
+    window.print();
+});
+</script>

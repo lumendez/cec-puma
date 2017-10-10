@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
   resources :grupos_unitarios
-  resources :unitarios
+  resources :unitarios do
+    collection do
+      get 'asignar_calificaciones'
+      patch 'actualizar_asignar_calificaciones'
+      get 'editar_datos'
+      patch 'actualizar_editar_datos'
+      get 'carta_compromiso'
+    end
+  end
   resources :anexos_unicos_examen do
     collection do
       get 'index'

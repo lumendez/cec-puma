@@ -1,0 +1,42 @@
+<%= form_tag actualizar_editar_datos_unitarios_path, method: :patch do %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Grupo</th>
+      <th>Año</th>
+      <th>Validar documentos</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @unitarios.each_with_index do |unitario, index| %>
+          <%= fields_for "unitarios[]", unitario do |f| %>
+            <tr>
+              <td><%= unitario.nombre_paterno_materno %></td>
+              <td><%= unitario.grupos_unitario.nombre %></td>
+              <td><%= unitario.anio %></td>
+              <td><%= f.check_box :documentos_validados, value: unitario.documentos_validados, class: 'form-control' %></td>
+            </tr>
+          <% end %>
+      <% end %>
+  </tbody>
+</table>
+<input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+<%= submit_tag "Enviar", class: 'btn btn-primary' %>
+<br>
+<br>
+<%= link_to 'Regresar', unitarios_path %>
+<% end %>
+<script>
+$('#selectAll').click(function() {
+   if (this.checked) {
+       $(':checkbox').each(function() {
+           this.checked = true;
+       });
+   } else {
+      $(':checkbox').each(function() {
+           this.checked = false;
+       });
+   }
+});
+</script>

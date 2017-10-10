@@ -1,112 +1,54 @@
-<p>
-  <strong>Nombre:</strong>
-  <%= @grupos_unitario.nombre %>
-</p>
+<div id="grupos">
+<p><strong>Nombre del profesor:</strong> <%#= @grupo.user.nombre_completo %></p>
+<p><strong>Grupo:</strong> <%= @grupos_unitario.nombre %></p>
+<p><strong>Horario:</strong> <%= @grupos_unitario.horario %></p>
+<p><strong>Inscritos:</strong> <%= @inscritos %></p>
+  <%= form_tag(asignar_calificaciones_unitarios_path, method: :get) do %>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <% if can? :editar_datos, @grupos_unitario %>
+        <!--<#% if @grupo.estado == "Abierto" %>-->
+          <th></th>
+        <!--<#% end %>-->
+      <% end %>
+        <th width="5%">N&uacute;mero de lista</th>
+        <th>Apellido paterno</th>
+        <th>Apellido materno</th>
+        <th>Nombre</th>
+        <th>Examen final</th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>Horario:</strong>
-  <%= @grupos_unitario.horario %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @grupos_unitario.estado %>
-</p>
-
-<p>
-  <strong>Anio:</strong>
-  <%= @grupos_unitario.anio %>
-</p>
-
-<p>
-  <strong>Periodo:</strong>
-  <%= @grupos_unitario.periodo %>
-</p>
-
-<p>
-  <strong>Lugar:</strong>
-  <%= @grupos_unitario.lugar %>
-</p>
-
-<p>
-  <strong>Fecha:</strong>
-  <%= @grupos_unitario.fecha %>
-</p>
-
-<p>
-  <strong>Centro:</strong>
-  <%= @grupos_unitario.centro %>
-</p>
-
-<p>
-  <strong>Tipo:</strong>
-  <%= @grupos_unitario.tipo %>
-</p>
-
-<p>
-  <strong>Modalidad:</strong>
-  <%= @grupos_unitario.modalidad %>
-</p>
-
-<p>
-  <strong>Cupo:</strong>
-  <%= @grupos_unitario.cupo %>
-</p>
-
-<p>
-  <strong>Duracion:</strong>
-  <%= @grupos_unitario.duracion %>
-</p>
-
-<p>
-  <strong>Cuota:</strong>
-  <%= @grupos_unitario.cuota %>
-</p>
-
-<p>
-  <strong>Clave:</strong>
-  <%= @grupos_unitario.clave %>
-</p>
-
-<p>
-  <strong>Proyecto:</strong>
-  <%= @grupos_unitario.proyecto %>
-</p>
-
-<p>
-  <strong>Institucion bancaria:</strong>
-  <%= @grupos_unitario.institucion_bancaria %>
-</p>
-
-<p>
-  <strong>Cuenta:</strong>
-  <%= @grupos_unitario.cuenta %>
-</p>
-
-<p>
-  <strong>Titular:</strong>
-  <%= @grupos_unitario.titular %>
-</p>
-
-<p>
-  <strong>Jefe ec:</strong>
-  <%= @grupos_unitario.jefe_ec %>
-</p>
-
-<p>
-  <strong>Registro:</strong>
-  <%= @grupos_unitario.registro %>
-</p>
-
-<p>
-  <strong>Referencia:</strong>
-  <%= @grupos_unitario.referencia %>
-</p>
-
-<p>
-  <strong>Habilitar constancias grupo:</strong>
-  <%= @grupos_unitario.habilitar_constancias_grupo %>
-</p>
-
-<%= link_to 'Edit', edit_grupos_unitario_path(@grupos_unitario) %> |
-<%= link_to 'Back', grupos_unitarios_path %>
+    <tbody>
+        <% @unitarios.each_with_index do |unitario, index| %>
+            <tr>
+              <% if can? :editar_datos, @grupos_unitario %>
+                <td><%= check_box_tag "unitario_ids[]", unitario.id %></td>
+              <% end %>
+              <td><%= index + 1 %></td>
+              <td><%= unitario.paterno %></td>
+              <td><%= unitario.materno %></td>
+              <td><%= unitario.nombre %></td>
+              <td><%= unitario.examen_final %></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+    <% if can? :editar_datos, @grupos_unitario %>
+        <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+        <%= submit_tag "Asignar calificaciones", class:'btn btn-primary' %>
+    <% end %>
+  <% end %>
+  <script>
+  $('#selectAll').click(function() {
+     if (this.checked) {
+         $(':checkbox').each(function() {
+             this.checked = true;
+         });
+     } else {
+        $(':checkbox').each(function() {
+             this.checked = false;
+         });
+     }
+  });
+  </script>

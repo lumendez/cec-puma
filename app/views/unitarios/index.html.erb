@@ -1,10 +1,11 @@
-<h1 class="sub">Unitarios</h1>
+<%= form_tag(editar_datos_unitarios_path, method: :get) do %>
+<h1 class="sub">Registros de inscripción de cursos unitarios</h1>
 
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th></th>
       <th>Nombre</th>
-      <th>Cuota</th>
       <th>Monto pagado</th>
       <th>Movimiento bancario</th>
       <th>Documentos validados</th>
@@ -17,11 +18,15 @@
   <tbody>
     <% @unitarios.each do |unitario| %>
       <tr>
+        <td><%= check_box_tag "unitario_ids[]", unitario.id %></td>
         <td><%= unitario.paterno_materno_nombre %></td>
         <td></td>
         <td></td>
-        <td></td>
-        <td></td>
+        <% if unitario.documentos_validados == true %>
+          <td class="success"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
+        <% else %>
+          <td class="danger"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
+        <% end %>
         <td><%= unitario.creado %></td>
         <td><%= unitario.grupos_unitario.nombre %></td>
         <td><%= link_to 'Mostrar', unitario %></td>
@@ -31,7 +36,22 @@
     <% end %>
   </tbody>
 </table>
-
+<input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+<%= submit_tag "Editar seleccionados", class: 'btn btn-primary' %>
+<% end %>
 <br>
 
-<%= link_to 'New Unitario', new_unitario_path %>
+<%= link_to 'Crear nuevo registro', new_unitario_path %>
+<script>
+$('#selectAll').click(function() {
+   if (this.checked) {
+       $(':checkbox').each(function() {
+           this.checked = true;
+       });
+   } else {
+      $(':checkbox').each(function() {
+           this.checked = false;
+       });
+   }
+});
+</script>

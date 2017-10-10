@@ -16,4 +16,8 @@ class Unitario < ApplicationRecord
     self.created_at.strftime("%d/%m/%y a las %T %P")
   end
 
+  def anio
+    self.created_at.strftime("%Y")
+  end
+
 end
