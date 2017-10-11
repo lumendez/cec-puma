@@ -109,10 +109,14 @@ class GruposController < ApplicationController
   # DELETE /grupos/1
   # DELETE /grupos/1.json
   def destroy
-    @grupo.destroy
-    respond_to do |format|
-      format.html { redirect_to grupos_url, notice: 'El grupo fue eliminado correctamente.' }
-      format.json { head :no_content }
+    if @grupo.inscripcion_registros.any?
+      redirect_to grupos_path, alert: 'El grupo que intenta eliminar no está vacío. Primero mueva los registros a otro grupo o elimínelos.'
+    else
+      @grupo.destroy
+      respond_to do |format|
+        format.html { redirect_to grupos_url, notice: 'El grupo fue eliminado correctamente.' }
+        format.json { head :no_content }
+      end
     end
   end
 

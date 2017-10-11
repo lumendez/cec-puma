@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :grupos_unitarios
   resources :unitarios do
     collection do
+      #get '/carta_compromiso/:id', to: 'unitarios#carta_compromiso', as: 'carta_compromiso'
       get 'asignar_calificaciones'
       patch 'actualizar_asignar_calificaciones'
       get 'editar_datos'

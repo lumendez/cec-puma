@@ -1,5 +1,8 @@
 class GruposUnitariosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_grupos_unitario, only: [:show, :edit, :update, :destroy]
+  before_action :grupos_unitario, only: :create
+  load_and_authorize_resource
 
   # GET /grupos_unitarios
   # GET /grupos_unitarios.json
@@ -56,10 +59,14 @@ class GruposUnitariosController < ApplicationController
   # DELETE /grupos_unitarios/1
   # DELETE /grupos_unitarios/1.json
   def destroy
-    @grupos_unitario.destroy
-    respond_to do |format|
-      format.html { redirect_to grupos_unitarios_url, notice: 'El grupo se eliminó correctamente.' }
-      format.json { head :no_content }
+    if @grupos_unitario.unitarios.any?
+      redirect_to grupos_unitarios_path, alert: 'El grupo que intenta eliminar no está vacío. Primero mueva los registros a otro grupo o elimínelos.'
+    else
+      @grupos_unitario.destroy
+      respond_to do |format|
+        format.html { redirect_to grupos_unitarios_url, notice: 'El grupo se eliminó correctamente.' }
+        format.json { head :no_content }
+      end
     end
   end
 

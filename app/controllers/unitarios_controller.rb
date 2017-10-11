@@ -61,15 +61,21 @@ class UnitariosController < ApplicationController
   # PATCH/PUT /unitarios/1
   # PATCH/PUT /unitarios/1.json
   def update
-    respond_to do |format|
+    #respond_to do |format|
       if @unitario.update(unitario_params)
-        format.html { redirect_to @unitario, notice: 'Los datos del registro se actualizaron correctamente.' }
-        format.json { render :show, status: :ok, location: @unitario }
+        if user_signed_in? && current_user.role.nombre == "Administrador"
+          redirect_to unitarios_path
+        elsif current_user.role.nombre == "Control Educación Continua"
+          redirect_to unitarios_path
+        else
+          format.html { redirect_to @unitario, notice: 'Los datos del registro se actualizaron correctamente.' }
+          format.json { render :show, status: :ok, location: @unitario }
+        end
       else
         format.html { render :edit }
         format.json { render json: @unitario.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # DELETE /unitarios/1

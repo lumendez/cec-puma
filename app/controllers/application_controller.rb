@@ -27,7 +27,9 @@ class ApplicationController < ActionController::Base
       inscripcion_registros_path
     elsif current_user.role.nombre == 'Coordinación CELEX'
       inscripcion_registros_path
+    elsif current_user.role.nombre == 'Control Educación Continua'
+      unitarios_path
     end
   end
-  
+
 end
