@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -28,5 +29,5 @@ class ApplicationController < ActionController::Base
       inscripcion_registros_path
     end
   end
-
+  
 end

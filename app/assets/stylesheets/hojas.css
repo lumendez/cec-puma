@@ -46,4 +46,12 @@
     left: 0;
     top: 200%;
   }
+  #carta_compromiso, #carta_compromiso * {
+    visibility: visible;
+  }
+  #carta_compromiso {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 }

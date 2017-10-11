@@ -115,7 +115,7 @@
   </div>
 
   <div class="form-group col-md-4">
-    <%= f.label :clave, "Clave del catálogo fideicomiso o número de convenio" %>
+    <%= f.label :clave, "Clave del catálogo fideicomiso" %>
     <%= collection_select(:grupo, :clave, ClaveCatalogo.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
   </div>
 

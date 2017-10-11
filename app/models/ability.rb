@@ -210,6 +210,9 @@ class Ability
         can :reporte_dec, InscripcionRegistro
         can :read, User
         can :instructores, User
+      elsif user.control_ec?
+        can :validar_documentos, Unitario
+        can :habilitar_constancia, Unitario
       end
   end
 

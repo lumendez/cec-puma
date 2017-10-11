@@ -144,7 +144,7 @@
         <td width="659" colspan="10"><p><strong>Sesiones:</strong>
           <% if @curso.include? "Intensivo" %>
             <%= "Lunes a viernes:" %>
-          <% elsif @curso.includes? "Sabatino" %>
+          <% elsif @curso.include? "Sabatino" %>
             <%= "Sábados:" %>
           <% end %>
           <% grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés") %>
@@ -218,7 +218,7 @@
       JEFE DEL DEPARTAMENTO DE SERVICIOS<br>
         ADMINISTRATIVOS Y TÉCNICOS<br>
         P R E S E N T E :</p>
-      <p>Hago propicia la ocación para informarle que el (la)<strong><u>Prof. <%= instructor.nombre_completo %> </u></strong></p>
+      <p>Hago propicia la ocación para informarle que el (la) <strong><u>Prof. <%= instructor.nombre_completo %> </u></strong></p>
       <p>Cumplió satisfacortiamente el (los) curso (s) que a continuación detallo:
       <p align="center"><strong>&nbsp;</strong></p>
         <% grupos= Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio]).order("horario ASC") %>
@@ -247,10 +247,10 @@
       </ul>
       <p>Durante el periodo <%= @periodo %>,
         <% if @curso.include? "Intensivo" %>
-          <%= "de lunes a viernes:" %>
-        <% elsif @curso.includes? "Sabatino" %>
-          <%= "los sábados:" %>
-        <% end %>,
+          <%= "de lunes a viernes," %>
+        <% elsif @curso.include? "Sabatino" %>
+          <%= "los sábados," %>
+        <% end %>
         con sede en las instalaciones de este CEC Ingeniero Méndez Docurro.</p>
       <p>Además, hacemos de su conocimiento que las actividades realizadas fueron cubiertas en tiempo y forma, existiendo las evidencias
         correspondientes bajo el resguardo en este departamento.</p>

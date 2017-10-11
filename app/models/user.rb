@@ -79,6 +79,10 @@ class User < ApplicationRecord
     self.role.nombre == "Director del Centro"
   end
 
+  def control_ec?
+    self.role.nombre == "Control Educación Continua"
+  end
+
   #Se utiliza para mostrar el nombre completo de un usuario, principalmente de
   #los alumnos, de esta forma en las listas de registros de inscripción aparecen
   #primero por apellidos para que puedan buscarse de forma más sencilla

@@ -1,0 +1,208 @@
+<div id="anexos-unicos">
+<% @instructores.each do |instructor| %>
+<p style="page-break-before: always;">&nbsp;</p>
+    <table border="0" width="659">
+    <tr>
+      <td width="200">
+        <p align="left"><%= image_tag "cabecera_sep.png" %></p>
+      </td>
+      <td colspan="2" width="1400">
+      </td>
+      <td width="200">
+        <p align="right"><%= image_tag "cabecera_cec.png" %></p>
+      </td>
+    </tr>
+    </table>
+    <p align="center"><strong><u>ANEXO  ÚNICO</u></strong></p>
+    <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
+    <p>El  objeto de este documento consiste en el desarrollo de programa académico:
+      <br />
+      Aplicación de Exámenes de Colocación de los CELEX. <%= @curso %>.
+      <hr>
+    </p>
+    <p>Nombre  del prestador:
+      <br /><%= instructor.nombre_completo %>
+      <hr>
+    </p>
+    <p><strong>PROGRAMA  ACADÉMICO:</strong><strong> </strong><strong> </strong></p>
+    <table class="table table-bordered" width="659">
+      <tr>
+        <td width="149" colspan="2"><p><strong>TIPO DE PROGRAMA</strong></p></td>
+        <td width="161" colspan="3"><p><strong>ORDEN DE SERVICIO</strong></p></td>
+        <td width="350" colspan="5"><p><strong>CEC INGENIERO EUGENIO MÉNDEZ DOCURRO</strong></p></td>
+      </tr>
+      <tr>
+        <td width="81"><p><strong>Instructor:</strong></p></td>
+        <td width="159" colspan="3"><p><strong>( ) Interno IPN</strong></p></td>
+        <td width="123" colspan="3"><p><strong>( ) Docente</strong></p></td>
+        <td width="151"><p><strong>( ) Administrativo</strong></p></td>
+        <td width="145" colspan="2"><p><strong>(X) Externo</strong></p></td>
+      </tr>
+    </table>
+    <table class="table table-bordered" width="659">
+      <tr>
+        <td width="217" colspan="3"><p><strong>Periodo:</strong>
+
+          <%= @curso %> <%= @periodo %><strong></strong></p></td>
+
+        <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
+          <%=
+          examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count
+          examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Otro").count
+          total_comunidad = examenes_comunidad * 54.25
+          total_publico = examenes_publico * 180.50
+          total = total_comunidad + total_publico
+          "$#{total} + I.V.A."
+          %>
+        </p></td>
+        <td width="130" colspan="3"><p><strong>Pago único neto.</strong><br />
+          <%=
+          examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count
+          examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo, curso: params[:curso], anio: params[:anio], procedencia: "Otro").count
+          total_comunidad = examenes_comunidad * 54.25
+          total_publico = examenes_publico * 180.50
+          total = total_comunidad + total_publico
+          iva = total * 0.16
+          total_final_iva = total + iva
+          retencion_iva = total * 0.106666
+          retencion_isr = total * 0.1
+          retenciones = retencion_isr + retencion_iva
+          total_final_iva = total_final_iva - retenciones
+          "$#{total_final_iva.round(2)}"
+          %>
+        </p></td>
+      </tr>
+      <tr>
+        <td width="659" colspan="10"><p><strong>Exámenes:</strong>
+          <% examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo,
+          curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count %>
+          <% examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo,
+          curso: params[:curso], anio: params[:anio], procedencia: "Otro").count %>
+          <% if examenes_comunidad == 1 %>
+            <%= "1 examen de la Comunidad Politécnica" %>
+          <% elsif examenes_comunidad == 0 %>
+          <% elsif examenes_comunidad > 1 %>
+            <%= "#{examenes_comunidad} exámenes de la Comunidad Politécnica" %>
+          <% end %>
+          <% if examenes_publico == 1 %>
+            <%= " y 1 examen de Público General" %>
+          <% elsif examenes_publico == 0 %>
+          <% elsif examenes_publico > 1 %>
+            <%= " y #{examenes_publico} exámenes de Público General" %>
+          <% end %>
+          .
+        </p></td>
+      </tr>
+      <tr>
+        <td width="659" colspan="10"><p><strong>Sede:</strong><br />
+          Centro de Educación Continua Unidad Ingeniero Eugenio Méndez Docurro. Belisario Domínguez 22, Col. Centro<strong></strong></p></td>
+      </tr>
+    </table>
+    <p><strong>PROGRAMA  DE ACTIVIDADES:</strong></p>
+    <ul>
+      <li><u>Aplicación de exámenes de colocación de los CELEX.</u></li>
+    </ul>
+    <table width="690">
+      <tr>
+        <td width="196" valign="top"><p align="center"><strong>PRESTADOR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong><%= instructor.nombre_upcase %></strong></p></td>
+        <td width="284" valign="top"><p align="center"><strong>RESPONSABLE DE SUPERVISAR Y VIGILAR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>M. EN C. JOSÉ ANTONIO SIXTO BERROCAL </strong></p></td>
+        <td width="210" valign="top"><p align="center"><strong>DIRECTOR</strong></p>
+
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>DR. MAURO ALBERTO ENCISO AGUILAR</strong></p></td>
+      </tr>
+    </table>
+    <p style="page-break-after: always;">&nbsp;</p>
+<% end %>
+</div>
+<div id="conclusiones-evento">
+<% @instructores.each do |instructor| %>
+<p style="page-break-before: always;">&nbsp;</p>
+    <table border="0" width="659">
+    <tr>
+      <td width="200">
+        <p align="left"><%= image_tag "cabecera_sep.png" %></p>
+      </td>
+      <td colspan="2" width="1400">
+      </td>
+      <td width="200">
+        <p align="right"><%= image_tag "cabecera_cec.png" %></p>
+      </td>
+    </tr>
+    </table>
+    <p align="left"><strong><u>CONCLUSIÓN DE EVENTO ACADÉMICO</u></strong></p>
+    <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
+    <p>C.P. JOAQUÍN TREJO BARRÓN<br>
+      JEFE DEL DEPARTAMENTO DE SERVICIOS<br>
+        ADMINISTRATIVOS Y TÉCNICOS<br>
+        P R E S E N T E :</p>
+      <p>&nbsp;</p>
+      <p>Por este medio le informamos que el (la) <strong><u>Prof. <%= instructor.nombre_completo %> </u></strong></p>
+      <p>Cumplió satisfacortiamente</p>
+      <p>&nbsp;</p>
+      <ul>
+        <li>La aplicación de Exámenes de colocación que a continuación enlisto:
+        <br>
+        <% examenes_comunidad = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo,
+        curso: params[:curso], anio: params[:anio], procedencia: "Instituto Politécnico Nacional").count %>
+        <% examenes_publico = ExamenColocacionIdioma.where(examinador: instructor.nombre_completo,
+        curso: params[:curso], anio: params[:anio], procedencia: "Otro").count %>
+        <% if examenes_comunidad == 1 %>
+          <%= "1 examen de la Comunidad Politécnica" %>
+        <% elsif examenes_comunidad == 0 %>
+        <% elsif examenes_comunidad > 1 %>
+          <%= "#{examenes_comunidad} exámenes de la Comunidad Politécnica" %>
+        <% end %>
+        <% if examenes_publico == 1 %>
+          <%= " y 1 examen de Público General" %>
+        <% elsif examenes_publico == 0 %>
+        <% elsif examenes_publico > 1 %>
+          <%= " y #{examenes_publico} exámenes de Público General" %>
+        <% end %>
+        </li>
+      </ul>
+      <p>&nbsp;</p>
+      <p>Realizando las siguientes actividades:</p>
+      <p>&nbsp;</p>
+      <ul>
+        <li><u>Aplicación de exámenes de colocación.</u></li>
+      </ul>
+      <p>&nbsp;</p>
+      <p>Durante el periodo <%= @periodo %>,
+        <% if @curso.include? "Intensivo" %>
+          <%= "de lunes a viernes," %>
+        <% elsif @curso.include? "Sabatino" %>
+          <%= "los sábados," %>
+        <% end %>
+        con sede en las instalaciones de este CEC Ingeniero Méndez Docurro.</p>
+      <p>Además, hacemos de su conocimiento que las actividades realizadas fueron cubiertas en tiempo y forma, existiendo las evidencias
+        correspondientes bajo el resguardo en este departamento.</p>
+      <p>Se extiende la presente para notificar la autorización del pago correspondiente.</p>
+    <table width="690">
+      <tr>
+        <td width="284" valign="top">
+
+            <p align="center"><strong>&nbsp;</strong></p>
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong>ANA LAURA DÍAZ BARROSO</strong><br><strong>COORDINADOR DE LOS CELEX CEC<br>INGENIERO EUGENIO MÉNDEZ DOCURRO.</strong></td>
+        <td width="210" valign="top">
+
+            <p align="center"><strong>&nbsp;</strong></p>
+            <p align="center"><strong>&nbsp;</strong></p>
+
+          <p align="center"><strong><p align="center">M. EN C. JOSÉ ANTONIO SIXTO BERROCAL<br><strong>SUBDIRECTOR DE SERVICIOS EDUCATIVOS</strong></p></strong></p></td>
+      </tr>
+    </table>
+    <p style="page-break-after: always;">&nbsp;</p>
+<% end %>
+</div>

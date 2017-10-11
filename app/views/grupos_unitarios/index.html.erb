@@ -1,0 +1,33 @@
+<h1 class="sub">Grupos de cursos unitarios</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Horario</th>
+      <th>Periodo</th>
+      <th>Año</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupos_unitarios.each do |grupos_unitario| %>
+      <tr>
+        <td><%= grupos_unitario.nombre %></td>
+        <td><%= grupos_unitario.horario %></td>
+        <td><%= grupos_unitario.periodo %></td>
+        <td><%= grupos_unitario.anio %></td>
+        <td><%= grupos_unitario.estado %></td>
+        <td><%= link_to 'Mostrar', grupos_unitario %></td>
+        <td><%= link_to 'Editar', edit_grupos_unitario_path(grupos_unitario) %></td>
+        <td><%= link_to 'Eliminar', grupos_unitario, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear nuevo grupo', new_grupos_unitario_path %>

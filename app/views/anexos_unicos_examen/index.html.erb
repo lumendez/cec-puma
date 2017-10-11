@@ -1,0 +1,53 @@
+<h2 class="sub">Generar anexos únicos</h2>
+<%= form_tag(imprimir_anexo_unico_anexos_unicos_examen_path, method: :get) do %>
+<div class="row">
+  <div class="col-md-3">
+      <%= label_tag 'Elija el curso' %>
+      <%= select_tag :curso, options_for_select(CursoNombre.options_for_select), prompt: 'Seleccione', class: 'form-control' %>
+      <br>
+      <%= label_tag 'Elija el año' %>
+      <%= select_tag :anio, options_for_select([["2017","2017"],["2018","2018"]]), prompt: 'Seleccione', class: 'form-control' %>
+      <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+            <th></th>
+            <th>Apellido paterno</th>
+            <th>Apellido materno</th>
+            <th>Nombre</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                  <td><%= check_box_tag "user_ids[]", user.id %></td>
+                  <td><%= user.paterno %></td>
+                  <td><%= user.materno %></td>
+                  <td><%= user.nombre %></td>
+                </tr>
+            <% end %>
+        </tbody>
+      </table>
+      <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+      <script>
+      $('#selectAll').click(function() {
+         if (this.checked) {
+             $(':checkbox').each(function() {
+                 this.checked = true;
+             });
+         } else {
+            $(':checkbox').each(function() {
+                 this.checked = false;
+             });
+         }
+      });
+      </script>
+      <%= submit_tag 'Enviar', name: nil, class:'btn btn-md btn-primary' %>
+  </div>
+</div>
+<% end %>
+<br>
