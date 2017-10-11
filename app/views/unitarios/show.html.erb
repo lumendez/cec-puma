@@ -1,16 +1,20 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <input type="button" id="btn-talon" value="Imprimir" class="btn btn-md btn-primary">
   </div>
 </div>
 <div class="row">
-  <div class="col-md-8">
-    <div id="carta_compromiso">
+  <div id="carta_compromiso">
       <p style="page-break-before: always;">&nbsp;</p>
-      <h3 align="center">CURSO DE PREPARACIÓN PARA EL EXAMEN DE ADMISIÓN AL NIVEL SUPERIOR</h3>
-      <h4 align="center">CARTA COMPROMISO</h4>
+      <h2 align="center"><strong>CURSO DE PREPARACIÓN PARA EL EXAMEN DE ADMISIÓN AL NIVEL SUPERIOR</strong></h3>
+      <h3 align="center"><strong>CARTA COMPROMISO</strong></h4>
+      <br>
       <h4>FOLIO <%= @unitario.id %></h4>
+      <br>
       <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
+      <br>
+      <br>
+      <br>
       <p><strong>DR. MAURO ALBERTO ENCISO AGUILAR<br>
       DIRECTOR DEL CENTRO DE EDUCACIÓN CONTINUA<br>
       INGENIERO EUGENIO MÉNDEZ DOCURRO DEL IPN<br>
@@ -35,6 +39,7 @@
       </tr>
     </table>
     <br>
+    <br>
     <p>Me comprometo con el Centro de Educación Continua Ingeniero Eugenio Méndez Docurro
       del Instituto Politécnico Nacional, que usted dignamente dirige, a acatar las
       disposiciones reglamentarias y de disciplina que rigen la vida institucional;
@@ -42,10 +47,14 @@
       me haga acreedor, incluyendo en su caso, reparar de inmediato cualquier desperfecto
       ocasionado al inmueble, instalaciones o equipamiento; o en su caso, cubrir el total
       del importe derivado de dicha reparación.</p>
+      <br>
+      <br>
       <p>Cabe mencionar que estoy plenamente consciente de que el hecho de inscribirme,
         sustentar y acreditar este curso propedéutico, de ninguna manera implica la aceptación
         automática en el Instituto Politécnico Nacional ni en ninguna otra institución educativa
         para el ciclo escolar 2017-2018.</p>
+      <br>
+      <br>
       <br>
       <br>
       <p align="center">A T E N T A M E N T E</p>
@@ -61,9 +70,10 @@
       <p style="page-break-after: always;">&nbsp;</p>
 
       <p style="page-break-after: always;">&nbsp;</p>
-    </div>
   </div>
 </div>
+<br>
+<%= link_to "Regresar", root_path %>
 <script>
 $("#btn-talon").click(function () {
     //Hide all other elements other than printarea.
