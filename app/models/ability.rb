@@ -118,15 +118,25 @@ class Ability
         can :manage, :anexos_unicos
       elsif user.profesor?
         #can :read, InscripcionRegistro
-        can :update, InscripcionRegistro
-        can :evaluacion_media, InscripcionRegistro
-        can :evaluacion_final, InscripcionRegistro
         can :show, Grupo
         can :asignar_calificaciones, Grupo
         can :lista_asistencia, Grupo
         can :manage, :panel_profesores
         can :asignar_calificaciones, InscripcionRegistro
         can :actualizar_asignar_calificaciones, InscripcionRegistro
+        can :update, InscripcionRegistro
+        can :evaluacion_media, InscripcionRegistro
+        can :evaluacion_final, InscripcionRegistro
+        can :asignar_calificaciones, FrInscripcionRegistro
+        can :actualizar_asignar_calificaciones, FrInscripcionRegistro
+        can :update, FrInscripcionRegistro
+        can :evaluacion_media, FrInscripcionRegistro
+        can :evaluacion_final, FrInscripcionRegistro
+        can :asignar_calificaciones, ItInscripcionRegistro
+        can :actualizar_asignar_calificaciones, ItInscripcionRegistro
+        can :update, ItInscripcionRegistro
+        can :evaluacion_media, ItInscripcionRegistro
+        can :evaluacion_final, ItInscripcionRegistro
       elsif user.coordinador_celex?
         can :read, Calendario
         can :create, Calendario
