@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require filterrific/filterrific-jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js

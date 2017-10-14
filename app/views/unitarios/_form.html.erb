@@ -123,7 +123,7 @@
     <div class="row">
       <div class="form-group col-sm-3">
         <%= f.label :documentos_validados, "Documentos validados" %>
-        <%= f.check_box :documentos_validados, class: 'form-control' %>
+        <%= f.check_box :documentos_validados, class: 'form-control openmodal' %>
       </div>
       <!--<%# if can? :habilitar_contancia, unitario %>
         <div class="form-group col-sm-3">
@@ -142,8 +142,169 @@
   </div>
 </div>
 <% end %>
-<script type="text/javascript">
+
+<div id="mensaje-validacion" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header panel-head-azul">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><strong>Importante</strong></h4>
+            </div>
+            <div class="modal-body">
+                <p>Antes de validar asegúrese de que <strong>no falta ninguno</strong> de los siguientes documentos:</p>
+                <ul>
+                    <li><p>2 Fotografías</p></li>
+                    <li><p>CURP</p></li>
+                    <li><p>Pago de guía</p></li>
+                    <li><p>Ficha de pago</p></li>
+                    <li><p>Carta compromiso</p></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+    <div id="mediaSuperior" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header panel-head-azul">
+            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h2 class="modal-title" align="center"><strong>Instrucciones<br>
+            Curso propedéutico para el examen de admisión al nivel medio superior</strong></h2>
+          </div>
+          <div class="modal-body">
+            <h3 align="center"><strong>Indicaciones</strong></h3>
+            <ol type="1">
+              <li>
+                <p>Accesa a la página <a href="http://www.cec-mendezdocurro.ipn.mx">www.cec-mendezdocurro.ipn.mx</a> y
+                captura tus datos personales <strong>a partir del 16 de noviembre de 2017 y hasta el viernes 27 de enero de 2018</strong>.</p>
+              </li>
+              <li>
+                <p>Imprime la Carta Compromiso anexa en el sistema, verifica que tus datos sean correctos, fírmala y pide a tu padre o tutor que la firme.</p>
+              </li>
+              <li>
+                <p>Efectua el pago exacto de la cuota por una cantidad de <strong>$1,982.50 (mil novecientos ochenta y dos pesos 50/100 M. N.) al número de cuenta
+                 01 68 35 82 73 de BBVA Bancomer S. A., a nombre del fondo de Investigación Científica y Desarrollo Tecnológico del Instituto Politécnico Nacional</strong>.</p>
+              </li>
+              <li>
+                <p>El día que te presentes a inscribirte, deberás pagar en efectivo la cuota de <strong>$289.50 (doscientos ochenta y nueve pesos 50/100 M. N.)</strong>.<br><br>
+                El pago de las cuotas te dan derecho a participar en el curso, a la guía de estudios que emite el Instituto Politénico Nacional, al material didáctico
+                 que elaboramos para ti, a las evaluaciones diagnóstica y piloto, entre otros materiales que se te proporcionarán durante el desarrollo del curso.<br><br>
+                 <strong>Nota: estas cuotas tienen vigencia hasta el 31 de diciembre de 2017, a partir del 01 de enero de 2018 tendrán un incremento que establecerá
+                   la Secretaría de Hacienda y Crédito Público.</strong></p>
+              </li>
+              <li>
+                <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubiucadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
+                Ciudad de México, Código Postal 06010 <strong>a partir del 16 de noviembre de 2017 y hasta el día 27 de enero de 2018, en un horario de 09:00 a 13:00 y de 15:00 a
+                19:00 horas de lunes a viernes</strong>.</p>
+              </li>
+              <li>
+                <p>Si necesitas más información puedes llamar al 57-29-6000, extensión 64603.</p>
+              </li>
+              <div class="jumbotron">
+                <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
+                <p>1 original y 2 copias de la ficha de depósito. </p>
+                <p>Efectivo para el pago de la cuota de $289.50 (doscientos ochenta y nueve pesos 50/100 M. N.).</p>
+                <p>2 fotografías tamaño infantil, blanco y negro o a color, escribe tu nombre completo al reverso iniciando por tus apellidos.</p>
+                <p>1 copia de tu CURP.</p>
+              </div>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal -->
+        <div id="superior" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header panel-head-azul">
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h2 class="modal-title" align="center"><strong>Instrucciones<br>
+                Curso propedéutico para el examen de admisión al nivel medio superior</strong></h2>
+              </div>
+              <div class="modal-body">
+                <h3 align="center"><strong>Indicaciones</strong></h3>
+                <ol type="1">
+                  <li>
+                    <p>Accesa a la página <a href="http://www.cec-mendezdocurro.ipn.mx">www.cec-mendezdocurro.ipn.mx</a> y
+                    captura tus datos personales <strong>a partir del 16 de noviembre de 2017 y hasta el viernes 20 de enero de 2018</strong>.</p>
+                  </li>
+                  <li>
+                    <p>Imprime la Carta Compromiso anexa en el sistema, verifica que tus datos sean correctos, fírmala y pide a tu padre o tutor que la firme.</p>
+                  </li>
+                  <li>
+                    <p>Efectua el pago exacto de la cuota por una cantidad de <strong>$2,459.50 (mil novecientos ochenta y dos pesos 50/100 M. N.) al número de cuenta
+                     01 68 35 82 73 de BBVA Bancomer S. A., a nombre del fondo de Investigación Científica y Desarrollo Tecnológico del Instituto Politécnico Nacional</strong>.</p>
+                  </li>
+                  <li>
+                    <p>El día que te presentes a inscribirte, deberás pagar en efectivo la cuota de <strong>$289.50 (doscientos ochenta y nueve pesos 50/100 M. N.)</strong>.<br><br>
+                    El pago de las cuotas te dan derecho a participar en el curso, a la guía de estudios que emite el Instituto Politénico Nacional, al material didáctico
+                     que elaboramos para ti, a las evaluaciones diagnóstica y piloto, entre otros materiales que se te proporcionarán durante el desarrollo del curso.<br><br>
+                     <strong>Nota: estas cuotas tienen vigencia hasta el 31 de diciembre de 2017, a partir del 01 de enero de 2018 tendrán un incremento que establecerá
+                       la Secretaría de Hacienda y Crédito Público.</strong></p>
+                  </li>
+                  <li>
+                    <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubiucadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
+                    Ciudad de México, Código Postal 06010 <strong>a partir del 16 de noviembre de 2017 y hasta el día 20 de enero de 2018, en un horario de 09:00 a 13:00 y de 15:00 a
+                    19:00 horas de lunes a viernes</strong>.</p>
+                  </li>
+                  <li>
+                    <p>Si necesitas más información puedes llamar al 57-29-6000, extensión 64603.</p>
+                  </li>
+                  <div class="jumbotron">
+                    <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
+                    <p>1 original y 2 copias de la ficha de depósito. </p>
+                    <p>Efectivo para el pago de la cuota de $289.50 (doscientos ochenta y nueve pesos 50/100 M. N.).</p>
+                    <p>2 fotografías tamaño infantil, blanco y negro o a color, escribe tu nombre completo al reverso iniciando por tus apellidos.</p>
+                    <p>1 copia de tu CURP.</p>
+                  </div>
+                </ol>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Aceptar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+<script>
   $(document).ready(function(){
     $('.nacimiento').datepicker({language: 'es', format: 'd-M-yyyy'});
   });
+</script>
+
+<script>
+$("#unitario_grupos_unitario_id").on("change", function () {
+      $modalMediaSuperior = $('#mediaSuperior');
+      $modalSuperior = $('#superior')
+      if($("#unitario_grupos_unitario_id option:selected").text() =='Curso de preparación para el nivel medio superior'){
+        $modalMediaSuperior.modal('show',{backdrop: 'static', keyboard: false});
+      }
+      else if($("#unitario_grupos_unitario_id option:selected").text() =='Curso de preparación para el nivel superior'){
+        $modalSuperior.modal('show',{backdrop: 'static', keyboard: false});
+      }
+ });
+</script>
+<script>
+$('.openmodal').click(function(){
+  if($(this).is(':checked')) {
+    $('#mensaje-validacion').modal('show');
+  } else {
+    $('#mensaje-validacion').modal('hide');
+  }
+});
 </script>
