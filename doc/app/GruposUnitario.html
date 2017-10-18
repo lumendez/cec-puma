@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>class PanelAlumnosController - Rails Application Documentation</title>
+<title>class GruposUnitario - Rails Application Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  <p class="link"><a href="ApplicationRecord.html">ApplicationRecord</a>
   
 </div>
 
@@ -70,7 +70,7 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-jefe_educacion_continua">#jefe_educacion_continua</a>
     
   </ul>
 </div>
@@ -78,9 +78,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-PanelAlumnosController">
-  <h1 id="class-PanelAlumnosController" class="class">
-    class PanelAlumnosController
+<main role="main" aria-labelledby="class-GruposUnitario">
+  <h1 id="class-GruposUnitario" class="class">
+    class GruposUnitario
   </h1>
 
   <section class="description">
@@ -106,10 +106,10 @@
        </header>
 
     
-      <div id="method-i-index" class="method-detail ">
+      <div id="method-i-jefe_educacion_continua" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">index</span><span
+          <span class="method-name">jefe_educacion_continua</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -124,13 +124,11 @@
           
 
           
-          <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/panel_alumnos_controller.rb, line 4</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@inscripcion_registros</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> )
-  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> )
-  <span class="ruby-ivar">@it_inscripcion_registros</span> = <span class="ruby-constant">ItInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> )
-  <span class="ruby-ivar">@examen_colocacion_idiomas</span> = <span class="ruby-constant">ExamenColocacionIdioma</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> )
+          <div class="method-source-code" id="jefe_educacion_continua-source">
+            <pre><span class="ruby-comment"># File app/models/grupos_unitario.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">jefe_educacion_continua</span>
+  <span class="ruby-identifier">rol</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Jefe Educación Continua&quot;</span>).<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">usuarios</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">role</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rol</span>).<span class="ruby-identifier">nombre_paterno_materno</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

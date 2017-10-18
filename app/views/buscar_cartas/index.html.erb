@@ -1,0 +1,16 @@
+<h2 class="sub">Buscar carta compromiso</h2>
+<div class="row">
+  <div class="col-md-12">
+    <p>Escriba el folio de su carta compromiso para volver a imprimirla</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <%= form_tag(carta_buscar_cartas_path, method: :get) do %>
+      <%= label_tag 'Folio:' %>
+      <%= text_field_tag :folio_carta, params[:folio_carta], class:'form-control inicio', required: true %>
+      <br>
+      <%= submit_tag 'Buscar carta', name: nil, class:'btn btn-md btn-primary' %>
+    <% end %>
+  </div>
+</div>

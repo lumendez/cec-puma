@@ -5,11 +5,12 @@
 </div>
 <div class="row">
   <div id="carta_compromiso">
+    <% @unitarios.each do |unitario| %>
       <p style="page-break-before: always;">&nbsp;</p>
       <h2 align="center"><strong>CURSO DE PREPARACIÓN PARA EL EXAMEN DE ADMISIÓN AL NIVEL SUPERIOR</strong></h3>
       <h3 align="center"><strong>CARTA COMPROMISO</strong></h4>
       <br>
-      <h4>FOLIO <%= @unitario.id %></h4>
+      <h4>FOLIO <%= unitario.id %></h4>
       <br>
       <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
       <br>
@@ -28,9 +29,9 @@
         <td colspan="3"><p align="center"><strong>Datos del interesado</strong></p></td>
       </tr>
       <tr>
-        <td><p align="center"><%= @unitario.paterno %></p></td>
-        <td><p align="center"><%= @unitario.materno %></p></td>
-        <td><p align="center"><%= @unitario.nombre %></p></td>
+        <td><p align="center"><%= unitario.paterno %></p></td>
+        <td><p align="center"><%= unitario.materno %></p></td>
+        <td><p align="center"><%= unitario.nombre %></p></td>
       </tr>
       <tr>
         <td><p align="center"><strong>Apellido paterno</strong></p></td>
@@ -62,13 +63,21 @@
       <br>
       <br>
       <p align="center">_____________________________________</p>
-      <p align="center"><%= @unitario.nombre_paterno_materno %></p>
+      <p align="center"><%= unitario.nombre_paterno_materno %></p>
       <p align="center">Firma del Interesado</p>
-
-
-
+      <br>
+      <br>
+      <br>
+      <br>
+      <% if unitario.nombre_padre.present? %>
+      <p align="center">_____________________________________</p>
+      <p align="center"><%= unitario.nombre_padre %></p>
+      <p align="center">Firma del padre o tutor</p>
+      <% end %>
       <p style="page-break-after: always;">&nbsp;</p>
+      <p>&nbsp;</p>
       <h2 align="center">LINEAMIENTOS DE CONDUCTA</h2>
+      <br>
       <p>La comunidad del Centro de Educación Continua Ingeniero Eugenio Méndez Docurro del
         Instituto Politécnico Nacional les da la más cordial bienvenida.</p>
       <p>Con la finalidad de que las actividades académicas se desarrollen de una manera
@@ -185,6 +194,7 @@
         gracias por su confianza.</p>
       <p style="page-break-after: always;">&nbsp;</p>
   </div>
+  <% end %>
 </div>
 <br>
 <%= link_to "Regresar", root_path %>

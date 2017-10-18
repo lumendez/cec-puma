@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :buscar_cartas do
+    collection do
+      get :carta
+    end
+  end
+
   resources :grupos_unitarios
   resources :unitarios do
     collection do

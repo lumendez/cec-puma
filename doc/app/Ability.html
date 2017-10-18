@@ -159,15 +159,124 @@
       <span class="ruby-comment">#can :read, InscripcionRegistro</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">InscripcionRegistro</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:show</span>, <span class="ruby-constant">InscripcionRegistro</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">InscripcionRegistro</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">inscripcion_registro</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">inscripcion_registro</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:user</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">user</span>
+      <span class="ruby-comment">#can :update, InscripcionRegistro do |inscripcion_registro|</span>
+        <span class="ruby-comment">#inscripcion_registro.try(:user) == user</span>
+      <span class="ruby-comment">#end</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:show</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">FrInscripcionRegistro</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fr_inscripcion_registro</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">fr_inscripcion_registro</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:user</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">user</span>
       <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:show</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">ItInscripcionRegistro</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">it_inscripcion_registro</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">it_inscripcion_registro</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:user</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">user</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#can :read, ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">ExamenColocacionIdioma</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">examen_colocacion_idioma</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">examen_colocacion_idioma</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:user</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">user</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:show</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:subir_comprobante</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:manage</span>, <span class="ruby-value">:panel_alumnos</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">control_cec?</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Calendario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Calendario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">Calendario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">Calendario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:show</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
-      <span class="ruby-comment">#can :read, ExamenColocacionIdioma</span>
-    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">control_cec?</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:asignar_nivel</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:apertura</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:edit_multiple</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update_multiple</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:apertura</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:edit_multiple</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update_multiple</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:control_escolar</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_historial_academico</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_contancia</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:reporte_curso</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:reporte_dec</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:ver_constancias</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:constancia</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:imprimir</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:editar_datos</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:actualizar_editar_datos</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:control_escolar</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_historial_academico</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_contancia</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:reporte_curso</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:reporte_dec</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:ver_constancias</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:constancia</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:imprimir</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:editar_datos</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:actualizar_editar_datos</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:control_escolar</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_historial_academico</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_contancia</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:reporte_curso</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:reporte_dec</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:ver_constancias</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:constancia</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:imprimir</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:editar_datos</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:actualizar_editar_datos</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">User</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:instructores</span>, <span class="ruby-constant">User</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:historiales_ingles</span>, <span class="ruby-constant">User</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:historial_ingles</span>, <span class="ruby-constant">User</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">User</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">User</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:manage</span>, <span class="ruby-value">:anexos_unicos</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">profesor?</span>
+      <span class="ruby-comment">#can :read, InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:show</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:asignar_calificaciones</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:lista_asistencia</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:manage</span>, <span class="ruby-value">:panel_profesores</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:asignar_calificaciones</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:actualizar_asignar_calificaciones</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:evaluacion_media</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:evaluacion_final</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:asignar_calificaciones</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:actualizar_asignar_calificaciones</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:evaluacion_media</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:evaluacion_final</span>, <span class="ruby-constant">FrInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:asignar_calificaciones</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:actualizar_asignar_calificaciones</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:evaluacion_media</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:evaluacion_final</span>, <span class="ruby-constant">ItInscripcionRegistro</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">coordinador_celex?</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Calendario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Calendario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">Calendario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">Calendario</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">InscripcionRegistro</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">InscripcionRegistro</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">InscripcionRegistro</span>
@@ -175,24 +284,80 @@
       <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">InscripcionRegistro</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:manage</span>, <span class="ruby-value">:panel_control_escolar</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:apertura</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:edit_multiple</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update_multiple</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:apertura</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:edit_multiple</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update_multiple</span>, <span class="ruby-constant">Grupo</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_historial_academico</span>, <span class="ruby-constant">InscripcionRegistro</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_contancia</span>, <span class="ruby-constant">InscripcionRegistro</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:historiales_ingles</span>, <span class="ruby-constant">User</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:historial_ingles</span>, <span class="ruby-constant">User</span>
-    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">profesor?</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">InscripcionRegistro</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:evaluacion_media</span>, <span class="ruby-constant">InscripcionRegistro</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:evaluacion_final</span>, <span class="ruby-constant">InscripcionRegistro</span>
-      <span class="ruby-comment">#can :read, Grupo</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:show</span>, <span class="ruby-constant">Grupo</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:lista_asistencia</span>, <span class="ruby-constant">Grupo</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:manage</span>, <span class="ruby-value">:panel_profesores</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:asignar_nivel</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
       <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
-      <span class="ruby-comment">#for test only ignore this note</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:asignar_calificaciones</span>, <span class="ruby-constant">InscripcionRegistro</span>
-      <span class="ruby-identifier">can</span> <span class="ruby-value">:actualizar_asignar_calificaciones</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:asignar_nivel</span>, <span class="ruby-constant">ExamenColocacionIdioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">ClaveCatalogo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">ClaveCatalogo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">ClaveCatalogo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">ClaveCatalogo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">CuotaCurso</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">CuotaCurso</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">CuotaCurso</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">CuotaCurso</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">CursoNombre</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">CursoNombre</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">CursoNombre</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">CursoNombre</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">DatosBanco</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">DatosBanco</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">DatosBanco</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">DatosBanco</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Genero</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Genero</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">Genero</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">Genero</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Horario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Horario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">Horario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">Horario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Idioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Idioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">Idioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">Idioma</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">NivelNombre</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">NivelNombre</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">NivelNombre</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">NivelNombre</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">NumeroRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">NumeroRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">NumeroRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">NumeroRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Procedencium</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Procedencium</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">Procedencium</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">Procedencium</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">Proyecto</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:create</span>, <span class="ruby-constant">Proyecto</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:update</span>, <span class="ruby-constant">Proyecto</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:destroy</span>, <span class="ruby-constant">Proyecto</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_constancias</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:crear_constancias</span>, <span class="ruby-constant">Grupo</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_multiples_constancias</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:actualizar_multiples_constancias</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:ver_constancias</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:constancia</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:imprimir</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:reporte_curso</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:reporte_dec</span>, <span class="ruby-constant">InscripcionRegistro</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:read</span>, <span class="ruby-constant">User</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:instructores</span>, <span class="ruby-constant">User</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">control_ec?</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:validar_documentos</span>, <span class="ruby-constant">Unitario</span>
+      <span class="ruby-identifier">can</span> <span class="ruby-value">:habilitar_constancia</span>, <span class="ruby-constant">Unitario</span>
     <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

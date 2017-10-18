@@ -20,4 +20,8 @@ class Unitario < ApplicationRecord
     self.created_at.strftime("%Y")
   end
 
+  def self.buscar(folio_carta)
+    self.where("unitarios.id = ?", "#{folio_carta}")
+  end
+
 end

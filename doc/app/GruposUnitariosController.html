@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>class CursoNombresController - Rails Application Documentation</title>
+<title>class GruposUnitariosController - Rails Application Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -90,9 +90,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-CursoNombresController">
-  <h1 id="class-CursoNombresController" class="class">
-    class CursoNombresController
+<main role="main" aria-labelledby="class-GruposUnitariosController">
+  <h1 id="class-GruposUnitariosController" class="class">
+    class GruposUnitariosController
   </h1>
 
   <section class="description">
@@ -131,23 +131,23 @@
 
         <div class="method-description">
           
-          <p>POST /curso_nombres POST /curso_nombres.json</p>
+          <p>POST /grupos_unitarios POST /grupos_unitarios.json</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/curso_nombres_controller.rb, line 29</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_unitarios_controller.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-  <span class="ruby-ivar">@curso_nombre</span> = <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">curso_nombre_params</span>)
+  <span class="ruby-ivar">@grupos_unitario</span> = <span class="ruby-constant">GruposUnitario</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">grupos_unitario_params</span>)
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@curso_nombre</span>.<span class="ruby-identifier">save</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@curso_nombre</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El nombre del curso fue creado correctamente.&#39;</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@curso_nombre</span> }
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@grupos_unitario</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@grupos_unitario</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El grupo se creó correctamente.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupos_unitario</span> }
     <span class="ruby-keyword">else</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@curso_nombre</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupos_unitario</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -174,18 +174,22 @@
 
         <div class="method-description">
           
-          <p>DELETE /curso_nombres/1 DELETE /curso_nombres/1.json</p>
+          <p>DELETE /grupos_unitarios/1 DELETE /grupos_unitarios/1.json</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/curso_nombres_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_unitarios_controller.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-  <span class="ruby-ivar">@curso_nombre</span>.<span class="ruby-identifier">destroy</span>
-  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">curso_nombres_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El nombre del curso fue eliminado correctamente.&#39;</span> }
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@grupos_unitario</span>.<span class="ruby-identifier">unitarios</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">grupos_unitarios_path</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El grupo que intenta eliminar no está vacío. Primero mueva los registros a otro grupo o elimínelos.&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@grupos_unitario</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">grupos_unitarios_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El grupo se eliminó correctamente.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+    <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -211,13 +215,13 @@
 
         <div class="method-description">
           
-          <p>GET /curso_nombres/1/edit</p>
+          <p>GET /grupos_unitarios/1/edit</p>
           
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/curso_nombres_controller.rb, line 24</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_unitarios_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -243,15 +247,15 @@
 
         <div class="method-description">
           
-          <p>GET /curso_nombres GET /curso_nombres.json</p>
+          <p>GET /grupos_unitarios GET /grupos_unitarios.json</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/curso_nombres_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_unitarios_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@curso_nombres</span> = <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;nombre ASC&quot;</span>)
+  <span class="ruby-ivar">@grupos_unitarios</span> = <span class="ruby-constant">GruposUnitario</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -276,15 +280,15 @@
 
         <div class="method-description">
           
-          <p>GET /curso_nombres/new</p>
+          <p>GET /grupos_unitarios/new</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/curso_nombres_controller.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_unitarios_controller.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@curso_nombre</span> = <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@grupos_unitario</span> = <span class="ruby-constant">GruposUnitario</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -309,14 +313,16 @@
 
         <div class="method-description">
           
-          <p>GET /curso_nombres/1 GET /curso_nombres/1.json</p>
+          <p>GET /grupos_unitarios/1 GET /grupos_unitarios/1.json</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/curso_nombres_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_unitarios_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-ivar">@unitarios</span> = <span class="ruby-constant">Unitario</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupos_unitario_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupos_unitario</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno ASC, materno ASC, nombre ASC&#39;</span>)
+  <span class="ruby-ivar">@inscritos</span> = <span class="ruby-constant">Unitario</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupos_unitario_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupos_unitario</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -341,21 +347,21 @@
 
         <div class="method-description">
           
-          <p>PATCH/PUT /curso_nombres/1 PATCH/PUT /curso_nombres/1.json</p>
+          <p>PATCH/PUT /grupos_unitarios/1 PATCH/PUT /grupos_unitarios/1.json</p>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/curso_nombres_controller.rb, line 45</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_unitarios_controller.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@curso_nombre</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">curso_nombre_params</span>)
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@curso_nombre</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El nombre del curso fue actualizado correctamente.&#39;</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@curso_nombre</span> }
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@grupos_unitario</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">grupos_unitario_params</span>)
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@grupos_unitario</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El grupo se actualizó correctamente.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupos_unitario</span> }
     <span class="ruby-keyword">else</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@curso_nombre</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupos_unitario</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
