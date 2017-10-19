@@ -181,6 +181,6 @@ class UnitariosController < ApplicationController
       :nacimiento, :domicilio, :codigo_postal, :entidad, :delegacion_municipio,
       :telefono_celular, :telefono_fijo, :correo, :procedencia, :nombre_padre,
       :correo_padre, :telefono_padre, :grupos_unitario_id, :documentos_validados,
-      :examen_final)
+      :examen_final, :image)
     end
 end

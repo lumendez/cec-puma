@@ -76,6 +76,10 @@ class GruposUnitariosController < ApplicationController
       @grupos_unitario = GruposUnitario.find(params[:id])
     end
 
+    def grupos_unitario
+      @grupos_unitario = GruposUnitario.new(grupos_unitario_params)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupos_unitario_params
       params.require(:grupos_unitario).permit(:nombre, :horario, :estado, :anio,
