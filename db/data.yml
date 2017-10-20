@@ -1,0 +1,3241 @@
+<<<<<<< HEAD
+=======
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - 2016-11-05 00:29:22.000000000 Z
+    - 2016-11-05 00:29:22.000000000 Z
+
+---
+calendarios:
+  columns:
+  - id
+  - nombre
+  - registro
+  - examen_colocacion
+  - inicio_curso
+  - examen_medio
+  - examen_final
+  - entrega_boletas
+  - suspension_labores
+  - vacaciones
+  - created_at
+  - updated_at
+  - periodo
+  - anio
+  - estado
+  records: 
+  - - 26
+    - Intensivo A
+    - 9-Ene,14-Ene
+    - 9-Ene,14-Ene
+    - 16-Ene
+    - 27-Ene
+    - 9-Feb
+    - 10-Feb
+    - ''
+    - ''
+    - 2017-01-26 23:55:36.000000000 Z
+    - 2017-02-25 01:25:59.000000000 Z
+    - 16 - Enero,10 - Febrero
+    - '2017'
+    - Cerrado
+  - - 27
+    - Intensivo B
+    - 13-Feb,17-Feb
+    - 13-Feb,17-Feb
+    - 20-Feb
+    - 3-Mar
+    - 9-Feb
+    - 17-Feb
+    - ''
+    - ''
+    - 2017-01-26 23:57:28.000000000 Z
+    - 2017-07-21 17:52:37.000000000 Z
+    - 20 - Febrero,17 - Marzo
+    - '2017'
+    - Cerrado
+  - - 28
+    - Intensivo C
+    - 20-Mar,24-Mar
+    - 20-Mar,24-Mar
+    - 27-Mar
+    - 7-Abr
+    - 28-Abr
+    - 29-Abr
+    - ''
+    - 10-Abr,16-Abr
+    - 2017-01-26 23:59:43.000000000 Z
+    - 2017-08-29 23:51:45.000000000 Z
+    - 27 - Marzo,29 - Abril
+    - '2017'
+    - Abierto
+  - - 29
+    - Intensivo D
+    - 2-May,4-May
+    - 2-May,4-May
+    - 8-May
+    - 23-May
+    - 5-Jun
+    - 6-Jun
+    - 5-May
+    - ''
+    - 2017-01-27 00:08:24.000000000 Z
+    - 2017-01-27 00:08:24.000000000 Z
+    - 8 - Mayo,6 - Junio
+    - '2017'
+    - Cerrado
+  - - 30
+    - Intensivo E
+    - 7-Jun,9-Jun
+    - 7-Jun,9-Jun
+    - 12-Jun
+    - 23-Jun
+    - 6-Jul
+    - 7-Jul
+    - ''
+    - ''
+    - 2017-01-27 00:10:34.000000000 Z
+    - 2017-01-27 00:10:34.000000000 Z
+    - 12 - Junio,7 - Julio
+    - '2017'
+    - Cerrado
+  - - 31
+    - Verano 1
+    - 3-Jul,7-Jul
+    - 3-Jul,7-Jul
+    - 10-Jul
+    - 13-Jul
+    - 19-Jul
+    - 19-Jul
+    - ''
+    - ''
+    - 2017-01-27 00:13:38.000000000 Z
+    - 2017-01-27 00:13:38.000000000 Z
+    - 10 - Julio,19 - Julio
+    - '2017'
+    - Cerrado
+  - - 32
+    - Verano 2
+    - 20-Jul,21-Jul
+    - 20-Jul,21-Jul
+    - 24-Jul
+    - 27-Jul
+    - 2-Ago
+    - 2-Ago
+    - ''
+    - ''
+    - 2017-01-27 00:15:09.000000000 Z
+    - 2017-01-27 00:15:09.000000000 Z
+    - 24 - Julio,2 - Agosto
+    - '2017'
+    - Cerrado
+  - - 33
+    - Intensivo F
+    - 1-Ago,4-Ago
+    - 1-Ago,4-Ago
+    - 7-Ago
+    - 18-Ago
+    - 31-Ago
+    - 1-Sep
+    - ''
+    - ''
+    - 2017-01-27 00:17:29.000000000 Z
+    - 2017-01-27 00:17:29.000000000 Z
+    - 7 - Agosto,1 - Septiembre
+    - '2017'
+    - Cerrado
+  - - 34
+    - Intensivo G
+    - 4-Sep,8-Sep
+    - 4-Sep,8-Sep
+    - 11-Sep
+    - 22-Sep
+    - 5-Oct
+    - 6-Oct
+    - ''
+    - ''
+    - 2017-01-27 00:19:55.000000000 Z
+    - 2017-01-27 00:19:55.000000000 Z
+    - 11 - Septiembre,6 - Octubre
+    - '2017'
+    - Cerrado
+  - - 35
+    - Intensivo H
+    - 9-Oct,13-Oct
+    - 9-Oct,13-Oct
+    - 16-Oct
+    - 27-Oct
+    - 13-Nov
+    - 14-Nov
+    - ''
+    - ''
+    - 2017-01-27 00:24:21.000000000 Z
+    - 2017-01-27 00:24:21.000000000 Z
+    - 16 - Octubre,14 - Noviembre
+    - '2017'
+    - Cerrado
+  - - 38
+    - Sabatino 1
+    - 9-Ene,20-Ene
+    - 9-Ene,20-Ene
+    - 21-Ene
+    - 11-Feb
+    - 11-Mar
+    - 11-Mar
+    - ''
+    - ''
+    - 2017-02-21 23:36:04.000000000 Z
+    - 2017-02-21 23:36:04.000000000 Z
+    - 21 - Enero al 11 - Marzo
+    - '2017'
+    - Abierto
+  - - 39
+    - Intensivo F
+    - 1-Ago
+    - 2-Ago
+    - 8-Ago
+    - 22-Ago
+    - 29-Ago
+    - 30-Ago
+    - ''
+    - ''
+    - 2017-08-09 01:18:32.000000000 Z
+    - 2017-08-09 01:18:32.000000000 Z
+    - 1 - Agosto al 31 - Agosto
+    - '2017'
+    - Abierto
+
+---
+centros:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  - direccion
+  - telefono
+  - extension
+  - lugar
+  records: 
+  - - 1
+    - Ingeniero Eugenio Méndez Docurro
+    - 2017-07-07 20:30:00.000000000 Z
+    - 2017-09-28 22:48:23.000000000 Z
+    - Belisario Domínguez No. 22, Centro Histórico Ciudad de México, C.P. 06010
+    - '57296000'
+    - '64627'
+    - Ciudad de México
+
+---
+clave_catalogos:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 0861/0863
+    - 2016-12-07 00:41:29.000000000 Z
+    - 2016-12-07 00:41:29.000000000 Z
+  - - 2
+    - 0853/0854
+    - 2017-02-15 00:36:19.000000000 Z
+    - 2017-02-15 00:36:19.000000000 Z
+
+---
+cuota:
+  columns:
+  - id
+  - cuota
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - !ruby/object:BigDecimal 18:0.4935E3
+    - 2016-11-05 01:36:49.000000000 Z
+    - 2016-11-18 23:08:00.000000000 Z
+  - - 2
+    - !ruby/object:BigDecimal 18:0.9095E3
+    - 2016-11-05 01:37:34.000000000 Z
+    - 2016-11-05 01:37:34.000000000 Z
+  - - 3
+    - !ruby/object:BigDecimal 18:0.9555E3
+    - 2016-11-05 01:37:43.000000000 Z
+    - 2016-11-05 01:37:43.000000000 Z
+  - - 4
+    - !ruby/object:BigDecimal 18:0.9855E3
+    - 2016-11-05 01:37:54.000000000 Z
+    - 2016-11-05 01:37:54.000000000 Z
+  - - 5
+    - !ruby/object:BigDecimal 18:0.11255E4
+    - 2016-11-05 01:38:04.000000000 Z
+    - 2016-11-05 01:38:04.000000000 Z
+  - - 6
+    - !ruby/object:BigDecimal 18:0.13285E4
+    - 2016-11-05 01:38:16.000000000 Z
+    - 2016-11-05 01:38:16.000000000 Z
+
+---
+cuota_cursos:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  - descripcion
+  records: 
+  - - 1
+    - "$1125.50/$1382.00"
+    - 2016-12-07 00:39:07.000000000 Z
+    - 2017-04-21 23:52:15.000000000 Z
+    - Cuota para el público en general
+  - - 2
+    - "$493.50/$985.50"
+    - 2017-02-15 00:34:02.000000000 Z
+    - 2017-04-21 23:51:59.000000000 Z
+    - Cuota para la comunidad politécnica
+
+---
+curso_nombres:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Intensivo A
+    - 2016-11-05 02:15:43.000000000 Z
+    - 2016-11-05 02:15:43.000000000 Z
+  - - 2
+    - Intensivo B
+    - 2016-11-05 02:15:48.000000000 Z
+    - 2016-11-05 02:15:48.000000000 Z
+  - - 3
+    - Intensivo C
+    - 2016-11-05 02:15:56.000000000 Z
+    - 2016-11-05 02:15:56.000000000 Z
+  - - 4
+    - Intensivo D
+    - 2016-11-05 02:16:02.000000000 Z
+    - 2016-11-05 02:16:09.000000000 Z
+  - - 5
+    - Intensivo E
+    - 2016-11-05 02:16:29.000000000 Z
+    - 2016-11-05 02:16:29.000000000 Z
+  - - 6
+    - Intensivo F
+    - 2016-11-05 02:16:40.000000000 Z
+    - 2016-11-05 02:16:40.000000000 Z
+  - - 7
+    - Intensivo G
+    - 2016-11-05 02:16:47.000000000 Z
+    - 2016-11-05 02:16:47.000000000 Z
+  - - 8
+    - Intensivo H
+    - 2016-11-05 02:16:55.000000000 Z
+    - 2016-11-05 02:16:55.000000000 Z
+  - - 9
+    - Intensivo I
+    - 2016-11-05 02:17:01.000000000 Z
+    - 2016-11-05 02:17:01.000000000 Z
+  - - 10
+    - Verano 1
+    - 2016-11-05 02:17:10.000000000 Z
+    - 2016-11-05 02:17:10.000000000 Z
+  - - 11
+    - Verano 2
+    - 2016-11-05 02:17:16.000000000 Z
+    - 2016-11-05 02:17:16.000000000 Z
+  - - 12
+    - Verano 3
+    - 2016-11-18 23:05:59.000000000 Z
+    - 2016-11-18 23:05:59.000000000 Z
+  - - 13
+    - Sabatino 1
+    - 2017-01-27 00:30:55.000000000 Z
+    - 2017-01-27 00:30:55.000000000 Z
+  - - 14
+    - Sabatino 2
+    - 2017-01-27 00:31:08.000000000 Z
+    - 2017-01-27 00:31:08.000000000 Z
+  - - 15
+    - Sabatino 3
+    - 2017-01-27 00:31:18.000000000 Z
+    - 2017-01-27 00:31:18.000000000 Z
+  - - 16
+    - Sabatino 4
+    - 2017-01-27 00:31:26.000000000 Z
+    - 2017-01-27 00:31:26.000000000 Z
+  - - 17
+    - Sabatino 5
+    - 2017-01-27 00:31:34.000000000 Z
+    - 2017-01-27 00:31:39.000000000 Z
+
+---
+datos_bancos:
+  columns:
+  - id
+  - nombre
+  - cuenta
+  - referencia
+  - titular
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - BBVA Bancomer
+    - 0168358273
+    - ''
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - 2016-12-07 01:21:44.000000000 Z
+    - 2017-04-21 23:35:10.000000000 Z
+
+---
+estados:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Pendiente
+    - 2016-11-30 23:33:29.000000000 Z
+    - 2016-11-30 23:33:29.000000000 Z
+  - - 2
+    - Abierto
+    - 2016-11-30 23:34:49.000000000 Z
+    - 2016-11-30 23:34:49.000000000 Z
+  - - 3
+    - Cerrado
+    - 2016-11-30 23:34:58.000000000 Z
+    - 2016-11-30 23:34:58.000000000 Z
+
+---
+examen_colocacion_idiomas:
+  columns:
+  - id
+  - nombre
+  - paterno
+  - materno
+  - idioma
+  - nivel_asignado
+  - examinador
+  - created_at
+  - updated_at
+  - imagen_file_name
+  - imagen_content_type
+  - imagen_file_size
+  - imagen_updated_at
+  - user_id
+  - procedencia
+  - anio
+  - curso
+  records: 
+  - - 2
+    - Miguel
+    - Martinez
+    - Salazar
+    - Inglés
+    - Básico 2
+    - Bizueto Hernández Laura
+    - 2017-08-09 01:06:51.000000000 Z
+    - 2017-09-15 01:39:06.000000000 Z
+    - 
+    - 
+    - 
+    - 
+    - 8
+    - Instituto Politécnico Nacional
+    - '2017'
+    - Intensivo C
+  - - 3
+    - Diana
+    - Gomez
+    - Vazquez
+    - Inglés
+    - Básico 2
+    - Cruz Gutierrez Beatriz Adriana
+    - 2017-08-29 01:27:49.000000000 Z
+    - 2017-09-15 01:44:59.000000000 Z
+    - 
+    - 
+    - 
+    - 
+    - 13
+    - Otro
+    - '2017'
+    - Intensivo C
+  - - 4
+    - Alberto
+    - Mendez
+    - Cruz
+    - Inglés
+    - Básico 4
+    - Cruz Gutierrez Beatriz Adriana
+    - 2017-09-19 00:29:37.000000000 Z
+    - 2017-09-19 00:31:17.000000000 Z
+    - 
+    - 
+    - 
+    - 
+    - 3
+    - Instituto Politécnico Nacional
+    - '2017'
+    - Intensivo C
+  - - 5
+    - Jesus
+    - Morales
+    - Rodriguez
+    - Inglés
+    - Básico 4
+    - Bizueto Hernández Laura
+    - 2017-09-19 00:30:25.000000000 Z
+    - 2017-09-19 00:31:49.000000000 Z
+    - 
+    - 
+    - 
+    - 
+    - 11
+    - Otro
+    - '2017'
+    - Intensivo C
+
+---
+fr_inscripcion_registros:
+  columns:
+  - id
+  - nombre
+  - paterno
+  - materno
+  - idioma
+  - horario
+  - nivel
+  - curso
+  - opcion_uno
+  - opcion_dos
+  - telefono
+  - periodo
+  - correo
+  - sexo
+  - cuota
+  - movimiento
+  - procedencia
+  - grupo_id
+  - examen_medio
+  - examen_final
+  - documentos_validados
+  - boleta
+  - oferta_grupo
+  - user_id
+  - habilitar_constancia
+  - habilitar_historial
+  - oficio_prestacion
+  - monto_pagado
+  - created_at
+  - updated_at
+  - imagen_file_name
+  - imagen_content_type
+  - imagen_file_size
+  - imagen_updated_at
+  records: 
+  - - 1
+    - HOMERO
+    - VAZQUEZ
+    - GOMEZ
+    - Francés
+    - 07:00-09:00
+    - Básico 1
+    - Sabatino 1
+    - ''
+    - ''
+    - ''
+    - del 21 de enero al 11 de febrero de 2017
+    - homer@homer.com
+    - Masculino
+    - '510.00'
+    - ''
+    - Instituto Politécnico Nacional
+    - 9
+    - 100
+    - 100
+    - true
+    - 
+    - 
+    - 12
+    - false
+    - false
+    - ''
+    - ''
+    - 2017-08-24 23:51:02.000000000 Z
+    - 2017-08-25 01:34:46.000000000 Z
+    - 
+    - 
+    - 
+    - 
+
+---
+generos:
+  columns:
+  - id
+  - genero
+  - created_at
+  - updated_at
+  records: 
+  - - 2
+    - Femenino
+    - 2016-11-08 20:20:30.000000000 Z
+    - 2016-11-08 20:20:30.000000000 Z
+  - - 3
+    - Masculino
+    - 2016-11-08 20:20:47.000000000 Z
+    - 2016-11-08 20:20:47.000000000 Z
+
+---
+grupos:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  - horario
+  - idioma
+  - nivel
+  - estado
+  - curso
+  - anio
+  - periodo
+  - user_id
+  - lugar
+  - fecha
+  - centro
+  - tipo
+  - modalidad
+  - cupo
+  - duracion
+  - cuota
+  - clave
+  - proyecto
+  - institucion_bancaria
+  - cuenta
+  - titular
+  - instructor
+  - instructor_rfc
+  - instructor_correo
+  - jefe_ec
+  - registro
+  - referencia
+  - habilitar_constancias_grupo
+  - seccion
+  records: 
+  - - 1
+    - Inglés | Básico 1 | 07:00-09:00 | Sabatino 1
+    - 2017-07-17 17:22:47.000000000 Z
+    - 2017-08-26 01:57:14.000000000 Z
+    - 07:00-09:00
+    - Inglés
+    - Básico 1
+    - Abierto
+    - Sabatino 1
+    - '2017'
+    - 20 de febrero al 17 de marzo de 2017
+    - 5
+    - ''
+    - 17 de julio de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '35'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '5'
+    - '5'
+    - '5'
+    - Elvia Ángeles Aldana
+    - DFLE-CELEX02I-Act-15
+    - ''
+    - false
+    - 
+  - - 2
+    - Inglés | Certificación B2.1  | 11:00-13:00 | Intensivo C
+    - 2017-07-20 19:15:25.000000000 Z
+    - 2017-09-02 01:25:09.000000000 Z
+    - 11:00-13:00
+    - Inglés
+    - Certificación B2.1
+    - Cerrado
+    - Intensivo C
+    - '2017'
+    - del 27 de marzo al 29 de abril de 2017
+    - 5
+    - ''
+    - 19 de julio de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$493.50/$985.50"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '5'
+    - '5'
+    - '5'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - ''
+  - - 3
+    - Francés | Básico 1 | 11:00-13:00 | Intensivo C
+    - 2017-07-21 17:52:10.000000000 Z
+    - 2017-08-17 01:31:50.000000000 Z
+    - 11:00-13:00
+    - Francés
+    - Básico 1
+    - Cerrado
+    - Intensivo C
+    - '2017'
+    - del 27 de marzo al 29 de abril de 2017
+    - 5
+    - ''
+    - 21 de julio de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '5'
+    - '5'
+    - '5'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - 
+  - - 4
+    - Italiano | Básico 1 | 07:00-09:00 | Intensivo C
+    - 2017-07-21 17:55:35.000000000 Z
+    - 2017-08-08 00:41:03.000000000 Z
+    - 07:00-09:00
+    - Italiano
+    - Básico 1
+    - Cerrado
+    - Intensivo C
+    - '2017'
+    - del 27 de marzo al 29 de abril de 2017
+    - 5
+    - ''
+    - 21 de julio de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '5'
+    - '5'
+    - '5'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - 
+  - - 5
+    - Inglés | Básico 2 | 12:00-14:00 | Sabatino 1
+    - 2017-07-21 20:06:01.000000000 Z
+    - 2017-08-26 01:58:43.000000000 Z
+    - 12:00-14:00
+    - Inglés
+    - Básico 2
+    - Abierto
+    - Sabatino 1
+    - '2017'
+    - del 27 de marzo al 29 de abril de 2017
+    - 5
+    - ''
+    - 21 de julio de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '5'
+    - '5'
+    - '5'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - 
+  - - 6
+    - Inglés | Básico 2 | 09:00-11:00 | Intensivo C
+    - 2017-08-03 00:16:55.000000000 Z
+    - 2017-08-17 01:31:50.000000000 Z
+    - 09:00-11:00
+    - Inglés
+    - Básico 2
+    - Cerrado
+    - Intensivo C
+    - '2017'
+    - del 27 de marzo al 29 de abril de 2017
+    - 9
+    - ''
+    - 02 de agosto de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '9'
+    - '9'
+    - '9'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - 
+  - - 7
+    - Inglés | Básico 3 | 09:00-11:00 | Intensivo F
+    - 2017-08-09 01:21:11.000000000 Z
+    - 2017-08-19 01:37:05.000000000 Z
+    - 09:00-11:00
+    - Inglés
+    - Básico 3
+    - Abierto
+    - Intensivo F
+    - '2017'
+    - 1 de Agosto al 31 de Agosto
+    - 9
+    - ''
+    - 08/08/2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - A distancia
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '9'
+    - '9'
+    - '9'
+    - Elvia Ángeles Aldana
+    - DFLE-CELEX02I-Act-15
+    - ''
+    - false
+    - 
+  - - 8
+    - Italiano | Básico 1 | 07:00-09:00 | Intensivo F
+    - 2017-08-15 00:39:33.000000000 Z
+    - 2017-08-17 01:32:24.000000000 Z
+    - 07:00-09:00
+    - Italiano
+    - Básico 1
+    - Abierto
+    - Intensivo F
+    - '2017'
+    - 1 de agosto al 31 de septiembre de 2017
+    - 9
+    - ''
+    - 14 de agosto de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '9'
+    - '9'
+    - '9'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - 
+  - - 9
+    - Francés | Básico 1 | 07:00-09:00 | Sabatino 1
+    - 2017-08-24 23:40:46.000000000 Z
+    - 2017-08-24 23:40:46.000000000 Z
+    - 07:00-09:00
+    - Francés
+    - Básico 1
+    - Abierto
+    - Sabatino 1
+    - '2017'
+    - del 21 de enero al 11 de febrero de 2017
+    - 9
+    - ''
+    - '24 de agosto de '
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '9'
+    - '9'
+    - '9'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - 
+  - - 10
+    - Inglés | Básico 4 | 09:00-11:00 | Sabatino 1
+    - 2017-08-29 01:04:12.000000000 Z
+    - 2017-08-29 01:04:12.000000000 Z
+    - 09:00-11:00
+    - Inglés
+    - Básico 4
+    - Abierto
+    - Sabatino 1
+    - '2017'
+    - del 21 de enero al 11 de febrero de 2017
+    - 9
+    - ''
+    - 28 de agosto de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '9'
+    - '9'
+    - '9'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - 
+  - - 11
+    - Inglés | Básico 1 | 07:00-09:00 | Intensivo C
+    - 2017-08-29 23:52:46.000000000 Z
+    - 2017-08-29 23:52:46.000000000 Z
+    - 07:00-09:00
+    - Inglés
+    - Básico 1
+    - Cerrado
+    - Intensivo C
+    - '2017'
+    - del 27 de marzo al 29 de abril de 2017
+    - 5
+    - ''
+    - 21 de julio de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '5'
+    - '5'
+    - '5'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - 
+  - - 12
+    - Inglés | Básico 1 A | 07:00-09:00 | Intensivo C
+    - 2017-09-05 01:47:08.000000000 Z
+    - 2017-09-05 01:47:08.000000000 Z
+    - 07:00-09:00
+    - Inglés
+    - Básico 1
+    - Abierto
+    - Intensivo C
+    - '2017'
+    - del 27 de marzo al 29 de abril de 2017
+    - 9
+    - ''
+    - 04 de septiembre de 2017
+    - Ingeniero Eugenio Méndez Docurro
+    - Curso
+    - Presencial
+    - '40'
+    - 40 horas
+    - "$1125.50/$1382.00"
+    - 0861/0863
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - '9'
+    - '9'
+    - '9'
+    - Elvia Ángeles Aldana
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - ''
+    - false
+    - A
+
+---
+grupos_unitarios:
+  columns:
+  - id
+  - nombre
+  - horario
+  - estado
+  - anio
+  - periodo
+  - lugar
+  - fecha
+  - centro
+  - tipo
+  - modalidad
+  - cupo
+  - duracion
+  - cuota
+  - clave
+  - proyecto
+  - institucion_bancaria
+  - cuenta
+  - titular
+  - jefe_ec
+  - registro
+  - referencia
+  - habilitar_constancias_grupo
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Curso de preparación para el nivel medio superior
+    - 08:00-14:00
+    - Abierto
+    - '2017'
+    - del 01 de enero al 21 de marzo
+    - Ciudad de México
+    - 28-09-2017
+    - Ingeniero Eugenio Méndez Docurro
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - Elvia Ángeles Aldana
+    - ''
+    - ''
+    - false
+    - 2017-09-29 00:10:03.000000000 Z
+    - 2017-09-29 00:35:40.000000000 Z
+  - - 2
+    - Curso de preparación para el nivel superior
+    - 12:00 - 19:00
+    - Abierto
+    - '2017'
+    - del 01 de enero al 21 de marzo
+    - Ciudad de México
+    - 18-10-2017
+    - Ingeniero Eugenio Méndez Docurro
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - BBVA Bancomer
+    - 0168358273
+    - Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+    - Elvia Ángeles Aldana
+    - ''
+    - ''
+    - false
+    - 2017-10-18 22:59:57.000000000 Z
+    - 2017-10-18 22:59:57.000000000 Z
+
+---
+horarios:
+  columns:
+  - id
+  - hora
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 07:00-09:00
+    - 2016-11-05 01:21:03.000000000 Z
+    - 2016-11-05 01:21:03.000000000 Z
+  - - 2
+    - 09:00-11:00
+    - 2016-11-05 01:21:15.000000000 Z
+    - 2016-11-05 01:21:15.000000000 Z
+  - - 3
+    - 11:00-13:00
+    - 2016-11-05 01:21:24.000000000 Z
+    - 2016-11-05 01:21:24.000000000 Z
+  - - 4
+    - 12:00-14:00
+    - 2016-11-05 01:21:32.000000000 Z
+    - 2016-11-05 01:21:39.000000000 Z
+  - - 5
+    - 13:00-15:00
+    - 2016-11-05 01:21:50.000000000 Z
+    - 2016-11-05 01:21:50.000000000 Z
+  - - 6
+    - 15:00-17:00
+    - 2016-11-05 01:22:06.000000000 Z
+    - 2016-11-05 01:22:06.000000000 Z
+  - - 7
+    - 17:00-19:00
+    - 2016-11-05 01:22:16.000000000 Z
+    - 2016-11-05 01:22:16.000000000 Z
+  - - 8
+    - 19:00-21:00
+    - 2016-11-05 01:22:26.000000000 Z
+    - 2016-11-05 01:22:26.000000000 Z
+  - - 9
+    - 09:00-14:00
+    - 2017-03-02 01:24:09.000000000 Z
+    - 2017-03-02 01:24:09.000000000 Z
+  - - 10
+    - 14:00-19:00
+    - 2017-03-02 01:25:12.000000000 Z
+    - 2017-03-02 01:25:12.000000000 Z
+
+---
+idiomas:
+  columns:
+  - id
+  - idioma
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Inglés
+    - 2016-11-05 01:23:49.000000000 Z
+    - 2016-11-05 01:23:49.000000000 Z
+  - - 2
+    - Francés
+    - 2016-11-05 01:23:57.000000000 Z
+    - 2016-11-05 01:23:57.000000000 Z
+  - - 3
+    - Italiano
+    - 2016-11-05 01:24:06.000000000 Z
+    - 2016-11-05 01:24:06.000000000 Z
+
+---
+inscripcion_registros:
+  columns:
+  - id
+  - nombre
+  - idioma
+  - horario
+  - nivel
+  - curso
+  - opcion_uno
+  - opcion_dos
+  - telefono
+  - periodo
+  - correo
+  - sexo
+  - cuota
+  - movimiento
+  - procedencia
+  - created_at
+  - updated_at
+  - grupo_id
+  - examen_medio
+  - examen_final
+  - paterno
+  - materno
+  - documentos_validados
+  - boleta
+  - oferta_grupo
+  - imagen_file_name
+  - imagen_content_type
+  - imagen_file_size
+  - imagen_updated_at
+  - user_id
+  - habilitar_constancia
+  - habilitar_historial
+  - oficio_prestacion
+  - monto_pagado
+  records: 
+  - - 13
+    - HOMERO
+    - Inglés
+    - 07:00-09:00
+    - Básico 1
+    - Sabatino 1
+    - ''
+    - ''
+    - ''
+    - 20 de febrero al 17 de marzo de 2017
+    - homer@homer.com
+    - Masculino
+    - '510.00'
+    - ''
+    - Instituto Politécnico Nacional
+    - 2017-08-28 23:48:34.000000000 Z
+    - 2017-08-28 23:55:05.000000000 Z
+    - 1
+    - 80
+    - 80
+    - VAZQUEZ
+    - GOMEZ
+    - true
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 12
+    - false
+    - false
+    - ''
+    - ''
+  - - 15
+    - MIGUEL
+    - Inglés
+    - 12:00-14:00
+    - Básico 2
+    - Sabatino 1
+    - ''
+    - ''
+    - ''
+    - del 27 de marzo al 29 de abril de 2017
+    - miguel@miguel.com
+    - Masculino
+    - '510.00'
+    - ''
+    - Instituto Politécnico Nacional
+    - 2017-09-08 18:36:49.000000000 Z
+    - 2017-10-14 01:05:14.000000000 Z
+    - 5
+    - 
+    - 
+    - MARTINEZ
+    - SALAZAR
+    - true
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 8
+    - false
+    - false
+    - ''
+    - ''
+
+---
+it_inscripcion_registros:
+  columns:
+  - id
+  - nombre
+  - paterno
+  - materno
+  - idioma
+  - horario
+  - nivel
+  - curso
+  - opcion_uno
+  - opcion_dos
+  - telefono
+  - periodo
+  - correo
+  - sexo
+  - cuota
+  - movimiento
+  - procedencia
+  - grupo_id
+  - examen_medio
+  - examen_final
+  - documentos_validados
+  - boleta
+  - oferta_grupo
+  - user_id
+  - habilitar_constancia
+  - habilitar_historial
+  - oficio_prestacion
+  - monto_pagado
+  - created_at
+  - updated_at
+  - imagen_file_name
+  - imagen_content_type
+  - imagen_file_size
+  - imagen_updated_at
+  records: 
+  - - 1
+    - HOMERO
+    - VAZQUEZ
+    - GOMEZ
+    - Italiano
+    - 07:00-09:00
+    - Básico 1
+    - Intensivo F
+    - 07:00-09:00
+    - 07:00-09:00
+    - '5513771496'
+    - 1 de agosto al 31 de septiembre de 2017
+    - homer@homer.com
+    - Masculino
+    - '510.00'
+    - '542154'
+    - Instituto Politécnico Nacional
+    - 8
+    - 80
+    - 80
+    - true
+    - 
+    - 
+    - 12
+    - false
+    - false
+    - ''
+    - ''
+    - 2017-10-11 23:20:32.000000000 Z
+    - 2017-10-11 23:24:07.000000000 Z
+    - 
+    - 
+    - 
+    - 
+
+---
+lugar_nombres:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Ciudad de México
+    - 2016-12-06 00:52:59.000000000 Z
+    - 2016-12-06 00:52:59.000000000 Z
+
+---
+modalidad_oferta:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Presencial
+    - 2016-12-07 00:20:12.000000000 Z
+    - 2016-12-07 00:20:12.000000000 Z
+  - - 2
+    - A distancia
+    - 2016-12-07 00:20:20.000000000 Z
+    - 2016-12-07 00:20:20.000000000 Z
+
+---
+nivel_nombres:
+  columns:
+  - id
+  - nivel
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Básico 1
+    - 2016-11-05 01:26:29.000000000 Z
+    - 2016-11-05 01:26:29.000000000 Z
+  - - 2
+    - Básico 2
+    - 2016-11-05 01:26:37.000000000 Z
+    - 2016-11-05 01:26:37.000000000 Z
+  - - 3
+    - Básico 3
+    - 2016-11-05 01:26:42.000000000 Z
+    - 2016-11-05 01:26:42.000000000 Z
+  - - 4
+    - Básico 4
+    - 2016-11-05 01:26:50.000000000 Z
+    - 2016-11-05 01:26:50.000000000 Z
+  - - 5
+    - Básico 5
+    - 2016-11-05 01:26:56.000000000 Z
+    - 2016-11-05 01:26:56.000000000 Z
+  - - 6
+    - Intermedio 1
+    - 2016-11-05 01:27:02.000000000 Z
+    - 2016-11-05 01:27:02.000000000 Z
+  - - 7
+    - Intermedio 2
+    - 2016-11-05 01:27:08.000000000 Z
+    - 2016-11-05 01:27:14.000000000 Z
+  - - 8
+    - Intermedio 3
+    - 2016-11-05 01:27:19.000000000 Z
+    - 2016-11-05 01:27:19.000000000 Z
+  - - 9
+    - Intermedio 4
+    - 2016-11-05 01:27:25.000000000 Z
+    - 2016-11-05 01:27:25.000000000 Z
+  - - 10
+    - Intermedio 5
+    - 2016-11-05 01:27:35.000000000 Z
+    - 2016-11-05 01:27:35.000000000 Z
+  - - 11
+    - Avanzado 1
+    - 2016-11-05 01:27:40.000000000 Z
+    - 2016-11-05 01:27:40.000000000 Z
+  - - 12
+    - Avanzado 2
+    - 2016-11-05 01:27:46.000000000 Z
+    - 2016-11-05 01:27:46.000000000 Z
+  - - 13
+    - Avanzado 3
+    - 2016-11-05 01:27:52.000000000 Z
+    - 2016-11-05 01:27:55.000000000 Z
+  - - 14
+    - Avanzado 4
+    - 2016-11-05 01:28:03.000000000 Z
+    - 2016-11-05 01:28:03.000000000 Z
+  - - 15
+    - Avanzado 5
+    - 2016-11-05 01:28:10.000000000 Z
+    - 2016-11-05 01:28:10.000000000 Z
+  - - 16
+    - Certificación B2.1
+    - 2016-11-19 00:25:37.000000000 Z
+    - 2016-11-19 00:25:37.000000000 Z
+  - - 17
+    - Mock 1
+    - 2016-11-19 00:26:05.000000000 Z
+    - 2016-11-19 00:26:05.000000000 Z
+
+---
+numero_registros:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - DFLE-Curso-CMTKT-CECIEMD-16
+    - 2016-12-07 00:09:49.000000000 Z
+    - 2016-12-07 00:09:49.000000000 Z
+  - - 2
+    - DFLE-CELEX02I-Act-15
+    - 2017-02-15 00:27:15.000000000 Z
+    - 2017-02-15 00:27:15.000000000 Z
+
+---
+procedencia:
+  columns:
+  - id
+  - procedencia
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Instituto Politécnico Nacional
+    - 2016-11-05 01:39:19.000000000 Z
+    - 2016-11-05 01:39:19.000000000 Z
+  - - 4
+    - Otro
+    - 2016-11-05 01:40:11.000000000 Z
+    - 2016-11-05 01:40:11.000000000 Z
+  - - 5
+    - Prestación
+    - 2017-04-05 23:05:37.000000000 Z
+    - 2017-04-05 23:05:37.000000000 Z
+
+---
+proyectos:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Cursos Extracurriculares de Lenguas Extranjeras
+    - 2016-12-07 01:01:22.000000000 Z
+    - 2017-04-08 00:47:53.000000000 Z
+
+---
+registro_cursos:
+  columns:
+  - id
+  - nombre
+  - horas
+  - periodo
+  - temas
+  - instructor
+  - created_at
+  - updated_at
+  - horario
+  - registro
+  - tipo_oferta
+  - modalidad
+  - cupo
+  - cuota
+  - clave_catalogo
+  - proyecto
+  records: 
+  - - 1
+    - 'Fundamentos de Biblioteconomía: La Biblioteca Manual, Automatizada y Digital'
+    - '20'
+    - Del 20 al 24 de febrero de 2017
+    - 1. Introducción, 2. La biblioteca manual, 3. La biblioteca automatizada, 4.
+      La biblioteca digital, 5. Administración de bibliotecas
+    - M. en C. Heberto Reynel Iglesias
+    - 2017-03-08 01:47:46.000000000 Z
+    - 2017-09-28 23:44:41.000000000 Z
+    - 
+    - ''
+    - Curso
+    - Presencial
+    - ''
+    - ''
+    - ''
+    - 
+  - - 2
+    - Curso de preparación para el nivel medio superior
+    - '120'
+    - 
+    - 
+    - 
+    - 2017-09-28 23:35:37.000000000 Z
+    - 2017-09-29 00:00:56.000000000 Z
+    - 08:00-12:00
+    - ''
+    - Curso
+    - Presencial
+    - '30'
+    - ''
+    - ''
+    - 
+  - - 3
+    - Curso de preparación para el nivel superior
+    - '120'
+    - 
+    - 
+    - 
+    - 2017-09-28 23:45:23.000000000 Z
+    - 2017-09-29 00:01:28.000000000 Z
+    - 15:00-21:00
+    - ''
+    - Curso
+    - Presencial
+    - '30'
+    - ''
+    - ''
+    - 
+
+---
+roles:
+  columns:
+  - id
+  - nombre
+  - descripcion
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Administrador
+    - Administra el sistema
+    - 2017-07-17 20:13:00.000000000 Z
+    - 
+  - - 2
+    - Invitado
+    - Es un usuario del CELEX
+    - 2017-07-04 23:26:11.000000000 Z
+    - 2017-07-04 23:26:11.000000000 Z
+  - - 3
+    - Jefe Educación Continua
+    - Jefe del Departamento de Educación Continua
+    - 2017-07-05 01:36:51.000000000 Z
+    - 2017-07-05 01:36:51.000000000 Z
+  - - 4
+    - Profesor
+    - Tiene las funciones de instructor
+    - 2017-07-05 01:37:14.000000000 Z
+    - 2017-07-05 01:37:14.000000000 Z
+  - - 5
+    - Control escolar
+    - Valida inscripciones
+    - 2017-07-05 01:37:34.000000000 Z
+    - 2017-07-05 01:37:34.000000000 Z
+  - - 6
+    - Coordinación CELEX
+    - Encargado de la coordinación del CELEX
+    - 2017-07-05 01:38:01.000000000 Z
+    - 2017-07-05 01:38:01.000000000 Z
+  - - 7
+    - Control Educación Continua
+    - Control escolar del CEC
+    - 2017-10-11 01:00:14.000000000 Z
+    - 2017-10-11 01:00:14.000000000 Z
+
+---
+seccion_nombres:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - A
+    - 2017-08-31 00:05:16.000000000 Z
+    - 2017-08-31 00:05:16.000000000 Z
+  - - 2
+    - B
+    - 2017-08-31 00:05:23.000000000 Z
+    - 2017-08-31 00:05:23.000000000 Z
+
+---
+tipo_oferta:
+  columns:
+  - id
+  - nombre
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Curso
+    - 2016-12-07 00:21:48.000000000 Z
+    - 2016-12-07 00:21:48.000000000 Z
+
+---
+unitarios:
+  columns:
+  - id
+  - curp
+  - nombre
+  - paterno
+  - materno
+  - sexo
+  - nacimiento
+  - domicilio
+  - codigo_postal
+  - entidad
+  - delegacion_municipio
+  - telefono_celular
+  - telefono_fijo
+  - correo
+  - procedencia
+  - nombre_padre
+  - correo_padre
+  - telefono_padre
+  - created_at
+  - updated_at
+  - grupos_unitario_id
+  - documentos_validados
+  - examen_final
+  - image_file_name
+  - image_content_type
+  - image_file_size
+  - image_updated_at
+  records: 
+  - - 1
+    - MECL850121HDFNRS01
+    - Luis Alberto
+    - Mendez
+    - Cruz
+    - Masculino
+    - 21-Ene-1985
+    - Av. San Pablo 396
+    - '02120'
+    - Ciudad de México
+    - Azcapotzalco
+    - '5513771496'
+    - '53197259'
+    - lumendez@ipn.mx
+    - IPN
+    - Francisco Javier Mendez Cruz
+    - ''
+    - ''
+    - 2017-09-29 00:44:04.000000000 Z
+    - 2017-10-18 01:42:39.000000000 Z
+    - 1
+    - true
+    - '100'
+    - 
+    - 
+    - 
+    - 
+  - - 27
+    - XXXXXXXXX
+    - Luis Alberto
+    - Mendez
+    - Cruz
+    - Masculino
+    - 14-Oct-2017
+    - Av Instituto Politécnico
+    - '07300'
+    - Ciudad de México
+    - Gustavo A. Madero
+    - '5513771496'
+    - '53197259'
+    - lumendez@ipn.mx
+    - IPN
+    - ''
+    - ''
+    - ''
+    - 2017-10-11 00:27:51.000000000 Z
+    - 2017-10-14 01:39:39.000000000 Z
+    - 1
+    - true
+    - 
+    - 
+    - 
+    - 
+    - 
+  - - 28
+    - XXXXXXXXX
+    - Luis Alberto
+    - Mendez
+    - Cruz
+    - Masculino
+    - 28-Oct-2017
+    - Av Instituto Politécnico
+    - '02120'
+    - Ciudad de México
+    - Gustavo A. Madero
+    - '5513771496'
+    - '53197259'
+    - lumendez@ipn.mx
+    - IPN
+    - ''
+    - ''
+    - ''
+    - 2017-10-11 00:56:40.000000000 Z
+    - 2017-10-14 01:39:48.000000000 Z
+    - 1
+    - true
+    - 
+    - 
+    - 
+    - 
+    - 
+  - - 29
+    - RORJ751117FGDDDJSSCR9
+    - 'JESUS '
+    - ROJAS
+    - RAMIREZ
+    - Masculino
+    - 2-Oct-2017
+    - AV THE
+    - 08000
+    - CIUDAD DE MEXICO
+    - IZTACALCO
+    - '5512141316'
+    - '13132122'
+    - ing.jesus.rojas@gmail.com
+    - sec 222
+    - Regina Ramirez
+    - ''
+    - '131322122'
+    - 2017-10-17 23:14:04.000000000 Z
+    - 2017-10-17 23:42:04.000000000 Z
+    - 1
+    - true
+    - 
+    - 
+    - 
+    - 
+    - 
+  - - 31
+    - GOAE551220HDFNRS01
+    - Ernesto
+    - Arias
+    - Garcia
+    - Masculino
+    - 18-Oct-2017
+    - Unidad de Sistemas Arrecifales
+    - '02120'
+    - Ciudad de México
+    - Azcapotzalco
+    - '5513771496'
+    - '53197259'
+    - ernesto@arias.com
+    - UNAM
+    - Francisco Javier Mendez Cruz
+    - francisco@mendez.com
+    - '55555555'
+    - 2017-10-18 23:56:54.000000000 Z
+    - 2017-10-18 23:56:54.000000000 Z
+    - 2
+    - false
+    - 
+    - 24137197.jpg
+    - image/jpeg
+    - 4210
+    - 2017-10-18 23:56:54.000000000 Z
+
+---
+users:
+  columns:
+  - id
+  - nombre
+  - role_id
+  - created_at
+  - updated_at
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - paterno
+  - materno
+  - rfc
+  - centro_id
+  records: 
+  - - 1
+    - Luis Alberto
+    - 1
+    - 2017-07-04 01:08:40.000000000 Z
+    - 2017-10-19 01:47:52.000000000 Z
+    - lumendez@ipn.mx
+    - "$2a$11$fRHTLLi4PkQv82vrDPgtQuqkWWbyAg61x9Coc5qqYy0gyb1X33IUe"
+    - 
+    - 
+    - 
+    - 140
+    - 2017-10-19 01:47:52.000000000 Z
+    - 2017-10-19 01:45:18.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Mendez
+    - Cruz
+    - MECL850121
+    - 1
+  - - 3
+    - Alberto
+    - 2
+    - 2017-07-04 23:27:50.000000000 Z
+    - 2017-09-19 00:26:24.000000000 Z
+    - zanakz@gmail.com
+    - "$2a$11$ouaO1257YLJ4AmIjkXqSIezQYQAhqqWr2WHsxKfnofCAVnKL7iI0K"
+    - 
+    - 
+    - 
+    - 12
+    - 2017-09-19 00:26:24.000000000 Z
+    - 2017-08-08 00:15:09.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Mendez
+    - Cruz
+    - XXXXXXXXX
+    - 1
+  - - 4
+    - Mara
+    - 5
+    - 2017-07-05 01:38:41.000000000 Z
+    - 2017-10-12 00:14:19.000000000 Z
+    - mara@mara.com
+    - "$2a$11$pP0We8VeOE21.70nUFcXL.E0vUbpOJMK5xKwyJPvJTSewqUfr9laO"
+    - 
+    - 
+    - 
+    - 11
+    - 2017-10-12 00:14:19.000000000 Z
+    - 2017-10-11 01:55:28.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Ayala
+    - Samra
+    - XXXXXXXXX
+    - 1
+  - - 5
+    - Beatriz Adriana
+    - 4
+    - 2017-07-07 01:57:57.000000000 Z
+    - 2017-08-08 00:38:21.000000000 Z
+    - beatriz@cruz.com
+    - "$2a$11$1u.z8.rjOMaO.V0Uv8iWfeRb8KXZONb66vvaUb/ym4n/nm7Jb0gZK"
+    - 
+    - 
+    - 
+    - 8
+    - 2017-08-08 00:38:21.000000000 Z
+    - 2017-07-17 21:16:57.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Cruz
+    - Gutierrez
+    - XXXXXXXXX
+    - 1
+  - - 6
+    - Elvia
+    - 3
+    - 2017-07-17 17:20:13.000000000 Z
+    - 2017-07-17 17:20:40.000000000 Z
+    - elvia@elvia.com
+    - "$2a$11$GAO0UrgTJzJMfKvK2x8xbOOeThtkJoxZg2CPX7MU9T5eR4ymTA4k."
+    - 
+    - 
+    - 
+    - 1
+    - 2017-07-17 17:20:13.000000000 Z
+    - 2017-07-17 17:20:13.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - "Ángeles"
+    - Aldana
+    - XXXXXXXXX
+    - 1
+  - - 7
+    - Domingo
+    - 2
+    - 2017-07-18 17:19:00.000000000 Z
+    - 2017-09-12 01:30:15.000000000 Z
+    - domingo@domingo.com
+    - "$2a$11$pfxPw8eQqkKzs9q5ZKjOp.JuKv9bI2g5dVajIjMw/0/VLVLh1RvEe"
+    - 961628deec593d9bb97f5e67f36905269942adebd8f11291ce156a8c2128908a
+    - 2017-07-19 18:58:07.000000000 Z
+    - 
+    - 12
+    - 2017-09-12 01:30:15.000000000 Z
+    - 2017-08-05 00:14:21.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Andrade
+    - Puertos
+    - xxxxxxxxx
+    - 1
+  - - 8
+    - Miguel
+    - 2
+    - 2017-07-21 17:43:30.000000000 Z
+    - 2017-09-13 00:15:04.000000000 Z
+    - miguel@miguel.com
+    - "$2a$11$YXDk59faR9b5bNIosxVHwO8CpwRmqa.6fmYy29w/bzBQFj/OHDNLi"
+    - 
+    - 
+    - 
+    - 23
+    - 2017-09-13 00:15:04.000000000 Z
+    - 2017-09-13 00:06:07.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Martinez
+    - Salazar
+    - XXXXXXXXX
+    - 1
+  - - 9
+    - Laura
+    - 4
+    - 2017-08-03 00:12:57.000000000 Z
+    - 2017-08-03 00:13:46.000000000 Z
+    - laura@laura.com
+    - "$2a$11$ynoRWW6jCstLD1EVqmoYc.NcSKs0Kfab3nneHkakW1TfZSg1HHYRi"
+    - 
+    - 
+    - 
+    - 1
+    - 2017-08-03 00:12:57.000000000 Z
+    - 2017-08-03 00:12:57.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Bizueto
+    - Hernández
+    - XXXXXXXXX
+    - 1
+  - - 10
+    - ANA LAURA
+    - 6
+    - 2017-08-09 00:09:32.000000000 Z
+    - 2017-08-09 01:07:02.000000000 Z
+    - ana@ana.com
+    - "$2a$11$FyNDsG6XQm4Gu98FR24Ub.aTAQs2CDxd5ZrJ/T0166QV22oQ7cQt."
+    - 
+    - 
+    - 
+    - 5
+    - 2017-08-09 01:07:02.000000000 Z
+    - 2017-08-09 01:06:15.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - DIAZ
+    - BARROSO
+    - xxxxxxxxx
+    - 1
+  - - 11
+    - Jesus
+    - 2
+    - 2017-08-15 01:24:44.000000000 Z
+    - 2017-09-19 00:30:06.000000000 Z
+    - jesus@jesus.com
+    - "$2a$11$Lj.JwjpQDZKhMpop2GhgFe7fCsJormvsHISk9Mw3.JGbzpoiJeXjO"
+    - 
+    - 
+    - 
+    - 5
+    - 2017-09-19 00:30:06.000000000 Z
+    - 2017-08-23 01:11:43.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Morales
+    - Rodriguez
+    - XXXXXXXXX
+    - 1
+  - - 12
+    - homero
+    - 2
+    - 2017-08-23 01:12:27.000000000 Z
+    - 2017-10-11 23:19:51.000000000 Z
+    - homer@homer.com
+    - "$2a$11$LGuR/lz8CEqtD2aTtnss2.Gck6QlpFM3lEzMsN0oJvSCZcrLXjAnW"
+    - 
+    - 
+    - 
+    - 13
+    - 2017-10-11 23:19:51.000000000 Z
+    - 2017-08-29 01:18:10.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - vazquez
+    - gomez
+    - XXXXXXXXX
+    - 1
+  - - 13
+    - Diana
+    - 2
+    - 2017-08-29 01:26:32.000000000 Z
+    - 2017-10-12 23:53:38.000000000 Z
+    - diana@diana.com
+    - "$2a$11$4enEsFG9VjwDpNxh69RkruyNVGEZxCfAWuSdmGrmW.SSPirydbvHW"
+    - 
+    - 
+    - 
+    - 5
+    - 2017-10-12 23:53:38.000000000 Z
+    - 2017-09-12 01:38:45.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Gomez
+    - Vazquez
+    - XXXXXXXXX
+    - 1
+  - - 14
+    - Jesús Antonio
+    - 7
+    - 2017-10-11 01:01:52.000000000 Z
+    - 2017-10-19 22:54:23.000000000 Z
+    - ing.jesus.rojas@gmail.com
+    - "$2a$11$Oy1vXfhI/f6nZUAG4jYzPO.d5psRrW07D5b5jrF3nN4Qdpn65aYqG"
+    - 
+    - 
+    - 
+    - 17
+    - 2017-10-19 22:54:23.000000000 Z
+    - 2017-10-19 22:37:45.000000000 Z
+    - 127.0.0.1
+    - 127.0.0.1
+    - Rojas
+    - Ramírez
+    - RORJ751117HMCJMS07
+    - 1
+
+---
+versions:
+  columns:
+  - id
+  - item_type
+  - item_id
+  - event
+  - whodunnit
+  - object
+  - created_at
+  - object_changes
+  records: 
+  - - 1
+    - Grupo
+    - 1
+    - create
+    - '4'
+    - 
+    - 2017-07-17 17:22:47.000000000 Z
+    - "---\nid:\n- \n- 1\nnombre:\n- \n- Inglés | Básico 1 | 07:00-09:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-07-17 17:22:47.000000000 Z\nupdated_at:\n- \n- 2017-07-17
+      17:22:47.000000000 Z\nhorario:\n- \n- 07:00-09:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Pendiente\ncurso:\n- \n- Intensivo C\nanio:\n-
+      \n- '2017'\nperiodo:\n- \n- 20 de febrero al 17 de marzo de 2017\nuser_id:\n-
+      \n- 5\nlugar:\n- \n- ''\nfecha:\n- \n- 17 de julio de 2017\ncentro:\n- \n- Ingeniero
+      Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '35'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '5'\ninstructor_rfc:\n-
+      \n- '5'\ninstructor_correo:\n- \n- '5'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-CELEX02I-Act-15\nreferencia:\n- \n- ''\n"
+  - - 2
+    - Grupo
+    - 1
+    - update
+    - '4'
+    - "---\nid: 1\nnombre: Inglés | Básico 1 | 07:00-09:00 | Intensivo C\ncreated_at:
+      2017-07-17 17:22:47.000000000 Z\nupdated_at: 2017-07-17 17:22:47.000000000 Z\nhorario:
+      07:00-09:00\nidioma: Inglés\nnivel: Básico 1\nestado: Pendiente\ncurso: Intensivo
+      C\nanio: '2017'\nperiodo: 20 de febrero al 17 de marzo de 2017\nuser_id: 5\nlugar:
+      ''\nfecha: 17 de julio de 2017\ncentro: Ingeniero Eugenio Méndez Docurro\ntipo:
+      Curso\nmodalidad: Presencial\ncupo: '35'\nduracion: 40 horas\ncuota: \"$1125.50/$1382.00\"\nclave:
+      0861/0863\nproyecto: Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:
+      BBVA Bancomer\ncuenta: 0168358273\ntitular: Fondo de Investigación Científica
+      y Desarrollo Tecnológico del IPN\ninstructor: '5'\ninstructor_rfc: '5'\ninstructor_correo:
+      '5'\njefe_ec: Elvia Ángeles Aldana\nregistro: DFLE-CELEX02I-Act-15\nreferencia:
+      ''\nhabilitar_constancias_grupo: \n"
+    - 2017-07-17 17:23:04.000000000 Z
+    - |
+      ---
+      estado:
+      - Pendiente
+      - Abierto
+      updated_at:
+      - 2017-07-17 17:22:47.000000000 Z
+      - 2017-07-17 17:23:04.000000000 Z
+  - - 3
+    - Grupo
+    - 2
+    - create
+    - '1'
+    - 
+    - 2017-07-20 19:15:25.000000000 Z
+    - "---\nid:\n- \n- 2\nnombre:\n- \n- Inglés | Básico 1 | 11:00-13:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-07-20 19:15:25.000000000 Z\nupdated_at:\n- \n- 2017-07-20
+      19:15:25.000000000 Z\nhorario:\n- \n- 11:00-13:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Abierto\ncurso:\n- \n- Intensivo C\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- del 27 de marzo al 29 de abril de 2017\nuser_id:\n-
+      \n- 5\nlugar:\n- \n- ''\nfecha:\n- \n- 19 de julio de 2017\ncentro:\n- \n- Ingeniero
+      Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$493.50/$985.50\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '5'\ninstructor_rfc:\n-
+      \n- '5'\ninstructor_correo:\n- \n- '5'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 4
+    - Grupo
+    - 3
+    - create
+    - '1'
+    - 
+    - 2017-07-21 17:52:10.000000000 Z
+    - "---\nid:\n- \n- 3\nnombre:\n- \n- Francés | Básico 1 | 11:00-13:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-07-21 17:52:10.000000000 Z\nupdated_at:\n- \n- 2017-07-21
+      17:52:10.000000000 Z\nhorario:\n- \n- 11:00-13:00\nidioma:\n- \n- Francés\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Abierto\ncurso:\n- \n- Intensivo C\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- del 27 de marzo al 29 de abril de 2017\nuser_id:\n-
+      \n- 5\nlugar:\n- \n- ''\nfecha:\n- \n- 21 de julio de 2017\ncentro:\n- \n- Ingeniero
+      Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '5'\ninstructor_rfc:\n-
+      \n- '5'\ninstructor_correo:\n- \n- '5'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 5
+    - Grupo
+    - 4
+    - create
+    - '1'
+    - 
+    - 2017-07-21 17:55:35.000000000 Z
+    - "---\nid:\n- \n- 4\nnombre:\n- \n- Italiano | Básico 1 | 07:00-09:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-07-21 17:55:35.000000000 Z\nupdated_at:\n- \n- 2017-07-21
+      17:55:35.000000000 Z\nhorario:\n- \n- 07:00-09:00\nidioma:\n- \n- Italiano\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Pendiente\ncurso:\n- \n- Intensivo C\nanio:\n-
+      \n- '2017'\nperiodo:\n- \n- del 27 de marzo al 29 de abril de 2017\nuser_id:\n-
+      \n- 5\nlugar:\n- \n- ''\nfecha:\n- \n- 21 de julio de 2017\ncentro:\n- \n- Ingeniero
+      Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '5'\ninstructor_rfc:\n-
+      \n- '5'\ninstructor_correo:\n- \n- '5'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 6
+    - Grupo
+    - 4
+    - update
+    - '1'
+    - |
+      ---
+      id: 4
+      nombre: Italiano | Básico 1 | 07:00-09:00 | Intensivo C
+      created_at: 2017-07-21 17:55:35.000000000 Z
+      updated_at: 2017-07-21 17:55:35.000000000 Z
+      horario: 07:00-09:00
+      idioma: Italiano
+      nivel: Básico 1
+      estado: Pendiente
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 21 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-07-21 17:55:47.000000000 Z
+    - |
+      ---
+      estado:
+      - Pendiente
+      - Abierto
+      updated_at:
+      - 2017-07-21 17:55:35.000000000 Z
+      - 2017-07-21 17:55:47.000000000 Z
+  - - 7
+    - Grupo
+    - 5
+    - create
+    - '1'
+    - 
+    - 2017-07-21 20:06:01.000000000 Z
+    - "---\nid:\n- \n- 5\nnombre:\n- \n- Inglés | Básico 2 | 12:00-14:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-07-21 20:06:01.000000000 Z\nupdated_at:\n- \n- 2017-07-21
+      20:06:01.000000000 Z\nhorario:\n- \n- 12:00-14:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 2\nestado:\n- \n- Pendiente\ncurso:\n- \n- Intensivo C\nanio:\n-
+      \n- '2017'\nperiodo:\n- \n- del 27 de marzo al 29 de abril de 2017\nuser_id:\n-
+      \n- 5\nlugar:\n- \n- ''\nfecha:\n- \n- 21 de julio de 2017\ncentro:\n- \n- Ingeniero
+      Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '5'\ninstructor_rfc:\n-
+      \n- '5'\ninstructor_correo:\n- \n- '5'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 8
+    - Grupo
+    - 5
+    - update
+    - '1'
+    - |
+      ---
+      id: 5
+      nombre: Inglés | Básico 2 | 12:00-14:00 | Intensivo C
+      created_at: 2017-07-21 20:06:01.000000000 Z
+      updated_at: 2017-07-21 20:06:01.000000000 Z
+      horario: 12:00-14:00
+      idioma: Inglés
+      nivel: Básico 2
+      estado: Pendiente
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 21 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-07-21 20:06:15.000000000 Z
+    - |
+      ---
+      estado:
+      - Pendiente
+      - Abierto
+      updated_at:
+      - 2017-07-21 20:06:01.000000000 Z
+      - 2017-07-21 20:06:15.000000000 Z
+  - - 9
+    - Grupo
+    - 6
+    - create
+    - '1'
+    - 
+    - 2017-08-03 00:16:55.000000000 Z
+    - "---\nid:\n- \n- 6\nnombre:\n- \n- Inglés | Básico 2 | 09:00-11:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-08-03 00:16:55.000000000 Z\nupdated_at:\n- \n- 2017-08-03
+      00:16:55.000000000 Z\nhorario:\n- \n- 09:00-11:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 2\nestado:\n- \n- Pendiente\ncurso:\n- \n- Intensivo C\nanio:\n-
+      \n- '2017'\nperiodo:\n- \n- del 27 de marzo al 29 de abril de 2017\nuser_id:\n-
+      \n- 9\nlugar:\n- \n- ''\nfecha:\n- \n- 02 de agosto de 2017\ncentro:\n- \n-
+      Ingeniero Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '9'\ninstructor_rfc:\n-
+      \n- '9'\ninstructor_correo:\n- \n- '9'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 10
+    - Grupo
+    - 4
+    - update
+    - '1'
+    - |
+      ---
+      id: 4
+      nombre: Italiano | Básico 1 | 07:00-09:00 | Intensivo C
+      created_at: 2017-07-21 17:55:35.000000000 Z
+      updated_at: 2017-07-21 17:55:47.000000000 Z
+      horario: 07:00-09:00
+      idioma: Italiano
+      nivel: Básico 1
+      estado: Abierto
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 21 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-08 00:41:03.000000000 Z
+    - |
+      ---
+      estado:
+      - Abierto
+      - Cerrado
+      updated_at:
+      - 2017-07-21 17:55:47.000000000 Z
+      - 2017-08-08 00:41:03.000000000 Z
+  - - 11
+    - Grupo
+    - 7
+    - create
+    - '1'
+    - 
+    - 2017-08-09 01:21:11.000000000 Z
+    - "---\nid:\n- \n- 7\nnombre:\n- \n- Inglés | Básico 3 | 09:00-11:00 | Intensivo
+      F\ncreated_at:\n- \n- 2017-08-09 01:21:11.000000000 Z\nupdated_at:\n- \n- 2017-08-09
+      01:21:11.000000000 Z\nhorario:\n- \n- 09:00-11:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 3\nestado:\n- \n- Abierto\ncurso:\n- \n- Intensivo F\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- 1 de Agosto al 31 de Agosto\nuser_id:\n- \n- 9\nlugar:\n-
+      \n- ''\nfecha:\n- \n- 08/08/2017\ncentro:\n- \n- Ingeniero Eugenio Méndez Docurro\ntipo:\n-
+      \n- Curso\nmodalidad:\n- \n- A distancia\ncupo:\n- \n- '40'\nduracion:\n- \n-
+      40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n- \n- 0861/0863\nproyecto:\n-
+      \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '9'\ninstructor_rfc:\n-
+      \n- '9'\ninstructor_correo:\n- \n- '9'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-CELEX02I-Act-15\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 12
+    - Grupo
+    - 8
+    - create
+    - '1'
+    - 
+    - 2017-08-15 00:39:33.000000000 Z
+    - "---\nid:\n- \n- 8\nnombre:\n- \n- Italiano | Básico 1 | 07:00-09:00 | Intensivo
+      F\ncreated_at:\n- \n- 2017-08-15 00:39:33.000000000 Z\nupdated_at:\n- \n- 2017-08-15
+      00:39:33.000000000 Z\nhorario:\n- \n- 07:00-09:00\nidioma:\n- \n- Italiano\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Abierto\ncurso:\n- \n- Intensivo F\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- 1 de agosto al 31 de septiembre de 2017\nuser_id:\n-
+      \n- 9\nlugar:\n- \n- ''\nfecha:\n- \n- 14 de agosto de 2017\ncentro:\n- \n-
+      Ingeniero Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '9'\ninstructor_rfc:\n-
+      \n- '9'\ninstructor_correo:\n- \n- '9'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 13
+    - Grupo
+    - 8
+    - update
+    - '1'
+    - |
+      ---
+      id: 8
+      nombre: Italiano | Básico 1 | 07:00-09:00 | Intensivo F
+      created_at: 2017-08-15 00:39:33.000000000 Z
+      updated_at: 2017-08-15 00:39:33.000000000 Z
+      horario: 07:00-09:00
+      idioma: Italiano
+      nivel: Básico 1
+      estado: Abierto
+      curso: Intensivo F
+      anio: '2017'
+      periodo: 1 de agosto al 31 de septiembre de 2017
+      user_id: 9
+      lugar: ''
+      fecha: 14 de agosto de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '9'
+      instructor_rfc: '9'
+      instructor_correo: '9'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-17 01:31:50.000000000 Z
+    - |
+      ---
+      estado:
+      - Abierto
+      - Cerrado
+      updated_at:
+      - 2017-08-15 00:39:33.000000000 Z
+      - 2017-08-17 01:31:50.000000000 Z
+  - - 14
+    - Grupo
+    - 7
+    - update
+    - '1'
+    - |
+      ---
+      id: 7
+      nombre: Inglés | Básico 3 | 09:00-11:00 | Intensivo F
+      created_at: 2017-08-09 01:21:11.000000000 Z
+      updated_at: 2017-08-09 01:21:11.000000000 Z
+      horario: 09:00-11:00
+      idioma: Inglés
+      nivel: Básico 3
+      estado: Abierto
+      curso: Intensivo F
+      anio: '2017'
+      periodo: 1 de Agosto al 31 de Agosto
+      user_id: 9
+      lugar: ''
+      fecha: 08/08/2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: A distancia
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '9'
+      instructor_rfc: '9'
+      instructor_correo: '9'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-CELEX02I-Act-15
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-17 01:31:50.000000000 Z
+    - |
+      ---
+      estado:
+      - Abierto
+      - Cerrado
+      updated_at:
+      - 2017-08-09 01:21:11.000000000 Z
+      - 2017-08-17 01:31:50.000000000 Z
+  - - 15
+    - Grupo
+    - 6
+    - update
+    - '1'
+    - |
+      ---
+      id: 6
+      nombre: Inglés | Básico 2 | 09:00-11:00 | Intensivo C
+      created_at: 2017-08-03 00:16:55.000000000 Z
+      updated_at: 2017-08-03 00:16:55.000000000 Z
+      horario: 09:00-11:00
+      idioma: Inglés
+      nivel: Básico 2
+      estado: Pendiente
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 9
+      lugar: ''
+      fecha: 02 de agosto de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '9'
+      instructor_rfc: '9'
+      instructor_correo: '9'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-17 01:31:50.000000000 Z
+    - |
+      ---
+      estado:
+      - Pendiente
+      - Cerrado
+      updated_at:
+      - 2017-08-03 00:16:55.000000000 Z
+      - 2017-08-17 01:31:50.000000000 Z
+  - - 16
+    - Grupo
+    - 5
+    - update
+    - '1'
+    - |
+      ---
+      id: 5
+      nombre: Inglés | Básico 2 | 12:00-14:00 | Intensivo C
+      created_at: 2017-07-21 20:06:01.000000000 Z
+      updated_at: 2017-07-21 20:06:15.000000000 Z
+      horario: 12:00-14:00
+      idioma: Inglés
+      nivel: Básico 2
+      estado: Abierto
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 21 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-17 01:31:50.000000000 Z
+    - |
+      ---
+      estado:
+      - Abierto
+      - Cerrado
+      updated_at:
+      - 2017-07-21 20:06:15.000000000 Z
+      - 2017-08-17 01:31:50.000000000 Z
+  - - 17
+    - Grupo
+    - 3
+    - update
+    - '1'
+    - |
+      ---
+      id: 3
+      nombre: Francés | Básico 1 | 11:00-13:00 | Intensivo C
+      created_at: 2017-07-21 17:52:10.000000000 Z
+      updated_at: 2017-07-21 17:52:10.000000000 Z
+      horario: 11:00-13:00
+      idioma: Francés
+      nivel: Básico 1
+      estado: Abierto
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 21 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-17 01:31:50.000000000 Z
+    - |
+      ---
+      estado:
+      - Abierto
+      - Cerrado
+      updated_at:
+      - 2017-07-21 17:52:10.000000000 Z
+      - 2017-08-17 01:31:50.000000000 Z
+  - - 18
+    - Grupo
+    - 2
+    - update
+    - '1'
+    - |
+      ---
+      id: 2
+      nombre: Inglés | Básico 1 | 11:00-13:00 | Intensivo C
+      created_at: 2017-07-20 19:15:25.000000000 Z
+      updated_at: 2017-07-20 19:15:25.000000000 Z
+      horario: 11:00-13:00
+      idioma: Inglés
+      nivel: Básico 1
+      estado: Abierto
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 19 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$493.50/$985.50"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-17 01:31:50.000000000 Z
+    - |
+      ---
+      estado:
+      - Abierto
+      - Cerrado
+      updated_at:
+      - 2017-07-20 19:15:25.000000000 Z
+      - 2017-08-17 01:31:50.000000000 Z
+  - - 19
+    - Grupo
+    - 1
+    - update
+    - '1'
+    - "---\nid: 1\nnombre: Inglés | Básico 1 | 07:00-09:00 | Intensivo C\ncreated_at:
+      2017-07-17 17:22:47.000000000 Z\nupdated_at: 2017-07-17 17:23:04.000000000 Z\nhorario:
+      07:00-09:00\nidioma: Inglés\nnivel: Básico 1\nestado: Abierto\ncurso: Intensivo
+      C\nanio: '2017'\nperiodo: 20 de febrero al 17 de marzo de 2017\nuser_id: 5\nlugar:
+      ''\nfecha: 17 de julio de 2017\ncentro: Ingeniero Eugenio Méndez Docurro\ntipo:
+      Curso\nmodalidad: Presencial\ncupo: '35'\nduracion: 40 horas\ncuota: \"$1125.50/$1382.00\"\nclave:
+      0861/0863\nproyecto: Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:
+      BBVA Bancomer\ncuenta: 0168358273\ntitular: Fondo de Investigación Científica
+      y Desarrollo Tecnológico del IPN\ninstructor: '5'\ninstructor_rfc: '5'\ninstructor_correo:
+      '5'\njefe_ec: Elvia Ángeles Aldana\nregistro: DFLE-CELEX02I-Act-15\nreferencia:
+      ''\nhabilitar_constancias_grupo: \n"
+    - 2017-08-17 01:31:50.000000000 Z
+    - "---\nestado:\n- Abierto\n- Cerrado\nhabilitar_constancias_grupo:\n- \n- false\nupdated_at:\n-
+      2017-07-17 17:23:04.000000000 Z\n- 2017-08-17 01:31:50.000000000 Z\n"
+  - - 20
+    - Grupo
+    - 8
+    - update
+    - '1'
+    - |
+      ---
+      id: 8
+      nombre: Italiano | Básico 1 | 07:00-09:00 | Intensivo F
+      created_at: 2017-08-15 00:39:33.000000000 Z
+      updated_at: 2017-08-17 01:31:50.000000000 Z
+      horario: 07:00-09:00
+      idioma: Italiano
+      nivel: Básico 1
+      estado: Cerrado
+      curso: Intensivo F
+      anio: '2017'
+      periodo: 1 de agosto al 31 de septiembre de 2017
+      user_id: 9
+      lugar: ''
+      fecha: 14 de agosto de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '9'
+      instructor_rfc: '9'
+      instructor_correo: '9'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-17 01:32:24.000000000 Z
+    - |
+      ---
+      estado:
+      - Cerrado
+      - Abierto
+      updated_at:
+      - 2017-08-17 01:31:50.000000000 Z
+      - 2017-08-17 01:32:24.000000000 Z
+  - - 21
+    - Grupo
+    - 7
+    - update
+    - '1'
+    - |
+      ---
+      id: 7
+      nombre: Inglés | Básico 3 | 09:00-11:00 | Intensivo F
+      created_at: 2017-08-09 01:21:11.000000000 Z
+      updated_at: 2017-08-17 01:31:50.000000000 Z
+      horario: 09:00-11:00
+      idioma: Inglés
+      nivel: Básico 3
+      estado: Cerrado
+      curso: Intensivo F
+      anio: '2017'
+      periodo: 1 de Agosto al 31 de Agosto
+      user_id: 9
+      lugar: ''
+      fecha: 08/08/2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: A distancia
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '9'
+      instructor_rfc: '9'
+      instructor_correo: '9'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-CELEX02I-Act-15
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-19 01:37:05.000000000 Z
+    - |
+      ---
+      estado:
+      - Cerrado
+      - Abierto
+      updated_at:
+      - 2017-08-17 01:31:50.000000000 Z
+      - 2017-08-19 01:37:05.000000000 Z
+  - - 22
+    - Grupo
+    - 9
+    - create
+    - '1'
+    - 
+    - 2017-08-24 23:40:46.000000000 Z
+    - "---\nid:\n- \n- 9\nnombre:\n- \n- Francés | Básico 1 | 07:00-09:00 | Sabatino
+      1\ncreated_at:\n- \n- 2017-08-24 23:40:46.000000000 Z\nupdated_at:\n- \n- 2017-08-24
+      23:40:46.000000000 Z\nhorario:\n- \n- 07:00-09:00\nidioma:\n- \n- Francés\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Abierto\ncurso:\n- \n- Sabatino 1\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- del 21 de enero al 11 de febrero de 2017\nuser_id:\n-
+      \n- 9\nlugar:\n- \n- ''\nfecha:\n- \n- '24 de agosto de '\ncentro:\n- \n- Ingeniero
+      Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '9'\ninstructor_rfc:\n-
+      \n- '9'\ninstructor_correo:\n- \n- '9'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 23
+    - Grupo
+    - 1
+    - update
+    - '1'
+    - |
+      ---
+      id: 1
+      nombre: Inglés | Básico 1 | 07:00-09:00 | Intensivo C
+      created_at: 2017-07-17 17:22:47.000000000 Z
+      updated_at: 2017-08-17 01:31:50.000000000 Z
+      horario: 07:00-09:00
+      idioma: Inglés
+      nivel: Básico 1
+      estado: Cerrado
+      curso: Intensivo C
+      anio: '2017'
+      periodo: 20 de febrero al 17 de marzo de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 17 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '35'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-CELEX02I-Act-15
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-26 01:57:14.000000000 Z
+    - |
+      ---
+      estado:
+      - Cerrado
+      - Abierto
+      nombre:
+      - Inglés | Básico 1 | 07:00-09:00 | Intensivo C
+      - Inglés | Básico 1 | 07:00-09:00 | Sabatino 1
+      curso:
+      - Intensivo C
+      - Sabatino 1
+      updated_at:
+      - 2017-08-17 01:31:50.000000000 Z
+      - 2017-08-26 01:57:14.000000000 Z
+  - - 24
+    - Grupo
+    - 5
+    - update
+    - '1'
+    - |
+      ---
+      id: 5
+      nombre: Inglés | Básico 2 | 12:00-14:00 | Intensivo C
+      created_at: 2017-07-21 20:06:01.000000000 Z
+      updated_at: 2017-08-17 01:31:50.000000000 Z
+      horario: 12:00-14:00
+      idioma: Inglés
+      nivel: Básico 2
+      estado: Cerrado
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 21 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+    - 2017-08-26 01:58:43.000000000 Z
+    - |
+      ---
+      estado:
+      - Cerrado
+      - Abierto
+      nombre:
+      - Inglés | Básico 2 | 12:00-14:00 | Intensivo C
+      - Inglés | Básico 2 | 12:00-14:00 | Sabatino 1
+      curso:
+      - Intensivo C
+      - Sabatino 1
+      updated_at:
+      - 2017-08-17 01:31:50.000000000 Z
+      - 2017-08-26 01:58:43.000000000 Z
+  - - 25
+    - Grupo
+    - 10
+    - create
+    - '1'
+    - 
+    - 2017-08-29 01:04:12.000000000 Z
+    - "---\nid:\n- \n- 10\nnombre:\n- \n- Inglés | Básico 4 | 09:00-11:00 | Sabatino
+      1\ncreated_at:\n- \n- 2017-08-29 01:04:12.000000000 Z\nupdated_at:\n- \n- 2017-08-29
+      01:04:12.000000000 Z\nhorario:\n- \n- 09:00-11:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 4\nestado:\n- \n- Abierto\ncurso:\n- \n- Sabatino 1\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- del 21 de enero al 11 de febrero de 2017\nuser_id:\n-
+      \n- 9\nlugar:\n- \n- ''\nfecha:\n- \n- 28 de agosto de 2017\ncentro:\n- \n-
+      Ingeniero Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '9'\ninstructor_rfc:\n-
+      \n- '9'\ninstructor_correo:\n- \n- '9'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 26
+    - Grupo
+    - 11
+    - create
+    - '1'
+    - 
+    - 2017-08-29 23:52:46.000000000 Z
+    - "---\nid:\n- \n- 11\nnombre:\n- \n- Inglés | Básico 1 | 07:00-09:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-08-29 23:52:46.000000000 Z\nupdated_at:\n- \n- 2017-08-29
+      23:52:46.000000000 Z\nhorario:\n- \n- 07:00-09:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Cerrado\ncurso:\n- \n- Intensivo C\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- del 27 de marzo al 29 de abril de 2017\nuser_id:\n-
+      \n- 5\nlugar:\n- \n- ''\nfecha:\n- \n- 21 de julio de 2017\ncentro:\n- \n- Ingeniero
+      Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n- Presencial\ncupo:\n-
+      \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '5'\ninstructor_rfc:\n-
+      \n- '5'\ninstructor_correo:\n- \n- '5'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\n"
+  - - 27
+    - Grupo
+    - 2
+    - update
+    - '1'
+    - "---\nid: 2\nnombre: Inglés | Básico 1 | 11:00-13:00 | Intensivo C\ncreated_at:
+      2017-07-20 19:15:25.000000000 Z\nupdated_at: 2017-08-17 01:31:50.000000000 Z\nhorario:
+      11:00-13:00\nidioma: Inglés\nnivel: Básico 1\nestado: Cerrado\ncurso: Intensivo
+      C\nanio: '2017'\nperiodo: del 27 de marzo al 29 de abril de 2017\nuser_id: 5\nlugar:
+      ''\nfecha: 19 de julio de 2017\ncentro: Ingeniero Eugenio Méndez Docurro\ntipo:
+      Curso\nmodalidad: Presencial\ncupo: '40'\nduracion: 40 horas\ncuota: \"$493.50/$985.50\"\nclave:
+      0861/0863\nproyecto: Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:
+      BBVA Bancomer\ncuenta: 0168358273\ntitular: Fondo de Investigación Científica
+      y Desarrollo Tecnológico del IPN\ninstructor: '5'\ninstructor_rfc: '5'\ninstructor_correo:
+      '5'\njefe_ec: Elvia Ángeles Aldana\nregistro: DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:
+      ''\nhabilitar_constancias_grupo: false\nseccion: \n"
+    - 2017-09-02 00:37:23.000000000 Z
+    - "---\nnombre:\n- Inglés | Básico 1 | 11:00-13:00 | Intensivo C\n- Inglés | Certificación
+      B2.1  | 11:00-13:00 | Intensivo C\nnivel:\n- Básico 1\n- Certificación B2.1\nseccion:\n-
+      \n- ''\nupdated_at:\n- 2017-08-17 01:31:50.000000000 Z\n- 2017-09-02 00:37:23.000000000
+      Z\n"
+  - - 28
+    - Grupo
+    - 2
+    - update
+    - '1'
+    - |
+      ---
+      id: 2
+      nombre: Inglés | Certificación B2.1  | 11:00-13:00 | Intensivo C
+      created_at: 2017-07-20 19:15:25.000000000 Z
+      updated_at: 2017-09-02 00:37:23.000000000 Z
+      horario: 11:00-13:00
+      idioma: Inglés
+      nivel: Certificación B2.1
+      estado: Cerrado
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 19 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$493.50/$985.50"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+      seccion: ''
+    - 2017-09-02 01:19:59.000000000 Z
+    - |
+      ---
+      nombre:
+      - Inglés | Certificación B2.1  | 11:00-13:00 | Intensivo C
+      - Inglés | Básico 1  | 11:00-13:00 | Intensivo C
+      nivel:
+      - Certificación B2.1
+      - Básico 1
+      updated_at:
+      - 2017-09-02 00:37:23.000000000 Z
+      - 2017-09-02 01:19:59.000000000 Z
+  - - 29
+    - Grupo
+    - 2
+    - update
+    - '1'
+    - |
+      ---
+      id: 2
+      nombre: Inglés | Básico 1  | 11:00-13:00 | Intensivo C
+      created_at: 2017-07-20 19:15:25.000000000 Z
+      updated_at: 2017-09-02 01:19:59.000000000 Z
+      horario: 11:00-13:00
+      idioma: Inglés
+      nivel: Básico 1
+      estado: Cerrado
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 5
+      lugar: ''
+      fecha: 19 de julio de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$493.50/$985.50"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '5'
+      instructor_rfc: '5'
+      instructor_correo: '5'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+      seccion: ''
+    - 2017-09-02 01:25:09.000000000 Z
+    - |
+      ---
+      nombre:
+      - Inglés | Básico 1  | 11:00-13:00 | Intensivo C
+      - Inglés | Certificación B2.1  | 11:00-13:00 | Intensivo C
+      nivel:
+      - Básico 1
+      - Certificación B2.1
+      updated_at:
+      - 2017-09-02 01:19:59.000000000 Z
+      - 2017-09-02 01:25:09.000000000 Z
+  - - 30
+    - Grupo
+    - 12
+    - create
+    - '1'
+    - 
+    - 2017-09-05 01:47:08.000000000 Z
+    - "---\nid:\n- \n- 12\nnombre:\n- \n- Inglés | Básico 1 A | 07:00-09:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-09-05 01:47:08.000000000 Z\nupdated_at:\n- \n- 2017-09-05
+      01:47:08.000000000 Z\nhorario:\n- \n- 07:00-09:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Abierto\ncurso:\n- \n- Intensivo C\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- del 27 de marzo al 29 de abril de 2017\nuser_id:\n-
+      \n- 9\nlugar:\n- \n- ''\nfecha:\n- \n- 04 de septiembre de 2017\ncentro:\n-
+      \n- Ingeniero Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n-
+      Presencial\ncupo:\n- \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '9'\ninstructor_rfc:\n-
+      \n- '9'\ninstructor_correo:\n- \n- '9'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\nseccion:\n- \n- A\n"
+  - - 31
+    - Grupo
+    - 13
+    - create
+    - '1'
+    - 
+    - 2017-09-05 01:54:14.000000000 Z
+    - "---\nid:\n- \n- 13\nnombre:\n- \n- Inglés | Básico 1 B | 09:00-11:00 | Intensivo
+      C\ncreated_at:\n- \n- 2017-09-05 01:54:14.000000000 Z\nupdated_at:\n- \n- 2017-09-05
+      01:54:14.000000000 Z\nhorario:\n- \n- 09:00-11:00\nidioma:\n- \n- Inglés\nnivel:\n-
+      \n- Básico 1\nestado:\n- \n- Abierto\ncurso:\n- \n- Intensivo C\nanio:\n- \n-
+      '2017'\nperiodo:\n- \n- del 27 de marzo al 29 de abril de 2017\nuser_id:\n-
+      \n- 9\nlugar:\n- \n- ''\nfecha:\n- \n- 04 de septiembre de 2017\ncentro:\n-
+      \n- Ingeniero Eugenio Méndez Docurro\ntipo:\n- \n- Curso\nmodalidad:\n- \n-
+      Presencial\ncupo:\n- \n- '40'\nduracion:\n- \n- 40 horas\ncuota:\n- \n- \"$1125.50/$1382.00\"\nclave:\n-
+      \n- 0861/0863\nproyecto:\n- \n- Cursos Extracurriculares de Lenguas Extranjeras\ninstitucion_bancaria:\n-
+      \n- BBVA Bancomer\ncuenta:\n- \n- 0168358273\ntitular:\n- \n- Fondo de Investigación
+      Científica y Desarrollo Tecnológico del IPN\ninstructor:\n- \n- '9'\ninstructor_rfc:\n-
+      \n- '9'\ninstructor_correo:\n- \n- '9'\njefe_ec:\n- \n- Elvia Ángeles Aldana\nregistro:\n-
+      \n- DFLE-Curso-CMTKT-CECIEMD-16\nreferencia:\n- \n- ''\nhabilitar_constancias_grupo:\n-
+      \n- false\nseccion:\n- \n- B\n"
+  - - 32
+    - Grupo
+    - 13
+    - destroy
+    - '1'
+    - |
+      ---
+      id: 13
+      nombre: Inglés | Básico 1 B | 09:00-11:00 | Intensivo C
+      created_at: 2017-09-05 01:54:14.000000000 Z
+      updated_at: 2017-09-05 01:54:14.000000000 Z
+      horario: 09:00-11:00
+      idioma: Inglés
+      nivel: Básico 1
+      estado: Abierto
+      curso: Intensivo C
+      anio: '2017'
+      periodo: del 27 de marzo al 29 de abril de 2017
+      user_id: 9
+      lugar: ''
+      fecha: 04 de septiembre de 2017
+      centro: Ingeniero Eugenio Méndez Docurro
+      tipo: Curso
+      modalidad: Presencial
+      cupo: '40'
+      duracion: 40 horas
+      cuota: "$1125.50/$1382.00"
+      clave: 0861/0863
+      proyecto: Cursos Extracurriculares de Lenguas Extranjeras
+      institucion_bancaria: BBVA Bancomer
+      cuenta: 0168358273
+      titular: Fondo de Investigación Científica y Desarrollo Tecnológico del IPN
+      instructor: '9'
+      instructor_rfc: '9'
+      instructor_correo: '9'
+      jefe_ec: Elvia Ángeles Aldana
+      registro: DFLE-Curso-CMTKT-CECIEMD-16
+      referencia: ''
+      habilitar_constancias_grupo: false
+      seccion: B
+    - 2017-10-11 01:45:09.000000000 Z
+    - 
+>>>>>>> 77173b4c36480cc5825f2b9b34c0f58557c78820

@@ -72,6 +72,8 @@
     
     <li ><a href="#method-c-buscar">::buscar</a>
     
+    <li ><a href="#method-c-options_for_documentos_validados">::options_for_documentos_validados</a>
+    
     <li ><a href="#method-c-options_for_sorted_by">::options_for_sorted_by</a>
     
     <li ><a href="#method-i-anio_cursado">#anio_cursado</a>
@@ -149,9 +151,45 @@
 
           
           <div class="method-source-code" id="buscar-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 24</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">buscar</span>(<span class="ruby-identifier">noboleta</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;inscripcion_registros.boleta = ?&quot;</span>, <span class="ruby-node">&quot;#{noboleta}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-options_for_documentos_validados" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options_for_documentos_validados</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options_for_documentos_validados-source">
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">options_for_documentos_validados</span>
+  [
+    [<span class="ruby-string">&#39;Validado&#39;</span>,<span class="ruby-string">&#39;1&#39;</span>],
+    [<span class="ruby-string">&#39;No validado&#39;</span>, <span class="ruby-string">&#39;0&#39;</span>]
+  ]
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -182,7 +220,7 @@
 
           
           <div class="method-source-code" id="options_for_sorted_by-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 130</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 150</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">options_for_sorted_by</span>
   [
     [<span class="ruby-string">&#39;Fecha de registro (más recientes primero)&#39;</span>, <span class="ruby-string">&#39;created_at_desc&#39;</span>],
@@ -254,13 +292,14 @@
 
         <div class="method-description">
           
-          
+          <p>Se obtiene la fecha en que fue creado el registros de inscripción para
+mostrarlo en en la supervisión</p>
           
           
 
           
           <div class="method-source-code" id="creado-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 73</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">creado</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">created_at?</span>
     <span class="ruby-keyword">true</span>
@@ -297,7 +336,7 @@
 
           
           <div class="method-source-code" id="init-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 20</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">init</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">documentos_validados</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">has_attribute?</span> <span class="ruby-value">:documentos_validados</span>
 <span class="ruby-keyword">end</span></pre>
@@ -330,7 +369,7 @@
 
           
           <div class="method-source-code" id="materno_upcase-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 38</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">materno_upcase</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">materno</span>.<span class="ruby-identifier">parameterize</span>(<span class="ruby-identifier">separator</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39; &#39;</span>).<span class="ruby-identifier">upcase</span>
 <span class="ruby-keyword">end</span></pre>
@@ -363,7 +402,7 @@
 
           
           <div class="method-source-code" id="nombre_completo-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_completo</span>
   <span class="ruby-node">&quot;#{nombre} #{paterno} #{materno}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -390,13 +429,14 @@
 
         <div class="method-description">
           
-          
+          <p>Se obtiene el nombre del curso para mostrarlo en la pantalla de
+validaciones de los registros de inscripcion</p>
           
           
 
           
           <div class="method-source-code" id="nombre_curso-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 69</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_curso</span>
   <span class="ruby-node">&quot;#{idioma} #{nivel}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -429,7 +469,7 @@
 
           
           <div class="method-source-code" id="nombre_paterno_materno-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_paterno_materno</span>
   <span class="ruby-node">&quot;#{paterno} #{materno} #{nombre}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -462,7 +502,7 @@
 
           
           <div class="method-source-code" id="nombre_upcase-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 30</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_upcase</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nombre</span>.<span class="ruby-identifier">parameterize</span>(<span class="ruby-identifier">separator</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39; &#39;</span>).<span class="ruby-identifier">upcase</span>
 <span class="ruby-keyword">end</span></pre>
@@ -495,7 +535,7 @@
 
           
           <div class="method-source-code" id="paterno_upcase-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 34</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">paterno_upcase</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">paterno</span>.<span class="ruby-identifier">parameterize</span>(<span class="ruby-identifier">separator</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39; &#39;</span>).<span class="ruby-identifier">upcase</span>
 <span class="ruby-keyword">end</span></pre>
@@ -561,15 +601,13 @@
 
           
           <div class="method-source-code" id="promedio-source">
-            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 50</span>
+            <pre><span class="ruby-comment"># File app/models/inscripcion_registro.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">promedio</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-node">&quot;#{examen_medio}&quot;</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">79</span>
-    <span class="ruby-identifier">promedio_decimal</span> = <span class="ruby-node">&quot;#{examen_medio}&quot;</span>.<span class="ruby-identifier">to_i</span>
-  <span class="ruby-keyword">elsif</span> <span class="ruby-node">&quot;#{examen_final}&quot;</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">79</span>
-    <span class="ruby-identifier">promedio_decimal</span> = <span class="ruby-node">&quot;#{examen_final}&quot;</span>.<span class="ruby-identifier">to_i</span>
-  <span class="ruby-keyword">else</span>
   <span class="ruby-identifier">promedio_decimal</span> = (<span class="ruby-node">&quot;#{examen_medio}&quot;</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{examen_final}&quot;</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
-  <span class="ruby-identifier">promedio_decimal</span>.<span class="ruby-identifier">round</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">promedio_decimal</span>.<span class="ruby-identifier">modulo</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1.5</span>
+    <span class="ruby-identifier">promedio_decimal</span>.<span class="ruby-identifier">floor</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">promedio_decimal</span>.<span class="ruby-identifier">ceil</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

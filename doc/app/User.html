@@ -74,11 +74,19 @@
     
     <li ><a href="#method-c-instructores">::instructores</a>
     
+    <li ><a href="#method-c-nombre_instructores">::nombre_instructores</a>
+    
     <li ><a href="#method-i-admin-3F">#admin?</a>
+    
+    <li ><a href="#method-i-assign_centro">#assign_centro</a>
     
     <li ><a href="#method-i-assign_role">#assign_role</a>
     
     <li ><a href="#method-i-control_cec-3F">#control_cec?</a>
+    
+    <li ><a href="#method-i-control_ec-3F">#control_ec?</a>
+    
+    <li ><a href="#method-i-coordinador_celex-3F">#coordinador_celex?</a>
     
     <li ><a href="#method-i-invitado-3F">#invitado?</a>
     
@@ -91,6 +99,8 @@
     <li ><a href="#method-i-nombre_completo">#nombre_completo</a>
     
     <li ><a href="#method-i-nombre_paterno_materno">#nombre_paterno_materno</a>
+    
+    <li ><a href="#method-i-nombre_upcase">#nombre_upcase</a>
     
     <li ><a href="#method-i-profesor-3F">#profesor?</a>
     
@@ -141,13 +151,15 @@
 
         <div class="method-description">
           
-          
+          <p>Se utiliza para filtrar a los alumnos en las listas para calificaciones,
+las listas del Sistema de Gestión de Calidad, para las constancias y para
+la lista de usuarios en el sistema.</p>
           
           
 
           
           <div class="method-source-code" id="alumnos-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 82</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 115</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">alumnos</span>
   <span class="ruby-identifier">rol</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Invitado&quot;</span>).<span class="ruby-identifier">id</span>
   <span class="ruby-identifier">usuarios</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">role</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rol</span>)
@@ -175,16 +187,52 @@
 
         <div class="method-description">
           
-          
+          <p>Se utiliza para la lista de instructores en la lista de usuarios del
+sistema además, se utiliza para la lista de CV de instructores.</p>
           
           
 
           
           <div class="method-source-code" id="instructores-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 87</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 122</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instructores</span>
   <span class="ruby-identifier">rol</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Profesor&quot;</span>).<span class="ruby-identifier">id</span>
   <span class="ruby-identifier">usuarios</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">role</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rol</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-nombre_instructores" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nombre_instructores</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nombre_instructores-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nombre_instructores</span>
+  <span class="ruby-identifier">rol</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Profesor&quot;</span>).<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">usuarios</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">role</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rol</span>)
+  <span class="ruby-identifier">usuarios</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">e</span>.<span class="ruby-identifier">nombre_completo</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">id</span>] }
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -223,9 +271,42 @@
 
           
           <div class="method-source-code" id="admin-3F-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 56</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">admin?</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Administrador&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assign_centro" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assign_centro</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Definición de roles para devise</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assign_centro-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assign_centro</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">centro</span> = <span class="ruby-constant">Centro</span>.<span class="ruby-identifier">find_by</span> <span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Ingeniero Eugenio Méndez Docurro&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">centro</span>.<span class="ruby-identifier">nil?</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -256,7 +337,7 @@
 
           
           <div class="method-source-code" id="assign_role-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 40</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">assign_role</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by</span> <span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Invitado&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nil?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -289,9 +370,75 @@
 
           
           <div class="method-source-code" id="control_cec-3F-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 52</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">control_cec?</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Control escolar&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-control_ec-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">control_ec?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="control_ec-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">control_ec?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Control Educación Continua&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-coordinador_celex-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">coordinador_celex?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="coordinador_celex-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">coordinador_celex?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> = <span class="ruby-string">&quot;Coordinación CELEX&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -316,13 +463,13 @@
 
         <div class="method-description">
           
-          
+          <p>Definiciones de los roles dentro del sistema</p>
           
           
 
           
           <div class="method-source-code" id="invitado-3F-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 44</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">invitado?</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Invitado&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -355,7 +502,7 @@
 
           
           <div class="method-source-code" id="jefe_cec-3F-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 64</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 78</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">jefe_cec?</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Director del Centro&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -388,7 +535,7 @@
 
           
           <div class="method-source-code" id="jefe_ec-3F-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 60</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">jefe_ec?</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Jefe Educación Continua&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -415,13 +562,16 @@
 
         <div class="method-description">
           
-          
+          <p>Se utiliza para obtener del Jefe de Educación Continua actual, éste aparece
+principalmente en los formatos de apertura de grupos del Sistema de Gestión
+de Calidad, en los historiales acedémicos y en las listas del grupos que
+tienen el formato del Sistema de Gestión de Calidad.</p>
           
           
 
           
           <div class="method-source-code" id="jefe_educacion_continua-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 77</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 107</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">jefe_educacion_continua</span>
   <span class="ruby-identifier">rol</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Jefe Educación Continua&quot;</span>).<span class="ruby-identifier">id</span>
   <span class="ruby-identifier">usuarios</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">role</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rol</span>).<span class="ruby-identifier">nombre_paterno_materno</span>
@@ -449,13 +599,16 @@
 
         <div class="method-description">
           
-          <p>Funciones para mostrar los nombres en las vistas</p>
+          <p>Se utiliza para mostrar el nombre completo de un usuario, principalmente de
+los alumnos, de esta forma en las listas de registros de inscripción
+aparecen primero por apellidos para que puedan buscarse de forma más
+sencilla</p>
           
           
 
           
           <div class="method-source-code" id="nombre_completo-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 69</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_completo</span>
   <span class="ruby-node">&quot;#{paterno} #{materno} #{nombre}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -482,15 +635,50 @@
 
         <div class="method-description">
           
-          
+          <p>Se usa para darle el formato “Nombre(s) Apellido Paterno Apellido Materno”
+a los usuarios en los historiales académicos y en las constancias de
+idioma.</p>
           
           
 
           
           <div class="method-source-code" id="nombre_paterno_materno-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 73</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_paterno_materno</span>
   <span class="ruby-node">&quot;#{nombre} #{paterno} #{materno}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nombre_upcase" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nombre_upcase</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nombre_upcase-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_upcase</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nombre_completo</span>.<span class="ruby-identifier">parameterize</span>(<span class="ruby-identifier">separator</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39; &#39;</span>).<span class="ruby-identifier">upcase</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -521,7 +709,7 @@
 
           
           <div class="method-source-code" id="profesor-3F-source">
-            <pre><span class="ruby-comment"># File app/models/user.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">profesor?</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Profesor&quot;</span>
 <span class="ruby-keyword">end</span></pre>

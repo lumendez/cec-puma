@@ -125,7 +125,7 @@
 
           
           <div class="method-source-code" id="after_sign_in_path_for-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">after_sign_in_path_for</span>(<span class="ruby-identifier">resource</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Invitado&#39;</span>
     <span class="ruby-identifier">panel_alumnos_path</span>
@@ -133,8 +133,12 @@
     <span class="ruby-identifier">panel_profesores_path</span>
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Control escolar&#39;</span>
     <span class="ruby-identifier">inscripcion_registros_path</span>
-  <span class="ruby-keyword">else</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Administrador&#39;</span>
     <span class="ruby-identifier">inscripcion_registros_path</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Coordinación CELEX&#39;</span>
+    <span class="ruby-identifier">inscripcion_registros_path</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Control Educación Continua&#39;</span>
+    <span class="ruby-identifier">unitarios_path</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

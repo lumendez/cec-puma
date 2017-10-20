@@ -70,11 +70,21 @@
 
   <ul class="link-list" role="directory">
     
+    <li ><a href="#method-c-grupos_frances">::grupos_frances</a>
+    
+    <li ><a href="#method-c-grupos_ingles">::grupos_ingles</a>
+    
+    <li ><a href="#method-c-grupos_italiano">::grupos_italiano</a>
+    
+    <li ><a href="#method-c-options_for_select">::options_for_select</a>
+    
     <li ><a href="#method-c-options_for_sorted_by">::options_for_sorted_by</a>
     
     <li ><a href="#method-i-cambios">#cambios</a>
     
     <li ><a href="#method-i-director_centro">#director_centro</a>
+    
+    <li ><a href="#method-i-habilitar_constancias">#habilitar_constancias</a>
     
     <li ><a href="#method-i-init">#init</a>
     
@@ -130,6 +140,139 @@
        </header>
 
     
+      <div id="method-c-grupos_frances" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grupos_frances</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="grupos_frances-source">
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">grupos_frances</span>
+  <span class="ruby-identifier">grupos_frances</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Abierto&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-grupos_ingles" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grupos_ingles</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Se obtiene la oferta de los grupos de Inglés que se encuentren actualmente
+abiertos. Se hace del mismo modo para los grupos de Francés e Italiano</p>
+          
+          
+
+          
+          <div class="method-source-code" id="grupos_ingles-source">
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">grupos_ingles</span>
+  <span class="ruby-identifier">grupos_ingles</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Inglés&quot;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Abierto&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-grupos_italiano" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grupos_italiano</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="grupos_italiano-source">
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">grupos_italiano</span>
+  <span class="ruby-identifier">grupos_italiano</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Italiano&quot;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Abierto&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-options_for_select" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options_for_select</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options_for_select-source">
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">options_for_select</span>
+  <span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;created_at&#39;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">e</span>.<span class="ruby-identifier">nombre</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">id</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-c-options_for_sorted_by" class="method-detail ">
         
         <div class="method-heading">
@@ -149,7 +292,7 @@
 
           
           <div class="method-source-code" id="options_for_sorted_by-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 123</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 148</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">options_for_sorted_by</span>
   [
     [<span class="ruby-string">&#39;Idioma (A-Z)&#39;</span>, <span class="ruby-string">&#39;idioma_asc&#39;</span>],
@@ -197,7 +340,7 @@
 
           
           <div class="method-source-code" id="cambios-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 91</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 98</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">cambios</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">versions</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">changeset</span>
 <span class="ruby-keyword">end</span></pre>
@@ -230,10 +373,43 @@
 
           
           <div class="method-source-code" id="director_centro-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">director_centro</span>
   <span class="ruby-identifier">rol</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Director del Centro&quot;</span>).<span class="ruby-identifier">id</span>
   <span class="ruby-identifier">usuarios</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">role</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rol</span>).<span class="ruby-identifier">nombre_paterno_materno</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-habilitar_constancias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">habilitar_constancias</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="habilitar_constancias-source">
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">habilitar_constancias</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">habilitar_constancias_grupo</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">has_attribute?</span> <span class="ruby-value">:habilitar_constancias_grupo</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -264,7 +440,7 @@
 
           
           <div class="method-source-code" id="init-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 23</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">init</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">estado</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;Pendiente&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">has_attribute?</span> <span class="ruby-value">:estado</span>
 <span class="ruby-keyword">end</span></pre>
@@ -297,7 +473,7 @@
 
           
           <div class="method-source-code" id="jefe_educacion_continua-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 37</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">jefe_educacion_continua</span>
   <span class="ruby-identifier">rol</span> = <span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">nombre</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Jefe Educación Continua&quot;</span>).<span class="ruby-identifier">id</span>
   <span class="ruby-identifier">usuarios</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">role</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rol</span>).<span class="ruby-identifier">nombre_paterno_materno</span>
@@ -331,7 +507,7 @@
 
           
           <div class="method-source-code" id="nombre_completo-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 29</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_completo</span>
   <span class="ruby-node">&quot;#{nombre} #{paterno} #{materno}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -364,7 +540,7 @@
 
           
           <div class="method-source-code" id="nombre_grupo-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 33</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nombre_grupo</span>
   <span class="ruby-node">&quot;#{idioma} #{nivel.downcase}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -397,7 +573,7 @@
 
           
           <div class="method-source-code" id="quien_actualizo-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 52</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">quien_actualizo</span>
   <span class="ruby-identifier">id</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">versions</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">whodunnit</span>
   <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>)
@@ -431,7 +607,7 @@
 
           
           <div class="method-source-code" id="quien_creo-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 47</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">quien_creo</span>
   <span class="ruby-identifier">id</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">versions</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">whodunnit</span>
   <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>)
@@ -465,7 +641,7 @@
 
           
           <div class="method-source-code" id="trail_estado-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 65</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">trail_estado</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">paper_trail</span>.<span class="ruby-identifier">previous_version</span>.<span class="ruby-identifier">present?</span>
     <span class="ruby-keyword">self</span>.<span class="ruby-identifier">paper_trail</span>.<span class="ruby-identifier">previous_version</span>.<span class="ruby-identifier">estado</span>
@@ -502,7 +678,7 @@
 
           
           <div class="method-source-code" id="trail_habilitar_constancias-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 57</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">trail_habilitar_constancias</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">paper_trail</span>.<span class="ruby-identifier">previous_version</span>.<span class="ruby-identifier">present?</span>
     <span class="ruby-keyword">self</span>.<span class="ruby-identifier">paper_trail</span>.<span class="ruby-identifier">previous_version</span>.<span class="ruby-identifier">habilitar_constancias_grupo</span>
@@ -539,7 +715,7 @@
 
           
           <div class="method-source-code" id="trail_instructor-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 73</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">trail_instructor</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">paper_trail</span>.<span class="ruby-identifier">previous_version</span>.<span class="ruby-identifier">present?</span>
     <span class="ruby-keyword">self</span>.<span class="ruby-identifier">paper_trail</span>.<span class="ruby-identifier">previous_version</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">nombre_paterno_materno</span>
@@ -576,7 +752,7 @@
 
           
           <div class="method-source-code" id="ultimo_evento-source">
-            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 81</span>
+            <pre><span class="ruby-comment"># File app/models/grupo.rb, line 88</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">ultimo_evento</span>
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">versions</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">event</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;update&quot;</span>
     <span class="ruby-string">&quot;Actualización&quot;</span>

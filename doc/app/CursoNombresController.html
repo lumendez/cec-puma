@@ -251,7 +251,7 @@
           <div class="method-source-code" id="index-source">
             <pre><span class="ruby-comment"># File app/controllers/curso_nombres_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@curso_nombres</span> = <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@curso_nombres</span> = <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;nombre ASC&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

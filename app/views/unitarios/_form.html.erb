@@ -1,7 +1,7 @@
 <%= form_for(unitario) do |f| %>
   <% if unitario.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(unitario.errors.count, "Los siguientes errores:") %> no permitieron que el registro se guradara:</h2>
+      <h2>El formulario no pudo guardarse debido a lo siguiente:</h2>
 
       <ul>
       <% unitario.errors.full_messages.each do |message| %>
@@ -116,6 +116,22 @@
     </div>
   </div>
 </div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Fotografía</strong></h4>
+  <div class="bs-callout bs-callout-info" style="background: #fff;">
+    <p class="info-foto"><strong>Instrucciones</strong></p>
+    <p class="info-foto">La fotografía que se suba al sistema deberá haber sido tomada recientemente.</p>
+    <p class="info-foto">Deberá de aparecer con el rostro de frente, centrado, viendo a la cámara, ocupando por lo menos el 70% de
+       la fotografía, sin gorros, sombreros ni nada que cubra la cabeza. El peinado deberá
+       permitir ver el contorno de la cara.</p>
+    <p class="info-foto">La fotografía deberá de tomarse en un lugar iluminado para evitar que aparezcan sombras.</p>
+  </div>
+
+  <div class="form-group col-sm-2">
+    <%= f.label :image, 'Suba su fotografía' %>
+    <%= f.file_field :image, class:'btn btn-lg btn-default' %>
+  </div>
+</div>
 <% if user_signed_in? %>
   <% if can? :validar_documentos, unitario %>
   <div class="row jumbotron">
@@ -123,7 +139,15 @@
     <div class="row">
       <div class="form-group col-sm-3">
         <%= f.label :documentos_validados, "Documentos validados" %>
-        <%= f.check_box :documentos_validados, class: 'form-control' %>
+        <%= f.check_box :documentos_validados, class: 'form-control openmodal' %>
+      </div>
+      <div class="col-md-3">
+        <%= f.label :image, 'Fotografía' %><br>
+        <% if unitario.image.present? %>
+          <%= image_tag unitario.image.url('thumb') %>
+        <% else %>
+          <%= "Falta fotogrtafía" %>
+        <% end %>
       </div>
       <!--<%# if can? :habilitar_contancia, unitario %>
         <div class="form-group col-sm-3">
@@ -142,8 +166,179 @@
   </div>
 </div>
 <% end %>
-<script type="text/javascript">
+
+<div id="mensaje-validacion" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header panel-head-azul">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><strong>Importante</strong></h4>
+            </div>
+            <div class="modal-body">
+                <p>Antes de validar asegúrese de que <strong>no falta ninguno</strong> de los siguientes documentos:</p>
+                <ul>
+                    <li><p>2 Fotografías</p></li>
+                    <li><p>CURP</p></li>
+                    <li><p>Pago de guía</p></li>
+                    <li><p>Ficha de pago</p></li>
+                    <li><p>Carta compromiso</p></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+    <div id="mediaSuperior" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header panel-head-azul">
+            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+            <h2 class="modal-title" align="center"><strong>Instrucciones<br>
+            Curso propedéutico para el examen de admisión al nivel medio superior</strong></h2>
+          </div>
+          <div class="modal-body">
+            <h3 align="center"><strong>Indicaciones</strong></h3>
+            <ol type="1">
+              <li>
+                <p>Captura tus datos personales <strong>a partir del 16 de noviembre de 2017 y hasta el viernes 27 de enero de 2018</strong>.</p>
+              </li>
+              <li>
+                <p>Imprime la Carta Compromiso anexa en el sistema, verifica que tus datos sean correctos, fírmala y pide a tu padre o tutor que la firme.</p>
+              </li>
+              <li>
+                <p>Efectua el pago exacto de la cuota por una cantidad de <strong>$2,049.00 (dos mil cuarenta y nueve pesos 00/100 M. N.)</strong> al número de cuenta
+                <strong>01 68 35 82 73</strong> de BBVA Bancomer S. A., a nombre del fondo de <strong>Investigación Científica y Desarrollo Tecnológico del Instituto
+                Politécnico Nacional</strong>.</p>
+                <div class="bs-callout bs-callout-info">
+                  <p>Para otras formas de pago comuníquese a los teléfonos del Centro para mayor información.</p>
+                </div>
+              </li>
+              <li>
+                <p><strong>El día que te presentes a inscribirte, deberás pagar en efectivo</strong> la cuota de <strong>$298.00 (doscientos noventa y ocho pesos 00/100 M. N.)</strong> para la
+                  guía de estudios.</p>
+                 <div class="bs-callout bs-callout-danger">
+                  <p>El pago de las cuotas te dan derecho a participar en el curso, a la guía de estudios que emite el Instituto Politénico Nacional, al material didáctico
+                  que elaboramos para ti, a las evaluaciones diagnóstica y piloto, entre otros materiales que se te proporcionarán durante el desarrollo del curso.</p>
+                  <p><strong>Nota: estas cuotas tienen vigencia hasta el 31 de diciembre de 2017, a partir del 01 de enero de 2018 tendrán un incremento que establecerá
+                   la Secretaría de Hacienda y Crédito Público.</strong></p>
+                 </div>
+              </li>
+              <li>
+                <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubiucadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
+                Ciudad de México, Código Postal 06010 <strong>a partir del 16 de noviembre de 2017 y hasta el día 27 de enero de 2018, en un horario de 09:00 a 13:00 y de 15:00 a
+                19:00 horas de lunes a viernes</strong>.</p>
+              </li>
+              <li>
+                <p>Si necesitas más información puedes llamar al 57-29-6000, extensión 64603.</p>
+              </li>
+              <div class="well">
+                <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
+                <p>1 original y 2 copias de la ficha de depósito. </p>
+                <p>Efectivo para el pago de la cuota de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
+                <p>2 fotografías tamaño infantil, blanco y negro o a color, escribe tu nombre completo al reverso iniciando por tus apellidos.</p>
+                <p>1 copia de tu CURP.</p>
+              </div>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal -->
+        <div id="superior" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header panel-head-azul">
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h2 class="modal-title" align="center"><strong>Instrucciones<br>
+                Curso propedéutico para el examen de admisión al nivel superior</strong></h2>
+              </div>
+              <div class="modal-body">
+                <h3 align="center"><strong>Indicaciones</strong></h3>
+                <ol type="1">
+                  <li>
+                    <p>Captura tus datos personales <strong>a partir del 16 de noviembre de 2017 y hasta el viernes 20 de enero de 2018</strong>.</p>
+                  </li>
+                  <li>
+                    <p>Imprime la Carta Compromiso anexa en el sistema, verifica que tus datos sean correctos, fírmala y pide a tu padre o tutor que la firme.</p>
+                  </li>
+                  <li>
+                    <p><strong>Efectua el pago</strong> exacto de la cuota por una cantidad de <strong>$2,542.00 (dos mil quinientos cuarenta y dos pesos 00/100 M. N.)</strong> al número de cuenta
+                     <strong>01 68 35 82 73</strong> de BBVA Bancomer S. A., a nombre del fondo de <strong>Investigación Científica y Desarrollo Tecnológico del Instituto Politécnico Nacional</strong>.</p>
+                     <div class="bs-callout bs-callout-info">
+                       <p>Para otras formas de pago comuníquese a los teléfonos del Centro para mayor información.</p>
+                     </div>
+                  </li>
+                  <li>
+                    <p>El día que te presentes a inscribirte, deberás pagar en efectivo la cuota de <strong>$298.00 (doscientos noventa y ocho pesos 00/100 M. N.)</strong>.</p>
+                    <div class="bs-callout bs-callout-danger">
+                      <p>El pago de las cuotas te dan derecho a participar en el curso, a la guía de estudios que emite el Instituto Politénico Nacional, al material didáctico
+                      que elaboramos para ti, a las evaluaciones diagnóstica y piloto, entre otros materiales que se te proporcionarán durante el desarrollo del curso.</p>
+                      <p><strong>Nota: estas cuotas tienen vigencia hasta el 31 de diciembre de 2017, a partir del 01 de enero de 2018 tendrán un incremento que establecerá
+                      la Secretaría de Hacienda y Crédito Público.</strong></p>
+                    </div>
+                  </li>
+                  <li>
+                    <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubiucadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
+                    Ciudad de México, Código Postal 06010 <strong>a partir del 16 de noviembre de 2017 y hasta el día 20 de enero de 2018, en un horario de 09:00 a 13:00 y de 15:00 a
+                    19:00 horas de lunes a viernes</strong>.</p>
+                  </li>
+                  <li>
+                    <p>Si necesitas más información puedes llamar al 57-29-6000, extensión 64603.</p>
+                  </li>
+                  <div class="well">
+                    <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
+                    <p>1 original y 2 copias de la ficha de depósito. </p>
+                    <p>Efectivo para el pago de la cuota de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
+                    <p>2 fotografías tamaño infantil, blanco y negro o a color, escribe tu nombre completo al reverso iniciando por tus apellidos.</p>
+                    <p>1 copia de tu CURP.</p>
+                  </div>
+                </ol>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Aceptar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+<script>
   $(document).ready(function(){
     $('.nacimiento').datepicker({language: 'es', format: 'd-M-yyyy'});
   });
+</script>
+
+<script>
+$("#unitario_grupos_unitario_id").on("change", function () {
+      $modalMediaSuperior = $('#mediaSuperior');
+      $modalSuperior = $('#superior')
+      if($("#unitario_grupos_unitario_id option:selected").text() =='Curso de preparación para el nivel medio superior'){
+        $modalMediaSuperior.modal('show',{backdrop: 'static', keyboard: false});
+      }
+      else if($("#unitario_grupos_unitario_id option:selected").text() =='Curso de preparación para el nivel superior'){
+        $modalSuperior.modal('show',{backdrop: 'static', keyboard: false});
+      }
+ });
+</script>
+<script>
+$('.openmodal').click(function(){
+  if($(this).is(':checked')) {
+    $('#mensaje-validacion').modal('show');
+  } else {
+    $('#mensaje-validacion').modal('hide');
+  }
+});
 </script>

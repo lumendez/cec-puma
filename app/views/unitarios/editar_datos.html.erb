@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>CURP</th>
       <th>Grupo</th>
       <th>Año</th>
       <th>Validar documentos</th>
@@ -13,6 +14,7 @@
           <%= fields_for "unitarios[]", unitario do |f| %>
             <tr>
               <td><%= unitario.nombre_paterno_materno %></td>
+              <td><%= unitario.curp %></td>
               <td><%= unitario.grupos_unitario.nombre %></td>
               <td><%= unitario.anio %></td>
               <td><%= f.check_box :documentos_validados, value: unitario.documentos_validados, class: 'form-control' %></td>

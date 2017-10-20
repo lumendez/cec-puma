@@ -128,6 +128,8 @@
             <pre><span class="ruby-comment"># File app/controllers/panel_alumnos_controller.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@inscripcion_registros</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> )
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> )
+  <span class="ruby-ivar">@it_inscripcion_registros</span> = <span class="ruby-constant">ItInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> )
   <span class="ruby-ivar">@examen_colocacion_idiomas</span> = <span class="ruby-constant">ExamenColocacionIdioma</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> )
 <span class="ruby-keyword">end</span></pre>
           </div>

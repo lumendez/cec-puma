@@ -13,6 +13,7 @@ class UnitariosController < ApplicationController
   # GET /unitarios/1
   # GET /unitarios/1.json
   def show
+    @mes = mes
   end
 
   # GET /unitarios/new
@@ -22,10 +23,6 @@ class UnitariosController < ApplicationController
 
   # GET /unitarios/1/edit
   def edit
-  end
-
-  def carta_compromiso
-    @mes = mes
   end
 
   # POST /unitarios
@@ -184,6 +181,6 @@ class UnitariosController < ApplicationController
       :nacimiento, :domicilio, :codigo_postal, :entidad, :delegacion_municipio,
       :telefono_celular, :telefono_fijo, :correo, :procedencia, :nombre_padre,
       :correo_padre, :telefono_padre, :grupos_unitario_id, :documentos_validados,
-      :examen_final)
+      :examen_final, :image)
     end
 end

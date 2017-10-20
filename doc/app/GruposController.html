@@ -72,6 +72,8 @@
     
     <li ><a href="#method-i-apertura">#apertura</a>
     
+    <li ><a href="#method-i-asignar_calificaciones">#asignar_calificaciones</a>
+    
     <li ><a href="#method-i-calificaciones">#calificaciones</a>
     
     <li ><a href="#method-i-crear_constancias">#crear_constancias</a>
@@ -83,6 +85,12 @@
     <li ><a href="#method-i-edit">#edit</a>
     
     <li ><a href="#method-i-edit_multiple">#edit_multiple</a>
+    
+    <li ><a href="#method-i-grupo_frances">#grupo_frances</a>
+    
+    <li ><a href="#method-i-grupo_ingles">#grupo_ingles</a>
+    
+    <li ><a href="#method-i-grupos_italiano">#grupos_italiano</a>
     
     <li ><a href="#method-i-habilitar_constancias">#habilitar_constancias</a>
     
@@ -153,8 +161,40 @@
 
           
           <div class="method-source-code" id="apertura-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 112</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 144</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">apertura</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-asignar_calificaciones" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">asignar_calificaciones</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="asignar_calificaciones-source">
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">asignar_calificaciones</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -185,7 +225,7 @@
 
           
           <div class="method-source-code" id="calificaciones-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 108</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 140</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">calificaciones</span>
   <span class="ruby-ivar">@inscripcion_registros</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno DESC&#39;</span>).<span class="ruby-identifier">sort_alphabetical_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:paterno</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -218,9 +258,9 @@
 
           
           <div class="method-source-code" id="crear_constancias-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 104</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 136</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">crear_constancias</span>
-  <span class="ruby-ivar">@inscripcion_registros</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno DESC&#39;</span>).<span class="ruby-identifier">sort_alphabetical_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:paterno</span>)
+<span class="ruby-ivar">@inscripcion_registros</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno DESC&#39;</span>).<span class="ruby-identifier">sort_alphabetical_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:paterno</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -251,7 +291,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 53</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 81</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@grupo</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">grupo_params</span>)
 
@@ -294,12 +334,16 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 83</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 111</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-  <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">destroy</span>
-  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">grupos_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El grupo fue eliminado correctamente.&#39;</span> }
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">inscripcion_registros</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">grupos_path</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El grupo que intenta eliminar no está vacío. Primero mueva los registros a otro grupo o elimínelos.&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">grupos_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El grupo fue eliminado correctamente.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+    <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -331,7 +375,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -363,9 +407,120 @@
 
           
           <div class="method-source-code" id="edit_multiple-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 91</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 123</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_multiple</span>
   <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:grupo_ids</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-grupo_frances" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grupo_frances</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="grupo_frances-source">
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">grupo_frances</span>
+  <span class="ruby-comment">#Se ordenan alfabéticamente los registros mediante la gema &#39;sort_alphabetical&#39;</span>
+  <span class="ruby-comment">#@inscripcion_registros = InscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order(&#39;paterno DESC&#39;).sort_alphabetical_by(&amp;:paterno)</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno ASC, materno ASC, nombre ASC&#39;</span>)
+  <span class="ruby-comment">#Se cuentan los usuarios que se encuentran en cada grupo basados en el id de la inscripcion y la validacion de la documentacion</span>
+  <span class="ruby-ivar">@inscritos</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-grupo_ingles" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grupo_ingles</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="grupo_ingles-source">
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">grupo_ingles</span>
+  <span class="ruby-comment">#Se ordenan alfabéticamente los registros mediante la gema &#39;sort_alphabetical&#39;</span>
+  <span class="ruby-comment">#@inscripcion_registros = InscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order(&#39;paterno DESC&#39;).sort_alphabetical_by(&amp;:paterno)</span>
+  <span class="ruby-ivar">@inscripcion_registros</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno ASC, materno ASC, nombre ASC&#39;</span>)
+  <span class="ruby-comment">#Se cuentan los usuarios que se encuentran en cada grupo basados en el id de la inscripcion y la validacion de la documentacion</span>
+  <span class="ruby-ivar">@inscritos</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-grupos_italiano" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grupos_italiano</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="grupos_italiano-source">
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">grupos_italiano</span>
+  <span class="ruby-comment">#Se ordenan alfabéticamente los registros mediante la gema &#39;sort_alphabetical&#39;</span>
+  <span class="ruby-comment">#@inscripcion_registros = InscripcionRegistro.where(documentos_validados: true, grupo_id: @grupo.id).order(&#39;paterno DESC&#39;).sort_alphabetical_by(&amp;:paterno)</span>
+  <span class="ruby-ivar">@it_inscripcion_registros</span> = <span class="ruby-constant">ItInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno ASC, materno ASC, nombre ASC&#39;</span>)
+  <span class="ruby-comment">#Se cuentan los usuarios que se encuentran en cada grupo basados en el id de la inscripcion y la validacion de la documentacion</span>
+  <span class="ruby-ivar">@inscritos</span> = <span class="ruby-constant">ItInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -396,7 +551,7 @@
 
           
           <div class="method-source-code" id="habilitar_constancias-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 119</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 151</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">habilitar_constancias</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@inscripcion_registro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">habiliar_constancias_params</span>)
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@inscripcion_registro</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Se han habilitado las constancias para este grupo.&#39;</span> }
@@ -443,7 +598,8 @@
   <span class="ruby-identifier">params</span>[<span class="ruby-value">:filterrific</span>],
   <span class="ruby-identifier">select_options</span>{{
     <span class="ruby-identifier">sorted_by</span><span class="ruby-operator">:</span> <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">options_for_sorted_by</span>,
-    <span class="ruby-identifier">with_curso</span><span class="ruby-operator">:</span> <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">options_for_select</span>
+    <span class="ruby-identifier">with_curso</span><span class="ruby-operator">:</span> <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">options_for_select</span>,
+    <span class="ruby-identifier">with_instructor</span><span class="ruby-operator">:</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">nombre_instructores</span>
   },
   ) <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span>
   <span class="ruby-ivar">@grupos</span> = <span class="ruby-ivar">@filterrific</span>.<span class="ruby-identifier">find</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;created_at DESC&quot;</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:pagina</span>])
@@ -487,7 +643,7 @@
 
           
           <div class="method-source-code" id="lista_asistencia-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 115</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 147</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">lista_asistencia</span>
   <span class="ruby-ivar">@inscripcion_registros</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno DESC&#39;</span>).<span class="ruby-identifier">sort_alphabetical_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:paterno</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -520,7 +676,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 43</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@grupo</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -553,12 +709,15 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 35</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-  <span class="ruby-comment">#Se ordenan alfabéticamente los registros mediante la gema &#39;sort_alphabetical&#39;</span>
-  <span class="ruby-ivar">@inscripcion_registros</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;paterno DESC&#39;</span>).<span class="ruby-identifier">sort_alphabetical_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:paterno</span>)
-  <span class="ruby-comment">#Se cuentan los usuarios que se encuentran en cada grupo basados en el id de la inscripcion y la validacion de la documentacion</span>
-  <span class="ruby-ivar">@inscritos</span> = <span class="ruby-constant">InscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">idioma</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Inglés&quot;</span>
+    <span class="ruby-identifier">grupo_ingles</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">idioma</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Francés&quot;</span>
+    <span class="ruby-identifier">grupo_frances</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">idioma</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Italiano&quot;</span>
+    <span class="ruby-identifier">grupos_italiano</span>
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -589,7 +748,7 @@
 
           
           <div class="method-source-code" id="supervisar-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 129</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 161</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">supervisar</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -621,7 +780,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 69</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 97</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@grupo</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">grupo_params</span>)
@@ -662,7 +821,7 @@
 
           
           <div class="method-source-code" id="update_multiple-source">
-            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 95</span>
+            <pre><span class="ruby-comment"># File app/controllers/grupos_controller.rb, line 127</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update_multiple</span>
   <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:grupo_ids</span>])
   <span class="ruby-ivar">@grupos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">grupo</span><span class="ruby-operator">|</span>
