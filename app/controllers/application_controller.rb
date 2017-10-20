@@ -11,8 +11,12 @@ class ApplicationController < ActionController::Base
       redirect_to panel_profesores_path
     elsif current_user.role.nombre == 'Control escolar'
       redirect_to inscripcion_registros_path
-    else
+    elsif current_user.role.nombre == 'Coordinación CELEX'
       redirect_to inscripcion_registros_path
+    elsif current_user.role.nombre == 'Cursos control'
+      redirect_to grupos_unitarios_path
+    else
+      redirect_to root_path
     end
   end
 
@@ -27,8 +31,8 @@ class ApplicationController < ActionController::Base
       inscripcion_registros_path
     elsif current_user.role.nombre == 'Coordinación CELEX'
       inscripcion_registros_path
-    elsif current_user.role.nombre == 'Control Educación Continua'
-      unitarios_path
+    elsif current_user.role.nombre == 'Cursos control'
+      grupos_unitarios_path
     end
   end
 

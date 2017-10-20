@@ -80,7 +80,7 @@ class User < ApplicationRecord
   end
 
   def control_ec?
-    self.role.nombre == "Control Educación Continua"
+    self.role.nombre == "Cursos control"
   end
 
   #Se utiliza para mostrar el nombre completo de un usuario, principalmente de

@@ -26,6 +26,8 @@
           <td class="jefe-educacion"><%= user.role.nombre %></td>
         <% elsif user.role.nombre == "Director del Centro" %>
           <td class="director-centro"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Control Educación Continua" %>
+          <td class="control-cec"><%= user.role.nombre %></td>
         <% end %>
         <td><%= user.email %></td>
         <% if can? :update, user %>

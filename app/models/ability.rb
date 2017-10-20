@@ -45,6 +45,12 @@ class Ability
         can :show, ExamenColocacionIdioma
         can :subir_comprobante, ExamenColocacionIdioma
         can :manage, :panel_alumnos
+      elsif user.control_ec?
+        can :validar_documentos, Unitario
+        can :habilitar_constancia, Unitario
+        can :read, Unitario
+        can :read, GruposUnitario
+        can :create, GruposUnitario
       elsif user.control_cec?
         can :read, Calendario
         can :create, Calendario
@@ -220,9 +226,6 @@ class Ability
         can :reporte_dec, InscripcionRegistro
         can :read, User
         can :instructores, User
-      elsif user.control_ec?
-        can :validar_documentos, Unitario
-        can :habilitar_constancia, Unitario
       end
   end
 
