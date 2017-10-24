@@ -102,19 +102,20 @@
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :nombre_padre, 'Nombre del padre o tutor' %>
-      <%= f.text_field :nombre_padre, class:'form-control' %>
+      <%= f.text_field :nombre_padre, class:'form-control', required: true %>
     </div>
 
     <div class="form-group col-sm-4">
       <%= f.label :correo_padre, 'Correo electrónico del padre o tutor' %>
-      <%= f.text_field :correo_padre, class:'form-control' %>
+      <%= f.text_field :correo_padre, class:'form-control', required: true %>
     </div>
 
     <div class="form-group col-sm-4">
       <%= f.label :telefono_padre, 'Teléfono del padre o tutor' %>
-      <%= f.text_field :telefono_padre, class:'form-control' %>
+      <%= f.text_field :telefono_padre, class:'form-control', required: true %>
     </div>
   </div>
+  <strong><%= link_to 'Aviso de privacidad', 'https://www.gob.mx/privacidad', html_options = {target: '_blank'} %></strong>
 </div>
 <div class="row jumbotron">
   <h4 class="subs"><strong>Fotografía</strong></h4>
@@ -123,8 +124,11 @@
     <p class="info-foto">La fotografía que se suba al sistema deberá haber sido tomada recientemente.</p>
     <p class="info-foto">Deberá de aparecer con el rostro de frente, centrado, viendo a la cámara, ocupando por lo menos el 70% de
        la fotografía, sin gorros, sombreros ni nada que cubra la cabeza. El peinado deberá
-       permitir ver el contorno de la cara.</p>
-    <p class="info-foto">La fotografía deberá de tomarse en un lugar iluminado para evitar que aparezcan sombras.</p>
+       permitir ver el contorno de la cara. La fotografía deberá de tomarse en un lugar iluminado.</p>
+    <p class="info-foto"><strong>Ejemplos:</strong></p>
+      <%= image_tag "hombre.png", alt:"Ejemplo hombre" %> &nbsp; <%= image_tag "mujer.png", alt:"Ejemplo mujer" %>
+      <br>
+      <br>
   </div>
 
   <div class="form-group col-sm-2">
@@ -177,11 +181,11 @@
             <div class="modal-body">
                 <p>Antes de validar asegúrese de que <strong>no falta ninguno</strong> de los siguientes documentos:</p>
                 <ul>
-                    <li><p>2 Fotografías</p></li>
+                    <li><p>La fotografía en el sistema</p></li>
                     <li><p>CURP</p></li>
-                    <li><p>Pago de guía</p></li>
+                    <li><p>Pago de la guía de estudios</p></li>
                     <li><p>Ficha de pago</p></li>
-                    <li><p>Carta compromiso</p></li>
+                    <li><p>Carta compromiso firmada</p></li>
                 </ul>
             </div>
             <div class="modal-footer">
@@ -190,6 +194,21 @@
         </div>
     </div>
 </div>
+
+<!-- Modal de entrada -->
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="entrada">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <center>
+              <%= image_tag "cec_escudo.png", alt:"Escudo CECIEMD" %>
+            </center>
+            <h2 align="center">Las inscripciones a los cursos de preparación para el examen de nivel medio y superior estarán disponibles a partir del día 16 de noviembre.</h2>
+            <br>
+            <br>
+            <br>
+        </div>
+      </div>
+    </div>
 
 <!-- Modal -->
     <div id="mediaSuperior" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
@@ -240,8 +259,7 @@
               <div class="well">
                 <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
                 <p>1 original y 2 copias de la ficha de depósito. </p>
-                <p>Efectivo para el pago de la cuota de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
-                <p>2 fotografías tamaño infantil, blanco y negro o a color, escribe tu nombre completo al reverso iniciando por tus apellidos.</p>
+                <p>Efectivo para el pago de la guía de estudios de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
                 <p>1 copia de tu CURP.</p>
               </div>
             </ol>
@@ -282,7 +300,7 @@
                      </div>
                   </li>
                   <li>
-                    <p>El día que te presentes a inscribirte, deberás pagar en efectivo la cuota de <strong>$298.00 (doscientos noventa y ocho pesos 00/100 M. N.)</strong>.</p>
+                    <p>El día que te presentes a inscribirte, deberás pagar en efectivo la cuota de <strong>$298.00 (doscientos noventa y ocho pesos 00/100 M. N.)</strong> para la guía de estudios.</p>
                     <div class="bs-callout bs-callout-danger">
                       <p>El pago de las cuotas te dan derecho a participar en el curso, a la guía de estudios que emite el Instituto Politénico Nacional, al material didáctico
                       que elaboramos para ti, a las evaluaciones diagnóstica y piloto, entre otros materiales que se te proporcionarán durante el desarrollo del curso.</p>
@@ -301,8 +319,7 @@
                   <div class="well">
                     <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
                     <p>1 original y 2 copias de la ficha de depósito. </p>
-                    <p>Efectivo para el pago de la cuota de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
-                    <p>2 fotografías tamaño infantil, blanco y negro o a color, escribe tu nombre completo al reverso iniciando por tus apellidos.</p>
+                    <p>Efectivo para el pago de la guía de estudios de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
                     <p>1 copia de tu CURP.</p>
                   </div>
                 </ol>
@@ -320,6 +337,12 @@
     $('.nacimiento').datepicker({language: 'es', format: 'd-M-yyyy'});
   });
 </script>
+
+<script type="text/javascript">
+   $(window).load(function(){
+     $('#entrada').modal('show');
+   });
+ </script>
 
 <script>
 $("#unitario_grupos_unitario_id").on("change", function () {
