@@ -838,3 +838,13 @@ td.vertical{
 .CabeceraTitulo .CabeceraContenido h1 a{color:#FFF; text-decoration:none}
 .CabeceraTitulo .CabeceraContenido h1 a span{font-size:14px; text-transform:none; display:block; padding-left:100px}
 .info-foto {font-size: 16px !important;}
+
+.borderless {
+    border-bottom:0px !important;
+}
+.borderless th, .borderless td {
+    border: 1px !important;
+}
+.fixed-borderless-container {
+    border:0px !important;
+}

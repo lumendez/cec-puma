@@ -48,11 +48,13 @@
   }
   #carta_compromiso, #carta_compromiso * {
     visibility: visible;
+    font-size: 18px;
+    line-height: 100%;
   }
   #carta_compromiso {
     position: absolute;
     left: 0;
     top: 0;
   }
-  #carta_compromiso p{font-size: 22px; line-height: 100%;}
+  #carta_compromiso p, ul, li {font-size:20px; line-height: 100%;}
 }

@@ -85,7 +85,9 @@ gem "therubyracer"
 
 gem 'awesome_rails_console'
 
-#gem "sqlite3"
+gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'
 
 # Please clean up duplicated gems if any.
 # Feel free to remove gems that you don't want to use or if they conflict with other gem dependencies. (you might need to update .pryrc also)

@@ -62,7 +62,7 @@ class UnitariosController < ApplicationController
       if @unitario.update(unitario_params)
         if user_signed_in? && current_user.role.nombre == "Administrador"
           redirect_to unitarios_path
-        elsif current_user.role.nombre == "Control Educación Continua"
+        elsif user_signed_in? && current_user.role.nombre == "Cursos control"
           redirect_to unitarios_path
         else
           format.html { redirect_to @unitario, notice: 'Los datos del registro se actualizaron correctamente.' }
@@ -159,6 +159,29 @@ class UnitariosController < ApplicationController
     elsif Date.today.strftime("%b") == "Dec"
       mes = "Diciembre"
     end
+  end
+
+  def seleccionar_credenciales_media
+      @unitarios = Unitario.all.order(:paterno)
+  end
+
+  def credenciales_media
+    #@unitarios = Unitario.find(params[:unitario_ids]).split(',')
+    @unitario = Unitario.find(params[:id])
+    respond_to do |format|
+     format.html
+     format.pdf do
+       render pdf: "credenciales_media",
+       template: "unitarios/credenciales_media.html.erb",
+       layout: "credenciales_media_pdf.html",
+       background: true,
+       no_background: false,
+       margin: {top: 20}
+     end
+    end
+  end
+
+  def credenciales_superior
   end
 
   private

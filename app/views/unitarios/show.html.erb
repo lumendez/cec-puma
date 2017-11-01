@@ -6,7 +6,7 @@
 <div class="row">
   <div id="carta_compromiso">
       <p style="page-break-before: always;">&nbsp;</p>
-      <h2 align="center"><strong>CURSO DE PREPARACIÓN PARA EL EXAMEN DE ADMISIÓN AL NIVEL SUPERIOR</strong></h3>
+      <h2 align="center"><strong><%= @unitario.grupos_unitario.nombre.parameterize(separator: ' ').upcase %></strong></h3>
       <h3 align="center"><strong>CARTA COMPROMISO</strong></h4>
       <br>
       <h4>FOLIO <%= @unitario.id %></h4>
@@ -64,9 +64,19 @@
       <p align="center">_____________________________________</p>
       <p align="center"><%= @unitario.nombre_paterno_materno %></p>
       <p align="center">Firma del Interesado</p>
-
-
-
+      <br>
+      <br>
+      <br>
+      <p align="center">_____________________________________</p>
+      <p align="center"><%= @unitario.nombre_padre %></p>
+      <p align="center">Firma del Padre o tutor</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
       <p style="page-break-after: always;">&nbsp;</p>
       <h2 align="center">LINEAMIENTOS DE CONDUCTA</h2>
       <p>La comunidad del Centro de Educación Continua Ingeniero Eugenio Méndez Docurro del
@@ -183,6 +193,24 @@
       </ol>
       <p>Sabemos que juntos lograremos una formación integral de sus hijos,
         gracias por su confianza.</p>
+      <table class="table borderless">
+        <tr>
+          <td>
+            <br>
+            <br>
+            <p align="center">_____________________________________</p>
+            <p align="center"><%= @unitario.nombre_paterno_materno %></p>
+            <p align="center">Firma del Interesado</p>
+          </td>
+          <td>
+            <br>
+            <br>
+            <p align="center">_____________________________________</p>
+            <p align="center"><%= @unitario.nombre_padre %></p>
+            <p align="center">Firma del Padre o tutor</p>
+          </td>
+        </tr>
+      </table>
       <p style="page-break-after: always;">&nbsp;</p>
   </div>
 </div>

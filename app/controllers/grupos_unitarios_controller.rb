@@ -45,15 +45,21 @@ class GruposUnitariosController < ApplicationController
   # PATCH/PUT /grupos_unitarios/1
   # PATCH/PUT /grupos_unitarios/1.json
   def update
-    respond_to do |format|
+    #respond_to do |format|
       if @grupos_unitario.update(grupos_unitario_params)
-        format.html { redirect_to @grupos_unitario, notice: 'El grupo se actualizó correctamente.' }
-        format.json { render :show, status: :ok, location: @grupos_unitario }
+        if user_signed_in? && current_user.role.nombre == "Administrador"
+          redirect_to unitarios_path, notice: 'El grupo se actualizó correctamente'
+          elsif user_signed_in? && current_user.role.nombre == "Cursos control"
+            redirect_to unitarios_path, notice: 'El grupo se actualizó correctamente'
+          else
+          format.html { redirect_to @grupos_unitario, notice: 'El grupo se actualizó correctamente.' }
+          format.json { render :show, status: :ok, location: @grupos_unitario }
+        end
       else
         format.html { render :edit }
         format.json { render json: @grupos_unitario.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # DELETE /grupos_unitarios/1
