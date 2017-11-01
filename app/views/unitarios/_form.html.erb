@@ -348,10 +348,10 @@
 $("#unitario_grupos_unitario_id").on("change", function () {
       $modalMediaSuperior = $('#mediaSuperior');
       $modalSuperior = $('#superior')
-      if($("#unitario_grupos_unitario_id option:selected").text() =='Curso de preparación para el nivel medio superior'){
+      if($("#unitario_grupos_unitario_id option:selected").text() =='Curso de preparación para el examen de admisión al Nivel Medio Superior'){
         $modalMediaSuperior.modal('show',{backdrop: 'static', keyboard: false});
       }
-      else if($("#unitario_grupos_unitario_id option:selected").text() =='Curso de preparación para el nivel superior'){
+      else if($("#unitario_grupos_unitario_id option:selected").text() =='Curso de preparación para el examen de admisión al Nivel Superior'){
         $modalSuperior.modal('show',{backdrop: 'static', keyboard: false});
       }
  });

@@ -49,8 +49,10 @@ class Ability
         can :validar_documentos, Unitario
         can :habilitar_constancia, Unitario
         can :read, Unitario
+        can :update, Unitario
         can :read, GruposUnitario
         can :create, GruposUnitario
+        can :update, GruposUnitario
       elsif user.control_cec?
         can :read, Calendario
         can :create, Calendario

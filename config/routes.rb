@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       get 'editar_datos'
       patch 'actualizar_editar_datos'
       get 'carta_compromiso'
+      get 'seleccionar_credenciales_media'
+      get '/credenciales_media/:id', to: 'unitarios#credenciales_media', as: 'credenciales_media'
     end
   end
   resources :anexos_unicos_examen do
