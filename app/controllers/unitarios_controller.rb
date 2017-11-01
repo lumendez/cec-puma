@@ -30,7 +30,7 @@ class UnitariosController < ApplicationController
   def create
     @unitario = Unitario.new(unitario_params)
 
-    if @unitario.grupos_unitario.nombre.include? "Curso de preparación para el nivel"
+    if @unitario.grupos_unitario.nombre.include? "Curso de preparación para el examen de admisión"
       respond_to do |format|
         if @unitario.save
           format.html { redirect_to @unitario, notice: 'Su registro se creó correctamente.' }

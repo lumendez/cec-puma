@@ -116,7 +116,7 @@
           </p>
         </li>
         <li>
-          <p>Los usuarios del Nivel Medio Superior se podrán retirarse, cuando sus
+          <p>Los usuarios del Nivel Medio Superior podrán retirarse, cuando sus
             padres soliciten el permiso por escrito y sean ellos quienes pasen a
             recogerlos. El permiso tendrá que ser dirigido al Coordinador Académico
             Ing. Armando Aparicio Pérez.
@@ -214,6 +214,32 @@
       <p style="page-break-after: always;">&nbsp;</p>
   </div>
 </div>
+<!-- Modal de entrada -->
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="entrada">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header panel-head-azul">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title" align="center"><strong>Información</strong></h2>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <h2>Su solicitud se ha creado con los siguienets datos:</h2>
+                <div class="jumbotron">
+                  <h3><strong>Nombre:</strong> <%= @unitario.nombre %> <%= @unitario.paterno %> <%= @unitario.materno %></h3>
+                  <h3><strong>Folio:</strong> <%= @unitario.id %></h3>
+                  <h3><strong>Conserve su número de folio</strong> ya que será la única forma de recuperar su carta compromiso en caso de extravío.</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 <br>
 <%= link_to "Regresar", root_path %>
 <script>
@@ -223,3 +249,8 @@ $("#btn-talon").click(function () {
     window.print();
 });
 </script>
+<script type="text/javascript">
+   $(window).load(function(){
+     $('#entrada').modal('show');
+   });
+ </script>
