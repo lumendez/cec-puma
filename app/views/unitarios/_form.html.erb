@@ -10,6 +10,13 @@
       </ul>
     </div>
   <% end %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="bs-callout bs-callout-warning" >
+      <strong><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <%= link_to '¿Perdiste tu carta compromiso? Reimprímela', buscar_cartas_path %></strong>
+    </div>
+  </div>
+</div>
 <div class="row jumbotron">
   <h4 class="subs"><strong>Oferta actual</strong></h4>
   <div class="row">
@@ -51,7 +58,7 @@
     <div class="form-group col-sm-2">
       <%= f.label :nacimiento, 'Fecha de nacimiento' %><br>
       <div class="input-group date">
-        <%= f.text_field :nacimiento, class:'nacimiento form-control', required: true %>
+        <%= f.text_field :nacimiento, class:'nacimiento form-control' %>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>
@@ -107,7 +114,7 @@
 
     <div class="form-group col-sm-4">
       <%= f.label :correo_padre, 'Correo electrónico del padre o tutor' %>
-      <%= f.text_field :correo_padre, class:'form-control', required: true %>
+      <%= f.text_field :correo_padre, class:'form-control' %>
     </div>
 
     <div class="form-group col-sm-4">
@@ -125,6 +132,10 @@
     <p class="info-foto">Deberá de aparecer con el rostro de frente, centrado, viendo a la cámara, ocupando por lo menos el 70% de
        la fotografía, sin gorros, sombreros ni nada que cubra la cabeza. El peinado deberá
        permitir ver el contorno de la cara. La fotografía deberá de tomarse en un lugar iluminado.</p>
+    <div class="bs-callout bs-callout-danger" style="background: #fff;">
+      <p class="info-foto"><strong>En caso de no poder subir la fotografía deberá de traerla en una memoria USB en
+        formato digital (JPEG) con una medida de 750x935 pixeles junto con los documentos de inscripción.</strong></p>
+    </div>
     <p class="info-foto"><strong>Ejemplos:</strong></p>
       <%= image_tag "hombre.png", alt:"Ejemplo hombre" %> &nbsp; <%= image_tag "mujer.png", alt:"Ejemplo mujer" %>
       <br>
@@ -185,7 +196,7 @@
                     <li><p>CURP</p></li>
                     <li><p>Pago de la guía de estudios</p></li>
                     <li><p>Ficha de pago</p></li>
-                    <li><p>Carta compromiso firmada</p></li>
+                    <li><p>Carta compromiso y carta de lineamientos debidamente firmada</p></li>
                 </ul>
             </div>
             <div class="modal-footer">
@@ -261,6 +272,7 @@
                 <p>1 original y 2 copias de la ficha de depósito. </p>
                 <p>Efectivo para el pago de la guía de estudios de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
                 <p>1 copia de tu CURP.</p>
+                <p>Carta compromiso y carta de lineamientos debidamente firmadas.</p>
               </div>
             </ol>
           </div>
@@ -321,6 +333,7 @@
                     <p>1 original y 2 copias de la ficha de depósito. </p>
                     <p>Efectivo para el pago de la guía de estudios de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
                     <p>1 copia de tu CURP.</p>
+                    <p>Carta compromiso y carta de lineamientos debidamente firmadas.</p>
                   </div>
                 </ol>
               </div>
