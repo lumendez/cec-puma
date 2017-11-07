@@ -1,22 +1,19 @@
 class BuscarCartasController < ApplicationController
-  def index
-  end
 
   def carta
     if params[:folio_carta]
-      @unitarios = buscar
-      @mes = mes
+      buscar
     else
       redirect_to buscar_cartas_path, notice: 'Deberá introducir un número de folio correcto.'
     end
   end
 
   def buscar
-    @unitarios = Unitario.buscar(params[:folio_carta])
-    if @unitarios.empty?
-      redirect_to buscar_cartas_path, notice: 'Debe de introducir un número de folio correcto.'
+    @unitario = Unitario.buscar(params[:folio_carta])
+    if @unitario.present?
+      redirect_to @unitario
     else
-      @unitarios
+      redirect_to buscar_cartas_path, notice: 'Debe de introducir un número de folio correcto.'
     end
   end
 

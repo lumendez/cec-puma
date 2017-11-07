@@ -31,13 +31,6 @@
 <% elsif user_signed_in? && current_user.role.nombre == 'Administrador' ||  user_signed_in? && current_user.role.nombre == 'Director del Centro' ||  user_signed_in? && current_user.role.nombre == 'Jefe Educación Continua' %>
   <ul class="nav navbar-nav navbar-right">
     <li class="Selected"><a href="/">Inicio</a></li>
-    <!--<li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cursos  <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><%#= link_to "Ver registros", registro_cursos_path %></li>
-          <li><%#= link_to "Crear nuevo registro", new_registro_curso_path %></li>
-        </ul>
-    </li>-->
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CELEX  <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -88,17 +81,23 @@
           </li>
         </ul>
     </li>
-    <!--<li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Diplomados  <span class="caret"></span></a>
-    </li>-->
     <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Registros de cursos  <span class="caret"></span></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cursos  <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li>
-              <%= link_to "Crear registro", new_registro_curso_path %>
+              <%= link_to "Crear registro de curso", new_registro_curso_path %>
             </li>
             <li>
-                <%= link_to "Ver registros", registro_cursos_path %>
+                <%= link_to "Crear grupos de cursos", new_grupos_unitario_path %>
+            </li>
+            <li>
+                <%= link_to "Ver grupos de cursos", grupos_unitarios_path %>
+            </li>
+            <li>
+                <%= link_to "Ver registros de cursos", registro_cursos_path %>
+            </li>
+            <li>
+                <%= link_to "Ver registros de inscripción cursos", unitarios_path %>
             </li>
         </ul>
     </li>

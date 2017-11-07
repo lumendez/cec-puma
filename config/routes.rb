@@ -9,14 +9,13 @@ Rails.application.routes.draw do
   resources :grupos_unitarios
   resources :unitarios do
     collection do
-      #get '/carta_compromiso/:id', to: 'unitarios#carta_compromiso', as: 'carta_compromiso'
       get 'asignar_calificaciones'
       patch 'actualizar_asignar_calificaciones'
       get 'editar_datos'
       patch 'actualizar_editar_datos'
-      get 'carta_compromiso'
       get 'seleccionar_credenciales_media'
       get '/credenciales_media/:id', to: 'unitarios#credenciales_media', as: 'credenciales_media'
+      get '/carta_compromiso/:id', to: 'unitarios#carta_compromiso', as: 'carta_compromiso'
     end
   end
   resources :anexos_unicos_examen do

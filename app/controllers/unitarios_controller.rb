@@ -1,5 +1,5 @@
 class UnitariosController < ApplicationController
-  before_action :authenticate_user!, except: [:create, :new, :show]
+  before_action :authenticate_user!, except: [:create, :new, :show, :carta_compromiso]
   before_action :set_unitario, only: [:show, :edit, :update, :destroy]
   #load_and_authorize_resource
 
@@ -30,6 +30,11 @@ class UnitariosController < ApplicationController
   def create
     @unitario = Unitario.new(unitario_params)
 
+
+    # Esto redirecciona a 'show' para que en los cursos de preparación se pueda
+    # imprimir la carta compromiso, para los demás cursos puede existir esa
+    # opción pero de momento se les redirecciona a la página principal y se les
+    # notifica que su inscripción se realizó de manera correcta.
     if @unitario.grupos_unitario.nombre.include? "Curso de preparación para el examen de admisión"
       respond_to do |format|
         if @unitario.save
@@ -40,7 +45,8 @@ class UnitariosController < ApplicationController
           format.json { render json: @unitario.errors, status: :unprocessable_entity }
         end
       end
-
+    # Aquí se les redirecciona a los cursos que no son unitarios. Para los cursos
+    # no unitarios se les redirecciona al root.
     else
 
       respond_to do |format|
@@ -165,13 +171,27 @@ class UnitariosController < ApplicationController
       @unitarios = Unitario.all.order(:paterno)
   end
 
+  def carta_compromiso
+    @mes = mes
+    @unitario = Unitario.find(params[:id])
+    respond_to do |format|
+     format.pdf do
+       render pdf: "carta_compromiso",
+       disposition: "attachment",
+       template: "unitarios/carta_compromiso.html.erb",
+       layout: "carta_compromiso_pdf.html.erb",
+       margin: {top: 25}
+     end
+    end
+  end
+
   def credenciales_media
-    #@unitarios = Unitario.find(params[:unitario_ids]).split(',')
     @unitario = Unitario.find(params[:id])
     respond_to do |format|
      format.html
      format.pdf do
        render pdf: "credenciales_media",
+       disposition: "attachment",
        template: "unitarios/credenciales_media.html.erb",
        layout: "credenciales_media_pdf.html",
        background: true,
