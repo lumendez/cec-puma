@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018232826) do
+ActiveRecord::Schema.define(version: 20171108003146) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -416,6 +416,12 @@ ActiveRecord::Schema.define(version: 20171018232826) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "familiar_ipn"
+    t.string   "nombre_ipn"
+    t.string   "unidad_ipn"
+    t.string   "parentesco_ipn"
+    t.string   "bachillerato_ipn"
+    t.boolean  "solicito_beca"
     t.index ["grupos_unitario_id"], name: "index_unitarios_on_grupos_unitario_id", using: :btree
   end
 
