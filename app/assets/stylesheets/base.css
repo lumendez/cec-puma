@@ -640,6 +640,15 @@ background-color: white;
   color: #fff;
 }
 
+.unitarios-foto
+{
+  background-color: #F48024 !important;
+}
+.unitarios-info
+{
+  background-color: #59A80F !important;
+}
+
 @media screen and (min-width: 768px) {
 
 	#myModal .modal-dialog  {width:900px;}
@@ -849,3 +858,8 @@ td.vertical{
     border:0px !important;
 }
 .glyphicon-info-sign {font-size: 25px; color: #f0ad4e;}
+
+.jumbotron-unitarios-info{
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}

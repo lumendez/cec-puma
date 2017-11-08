@@ -202,6 +202,19 @@ class UnitariosController < ApplicationController
   end
 
   def credenciales_superior
+    @unitario = Unitario.find(params[:id])
+    respond_to do |format|
+     format.html
+     format.pdf do
+       render pdf: "credenciales_media",
+       disposition: "attachment",
+       template: "unitarios/credenciales_media.html.erb",
+       layout: "credenciales_superior_pdf.html",
+       background: true,
+       no_background: false,
+       margin: {top: 20}
+     end
+    end
   end
 
   private
@@ -224,6 +237,7 @@ class UnitariosController < ApplicationController
       :nacimiento, :domicilio, :codigo_postal, :entidad, :delegacion_municipio,
       :telefono_celular, :telefono_fijo, :correo, :procedencia, :nombre_padre,
       :correo_padre, :telefono_padre, :grupos_unitario_id, :documentos_validados,
-      :examen_final, :image)
+      :examen_final, :image, :familiar_ipn, :nombre_ipn, :unidad_ipn, :parentesco_ipn,
+      :bachillerato_ipn, :solicito_beca)
     end
 end

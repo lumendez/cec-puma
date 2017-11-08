@@ -26,12 +26,16 @@
     </div>
   </div>
 </div>
-<div class="row jumbotron">
-  <h4 class="subs"><strong>Informaci&oacute;n general</strong></h4>
+<div class="row">
+  <div class="modal-header unitarios-info">
+  </div>
+</div>
+<div class="row jumbotron jumbotron-unitarios-info">
+  <h4 class="subs"><strong>Informaci&oacute;n general (utilizar mayúsculas y minúsculas)</strong></h4>
   <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :curp, 'CURP' %><strong><%= link_to '  ¿No conoce su CURP?', 'http://consultas.curp.gob.mx', html_options = {target: '_blank'} %></strong>
-      <%= f.text_field :curp, class: 'form-control', required: true %>
+      <%= f.text_field :curp, class: 'form-control', required: true, maxlength: 18 %>
     </div>
 
     <div class="form-group col-sm-3">
@@ -66,13 +70,13 @@
     </div>
 
     <div class="form-group col-sm-3">
-      <%= f.label :domicilio %>
-      <%= f.text_field :domicilio, class:'form-control' %>
+      <%= f.label :domicilio, 'Domicilio (calle, número y colonia)' %>
+      <%= f.text_field :domicilio, class:'form-control', required: true %>
     </div>
 
     <div class="form-group col-sm-2">
       <%= f.label :codigo_postal, 'Código postal'  %>
-      <%= f.text_field :codigo_postal, class:'form-control' %>
+      <%= f.text_field :codigo_postal, class:'form-control', required: true, maxlength: 5 %>
     </div>
 
     <div class="form-group col-sm-3">
@@ -86,61 +90,92 @@
       <%= f.text_field :delegacion_municipio, class:'form-control' %>
     </div>
 
-    <div class="form-group col-sm-2">
+    <div class="form-group col-sm-3">
       <%= f.label :telefono_celular, 'Teléfono celular' %>
-      <%= f.text_field :telefono_celular, class:'form-control', required: true %>
+      <%= f.text_field :telefono_celular, class:'form-control', required: true, maxlength: 10 %>
     </div>
 
-    <div class="form-group col-sm-2">
+    <div class="form-group col-sm-3">
       <%= f.label :telefono_fijo, 'Teléfono fijo' %>
-      <%= f.text_field :telefono_fijo, class:'form-control' %>
+      <%= f.text_field :telefono_fijo, class:'form-control', maxlength: 10 %>
     </div>
 
-    <div class="form-group col-sm-2">
+    <div class="form-group col-sm-3">
       <%= f.label :correo, 'Correo electrónico' %>
       <%= f.email_field :correo, class:'form-control', required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :bachillerato_ipn, 'Cursaste tu bachillerato en el IPN' %>
+      <%= f.check_box :bachillerato_ipn, class:'form-control' %>
     </div>
 
     <div class="form-group col-sm-3">
       <%= f.label :procedencia, 'Escuela de procedencia' %>
       <%= f.text_field :procedencia, class:'form-control' %>
     </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :familiar_ipn, 'Familiar que trabaje en el IPN' %>
+      <%= f.check_box :familiar_ipn, class:'form-control' %>
+    </div>
+  </div>
+  <div class="row" id="datos_familiar_ipn" style="display:none">
+    <div class="form-group col-sm-4">
+      <%= f.label :nombre_ipn, 'Nombre del trabajador del IPN' %>
+      <%= f.text_field :nombre_ipn, class:'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :unidad_ipn, 'Unidad de adscripción del trabajador' %>
+      <%= f.text_field :unidad_ipn, class:'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :parentesco_ipn, 'Parentesco con el alumno' %>
+      <%= f.text_field :parentesco_ipn, class:'form-control' %>
+    </div>
   </div>
   <div class="row">
     <div class="form-group col-sm-4">
-      <%= f.label :nombre_padre, 'Nombre del padre o tutor' %>
+      <%= f.label :nombre_padre, 'Nombre completo del padre o tutor' %>
       <%= f.text_field :nombre_padre, class:'form-control', required: true %>
     </div>
 
     <div class="form-group col-sm-4">
       <%= f.label :correo_padre, 'Correo electrónico del padre o tutor' %>
-      <%= f.text_field :correo_padre, class:'form-control' %>
+      <%= f.email_field :correo_padre, class:'form-control' %>
     </div>
 
     <div class="form-group col-sm-4">
       <%= f.label :telefono_padre, 'Teléfono del padre o tutor' %>
-      <%= f.text_field :telefono_padre, class:'form-control', required: true %>
+      <%= f.text_field :telefono_padre, class:'form-control', required: true, maxlength: 10 %>
     </div>
   </div>
   <strong><%= link_to 'Aviso de privacidad', 'https://www.gob.mx/privacidad', html_options = {target: '_blank'} %></strong>
 </div>
+<div class="row">
+  <div class="modal-header unitarios-foto">
+  </div>
+</div>
 <div class="row jumbotron">
   <h4 class="subs"><strong>Fotografía</strong></h4>
-  <!--<div class="bs-callout bs-callout-info" style="background: #fff;">
-    <p class="info-foto"><strong>Instrucciones</strong></p>
+  <div class="bs-callout bs-callout-info" style="background: #fff;">
+    <!--<p class="info-foto"><strong>Instrucciones</strong></p>
     <p class="info-foto">La fotografía que se suba al sistema deberá haber sido tomada recientemente.</p>
     <p class="info-foto">Deberá de aparecer con el rostro de frente, centrado, viendo a la cámara, ocupando por lo menos el 70% de
        la fotografía, sin gorros, sombreros ni nada que cubra la cabeza. El peinado deberá
        permitir ver el contorno de la cara. La fotografía deberá de tomarse en un lugar iluminado.</p>-->
+    <p class="info-foto">El archivo deberá ser menor a 2 MB</p>
+    <p class="info-foto">No utilizar imágenes que contengan sellos y/o firmas</p>
     <!--<div class="bs-callout bs-callout-danger" style="background: #fff;">
       <p class="info-foto"><strong>En caso de no poder subir la fotografía deberá de traerla en una memoria USB en
         formato digital (JPEG) con una medida de 750x935 pixeles junto con los documentos de inscripción.</strong></p>
     </div>-->
-    <!--<p class="info-foto"><strong>Ejemplos:</strong></p>
+    <p class="info-foto"><strong>Ejemplos:</strong></p>
       <%= image_tag "hombre.png", alt:"Ejemplo hombre" %> &nbsp; <%= image_tag "mujer.png", alt:"Ejemplo mujer" %>
       <br>
       <br>
-  </div>-->
+  </div>
 
   <div class="form-group col-sm-2">
     <%= f.label :image, 'Suba su fotografía' %>
@@ -156,7 +191,11 @@
         <%= f.label :documentos_validados, "Documentos validados" %>
         <%= f.check_box :documentos_validados, class: 'form-control openmodal' %>
       </div>
-      <div class="col-md-3">
+      <div class="form-group col-sm-3">
+        <%= f.label :solicito_beca, "¿Solicitó beca?" %>
+        <%= f.check_box :solicito_beca, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-3">
         <%= f.label :image, 'Fotografía' %><br>
         <% if unitario.image.present? %>
           <%= image_tag unitario.image.url('thumb') %>
@@ -210,13 +249,17 @@
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="entrada">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <center>
-              <%= image_tag "cec_escudo.png", alt:"Escudo CECIEMD" %>
-            </center>
-            <h2 align="center">Las inscripciones a los cursos de preparación para el examen de nivel medio y superior estarán disponibles a partir del día 16 de noviembre.</h2>
-            <br>
-            <br>
-            <br>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h1 align="center">Importante</h1>
+          </div>
+          <center>
+            <%= image_tag "cec_escudo.png", alt:"Escudo CECIEMD" %>
+          </center>
+          <h2 align="center">Las inscripciones a los cursos de preparación para el examen de nivel medio y superior estarán disponibles a partir del día 16 de noviembre.</h2>
+          <br>
+          <br>
+          <br>
         </div>
       </div>
     </div>
@@ -260,12 +303,12 @@
                  </div>
               </li>
               <li>
-                <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubiucadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
+                <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubicadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
                 Ciudad de México, Código Postal 06010 <strong>a partir del 16 de noviembre de 2017 y hasta el día 27 de enero de 2018, en un horario de 10:00 a 14:00 y de 15:00 a
                 19:00 horas de lunes a viernes</strong>.</p>
               </li>
               <li>
-                <p>Si necesitas más información puedes llamar al 57-29-6000, extensión 64603.</p>
+                <p>Si necesitas más información puedes llamar al 57-29-6000, extensiones 64623 y 64646.</p>
               </li>
               <div class="well">
                 <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
@@ -291,7 +334,6 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header panel-head-azul">
-                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
                 <h2 class="modal-title" align="center"><strong>Instrucciones<br>
                 Curso propedéutico para el examen de admisión al nivel superior</strong></h2>
               </div>
@@ -321,12 +363,12 @@
                     </div>
                   </li>
                   <li>
-                    <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubiucadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
+                    <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubicadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
                     Ciudad de México, Código Postal 06010 <strong>a partir del 16 de noviembre de 2017 y hasta el día 20 de enero de 2018, en un horario de 10:00 a 14:00 y de 15:00 a
                     19:00 horas de lunes a viernes</strong>.</p>
                   </li>
                   <li>
-                    <p>Si necesitas más información puedes llamar al 57-29-6000, extensión 64603.</p>
+                    <p>Si necesitas más información puedes llamar al 57-29-6000, extensiones 64623 y 64646.</p>
                   </li>
                   <div class="well">
                     <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
@@ -376,5 +418,10 @@ $('.openmodal').click(function(){
   } else {
     $('#mensaje-validacion').modal('hide');
   }
+});
+</script>
+<script>
+$('#unitario_familiar_ipn').click(function() {
+  $("#datos_familiar_ipn").toggle(this.checked);
 });
 </script>
