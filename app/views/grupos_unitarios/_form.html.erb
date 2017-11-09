@@ -43,6 +43,11 @@
   </div>
 
   <div class="form-group col-sm-3">
+    <%= f.label :seccion %>
+    <%= collection_select(:grupos_unitario, :seccion, SeccionNombre.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+  </div>
+
+  <div class="form-group col-sm-3">
     <%= f.label :habilitar_constancias_grupo %>
     <%= f.check_box :habilitar_constancias_grupo, class:'form-control' %>
   </div>

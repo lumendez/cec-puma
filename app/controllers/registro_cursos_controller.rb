@@ -1,5 +1,9 @@
 class RegistroCursosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_registro_curso, only: [:show, :edit, :update, :destroy]
+  before_action :registro_curso, only: :create
+  load_and_authorize_resource
+
 
   # GET /registro_cursos
   # GET /registro_cursos.json
@@ -65,6 +69,10 @@ class RegistroCursosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_registro_curso
       @registro_curso = RegistroCurso.find(params[:id])
+    end
+
+    def registro_curso
+      @registro_curso = RegistroCurso.new(registro_curso_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

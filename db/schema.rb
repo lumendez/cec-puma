@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108003146) do
+ActiveRecord::Schema.define(version: 20171109021451) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -226,6 +226,7 @@ ActiveRecord::Schema.define(version: 20171108003146) do
     t.boolean  "habilitar_constancias_grupo"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "seccion"
   end
 
   create_table "horarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
