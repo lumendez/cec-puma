@@ -91,6 +91,6 @@ class GruposUnitariosController < ApplicationController
       params.require(:grupos_unitario).permit(:nombre, :horario, :estado, :anio,
       :periodo, :lugar, :fecha, :centro, :tipo, :modalidad, :cupo, :duracion, :cuota, :clave,
       :proyecto, :institucion_bancaria, :cuenta, :titular, :jefe_ec, :registro, :referencia,
-      :habilitar_constancias_grupo)
+      :habilitar_constancias_grupo, :seccion)
     end
 end

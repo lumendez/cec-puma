@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Seccion</th>
       <th>Horario</th>
       <th>Periodo</th>
       <th>Año</th>
@@ -16,6 +17,7 @@
     <% @grupos_unitarios.each do |grupos_unitario| %>
       <tr>
         <td><%= grupos_unitario.nombre %></td>
+        <td><%= grupos_unitario.seccion %></td>
         <td><%= grupos_unitario.horario %></td>
         <td><%= grupos_unitario.periodo %></td>
         <td><%= grupos_unitario.anio %></td>

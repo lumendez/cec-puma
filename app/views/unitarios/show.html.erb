@@ -1,12 +1,10 @@
 <div class="row">
   <div class="jumbotron">
-    <h3>Su registro se creó con el folio: <strong><%= @unitario.id %></strong></h3>
-    <h4><strong>Es importante que conserve su número de folio ya que a través de él podrá recuperar su carta compromiso en caso de extravío</strong></h4>
     <center>
-      <div class="btn btn-default btn-lg">
-        <%= link_to "Descargar carta compromiso", carta_compromiso_unitarios_path(@unitario, format: :pdf) %>
-      </div>
+      <%= link_to "Descargar carta compromiso", carta_compromiso_unitarios_path(@unitario, format: :pdf), class:'btn btn-primary btn-lg' %>
       <br>
+      <br>
+      <h4><strong>En caso de extravío podrá recuperar su carta compromiso a través de su CURP</strong></h4>
       <br>
       <strong><%= link_to "Salir", new_unitario_path %></strong>
     </center>

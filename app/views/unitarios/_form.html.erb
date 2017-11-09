@@ -31,7 +31,7 @@
   </div>
 </div>
 <div class="row jumbotron jumbotron-unitarios-info">
-  <h4 class="subs"><strong>Informaci&oacute;n general (utilizar mayúsculas y minúsculas)</strong></h4>
+  <h4 class="subs"><strong>Informaci&oacute;n general</strong></h4>
   <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :curp, 'CURP' %><strong><%= link_to '  ¿No conoce su CURP?', 'http://consultas.curp.gob.mx', html_options = {target: '_blank'} %></strong>
@@ -106,7 +106,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-3" id="bachillerato" style="display:none">
       <%= f.label :bachillerato_ipn, 'Cursaste tu bachillerato en el IPN' %>
       <%= f.check_box :bachillerato_ipn, class:'form-control' %>
     </div>
@@ -159,25 +159,18 @@
 </div>
 <div class="row jumbotron">
   <h4 class="subs"><strong>Fotografía</strong></h4>
-  <div class="bs-callout bs-callout-info" style="background: #fff;">
-    <!--<p class="info-foto"><strong>Instrucciones</strong></p>
-    <p class="info-foto">La fotografía que se suba al sistema deberá haber sido tomada recientemente.</p>
-    <p class="info-foto">Deberá de aparecer con el rostro de frente, centrado, viendo a la cámara, ocupando por lo menos el 70% de
-       la fotografía, sin gorros, sombreros ni nada que cubra la cabeza. El peinado deberá
-       permitir ver el contorno de la cara. La fotografía deberá de tomarse en un lugar iluminado.</p>-->
-    <p class="info-foto">El archivo deberá ser menor a 2 MB</p>
-    <p class="info-foto">No utilizar imágenes que contengan sellos y/o firmas</p>
-    <!--<div class="bs-callout bs-callout-danger" style="background: #fff;">
-      <p class="info-foto"><strong>En caso de no poder subir la fotografía deberá de traerla en una memoria USB en
-        formato digital (JPEG) con una medida de 750x935 pixeles junto con los documentos de inscripción.</strong></p>
-    </div>-->
-    <p class="info-foto"><strong>Ejemplos:</strong></p>
-      <%= image_tag "hombre.png", alt:"Ejemplo hombre" %> &nbsp; <%= image_tag "mujer.png", alt:"Ejemplo mujer" %>
-      <br>
-      <br>
+  <div class="form-group col-md-6">
+    <div class="bs-callout bs-callout-info" style="background: #fff;">
+      <p class="info-foto">El archivo deberá ser menor a 2 MB</p>
+      <p class="info-foto">No utilizar imágenes que contengan sellos y/o firmas</p>
+      <p class="info-foto"><strong>Ejemplos:</strong></p>
+        <%= image_tag "hombre.png", alt:"Ejemplo hombre" %> &nbsp; <%= image_tag "mujer.png", alt:"Ejemplo mujer" %>
+        <br>
+        <br>
+    </div>
   </div>
 
-  <div class="form-group col-sm-2">
+  <div class="form-group col-md-6">
     <%= f.label :image, 'Suba su fotografía' %>
     <%= f.file_field :image, class:'btn btn-lg btn-default' %>
   </div>
@@ -271,7 +264,6 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header panel-head-azul">
-            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
             <h2 class="modal-title" align="center"><strong>Instrucciones<br>
             Curso propedéutico para el examen de admisión al nivel medio superior</strong></h2>
           </div>
@@ -424,4 +416,29 @@ $('.openmodal').click(function(){
 $('#unitario_familiar_ipn').click(function() {
   $("#datos_familiar_ipn").toggle(this.checked);
 });
+</script>
+<script>
+function bachillerato(){
+  var grupo = $('#unitario_grupos_unitario_id option:selected').text();
+  if (grupo == "Curso de preparación para el examen de admisión al Nivel Superior"){
+    $("#bachillerato").show();
+  }
+  else {
+    $("#bachillerato").hide();
+  }
+}
+$("select").change(bachillerato);
+bachillerato();
+</script>
+<script>
+    //Capitalize first letter while typing in side of input field
+    jQuery(document).ready(function($) {
+        $('#unitario_nombre, #unitario_paterno, #unitario_materno').keyup(function(event) {
+            var textBox = event.target;
+            var start = textBox.selectionStart;
+            var end = textBox.selectionEnd;
+            textBox.value = textBox.value.replace(/\b\w/g, l => l.toUpperCase());
+            textBox.setSelectionRange(start, end);
+        });
+    });
 </script>

@@ -4,7 +4,7 @@ class BuscarCartasController < ApplicationController
     if params[:folio_carta]
       buscar
     else
-      redirect_to buscar_cartas_path, notice: 'Deberá introducir un número de folio correcto.'
+      redirect_to buscar_cartas_path, notice: 'Debe de introducir una CURP válida.'
     end
   end
 
@@ -13,7 +13,7 @@ class BuscarCartasController < ApplicationController
     if @unitario.present?
       redirect_to @unitario
     else
-      redirect_to buscar_cartas_path, notice: 'Debe de introducir un número de folio correcto.'
+      redirect_to buscar_cartas_path, notice: 'Debe de introducir una CURP válida.'
     end
   end
 

@@ -34,7 +34,7 @@
   </div>
   <div class="form-group col-sm-3">
     <%= f.label :user_id, "Nombre del profesor" %>
-    <%= collection_select(:grupo, :user_id, User.instructores.order("paterno ASC"), :id, :nombre_completo, {prompt: 'Seleccione'}, class: 'form-control') %>
+    <%= collection_select(:grupo, :user_id, User.instructores.order("paterno ASC"), :id, :nombre_completo, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
   </div>
   <div class="form-group col-sm-2">
     <%= f.label :curso, "Curso" %>

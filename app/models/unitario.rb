@@ -26,7 +26,7 @@ class Unitario < ApplicationRecord
   end
 
   def self.buscar(folio_carta)
-    self.find_by(id: folio_carta)
+    self.find_by(curp: folio_carta)
   end
 
 end

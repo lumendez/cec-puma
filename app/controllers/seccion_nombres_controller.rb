@@ -1,5 +1,8 @@
 class SeccionNombresController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_seccion_nombre, only: [:show, :edit, :update, :destroy]
+  before_action :seccion_nombre, only: :create
+  load_and_authorize_resource
 
   # GET /seccion_nombres
   # GET /seccion_nombres.json
@@ -28,7 +31,7 @@ class SeccionNombresController < ApplicationController
 
     respond_to do |format|
       if @seccion_nombre.save
-        format.html { redirect_to @seccion_nombre, notice: 'Seccion nombre was successfully created.' }
+        format.html { redirect_to @seccion_nombre, notice: 'El nombre de la sección se creó correctamente.' }
         format.json { render :show, status: :created, location: @seccion_nombre }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class SeccionNombresController < ApplicationController
   def update
     respond_to do |format|
       if @seccion_nombre.update(seccion_nombre_params)
-        format.html { redirect_to @seccion_nombre, notice: 'Seccion nombre was successfully updated.' }
+        format.html { redirect_to @seccion_nombre, notice: 'El nombre de la sección se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @seccion_nombre }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class SeccionNombresController < ApplicationController
   def destroy
     @seccion_nombre.destroy
     respond_to do |format|
-      format.html { redirect_to seccion_nombres_url, notice: 'Seccion nombre was successfully destroyed.' }
+      format.html { redirect_to seccion_nombres_url, notice: 'El nombre de la sección se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +68,10 @@ class SeccionNombresController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_seccion_nombre
       @seccion_nombre = SeccionNombre.find(params[:id])
+    end
+
+    def seccion_nombre
+      @seccion_nombre = SeccionNombre.new(seccion_nombre_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
