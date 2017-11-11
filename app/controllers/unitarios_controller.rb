@@ -91,6 +91,14 @@ class UnitariosController < ApplicationController
     end
   end
 
+  def reporte_dems
+    @unitarios = Unitario.order('paterno ASC')
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+  end
+
   def validar_documentos
     respond_to do |format|
       if @unitario.update(validar_documentos_params)

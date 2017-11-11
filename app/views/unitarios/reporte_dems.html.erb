@@ -1,0 +1,34 @@
+<h1 class="sub">Reporte DEMS</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th rowspan="2">Unidad Académica</th>
+      <th colspan="2">Curso de preparación</th>
+      <th colspan="3">Nombre del Alumno</th>
+      <th rowspan="2">Correo Electrónico</th>
+      <th rowspan="2">Nombre de Escuela de Procedencia</th>
+      <th colspan="2">Familiar que trabaje en el IPN</th>
+      <th rowspan="2">Nombre del trabajador del IPN</th>
+      <th rowspan="2">Unidad de adscripción del trabajador</th>
+      <th rowspan="2">Parentesco con el alumno</th>
+      <th colspan="2">Se le asigno Beca</th>
+    </tr>
+    <tr>
+      <th>NMS</th>
+      <th>NS</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Nombre (s)</th>
+      <th>Si</th>
+      <th>No</th>
+      <th>Si</th>
+      <th>No</th>
+    </tr>
+
+  </thead>
+
+
+</table>
+
+<%= link_to 'Descargar .xlsx', reporte_dems_unitarios_path(format: :xlsx), class:'btn btn-primary btn-lg' %>

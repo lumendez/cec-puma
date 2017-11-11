@@ -1,0 +1,13 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Unitarios") do |sheet|
+sheet.add_row ["Unidad académica", "NMS", "NS", "Apellido Paterno",
+"Apellido Materno", "Nombre (s)", "Correo Electrónico",
+"Nombre de Escuela de Procedencia", "Si", "No", "Nombre del trabajador del IPN",
+"Unidad de Adscripción del trabajador", "Parentesco con el Alumno", "Si", "No"]
+@unitarios.each do |unitario|
+    sheet.add_row ["Centro de Educación Continua Ing. Eugenio Méndez Docurro", unitario.grupos_unitario.nombre,
+    unitario.grupos_unitario.nombre, unitario.paterno, unitario.materno, unitario.nombre, unitario.correo, unitario.procedencia,
+    unitario.familiar_ipn, unitario.familiar_ipn, unitario.nombre_ipn, unitario.unidad_ipn, unitario.parentesco_ipn,
+    unitario.solicito_beca, unitario.solicito_beca]
+  end
+end

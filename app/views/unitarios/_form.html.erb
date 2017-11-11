@@ -33,6 +33,11 @@
 <div class="row jumbotron jumbotron-unitarios-info">
   <h4 class="subs"><strong>Informaci&oacute;n general</strong></h4>
   <div class="row">
+    <div class="bs-callout bs-callout-warning" style="background: #ffffff;" >
+      <strong><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Deberás utilizar mayúsculas y minúsculas</strong>
+    </div>
+  </div>
+  <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :curp, 'CURP' %><strong><%= link_to '  ¿No conoce su CURP?', 'http://consultas.curp.gob.mx', html_options = {target: '_blank'} %></strong>
       <%= f.text_field :curp, class: 'form-control', required: true, maxlength: 18 %>
@@ -76,7 +81,7 @@
 
     <div class="form-group col-sm-2">
       <%= f.label :codigo_postal, 'Código postal'  %>
-      <%= f.text_field :codigo_postal, class:'form-control', required: true, maxlength: 5 %>
+      <%= f.text_field :codigo_postal, class:'form-control', required: true, maxlength: 5, pattern: '[0-9]+' %>
     </div>
 
     <div class="form-group col-sm-3">
@@ -92,12 +97,12 @@
 
     <div class="form-group col-sm-3">
       <%= f.label :telefono_celular, 'Teléfono celular' %>
-      <%= f.text_field :telefono_celular, class:'form-control', required: true, maxlength: 10 %>
+      <%= f.text_field :telefono_celular, class:'form-control', required: true, maxlength: 10, pattern: '[0-9]+' %>
     </div>
 
     <div class="form-group col-sm-3">
       <%= f.label :telefono_fijo, 'Teléfono fijo' %>
-      <%= f.text_field :telefono_fijo, class:'form-control', maxlength: 10 %>
+      <%= f.text_field :telefono_fijo, class:'form-control', maxlength: 10, pattern: '[0-9]+' %>
     </div>
 
     <div class="form-group col-sm-3">
@@ -132,7 +137,7 @@
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :parentesco_ipn, 'Parentesco con el alumno' %>
-      <%= f.text_field :parentesco_ipn, class:'form-control' %>
+      <%= f.select :parentesco_ipn, options_for_select([["Hermana","Hermana"],["Hermano","Hermano"],["Madre","Madre"],["Padre","Padre"]]), {}, {class: 'form-control'} %>
     </div>
   </div>
   <div class="row">
@@ -148,7 +153,7 @@
 
     <div class="form-group col-sm-4">
       <%= f.label :telefono_padre, 'Teléfono del padre o tutor' %>
-      <%= f.text_field :telefono_padre, class:'form-control', required: true, maxlength: 10 %>
+      <%= f.text_field :telefono_padre, class:'form-control', required: true, maxlength: 10, pattern: '[0-9]+' %>
     </div>
   </div>
   <strong><%= link_to 'Aviso de privacidad', 'https://www.gob.mx/privacidad', html_options = {target: '_blank'} %></strong>
