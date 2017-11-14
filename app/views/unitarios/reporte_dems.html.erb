@@ -25,10 +25,52 @@
       <th>Si</th>
       <th>No</th>
     </tr>
-
   </thead>
-
-
+  <% @unitarios.each do |unitario| %>
+    <tr>
+      <td>Centro de Educación Continua Ing. Eugenio Méndez Docurro</td>
+      <% if unitario.grupos_unitario.nombre ==  "Curso de preparación para el examen de admisión al Nivel Medio Superior" %>
+        <td>X</td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <% if unitario.grupos_unitario.nombre ==  "Curso de preparación para el examen de admisión al Nivel Superior" %>
+        <td>X</td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <td><%= unitario.paterno %></td>
+      <td><%= unitario.materno %></td>
+      <td><%= unitario.nombre %></td>
+      <td><%= unitario.correo %></td>
+      <td><%= unitario.procedencia %></td>
+      <% if unitario.familiar_ipn ==  true %>
+        <td>X</td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <% if unitario.familiar_ipn ==  false %>
+        <td>X</td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <td><%= unitario.nombre_ipn %></td>
+      <td><%= unitario.unidad_ipn %></td>
+      <td><%= unitario.parentesco_ipn %></td>
+      <% if unitario.solicito_beca ==  true %>
+        <td>X</td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <% if unitario.solicito_beca ==  false %>
+        <td>X</td>
+      <% else %>
+        <td></td>
+      <% end %>
+    </tr>
+    <% end %>
 </table>
 
+<%= paginate @unitarios, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+<br>
 <%= link_to 'Descargar .xlsx', reporte_dems_unitarios_path(format: :xlsx), class:'btn btn-primary btn-lg' %>

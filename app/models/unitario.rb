@@ -1,5 +1,7 @@
 class Unitario < ApplicationRecord
 
+  paginates_per 25
+
   has_attached_file :image, styles: { thumb: "100x150", medium: '200x250'}
 
   belongs_to :grupos_unitario
@@ -7,7 +9,17 @@ class Unitario < ApplicationRecord
   :correo, :sexo, presence: true
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  validates_with AttachmentSizeValidator, attributes: :image, less_than: 1.megabytes
+  validates_with AttachmentSizeValidator, attributes: :image, less_than: 2.megabytes
+
+  after_initialize :solicito_beca_inicial, :trabajador_familiar
+
+  def solicito_beca_inicial
+    self.solicito_beca ||= false if self.has_attribute? :solicito_beca
+  end
+
+  def trabajador_familiar
+    self.familiar_ipn ||= false if self.has_attribute? :familiar_ipn
+  end
 
   def paterno_materno_nombre
     "#{paterno} #{materno} #{nombre}"

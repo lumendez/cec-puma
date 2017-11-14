@@ -5,9 +5,39 @@ sheet.add_row ["Unidad académica", "NMS", "NS", "Apellido Paterno",
 "Nombre de Escuela de Procedencia", "Si", "No", "Nombre del trabajador del IPN",
 "Unidad de Adscripción del trabajador", "Parentesco con el Alumno", "Si", "No"]
 @unitarios.each do |unitario|
-    sheet.add_row ["Centro de Educación Continua Ing. Eugenio Méndez Docurro", unitario.grupos_unitario.nombre,
-    unitario.grupos_unitario.nombre, unitario.paterno, unitario.materno, unitario.nombre, unitario.correo, unitario.procedencia,
-    unitario.familiar_ipn, unitario.familiar_ipn, unitario.nombre_ipn, unitario.unidad_ipn, unitario.parentesco_ipn,
-    unitario.solicito_beca, unitario.solicito_beca]
+    sheet.add_row ["Centro de Educación Continua Ing. Eugenio Méndez Docurro",
+    if unitario.grupos_unitario.nombre ==  "Curso de preparación para el examen de admisión al Nivel Medio Superior"
+      "X"
+    else
+      ""
+    end,
+    if unitario.grupos_unitario.nombre ==  "Curso de preparación para el examen de admisión al Nivel Superior"
+      "X"
+    else
+      ""
+    end,
+    unitario.paterno, unitario.materno, unitario.nombre, unitario.correo, unitario.procedencia,
+    if unitario.familiar_ipn ==  true
+      "X"
+    else
+      ""
+    end,
+    if unitario.familiar_ipn ==  false
+      "X"
+    else
+      ""
+    end,
+    unitario.nombre_ipn, unitario.unidad_ipn, unitario.parentesco_ipn,
+    if unitario.solicito_beca ==  true
+      "X"
+    else
+      ""
+    end,
+    if unitario.solicito_beca ==  false
+      "X"
+    else
+      ""
+    end
+    ]
   end
 end

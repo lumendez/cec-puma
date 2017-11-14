@@ -121,8 +121,8 @@
       <%= f.text_field :procedencia, class:'form-control' %>
     </div>
 
-    <div class="form-group col-sm-3">
-      <%= f.label :familiar_ipn, 'Familiar que trabaje en el IPN' %>
+    <div class="form-group col-sm-4">
+      <%= f.label :familiar_ipn, 'Familiar (directo) que trabaje en el IPN' %>
       <%= f.check_box :familiar_ipn, class:'form-control' %>
     </div>
   </div>
@@ -438,7 +438,7 @@ bachillerato();
 <script>
     //Capitalize first letter while typing in side of input field
     jQuery(document).ready(function($) {
-        $('#unitario_nombre, #unitario_paterno, #unitario_materno').keyup(function(event) {
+        $('#unitario_nombre, #unitario_paterno, #unitario_materno, #unitario_entidad, #unitario_delegacion_municipio').keyup(function(event) {
             var textBox = event.target;
             var start = textBox.selectionStart;
             var end = textBox.selectionEnd;
