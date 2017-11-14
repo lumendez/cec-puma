@@ -23,20 +23,76 @@
     <tbody>
       <% @inscripcion_registros.each do |inscripcion_registro, index| %>
         <tr>
+          <% if inscripcion_registro.paterno_upcase.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.paterno_upcase %></td>
+          <% end %>
+          <% if inscripcion_registro.materno_upcase.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.materno_upcase %></td>
+          <% end %>
+          <% if inscripcion_registro.nombre_upcase.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.nombre_upcase %></td>
+          <% end %>
+          <% if inscripcion_registro.user.rfc.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.user.rfc %></td>
+          <% end %>
+          <% if inscripcion_registro.sexo.upcase.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.sexo.upcase %></td>
+          <% end %>
+          <% if inscripcion_registro.procedencia.mb_chars.upcase.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.procedencia.mb_chars.upcase %></td>
+          <% end %>
+          <% if inscripcion_registro.telefono.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.telefono %></td>
+          <% end %>
+          <% if inscripcion_registro.correo.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.correo %></td>
+          <% end %>
+          <% if inscripcion_registro.nivel.mb_chars.upcase.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.nivel.mb_chars.upcase %></td>
+          <% end %>
+          <% if inscripcion_registro.horario.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.horario %></td>
+          <% end %>
+          <% if inscripcion_registro.idioma.mb_chars.upcase.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.idioma.mb_chars.upcase %></td>
+          <% end %>
+          <% if inscripcion_registro.monto_pagado.nil? %>
+          <td></td>
+          <% else %>
           <td>$<%= inscripcion_registro.monto_pagado %></td>
+          <% end %>
+          <% if inscripcion_registro.movimiento.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.movimiento %></td>
+          <% end %>
+          <% if inscripcion_registro.curso.upcase.nil? %>
+          <td></td>
+          <% else %>
           <td><%= inscripcion_registro.curso.upcase %></td>
+          <% end %>
           <td><%= inscripcion_registro.created_at.strftime("%Y") %></td>
         </tr>
       <% end %>
