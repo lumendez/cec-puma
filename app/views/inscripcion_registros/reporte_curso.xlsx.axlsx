@@ -1,0 +1,50 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Reporte DEC") do |sheet|
+sheet.add_row ["A. Paterno", "A. Materno", "Nombre(s)", "Nivel","Horario", "Idioma", "Cantidad depositada",
+"Movimiento bancario", "Comunidad", "Curso", "Año"]
+@inscripcion_registros.each do |inscripcion_registro|
+    sheet.add_row [
+      if inscripcion_registro.paterno_upcase.nil?
+      else
+      inscripcion_registro.paterno_upcase
+      end,
+      if inscripcion_registro.materno_upcase.nil?
+      else
+      inscripcion_registro.materno_upcase
+      end,
+      if inscripcion_registro.nombre_upcase.nil?
+      else
+      inscripcion_registro.nombre_upcase
+      end,
+      if inscripcion_registro.nivel.mb_chars.upcase.nil?
+      else
+      inscripcion_registro.nivel.mb_chars.upcase
+      end,
+      if inscripcion_registro.horario.nil?
+      else
+      inscripcion_registro.horario
+      end,
+      if inscripcion_registro.idioma.mb_chars.upcase.nil?
+      else
+      inscripcion_registro.idioma.mb_chars.upcase
+      end,
+      if inscripcion_registro.monto_pagado.nil?
+      else
+      "$" + inscripcion_registro.monto_pagado
+      end,
+      if inscripcion_registro.movimiento.nil?
+      else
+      inscripcion_registro.movimiento
+      end,
+      if inscripcion_registro.procedencia.mb_chars.upcase.nil?
+      else
+      inscripcion_registro.procedencia.mb_chars.upcase
+      end,
+      if inscripcion_registro.curso.upcase.nil?
+      else
+      inscripcion_registro.curso.upcase
+      end,
+      inscripcion_registro.created_at.strftime("%Y")
+      ]
+    end
+  end

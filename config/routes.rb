@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'seleccionar_credenciales_media'
       get '/credenciales_media/:id', to: 'unitarios#credenciales_media', as: 'credenciales_media'
       get '/carta_compromiso/:id', to: 'unitarios#carta_compromiso', as: 'carta_compromiso'
+      get 'reporte_dems'
     end
   end
   resources :anexos_unicos_examen do
