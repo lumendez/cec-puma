@@ -1,8 +1,0 @@
-wb = xlsx_package.workbook
-wb.add_worksheet(name: "Reporte DEC") do |sheet|
-sheet.add_row ["Unidad académica", "NMS", "NS", "Apellido Paterno",
-"Apellido Materno", "Nombre (s)", "Correo Electrónico",
-"Nombre de Escuela de Procedencia", "Si", "No", "Nombre del trabajador del IPN",
-"Unidad de Adscripción del trabajador", "Parentesco con el Alumno", "Si", "No"]
-@unitarios.each do |unitario|
-    sheet.add_row ["Centro de Educación Continua Ing. Eugenio Méndez Docurro",
