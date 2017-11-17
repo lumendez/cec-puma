@@ -20,7 +20,11 @@ class Unitario < ApplicationRecord
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :image, less_than: 2.megabytes
 
-  after_initialize :solicito_beca_inicial, :trabajador_familiar
+  after_initialize :solicito_beca_inicial, :trabajador_familiar, :validacion
+
+  def validacion
+    self.documentos_validados ||= false if self.has_attribute? :documentos_validados
+  end
 
   def solicito_beca_inicial
     self.solicito_beca ||= false if self.has_attribute? :solicito_beca
