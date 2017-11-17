@@ -1,42 +1,47 @@
-<%= form_tag(editar_datos_unitarios_path, method: :get) do %>
 <h1 class="sub">Registros de inscripción de cursos unitarios</h1>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Nombre</th>
-      <th>Documentos validados</th>
-      <th>Fecha de creación</th>
-      <th>Grupo</th>
-      <th colspan="4">Opciones</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @unitarios.each do |unitario| %>
-      <tr>
-        <td><%= check_box_tag "unitario_ids[]", unitario.id %></td>
-        <td><%= unitario.paterno_materno_nombre %></td>
-        <% if unitario.documentos_validados == true %>
-          <td class="success"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
-        <% else %>
-          <td class="danger"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
-        <% end %>
-        <td><%= unitario.creado %></td>
-        <td><%= unitario.grupos_unitario.nombre %></td>
-        <td><%= link_to 'Carta', unitario %></td>
-        <td><%= link_to 'Credencial', credenciales_media_unitarios_path(unitario, :format => :pdf) %></td>
-        <td><%= link_to 'Editar', edit_unitario_path(unitario) %></td>
-        <td><%= link_to 'Eliminar', unitario, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
-<%= submit_tag "Editar seleccionados", class: 'btn btn-primary' %>
+<%= form_for_filterrific @filterrific do |f| %>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.label :search_query, 'Búsqueda por nombre' %>
+      <%= f.text_field(
+        :search_query,
+        class: 'filterrific-periodically-observed form-control'
+      ) %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :with_grupos_unitario_id, 'Nombre del curso' %>
+      <%= f.select(
+        :with_grupos_unitario_id,
+        @filterrific.select_options[:with_grupos_unitario_id],
+        { include_blank: '- Cualquiera -' }, class:'form-control'
+      ) %>
+      <br>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :with_documentos_validados, 'Filtrar por estado' %>
+      <%= f.select(:with_documentos_validados, @filterrific.select_options[:with_documentos_validados], { include_blank: '- Por defecto -'}, class:'form-control') %>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-3">
+        <%= link_to(
+          'Quitar filtros',
+          reset_filterrific_url,
+          class: 'btn btn-primary'
+        ) %>
+      </div>
+  </div>
+</div>
+  <%# add an automated spinner to your form when the list is refreshed %>
 <% end %>
-<br>
+
+<%= render(
+  partial: 'unitarios/registros',
+  locals: { unitarios: @unitarios }
+) %>
 
 <%= link_to 'Crear nuevo registro', new_unitario_path %>
 <script>

@@ -10,7 +10,7 @@ class GruposUnitario < ApplicationRecord
   end
 
   def self.seleccion_curso_nombre
-    order('LOWER(nombre)').map { |e| [e.nombre] }
+    order('LOWER(nombre)').map { |e| [e.nombre, e.id] }
   end
 
 end

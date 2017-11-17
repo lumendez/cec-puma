@@ -86,4 +86,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   #Host para recuperar la contraseña
   config.action_mailer.default_url_options = {:host => 'http://celex.cec-mendezdocurro.ipn.mx'}
+  config.time_zone = 'America/Mexico_City'
 end
