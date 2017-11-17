@@ -12,7 +12,7 @@ class UnitariosController < ApplicationController
     Unitario,
     params[:filterrific],
     select_options: {
-      with_grupos_unitario_id: GruposUnitario.seleccion_curso_nombre,
+      with_grupos_unitario_id: GruposUnitario.where(estado: "Abierto").seleccion_curso_nombre,
       with_documentos_validados: Unitario.options_for_documentos_validados
     },
   ) or return
