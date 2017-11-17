@@ -54,7 +54,7 @@ class UnitariosController < ApplicationController
     # imprimir la carta compromiso, para los demás cursos puede existir esa
     # opción pero de momento se les redirecciona a la página principal y se les
     # notifica que su inscripción se realizó de manera correcta.
-    if @unitario.grupos_unitario.nombre.include? "Curso de preparación para el examen de admisión"
+    if @unitario.grupos_unitario.nombre.include? "Curso de preparación para el examen de admisión" or @unitario.grupos_unitario.nombre.include? "Curso propedéutico para el examen de admisión" 
       respond_to do |format|
         if @unitario.save
           format.html { redirect_to @unitario, notice: 'Su registro se creó correctamente.' }
