@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'unitarios/registros', locals: { unitarios: @unitarios })
+) %>
+$("#filterrific_results").html("<%= js %>");

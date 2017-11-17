@@ -6,8 +6,27 @@ class UnitariosController < ApplicationController
   # GET /unitarios
   # GET /unitarios.json
   def index
-    @unitarios = Unitario.all
-    @grupos_unitarios = GruposUnitario.all
+    #@unitarios = Unitario.all
+    #@grupos_unitarios = GruposUnitario.all
+    @filterrific = initialize_filterrific(
+    Unitario,
+    params[:filterrific],
+    select_options: {
+      with_grupos_unitario_id: GruposUnitario.seleccion_curso_nombre,
+      with_documentos_validados: Unitario.options_for_documentos_validados
+    },
+  ) or return
+  @unitarios = @filterrific.find.page(params[:pagina])
+
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
+  rescue ActiveRecord::RecordNotFound => e
+  # There is an issue with the persisted param_set. Reset it.
+  puts "Had to reset filterrific params: #{ e.message }"
+  redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   # GET /unitarios/1
@@ -93,6 +112,7 @@ class UnitariosController < ApplicationController
 
   def reporte_dems
     @unitarios = Unitario.where(documentos_validados: true).order('paterno DESC').page(params[:pagina])
+    @unitarios
     respond_to do |format|
       format.html
       format.xlsx
