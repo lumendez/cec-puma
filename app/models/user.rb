@@ -38,7 +38,7 @@ class User < ApplicationRecord
   has_many :curriculums, dependent: :destroy
 
   #Opciones de kaminari para la paginación de los registros del modelo (25 en este caso)
-  paginates_per 25
+  paginates_per 50
 
   #Definición de roles para devise
   def assign_role
