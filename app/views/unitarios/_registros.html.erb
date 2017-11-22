@@ -26,7 +26,7 @@
             <td class="danger"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
           <% end %>
           <td><%= unitario.creado %></td>
-          <td><%= unitario.creado %></td>
+          <td><%= unitario.actualizado %></td>
           <td><%= unitario.grupos_unitario.nombre %></td>
           <td><%= link_to 'Carta', unitario %></td>
           <td><%= link_to 'Credencial', credenciales_media_unitarios_path(unitario, :format => :pdf) %></td>
