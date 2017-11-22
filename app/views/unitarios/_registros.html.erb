@@ -8,6 +8,7 @@
         <th>Nombre</th>
         <th>Documentos validados</th>
         <th>Fecha de creación</th>
+        <th>Última actualización</th>
         <th>Grupo</th>
         <th colspan="4">Opciones</th>
       </tr>
@@ -24,6 +25,7 @@
           <% else %>
             <td class="danger"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
           <% end %>
+          <td><%= unitario.creado %></td>
           <td><%= unitario.creado %></td>
           <td><%= unitario.grupos_unitario.nombre %></td>
           <td><%= link_to 'Carta', unitario %></td>

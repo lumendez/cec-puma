@@ -25,18 +25,18 @@
       <%= f.select(:with_documentos_validados, @filterrific.select_options[:with_documentos_validados], { include_blank: '- Por defecto -'}, class:'form-control') %>
     </div>
     <div class="form-group col-sm-2">
-      <%= f.label :with_created_at_gte, 'Fecha mayor o igual' %><br>
+      <%= f.label :with_updated_at_gte, 'Fecha mayor o igual' %><br>
       <div class="input-group date">
-        <%= f.text_field :with_created_at_gte, class:'dia form-control' %>
+        <%= f.text_field :with_updated_at_gte, class:'dia form-control' %>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>
       </div>
     </div>
     <div class="form-group col-sm-2">
-      <%= f.label :with_created_at_lt, 'Fecha menor que' %><br>
+      <%= f.label :with_updated_at_lt, 'Fecha menor que' %><br>
       <div class="input-group date">
-        <%= f.text_field :with_created_at_lt, class:'dia-lim form-control' %>
+        <%= f.text_field :with_updated_at_lt, class:'dia-lim form-control' %>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>
