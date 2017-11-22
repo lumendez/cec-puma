@@ -1,0 +1,42 @@
+<%= form_tag(grupos_nms_s_unitarios_path, method: :get) do %>
+<div id="filterrific_results">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Folio</th>
+        <th>Nombre</th>
+        <th>Documentos validados</th>
+        <th>Fecha de creación</th>
+        <th>Grupo</th>
+        <th colspan="4">Opciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @unitarios.each do |unitario| %>
+        <tr>
+          <td><%= check_box_tag "unitario_ids[]", unitario.id %></td>
+          <td><%= unitario.id %></td>
+          <td><%= unitario.paterno_materno_nombre %></td>
+          <% if unitario.documentos_validados == true %>
+            <td class="success"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
+          <% else %>
+            <td class="danger"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
+          <% end %>
+          <td><%= unitario.creado %></td>
+          <td><%= unitario.grupos_unitario.nombre %></td>
+          <td><%= link_to 'Carta', unitario %></td>
+          <td><%= link_to 'Credencial', credenciales_media_unitarios_path(unitario, :format => :pdf) %></td>
+          <td><%= link_to 'Editar', edit_unitario_path(unitario) %></td>
+          <td><%= link_to 'Eliminar', unitario, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+  <%= submit_tag "Editar seleccionados", class: 'btn btn-primary' %><br>
+  <%= paginate @unitarios, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+  <% end %>
+  <br>
+</div>

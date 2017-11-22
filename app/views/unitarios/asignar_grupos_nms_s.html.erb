@@ -1,9 +1,9 @@
-<h1 class="sub">Registros de inscripción de cursos unitarios</h1>
+<h1 class="sub">Selecionar registros para asignar grupo</h1>
 
 <%= form_for_filterrific @filterrific do |f| %>
 <div class="jumbotron">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
       <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
       <%= f.label :search_query, 'Búsqueda por nombre' %>
       <%= f.text_field(
@@ -11,7 +11,7 @@
         class: 'filterrific-periodically-observed form-control'
       ) %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <%= f.label :with_grupos_unitario_id, 'Nombre del curso' %>
       <%= f.select(
         :with_grupos_unitario_id,
@@ -20,27 +20,9 @@
       ) %>
       <br>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
       <%= f.label :with_documentos_validados, 'Filtrar por estado' %>
       <%= f.select(:with_documentos_validados, @filterrific.select_options[:with_documentos_validados], { include_blank: '- Por defecto -'}, class:'form-control') %>
-    </div>
-    <div class="form-group col-sm-2">
-      <%= f.label :with_created_at_gte, 'Fecha mayor o igual' %><br>
-      <div class="input-group date">
-        <%= f.text_field :with_created_at_gte, class:'dia form-control' %>
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
-        </span>
-      </div>
-    </div>
-    <div class="form-group col-sm-2">
-      <%= f.label :with_created_at_lt, 'Fecha menor que' %><br>
-      <div class="input-group date">
-        <%= f.text_field :with_created_at_lt, class:'dia-lim form-control' %>
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
-        </span>
-      </div>
     </div>
   </div>
   <div class="row">
@@ -57,7 +39,7 @@
 <% end %>
 
 <%= render(
-  partial: 'unitarios/registros',
+  partial: 'unitarios/lista_asignar_grupos_nms_s',
   locals: { unitarios: @unitarios }
 ) %>
 
@@ -74,10 +56,4 @@ $('#selectAll').click(function() {
        });
    }
 });
-</script>
-<script>
-  $(document).ready(function(){
-    $('.dia').datepicker({format: 'yyyy/mm/dd', language: 'es'});
-    $('.dia-lim').datepicker({format: 'yyyy/mm/dd', language: 'es'});
-  });
 </script>

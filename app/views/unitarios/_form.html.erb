@@ -137,7 +137,7 @@
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :parentesco_ipn, 'Parentesco con el alumno' %>
-      <%= f.select :parentesco_ipn, options_for_select([["Hermana","Hermana"],["Hermano","Hermano"],["Madre","Madre"],["Padre","Padre"]]), {}, {class: 'form-control'} %>
+      <%= f.select :parentesco_ipn, options_for_select([["Seleccione",""],["Hermana","Hermana"],["Hermano","Hermano"],["Madre","Madre"],["Padre","Padre"]]), {}, {class: 'form-control'} %>
     </div>
   </div>
   <div class="row">
@@ -436,7 +436,7 @@ function bachillerato(){
 $("select").change(bachillerato);
 bachillerato();
 </script>
-<script>
+<!--<script>
     //Capitalize first letter while typing in side of input field
     jQuery(document).ready(function($) {
         $('#unitario_nombre, #unitario_paterno, #unitario_materno, #unitario_entidad, #unitario_delegacion_municipio').keyup(function(event) {
@@ -447,4 +447,4 @@ bachillerato();
             textBox.setSelectionRange(start, end);
         });
     });
-</script>
+</script>-->

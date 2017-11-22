@@ -29,6 +29,30 @@ class UnitariosController < ApplicationController
   redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
+  def asignar_grupos_nms_s
+    #@unitarios = Unitario.all
+    #@grupos_unitarios = GruposUnitario.all
+    @filterrific = initialize_filterrific(
+    Unitario,
+    params[:filterrific],
+    select_options: {
+      with_grupos_unitario_id: GruposUnitario.where(estado: "Abierto").seleccion_curso_nombre,
+      with_documentos_validados: Unitario.options_for_documentos_validados
+    },
+  ) or return
+  @unitarios = @filterrific.find.page(params[:pagina])
+
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
+  rescue ActiveRecord::RecordNotFound => e
+  # There is an issue with the persisted param_set. Reset it.
+  puts "Had to reset filterrific params: #{ e.message }"
+  redirect_to(reset_filterrific_url(format: :html)) and return
+  end
+
   # GET /unitarios/1
   # GET /unitarios/1.json
   def show
@@ -54,7 +78,7 @@ class UnitariosController < ApplicationController
     # imprimir la carta compromiso, para los demás cursos puede existir esa
     # opción pero de momento se les redirecciona a la página principal y se les
     # notifica que su inscripción se realizó de manera correcta.
-    if @unitario.grupos_unitario.nombre.include? "Curso de preparación para el examen de admisión" or @unitario.grupos_unitario.nombre.include? "Curso propedéutico para el examen de admisión" 
+    if @unitario.grupos_unitario.nombre.include? "Curso de preparación para el examen de admisión" or @unitario.grupos_unitario.nombre.include? "Curso propedéutico para el examen de admisión"
       respond_to do |format|
         if @unitario.save
           format.html { redirect_to @unitario, notice: 'Su registro se creó correctamente.' }
@@ -148,6 +172,16 @@ class UnitariosController < ApplicationController
   end
 
   def actualizar_editar_datos
+    Unitario.update(params[:unitarios].keys, params[:unitarios].values)
+    flash[:notice] = "Datos guardados"
+    redirect_to unitarios_path
+  end
+
+  def grupos_nms_s
+    @unitarios = Unitario.where(id: params[:unitario_ids])
+  end
+
+  def actualizar_grupos_nms_s
     Unitario.update(params[:unitarios].keys, params[:unitarios].values)
     flash[:notice] = "Datos guardados"
     redirect_to unitarios_path

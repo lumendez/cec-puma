@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'unitarios/lista_asignar_grupos_nms_s', locals: { unitarios: @unitarios })
+) %>
+$("#filterrific_results").html("<%= js %>");

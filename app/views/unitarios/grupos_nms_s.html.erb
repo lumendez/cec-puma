@@ -1,0 +1,39 @@
+<h3 class="sub">Asignar grupos</h3>
+<%= form_tag actualizar_grupos_nms_s_unitarios_path, method: :patch do %>
+<div class="row">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Número</th>
+      <th>Nombre</th>
+      <th>CURP</th>
+      <th>Grupo</th>
+      <th>Año</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @unitarios.each_with_index do |unitario, index| %>
+          <%= fields_for "unitarios[]", unitario do |f| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= unitario.nombre_paterno_materno %></td>
+              <td><%= unitario.curp %></td>
+              <td><%= unitario.grupos_unitario.nombre %></td>
+              <td><%= unitario.anio %></td>
+            </tr>
+          <% end %>
+      <% end %>
+  </tbody>
+</table>
+</div>
+<div class="row">
+  <div class="form-group col-sm-3">
+    <%= f.label :grupos_unitario_id %>
+    <%= collection_select(:unitario, :grupos_unitario_id, GruposUnitario.where("nombre LIKE ? OR nombre LIKE ?", "Curso propedéutico para el examen de admisión al Nivel Medio Superior", "Curso de preparación para el examen de admisión al Nivel Superior"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+  </div>
+</div>
+<%= submit_tag "Enviar", class: 'btn btn-primary' %>
+<br>
+<br>
+<%= link_to 'Regresar', unitarios_path %>
+<% end %>
