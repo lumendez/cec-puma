@@ -93,6 +93,61 @@ class UsersController < ApplicationController
   def historial_ingles
       @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés')
       @examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Inglés')
+
+      @basico1 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 1").last
+      @basico2 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 2").last
+      @basico3 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 3").last
+      @basico4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 4").last
+      @basico5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 5").last
+      @intermedio1 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 1").last
+      @intermedio2 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 2").last
+      @intermedio3 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 3").last
+      @intermedio4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 4").last
+      @intermedio5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 5").last
+      @avanzado1 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 1").last
+      @avanzado2 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 2").last
+      @avanzado3 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 3").last
+      @avanzado4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 4").last
+      @avanzado5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 5").last
+
+      fecha = Date.today
+      @dias = fecha.day
+      if fecha.month == 1
+        @mes = "enero"
+      elsif fecha.month == 2
+        @mes = "febrero"
+      elsif fecha.month == 3
+        @mes = "marzo"
+      elsif fecha.month == 4
+        @mes = "abril"
+      elsif fecha.month == 5
+        @mes = "mayo"
+      elsif fecha.month == 6
+        @mes = "junio"
+      elsif fecha.month == 7
+        @mes = "julio"
+      elsif fecha.month == 8
+        @mes = "agosto"
+      elsif fecha.month == 9
+        @mes = "septiembre"
+      elsif fecha.month == 10
+        @mes = "octubre"
+      elsif fecha.month == 11
+        @mes = "noviembre"
+      elsif fecha.month == 12
+        @mes = "diciembre"
+      end
+
+      if fecha.year == 2017
+        @anio = "dos mil diecisiete"
+      elsif fecha.year == 2018
+        @anio = "dos mil dieciocho"
+      elsif fecha.year == 2019
+        @anio = "dos mil diecinueve"
+      elsif fecha.year == 2020
+        @anio = "dos mil veinte"
+      end
+
   end
 
 
