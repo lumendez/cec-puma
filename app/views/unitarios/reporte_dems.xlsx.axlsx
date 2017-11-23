@@ -6,7 +6,7 @@ sheet.add_row ["Unidad académica", "NMS", "NS", "Apellido Paterno",
 "Unidad de Adscripción del trabajador", "Parentesco con el Alumno", "Si", "No"]
 @unitarios.each do |unitario|
     sheet.add_row ["Centro de Educación Continua Ing. Eugenio Méndez Docurro",
-    if unitario.grupos_unitario.nombre ==  "Curso de preparación para el examen de admisión al Nivel Medio Superior"
+    if unitario.grupos_unitario.nombre ==  "Curso propedéutico para el examen de admisión al Nivel Medio Superior"
       "X"
     else
       ""
