@@ -6,8 +6,8 @@ class Unitario < ApplicationRecord
              :search_query,
              :with_grupos_unitario_id,
              :with_documentos_validados,
-             :with_created_at_gte,
-             :with_created_at_lt
+             :with_updated_at_gte,
+             :with_updated_at_lt
            ]
          )
 
@@ -46,6 +46,10 @@ class Unitario < ApplicationRecord
 
   def creado
     self.created_at.strftime("%d/%m/%y a las %T %P")
+  end
+
+  def actualizado
+    self.updated_at.strftime("%d/%m/%y a las %T %P")
   end
 
   def filtro_dia
@@ -96,12 +100,12 @@ class Unitario < ApplicationRecord
     where(documentos_validados: [*documentos_validados])
   }
 
-  scope :with_created_at_gte, lambda { |ref_date|
-    where('unitarios.created_at >= ?', ref_date)
+  scope :with_updated_at_gte, lambda { |ref_date|
+    where('unitarios.updated_at >= ?', ref_date)
   }
 
-  scope :with_created_at_lt, lambda { |reference_time|
-    where('unitarios.created_at < ?', reference_time)
+  scope :with_updated_at_lt, lambda { |reference_time|
+    where('unitarios.updated_at < ?', reference_time)
   }
 
   def self.options_for_documentos_validados
