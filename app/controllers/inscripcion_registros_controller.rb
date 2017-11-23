@@ -147,7 +147,7 @@ class InscripcionRegistrosController < ApplicationController
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Intermedio 2', estado: 'Abierto')
     elsif registro_anterior.nivel == 'Intermedio 3' && registro_anterior.promedio >= 80
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Intermedio 4', estado: 'Abierto')
-    elsif registro_anterior.nivel == 'Intermedio 3' && registro_anterior.promedio >= 80
+    elsif registro_anterior.nivel == 'Intermedio 3' && registro_anterior.promedio < 80
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Intermedio 3', estado: 'Abierto')
     elsif registro_anterior.nivel == 'Intermedio 4' && registro_anterior.promedio >= 80
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Intermedio 5', estado: 'Abierto')
