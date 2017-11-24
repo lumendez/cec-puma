@@ -197,6 +197,9 @@
         <%= f.label :image, 'Fotografía' %><br>
         <% if unitario.image.present? %>
           <%= image_tag unitario.image.url('thumb') %>
+          <br>
+          <br>
+          <%= link_to 'imagen original', unitario.image.url %>
         <% else %>
           <%= "Falta fotogrtafía" %>
         <% end %>
