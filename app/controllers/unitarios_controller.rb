@@ -49,7 +49,7 @@ class UnitariosController < ApplicationController
 
   rescue ActiveRecord::RecordNotFound => e
   # There is an issue with the persisted param_set. Reset it.
-  puts "Had to reset filterrific params: #{ e.message }"
+  puts "Se restablecieron los parámetros: #{ e.message }"
   redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
@@ -248,17 +248,32 @@ class UnitariosController < ApplicationController
 
   def credenciales_media
     @unitario = Unitario.find(params[:id])
-    respond_to do |format|
-     format.html
-     format.pdf do
-       render pdf: "credenciales_media",
-       disposition: "attachment",
-       template: "unitarios/credenciales_media.html.erb",
-       layout: "credenciales_media_pdf.html",
-       background: true,
-       no_background: false,
-       margin: {top: 20}
-     end
+    if @unitario.grupos_unitario.nombre.include?("Curso propedéutico para el examen de admisión al Nivel Medio Superior")
+      respond_to do |format|
+       format.html
+       format.pdf do
+         render pdf: "credenciales_media",
+         disposition: "attachment",
+         template: "unitarios/credenciales_media.html.erb",
+         layout: "credenciales_media_pdf.html",
+         background: true,
+         no_background: false,
+         margin: {top: 20}
+       end
+      end
+    elsif @unitario.grupos_unitario.nombre.include?("Curso de preparación para el examen de admisión al Nivel Superior")
+      respond_to do |format|
+       format.html
+       format.pdf do
+         render pdf: "credenciales_superior",
+         disposition: "attachment",
+         template: "unitarios/credenciales_superior.html.erb",
+         layout: "credenciales_superior_pdf.html",
+         background: true,
+         no_background: false,
+         margin: {top: 20}
+       end
+      end
     end
   end
 
