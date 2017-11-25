@@ -25,13 +25,11 @@ class UnitariosController < ApplicationController
 
   rescue ActiveRecord::RecordNotFound => e
   # There is an issue with the persisted param_set. Reset it.
-  puts "Had to reset filterrific params: #{ e.message }"
+  puts "Se restablecieron los parámetros: #{ e.message }"
   redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def asignar_grupos_nms_s
-    #@unitarios = Unitario.all
-    #@grupos_unitarios = GruposUnitario.all
     @filterrific = initialize_filterrific(
     Unitario,
     params[:filterrific],
