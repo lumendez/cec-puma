@@ -177,12 +177,15 @@ class UnitariosController < ApplicationController
   end
 
   def grupos_nms_s
-    @unitarios = Unitario.where(id: params[:unitario_ids])
+    @unitarios = Unitario.find(params[:unitario_ids])
   end
 
   def actualizar_grupos_nms_s
-    Unitario.update(params[:unitarios].keys, params[:unitarios].values)
-    flash[:notice] = "Datos guardados"
+    @unitarios = Unitario.find(params[:unitario_ids])
+    @unitarios.each do |unitario|
+      unitario.update(asignar_grupo_params)
+    end
+    flash[:notice] = "Grupos asignados correctamente!"
     redirect_to unitarios_path
   end
 
@@ -277,22 +280,6 @@ class UnitariosController < ApplicationController
     end
   end
 
-  def credenciales_superior
-    @unitario = Unitario.find(params[:id])
-    respond_to do |format|
-     format.html
-     format.pdf do
-       render pdf: "credenciales_media",
-       disposition: "attachment",
-       template: "unitarios/credenciales_media.html.erb",
-       layout: "credenciales_superior_pdf.html",
-       background: true,
-       no_background: false,
-       margin: {top: 20}
-     end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_unitario
@@ -315,5 +302,9 @@ class UnitariosController < ApplicationController
       :correo_padre, :telefono_padre, :grupos_unitario_id, :documentos_validados,
       :examen_final, :image, :familiar_ipn, :nombre_ipn, :unidad_ipn, :parentesco_ipn,
       :bachillerato_ipn, :solicito_beca)
+    end
+
+    def asignar_grupo_params
+      params.require(:unitario).permit(:grupos_unitario_id)
     end
 end

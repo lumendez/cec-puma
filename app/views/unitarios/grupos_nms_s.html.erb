@@ -1,5 +1,5 @@
 <h3 class="sub">Asignar grupos</h3>
-<%= form_tag actualizar_grupos_nms_s_unitarios_path, method: :patch do %>
+<%= form_for :unitario, url: actualizar_grupos_nms_s_unitarios_path, method: :patch do |form| %>
 <div class="row">
 <table class="table table-bordered">
   <thead>
@@ -13,22 +13,21 @@
   </thead>
   <tbody>
       <% @unitarios.each_with_index do |unitario, index| %>
-          <%= fields_for "unitarios[]", unitario do |f| %>
-            <tr>
-              <td><%= index + 1 %></td>
-              <td><%= unitario.nombre_paterno_materno %></td>
-              <td><%= unitario.curp %></td>
-              <td><%= unitario.grupos_unitario.nombre %></td>
-              <td><%= unitario.anio %></td>
-            </tr>
-          <% end %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= unitario.nombre_paterno_materno %></td>
+            <td><%= unitario.curp %></td>
+            <td><%= unitario.grupos_unitario.nombre %></td>
+            <td><%= unitario.anio %></td>
+            <%= hidden_field_tag "unitario_ids[]", unitario.id %>
+          </tr>
       <% end %>
   </tbody>
 </table>
 </div>
 <div class="row">
-  <div class="form-group col-sm-3">
-    <%= f.label :grupos_unitario_id %>
+  <div class="form-group col-sm-4">
+    <%= form.label :grupos_unitario_id, "Seleccione el grupo:" %>
     <%= collection_select(:unitario, :grupos_unitario_id, GruposUnitario.where("nombre LIKE ? OR nombre LIKE ?", "Curso propedéutico para el examen de admisión al Nivel Medio Superior", "Curso de preparación para el examen de admisión al Nivel Superior"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
   </div>
 </div>
