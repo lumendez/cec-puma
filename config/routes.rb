@@ -134,6 +134,8 @@ Rails.application.routes.draw do
       get 'reporte_dec'
       post 'editar_datos'
       patch 'actualizar_editar_datos'
+      get 'caso_especial'
+      post 'guardar_caso_especial'
     end
   end
   resources :panel_alumnos do

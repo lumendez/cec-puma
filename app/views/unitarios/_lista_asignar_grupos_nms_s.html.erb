@@ -1,4 +1,4 @@
-<%= form_tag grupos_nms_s_unitarios_path do %>
+<%= form_tag grupos_nms_s_unitarios_path, method: :get do %>
 <div id="filterrific_results">
   <table class="table table-bordered">
     <thead>
@@ -35,7 +35,7 @@
     </tbody>
   </table>
   <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
-  <%= submit_tag "Editar seleccionados", class: 'btn btn-primary' %><br>
+  <%= submit_tag "Asignar seleccionados", class: 'btn btn-primary' %><br>
   <%= paginate @unitarios, theme: 'twitter-bootstrap-3', param_name: :pagina %>
   <% end %>
   <br>
