@@ -34,7 +34,7 @@
 
 <p><strong>Cursos de este usuario:</strong></p>
 <% if @inscripcion_registros.present? %>
-<p>Cursos de Inglés</p>
+<p align="center">Cursos de Inglés</p>
 <table class="table table-bordered">
   <thead>
       <tr>
@@ -66,7 +66,7 @@
 <% end %>
 
 <% if @fr_inscripcion_registros.present? %>
-<p>Cursos de Francés</p>
+<p align="center">Cursos de Francés</p>
 <table class="table table-bordered">
   <thead>
       <tr>
@@ -74,6 +74,7 @@
         <th>Curso</th>
         <th>Horario</th>
         <th>Periodo</th>
+        <th>Promedio</th>
       </tr>
   </thead>
   <% @fr_inscripcion_registros.each do |fr_inscripcion_registro| %>
@@ -83,6 +84,11 @@
       <td><%= fr_inscripcion_registro.curso %></td>
       <td><%= fr_inscripcion_registro.horario %></td>
       <td><%= fr_inscripcion_registro.periodo %></td>
+      <% if fr_inscripcion_registro.promedio <= 40 %>
+      <td>No disponible</td>
+      <% elsif fr_inscripcion_registro.promedio > 40 %>
+      <td><%= fr_inscripcion_registro.promedio %></td>
+      <% end %>
     </tr>
   </tbody>
   <% end %>
@@ -92,7 +98,7 @@
 <% end %>
 
 <% if @it_inscripcion_registros.present? %>
-<p>Cursos de Italiano</p>
+<p align="center">Cursos de Italiano</p>
 <table class="table table-bordered">
   <thead>
       <tr>
@@ -100,6 +106,7 @@
         <th>Curso</th>
         <th>Horario</th>
         <th>Periodo</th>
+        <th>Promedio</th>
       </tr>
   </thead>
   <% @it_inscripcion_registros.each do |it_inscripcion_registro| %>
@@ -109,6 +116,11 @@
       <td><%= it_inscripcion_registro.curso %></td>
       <td><%= it_inscripcion_registro.horario %></td>
       <td><%= it_inscripcion_registro.periodo %></td>
+      <% if it_inscripcion_registro.promedio <= 40 %>
+      <td>No disponible</td>
+      <% elsif it_inscripcion_registro.promedio > 40 %>
+      <td><%= it_inscripcion_registro.promedio %></td>
+      <% end %>
     </tr>
   </tbody>
   <% end %>
