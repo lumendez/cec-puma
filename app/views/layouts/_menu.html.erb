@@ -44,7 +44,7 @@
             <%= link_to "Ver preregistros de Italiano", it_inscripcion_registros_path %>
           </li>
           <li>
-            <%= link_to "Crear registro de preinscripción", new_inscripcion_registro_path %>
+            <%= link_to "Crear preinscripción (caso especial)", caso_especial_inscripcion_registros_path %>
           </li>
           <li role="separator" class="divider"></li>
           <li>
@@ -207,7 +207,7 @@
             <%= link_to "Ver preregistros de Italiano", it_inscripcion_registros_path %>
           </li>
           <li>
-            <%= link_to "Crear registro de preinscripción", new_inscripcion_registro_path %>
+            <%= link_to "Crear preinscripción (caso especial)", caso_especial_inscripcion_registros_path %>
           </li>
           <li role="separator" class="divider"></li>
           <li>
@@ -385,6 +385,9 @@
                 <%= link_to "Ver preregistros de cursos", unitarios_path %>
               </li>
               <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to "Asignar grupos", asignar_grupos_nms_s_unitarios_path %>
+              </li>
               <li>
                 <%= link_to "Ver grupos", grupos_unitarios_path %>
               </li>

@@ -2,7 +2,6 @@
   <% if unitario.errors.any? %>
     <div id="error_explanation">
       <h2>El formulario no pudo guardarse debido a lo siguiente:</h2>
-
       <ul>
       <% unitario.errors.full_messages.each do |message| %>
         <li><%= message %></li>
