@@ -32,5 +32,81 @@
   <% end %>
 </p>
 
+<p><strong>Cursos de este usuario:</strong></p>
+<% if @inscripcion_registros.present? %>
+<table class="table table-bordered">
+  <thead>
+      <tr>
+        <th>Nivel</th>
+        <th>Curso</th>
+        <th>Horario</th>
+        <th>Periodo</th>
+      </tr>
+  </thead>
+  <% @inscripcion_registros.each do |inscripcion_registro| %>
+  <tbody>
+    <tr>
+      <td><%= inscripcion_registro.nivel %></td>
+      <td><%= inscripcion_registro.curso %></td>
+      <td><%= inscripcion_registro.horario %></td>
+      <td><%= inscripcion_registro.periodo %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<% else %>
+<p>Este usuario no tiene cursos previos del idioma Inglés</p>
+<% end %>
+
+<% if @fr_inscripcion_registros.present? %>
+<table class="table table-bordered">
+  <thead>
+      <tr>
+        <th>Nivel</th>
+        <th>Curso</th>
+        <th>Horario</th>
+        <th>Periodo</th>
+      </tr>
+  </thead>
+  <% @fr_inscripcion_registros.each do |fr_inscripcion_registro| %>
+  <tbody>
+    <tr>
+      <td><%= fr_inscripcion_registro.nivel %></td>
+      <td><%= fr_inscripcion_registro.curso %></td>
+      <td><%= fr_inscripcion_registro.horario %></td>
+      <td><%= fr_inscripcion_registro.periodo %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<% else %>
+<p>Este usuario no tiene cursos previos del idioma Francés</p>
+<% end %>
+
+<% if @it_inscripcion_registros.present? %>
+<table class="table table-bordered">
+  <thead>
+      <tr>
+        <th>Nivel</th>
+        <th>Curso</th>
+        <th>Horario</th>
+        <th>Periodo</th>
+      </tr>
+  </thead>
+  <% @it_inscripcion_registros.each do |it_inscripcion_registro| %>
+  <tbody>
+    <tr>
+      <td><%= it_inscripcion_registro.nivel %></td>
+      <td><%= it_inscripcion_registro.curso %></td>
+      <td><%= it_inscripcion_registro.horario %></td>
+      <td><%= it_inscripcion_registro.periodo %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<% else %>
+<p>Este usuario no tiene cursos previos del idioma Italiano</p>
+<% end %>
+
 <%= link_to 'Editar', edit_user_path(@user) %> |
 <%= link_to 'Regresar', users_path %>
