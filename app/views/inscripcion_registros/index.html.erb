@@ -38,13 +38,9 @@
       </div>
   </div>
 </div>
-  <%# add an automated spinner to your form when the list is refreshed %>
 <% end %>
 
 <%= render(
   partial: 'inscripcion_registros/registros',
   locals: { inscripcion_registros: @inscripcion_registros }
 ) %>
-
-<br>
-<%= link_to 'Crear nuevo registro de inscripción', new_inscripcion_registro_path %>

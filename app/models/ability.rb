@@ -87,6 +87,8 @@ class Ability
         can :imprimir, InscripcionRegistro
         can :editar_datos, InscripcionRegistro
         can :actualizar_editar_datos, InscripcionRegistro
+        can :caso_especial, InscripcionRegistro
+        can :guardar_caso_especial, InscripcionRegistro
         #
         can :read, FrInscripcionRegistro
         can :create, FrInscripcionRegistro
