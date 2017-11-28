@@ -42,6 +42,7 @@
         <th>Curso</th>
         <th>Horario</th>
         <th>Periodo</th>
+        <th>Promedio</th>
       </tr>
   </thead>
   <% @inscripcion_registros.each do |inscripcion_registro| %>
@@ -51,6 +52,11 @@
       <td><%= inscripcion_registro.curso %></td>
       <td><%= inscripcion_registro.horario %></td>
       <td><%= inscripcion_registro.periodo %></td>
+      <% if inscripcion_registro.promedio <= 40 %>
+      <td>No disponible</td>
+      <% elsif inscripcion_registro.promedio > 40 %>
+      <td><%= inscripcion_registro.promedio %></td>
+      <% end %>
     </tr>
   </tbody>
   <% end %>
