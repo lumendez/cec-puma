@@ -91,6 +91,8 @@ gem 'wkhtmltopdf-binary'
 
 gem 'axlsx_rails'
 
+gem 'lightbox-bootstrap-rails', '5.1.0.1'
+
 # Please clean up duplicated gems if any.
 # Feel free to remove gems that you don't want to use or if they conflict with other gem dependencies. (you might need to update .pryrc also)
 group :development, :test do

@@ -172,11 +172,14 @@
         <br>
         <br>
     </div>
+    <%= f.label :image, 'Suba su fotografía' %>
+    <%= f.file_field :image, class:'btn btn-lg btn-default' %>
   </div>
 
   <div class="form-group col-md-6">
-    <%= f.label :image, 'Suba su fotografía' %>
-    <%= f.file_field :image, class:'btn btn-lg btn-default' %>
+    <center>
+      <%= link_to image_tag("pasos_p.png"), "/assets/pasos_g-3b678d448003efa34897d36dddffbc3cddf6096e013bcaa3a65da30e9e99a703.png", data: {toggle: "lightbox", title: " "} %>
+    </center>
   </div>
 </div>
 <% if user_signed_in? %>
@@ -285,7 +288,7 @@
               </li>
               <li>
                 <p><strong>Efectúa el pago</strong> exacto de la cuota por una cantidad de <strong>$2,049.00 (dos mil cuarenta y nueve pesos 00/100 M. N.)</strong> al número de cuenta <strong>01 68 35 82 73</strong> de BBVA Bancomer
-                   S. A., a nombre del fondo de <strong>Investigación Científica y Desarrollo Tecnológico del Instituto Politécnico Nacional</strong> ó por transferencia interbancaria a la <strong>CLABE:
+                   S. A., a nombre del <strong>Fondo de Investigación Científica y Desarrollo Tecnológico del Instituto Politécnico Nacional</strong> ó por transferencia interbancaria a la <strong>CLABE:
                    012 180 00168358273 9</strong> de BBVA Bancomer S. A..</p>
                 <div class="bs-callout bs-callout-info">
                   <p>En el caso de utilizar de la transferencia interbancaria deberá realizar una impresión de pantalla para verificar su pago.</p>
@@ -347,7 +350,7 @@
                   </li>
                   <li>
                     <p><strong>Efectúa el pago exacto</strong> de la cuota por una cantidad de $2,542.00 (dos mil quinientos cuarenta y dos pesos 00/100 M. N.)</strong> al número
-                      de cuenta <strong>01 68 35 82 73</strong> de BBVA Bancomer S. A., a nombre del fondo de <strong>Investigación Científica y Desarrollo Tecnológico del
+                      de cuenta <strong>01 68 35 82 73</strong> de BBVA Bancomer S. A., a nombre del <strong>Fondo de Investigación Científica y Desarrollo Tecnológico del
                       Instituto Politécnico Nacional</strong> ó por transferencia interbancaria a la <strong>CLABE: 012 180 00168358273 9</strong> de BBVA Bancomer S. A.</p>
                      <div class="bs-callout bs-callout-info">
                        <p>En el caso de realizar una transferencia electrónica deberá traer una impresión de pantalla como comprobante de pago.</p>
@@ -438,15 +441,3 @@ function bachillerato(){
 $("select").change(bachillerato);
 bachillerato();
 </script>
-<!--<script>
-    //Capitalize first letter while typing in side of input field
-    jQuery(document).ready(function($) {
-        $('#unitario_nombre, #unitario_paterno, #unitario_materno, #unitario_entidad, #unitario_delegacion_municipio').keyup(function(event) {
-            var textBox = event.target;
-            var start = textBox.selectionStart;
-            var end = textBox.selectionEnd;
-            textBox.value = textBox.value.replace(/\b\w/g, l => l.toUpperCase());
-            textBox.setSelectionRange(start, end);
-        });
-    });
-</script>-->
