@@ -28,7 +28,7 @@
 <div class="row">
   <div class="form-group col-sm-4">
     <%= form.label :grupos_unitario_id, "Seleccione el grupo:" %>
-    <%= collection_select(:unitario, :grupos_unitario_id, GruposUnitario.where("nombre LIKE ? OR nombre LIKE ?", "Curso propedéutico para el examen de admisión al Nivel Medio Superior", "Curso de preparación para el examen de admisión al Nivel Superior"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+    <%= collection_select(:unitario, :grupos_unitario_id, GruposUnitario.where("nombre LIKE ? OR nombre LIKE ?", "Curso propedéutico para el examen de admisión al Nivel Medio Superior", "Curso de preparación para el examen de admisión al Nivel Superior"), :id, :nombre_grupo, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
   </div>
 </div>
 <%= submit_tag "Enviar", class: 'btn btn-primary' %>
