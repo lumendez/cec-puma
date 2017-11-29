@@ -13,4 +13,8 @@ class GruposUnitario < ApplicationRecord
     order('LOWER(nombre)').map { |e| [e.nombre, e.id] }
   end
 
+  def nombre_grupo
+    "#{nombre} #{seccion}"
+  end
+
 end

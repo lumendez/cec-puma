@@ -136,6 +136,7 @@ GEM
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
     libv8 (3.16.14.19)
+    lightbox-bootstrap-rails (5.1.0.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -311,6 +312,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
+  lightbox-bootstrap-rails (= 5.1.0.1)
   mysql2 (~> 0.3.11)
   paper_trail
   paperclip (~> 5.0.0)
