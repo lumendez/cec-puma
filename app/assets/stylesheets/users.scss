@@ -27,9 +27,36 @@ table.conclusiones td, table.conclusiones th{
     font-size: 10px;
   }
 
-#historial_carta p {font-size: 10px;}
+#historial_carta p {font-size: 11px;}
 #historial_carta h2 {font-size: 18px;}
 #historial_carta h3 {font-size: 16px;}
 #historial_carta h4 {font-size: 12px;}
-#historial_carta ul, li {font-size: 10px;}
-#historial_carta table, td {font-size: 10px;}
+#historial_carta ul, li {font-size: 11px;}
+
+table.historial {
+    border-collapse: collapse;
+}
+
+table.historial th{
+  background-color: #333;
+  color: #fff;
+}
+
+table.historial .mcer {
+  background-color: #333;
+  color: #fff;
+}
+
+table.historial, table.historial td, table.historial th{
+    font-size: 9px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px 5px;
+  }
+
+.fondo-oficios {
+  background-image: url('fondo_oficios3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 960px;
+}
