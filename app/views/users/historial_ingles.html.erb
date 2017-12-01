@@ -1,12 +1,5 @@
-<!--<h2 class="sub">Historial acad&eacute;mico</h2>
-<div class="row">
-  <div class="col-md-8">
-    <input type="button" id="btn-historial" value="Imprimir historial" class="btn btn-md btn-primary">
-  </div>
-</div>
-<br>-->
-<div id="historial_carta">
-  <div style="page-break-after: always;" class="fondo-oficios">
+<div class="fondo-oficios">
+  <div id="historial_carta" style="page-break-after: always;">
   <br>
   <br>
   <br>
@@ -18,7 +11,7 @@
   <br>
   <br>
   <p><strong>A QUIÉN CORRESPONDA:</strong></p>
-  <p>Con base a la documentación que obra en los expedientes de los Cursos Curriculares de Lenguas Extranjeras (CELEX) del Centro de Educación Continua
+  <p align="justify">Con base a la documentación que obra en los expedientes de los Cursos Curriculares de Lenguas Extranjeras (CELEX) del Centro de Educación Continua
      Ingeniero Eugenio Méndez Docurro, hace constar que <% if @user.sexo == "H" %>el C. <% elsif @user.sexo == "M" %>la C. <% end %><strong><%= @user.nombre_completo %></strong>,
       <% if @user.matricula.present? %> con número de matrícula: <%= @user.matricula %>,<% end %> <% if @avanzado5.present? && @avanzado5.promedio >= 80 %>ha concluido los módulos <% end %>ha cursado los módulos
      del programa de Inglés de este Centro como a continuación se detalla:</p>
@@ -46,7 +39,7 @@
         <tr>
           <td><%= @basico1.nivel %></td>
           <td>A1 1/2</td>
-          <td><%= @basico1.curso %></td>
+          <td><%= @basico1.curso[0..-3] %></td>
           <td><%= @basico1.periodo %></td>
           <td>40</td>
           <% if @basico1.examen_medio.present? == true && @basico1.examen_final.present?  == true && @basico1.promedio >= 80 %>
@@ -71,7 +64,7 @@
         <tr>
           <td><%= @basico2.nivel %></td>
           <td>A1 2/2</td>
-          <td><%= @basico2.curso %></td>
+          <td><%= @basico2.curso[0..-3] %></td>
           <td><%= @basico2.periodo_anio %></td>
           <td>40</td>
           <% if @basico2.examen_medio.present? == true && @basico2.examen_final.present?  == true && @basico2.promedio >= 80 %>
@@ -96,7 +89,7 @@
         <tr>
           <td><%= @basico3.nivel %></td>
           <td>A2 1/3</td>
-          <td><%= @basico3.curso %></td>
+          <td><%= @basico3.curso[0..-3] %></td>
           <td><%= @basico3.periodo %></td>
           <td>40</td>
           <% if @basico3.examen_medio.present? == true && @basico3.examen_final.present?  == true && @basico3.promedio >= 80 %>
@@ -121,7 +114,7 @@
         <tr>
           <td><%= @basico4.nivel %></td>
           <td>A2 2/3</td>
-          <td><%= @basico4.curso %></td>
+          <td><%= @basico4.curso[0..-3] %></td>
           <td><%= @basico4.periodo %></td>
           <td>40</td>
           <% if @basico4.examen_medio.present? == true && @basico4.examen_final.present?  == true && @basico4.promedio >= 80 %>
@@ -146,7 +139,7 @@
         <tr>
           <td><%= @basico5.nivel %></td>
           <td>A2 3/3</td>
-          <td><%= @basico5.curso %></td>
+          <td><%= @basico5.curso[0..-3] %></td>
           <td><%= @basico5.periodo %></td>
           <td>40</td>
           <% if @basico5.examen_medio.present? == true && @basico5.examen_final.present?  == true && @basico5.promedio >= 80 %>
@@ -171,7 +164,7 @@
         <tr>
           <td><%= @intermedio1.nivel %></td>
           <td>B1 1/5</td>
-          <td><%= @intermedio1.curso %></td>
+          <td><%= @intermedio1.curso[0..-3] %></td>
           <td><%= @intermedio1.periodo %></td>
           <td>40</td>
           <% if @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present?  == true && @intermedio1.promedio >= 80 %>
@@ -196,7 +189,7 @@
         <tr>
           <td><%= @intermedio2.nivel %></td>
           <td>B1 2/5</td>
-          <td><%= @intermedio2.curso %></td>
+          <td><%= @intermedio2.curso[0..-3] %></td>
           <td><%= @intermedio2.periodo %></td>
           <td>40</td>
           <% if @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present?  == true && @intermedio2.promedio >= 80 %>
@@ -221,7 +214,7 @@
         <tr>
           <td><%= @intermedio3.nivel %></td>
           <td>B1 3/5</td>
-          <td><%= @intermedio3.curso %></td>
+          <td><%= @intermedio3.curso[0..-3] %></td>
           <td><%= @intermedio3.periodo %></td>
           <td>40</td>
           <% if @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present?  == true && @intermedio3.promedio >= 80 %>
@@ -246,7 +239,7 @@
         <tr>
           <td><%= @intermedio4.nivel %></td>
           <td>B1 4/5</td>
-          <td><%= @intermedio4.curso %></td>
+          <td><%= @intermedio4.curso[0..-3] %></td>
           <td><%= @intermedio4.periodo %></td>
           <td>40</td>
           <% if @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present?  == true && @intermedio4.promedio >= 80 %>
@@ -271,7 +264,7 @@
         <tr>
           <td><%= @intermedio5.nivel %></td>
           <td>B1 5/5</td>
-          <td><%= @intermedio5.curso %></td>
+          <td><%= @intermedio5.curso[0..-3] %></td>
           <td><%= @intermedio5.periodo %></td>
           <td>40</td>
           <% if @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present?  == true && @intermedio5.promedio >= 80 %>
@@ -296,7 +289,7 @@
         <tr>
           <td><%= @avanzado1.nivel %></td>
           <td>B2 1/5</td>
-          <td><%= @avanzado1.curso %></td>
+          <td><%= @avanzado1.curso[0..-3] %></td>
           <td><%= @avanzado1.periodo %></td>
           <td>40</td>
           <% if @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present?  == true && @avanzado1.promedio >= 80 %>
@@ -321,7 +314,7 @@
         <tr>
           <td><%= @avanzado2.nivel %></td>
           <td>B2 2/5</td>
-          <td><%= @avanzado2.curso %></td>
+          <td><%= @avanzado2.curso[0..-3] %></td>
           <td><%= @avanzado2.periodo %></td>
           <td>40</td>
           <% if @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present?  == true && @avanzado2.promedio >= 80 %>
@@ -346,7 +339,7 @@
         <tr>
           <td><%= @avanzado3.nivel %></td>
           <td>B2 3/5</td>
-          <td><%= @avanzado3.curso %></td>
+          <td><%= @avanzado3.curso[0..-3] %></td>
           <td><%= @avanzado3.periodo %></td>
           <td>40</td>
           <% if @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present?  == true && @avanzado3.promedio >= 80 %>
@@ -371,7 +364,7 @@
         <tr>
           <td><%= @avanzado4.nivel %></td>
           <td>B2 4/5</td>
-          <td><%= @avanzado4.curso %></td>
+          <td><%= @avanzado4.curso[0..-3] %></td>
           <td><%= @avanzado4.periodo %></td>
           <td>40</td>
           <% if @avanzado4.examen_medio.present? == true && @avanzado4.examen_final.present?  == true && @avanzado4.promedio >= 80 %>
@@ -396,7 +389,7 @@
         <tr>
           <td><%= @avanzado5.nivel %></td>
           <td>B2 5/5</td>
-          <td><%= @avanzado5.curso %></td>
+          <td><%= @avanzado5.curso[0..-3] %></td>
           <td><%= @avanzado5.periodo %></td>
           <td>40</td>
           <% if @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present?  == true && @avanzado5.promedio >= 80 %>
@@ -420,7 +413,7 @@
     </table>
   </center>
 
-  <p>El historial muestra que el usuario se encuentra desarrollando los estudios correspondientes al nivel <%= @mcer %> de acuerdo con el Marco Común Europeo de Referencia
+  <p align="justify">El historial muestra que el usuario <%= @mensaje_mcer %> de acuerdo con el Marco Común Europeo de Referencia
     para las Lenguas (MCER).<br>A petición del interesado y para los fines académicos que considere perninentes, se extiende la presente en la Ciudad de México
   a los <%= @dias %> del mes de <%= @mes %> del año <%= @anio %>.</p>
   <center>
@@ -445,7 +438,9 @@
     </table>
   </center>
   </div>
-  <div style="clear:both;" class="fondo-oficios">
+</div>
+<div style="clear:both;" class="fondo-oficios">
+  <div id="historial_carta">
     <br>
     <br>
     <br>
@@ -474,7 +469,7 @@
               flexible y efectivo del idioma para fines sociales, académicos y profesionales. Puede producir textos claros, bien estructurados y detallados sobre temas
                de cierta complejidad, mostrando un uso correcto de los mecanismos de organización, articulación y cohesión del texto.</p></td>
         </tr>
-        <% if @mcer == "B2" %>
+        <% if @mensaje_mcer.include?"concuido los estudios correspondientes al nivel B2" %>
         <tr class="mcer">
           <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;B2&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
           <td><p align="justify" style="font-size:8px;">Es capaz de entender las ideas principales de textos complejos que traten de temas tanto concretos como abstractos, incluso si son de
@@ -491,7 +486,7 @@
               temas diversos así como defender un punto de vista sobre temas generales indicando los pros y los contras de las distintas opciones.</p></td>
         </tr>
         <% end %>
-        <% if @mcer == "B1" %>
+        <% if @mensaje_mcer.include?"concuido los estudios correspondientes al nivel B1" %>
         <tr class="mcer">
           <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;B1&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
           <td><p align="justify" style="font-size:8px;">Es capaz de comprender los puntos principales de textos claros y en lengua estándar si tratan sobre cuestiones que le son conocidas,
@@ -508,7 +503,7 @@
             Puede describir experiencias, acontecimientos, deseos y aspiraciones, así como justificar brevemente sus opiniones o explicar sus planes.</p></td>
         </tr>
         <% end %>
-        <% if @mcer == "A2" %>
+        <% if @mensaje_mcer.include?"concuido los estudios correspondientes al nivel A2" %>
         <tr class="mcer">
           <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;A2&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
           <td><p align="justify" style="font-size:8px;">Es capaz de comprender frases y expresiones de uso frecuente relacionadas con áreas de experiencia que le son especialmente relevantes
@@ -525,7 +520,7 @@
                términos sencillos aspectos de su pasado y su entorno así como cuestiones relacionadas con sus necesidades inmediatas.</p></td>
         </tr>
         <% end %>
-        <% if @mcer == "A1" %>
+        <% if @mensaje_mcer.include?"concuido los estudios correspondientes al nivel A1" %>
         <tr class="mcer">
           <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;A1&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
           <td><p align="justify" style="font-size:8px;">Es capaz de comprender y utilizar expresiones cotidianas de uso muy frecuente así como frases sencillas destinadas a satisfacer necesidades
