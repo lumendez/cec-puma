@@ -15,7 +15,7 @@ class GruposController < ApplicationController
     select_options:{
       sorted_by: Grupo.options_for_sorted_by,
       with_curso: CursoNombre.options_for_select,
-      with_instructor: User.nombre_instructores
+      with_instructor: User.order("paterno DESC").nombre_instructores
     },
     ) or return
     @grupos = @filterrific.find.order("created_at DESC").page(params[:pagina])
