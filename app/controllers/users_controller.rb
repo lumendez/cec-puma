@@ -121,6 +121,20 @@ class UsersController < ApplicationController
       @mcer = "B2"
     end
 
+    if @inscripcion_registros.nil?
+      @mensaje_mcer = "Este usuario no tiene ningún registro de inscripción"
+    elsif @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2" && @inscripcion_registros.promedio < 80
+      @mensaje_mcer = "se encuentra desarrollando los estudios correspondientes al nivel A1"
+    elsif @inscripcion_registros.nivel == "Básico 2" && @inscripcion_registros.promedio >= 80 || @inscripcion_registros.nivel == "Básico 3" || @inscripcion_registros.nivel == "Básico 4" || @inscripcion_registros.nivel == "Básico 5" && @inscripcion_registros.promedio < 80
+      @mensaje_mcer = "ha concuido los estudios correspondientes al nivel A1"
+    elsif @inscripcion_registros.nivel == "Básico 5" && @inscripcion_registros.promedio >= 80 || @inscripcion_registros.nivel == "Intemedio 1" || @inscripcion_registros.nivel == "Intermedio 2" || @inscripcion_registros.nivel == "Intermedio 3" || @inscripcion_registros.nivel == "Intermedio 4" || @inscripcion_registros.nivel == "Intermedio 5" && @inscripcion_registros.promedio < 80
+      @mensaje_mcer = "ha concuido los estudios correspondientes al nivel A2"
+    elsif @inscripcion_registros.nivel == "Intermedio 5" && @inscripcion_registros.promedio >= 80 || @inscripcion_registros.nivel == "Avanzado 1" || @inscripcion_registros.nivel == "Avanzado 2" || @inscripcion_registros.nivel == "Avanzado 3" || @inscripcion_registros.nivel == "Avanzado 4" || @inscripcion_registros.nivel == "Avanzado 5" && @inscripcion_registros.promedio < 80
+      @mensaje_mcer = "ha concuido los estudios correspondientes al nivel B1"
+    elsif @inscripcion_registros.nivel == "Avanzado 5" && @inscripcion_registros.promedio >= 80
+      @mensaje_mcer = "ha concuido los estudios correspondientes al nivel B2"
+    end
+
     if @basico1.present?
       b1horas = 40
     else
@@ -246,7 +260,7 @@ class UsersController < ApplicationController
        template: "users/historial_ingles.html.erb",
        layout: "historial_academico_ingles.html.erb",
        page_size: "Letter",
-       margin: {top: 5}
+       margin: {top: 8}
      end
     end
   end
