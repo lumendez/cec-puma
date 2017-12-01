@@ -246,7 +246,7 @@ class UsersController < ApplicationController
        template: "users/historial_ingles.html.erb",
        layout: "historial_academico_ingles.html.erb",
        page_size: "Letter",
-       margin: {top: 5}
+       margin: {top: 8}
      end
     end
   end
