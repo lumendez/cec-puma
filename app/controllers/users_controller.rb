@@ -243,7 +243,8 @@ class UsersController < ApplicationController
        disposition: "attachment",
        template: "users/historial_ingles.html.erb",
        layout: "historial_academico_ingles.html.erb",
-       margin: {top: 25}
+       page_size: "Letter",
+       margin: {top: 5}
      end
     end
   end
