@@ -89,12 +89,171 @@ class UsersController < ApplicationController
     @users = User.instructores.order(:paterno).page params[:pagina]
   end
 
+  def historial_academico_ingles
+    @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés').last
+    @examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Inglés')
+
+    @basico1 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 1").last
+    @basico2 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 2").last
+    @basico3 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 3").last
+    @basico4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 4").last
+    @basico5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 5").last
+    @intermedio1 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 1").last
+    @intermedio2 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 2").last
+    @intermedio3 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 3").last
+    @intermedio4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 4").last
+    @intermedio5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Intermedio 5").last
+    @avanzado1 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 1").last
+    @avanzado2 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 2").last
+    @avanzado3 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 3").last
+    @avanzado4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 4").last
+    @avanzado5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 5").last
+
+    if @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2"
+      @mcer = "A1"
+    elsif @inscripcion_registros.nivel == "Básico 3" || @inscripcion_registros.nivel == "Básico 4" || @inscripcion_registros.nivel == "Básico 5"
+      @mcer = "A2"
+    elsif @inscripcion_registros.nivel == "Intemedio 1" || @inscripcion_registros.nivel == "Intermedio 2" || @inscripcion_registros.nivel == "Intermedio 3" || @inscripcion_registros.nivel == "Intermedio 4" || @inscripcion_registros.nivel == "Intermedio 5"
+      @mcer = "B1"
+    elsif @inscripcion_registros.nivel == "Avanzado 1" || @inscripcion_registros.nivel == "Avanzado 2" || @inscripcion_registros.nivel == "Avanzado 3" || @inscripcion_registros.nivel == "Avanzado 4" || @inscripcion_registros.nivel == "Avanzado 5"
+      @mcer = "B2"
+    end
+
+    if @basico1.present?
+      b1horas = 40
+    else
+      b1horas = 0
+    end
+    if @basico2.present?
+      b2horas = 40
+    else
+      b2horas = 0
+    end
+    if @basico3.present?
+      b3horas = 40
+    else
+      b3horas = 0
+    end
+    if @basico4.present?
+      b4horas = 40
+    else
+      b4horas = 0
+    end
+    if @basico5.present?
+      b5horas = 40
+    else
+      b5horas = 0
+    end
+    if @intermedio1.present?
+      i1horas = 40
+    else
+      i1horas = 0
+    end
+    if @intermedio2.present?
+      i2horas = 40
+    else
+      i2horas = 0
+    end
+    if @intermedio3.present?
+      i3horas = 40
+    else
+      i3horas = 0
+    end
+    if @intermedio4.present?
+      i4horas = 40
+    else
+      i4horas = 0
+    end
+    if @intermedio5.present?
+      i5horas = 40
+    else
+      i5horas = 0
+    end
+    if @avanzado1.present?
+      a1horas = 40
+    else
+      a1horas = 0
+    end
+    if @avanzado2.present?
+      a2horas = 40
+    else
+      a2horas = 0
+    end
+    if @avanzado3.present?
+      a3horas = 40
+    else
+      a3horas = 0
+    end
+    if @avanzado4.present?
+      a4horas = 40
+    else
+      a4horas = 0
+    end
+    if @avanzado5.present?
+      a5horas = 40
+    else
+      a5horas = 0
+    end
+
+    @horas = b1horas + b2horas + b3horas + b4horas + b5horas + i1horas +
+    i2horas + i3horas + i4horas + i5horas + a1horas + a2horas + a3horas +
+    a4horas + a5horas
+
+    fecha = Date.today
+    @dias = fecha.day
+    if fecha.month == 1
+      @mes = "enero"
+    elsif fecha.month == 2
+      @mes = "febrero"
+    elsif fecha.month == 3
+      @mes = "marzo"
+    elsif fecha.month == 4
+      @mes = "abril"
+    elsif fecha.month == 5
+      @mes = "mayo"
+    elsif fecha.month == 6
+      @mes = "junio"
+    elsif fecha.month == 7
+      @mes = "julio"
+    elsif fecha.month == 8
+      @mes = "agosto"
+    elsif fecha.month == 9
+      @mes = "septiembre"
+    elsif fecha.month == 10
+      @mes = "octubre"
+    elsif fecha.month == 11
+      @mes = "noviembre"
+    elsif fecha.month == 12
+      @mes = "diciembre"
+    end
+
+    if fecha.year == 2017
+      @anio = "dos mil diecisiete"
+    elsif fecha.year == 2018
+      @anio = "dos mil dieciocho"
+    elsif fecha.year == 2019
+      @anio = "dos mil diecinueve"
+    elsif fecha.year == 2020
+      @anio = "dos mil veinte"
+    end
+
+    respond_to do |format|
+     format.pdf do
+       render pdf: "historial_academico",
+       disposition: "attachment",
+       template: "users/historial_ingles.html.erb",
+       layout: "historial_academico_ingles.html.erb",
+       margin: {top: 25}
+     end
+    end
+  end
+
   def historiales_ingles
     @users = User.alumnos.order(:paterno).page params[:pagina]
   end
 
   def historial_ingles
-      @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés')
+      @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés').last
       @examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Inglés')
 
       @basico1 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 1").last
@@ -112,6 +271,96 @@ class UsersController < ApplicationController
       @avanzado3 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 3").last
       @avanzado4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 4").last
       @avanzado5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 5").last
+
+      if @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2"
+        @mcer = "A1"
+      elsif @inscripcion_registros.nivel == "Básico 3" || @inscripcion_registros.nivel == "Básico 4" || @inscripcion_registros.nivel == "Básico 5"
+        @mcer = "A2"
+      elsif @inscripcion_registros.nivel == "Intemedio 1" || @inscripcion_registros.nivel == "Intermedio 2" || @inscripcion_registros.nivel == "Intermedio 3" || @inscripcion_registros.nivel == "Intermedio 4" || @inscripcion_registros.nivel == "Intermedio 5"
+        @mcer = "B1"
+      elsif @inscripcion_registros.nivel == "Avanzado 1" || @inscripcion_registros.nivel == "Avanzado 2" || @inscripcion_registros.nivel == "Avanzado 3" || @inscripcion_registros.nivel == "Avanzado 4" || @inscripcion_registros.nivel == "Avanzado 5"
+        @mcer = "B2"
+      end
+
+      if @basico1.present?
+        b1horas = 40
+      else
+        b1horas = 0
+      end
+      if @basico2.present?
+        b2horas = 40
+      else
+        b2horas = 0
+      end
+      if @basico3.present?
+        b3horas = 40
+      else
+        b3horas = 0
+      end
+      if @basico4.present?
+        b4horas = 40
+      else
+        b4horas = 0
+      end
+      if @basico5.present?
+        b5horas = 40
+      else
+        b5horas = 0
+      end
+      if @intermedio1.present?
+        i1horas = 40
+      else
+        i1horas = 0
+      end
+      if @intermedio2.present?
+        i2horas = 40
+      else
+        i2horas = 0
+      end
+      if @intermedio3.present?
+        i3horas = 40
+      else
+        i3horas = 0
+      end
+      if @intermedio4.present?
+        i4horas = 40
+      else
+        i4horas = 0
+      end
+      if @intermedio5.present?
+        i5horas = 40
+      else
+        i5horas = 0
+      end
+      if @avanzado1.present?
+        a1horas = 40
+      else
+        a1horas = 0
+      end
+      if @avanzado2.present?
+        a2horas = 40
+      else
+        a2horas = 0
+      end
+      if @avanzado3.present?
+        a3horas = 40
+      else
+        a3horas = 0
+      end
+      if @avanzado4.present?
+        a4horas = 40
+      else
+        a4horas = 0
+      end
+      if @avanzado5.present?
+        a5horas = 40
+      else
+        a5horas = 0
+      end
+
+      @horas = b1horas + b2horas + b3horas + b4horas + b5horas + i1horas +
+      i2horas + i3horas + i4horas + i5horas + a1horas + a2horas + a3horas +
+      a4horas + a5horas
 
       fecha = Date.today
       @dias = fecha.day
@@ -151,6 +400,8 @@ class UsersController < ApplicationController
         @anio = "dos mil veinte"
       end
 
+
+
   end
 
 
@@ -166,6 +417,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nombre, :role_id, :materno, :paterno, :rfc, :centro_id, :email)
+      params.require(:user).permit(:nombre, :role_id, :materno, :paterno, :rfc, :centro_id, :email, :matricula)
     end
 end
