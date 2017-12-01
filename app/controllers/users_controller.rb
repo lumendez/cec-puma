@@ -110,8 +110,7 @@ class UsersController < ApplicationController
     @avanzado5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 5").last
 
     if @inscripcion_registros.nil?
-      flash[:notice] = "Este usuario no tiene ningún registro de inscripción"
-      #redirect_to historiales_ingles_users_path
+      @mcer = "Este usuario no tiene ningún registro de inscripción"
     elsif @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2"
       @mcer = "A1"
     elsif @inscripcion_registros.nivel == "Básico 3" || @inscripcion_registros.nivel == "Básico 4" || @inscripcion_registros.nivel == "Básico 5"
