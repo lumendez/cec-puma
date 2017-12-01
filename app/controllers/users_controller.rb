@@ -109,7 +109,10 @@ class UsersController < ApplicationController
     @avanzado4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 4").last
     @avanzado5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 5").last
 
-    if @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2"
+    if @inscripcion_registros.nil?
+      flash[:notice] = "Este usuario no tiene ningún registro de inscripción"
+      #redirect_to historiales_ingles_users_path
+    elsif @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2"
       @mcer = "A1"
     elsif @inscripcion_registros.nivel == "Básico 3" || @inscripcion_registros.nivel == "Básico 4" || @inscripcion_registros.nivel == "Básico 5"
       @mcer = "A2"
@@ -255,6 +258,7 @@ class UsersController < ApplicationController
 
   def historial_ingles
       @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés').last
+
       @examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Inglés')
 
       @basico1 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Básico 1").last
@@ -273,7 +277,10 @@ class UsersController < ApplicationController
       @avanzado4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 4").last
       @avanzado5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 5").last
 
-      if @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2"
+      if @inscripcion_registros.nil?
+        flash[:notice] = "Este usuario no tiene ningún registro de inscripción"
+        redirect_to historiales_ingles_users_path
+      elsif @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2"
         @mcer = "A1"
       elsif @inscripcion_registros.nivel == "Básico 3" || @inscripcion_registros.nivel == "Básico 4" || @inscripcion_registros.nivel == "Básico 5"
         @mcer = "A2"
