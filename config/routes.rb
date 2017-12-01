@@ -97,6 +97,7 @@ Rails.application.routes.draw do
       get 'conclusion_eventos', to: 'users#conclusion_eventos', as: 'conclusion_eventos'
       get 'datos_anexo_unico'
       get 'generar_anexo_unico'
+      get 'historial_academico_ingles/:id', to: 'users#historial_academico_ingles', as: 'historial_academico_ingles'
     end
   end
   resources :estados

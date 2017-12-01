@@ -2,6 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  validates :nombre, :paterno, :rfc, presence: true
+
   #Opciones de devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -128,6 +130,22 @@ class User < ApplicationRecord
     rol = Role.find_by(nombre: "Profesor").id
     usuarios = User.where(role: rol)
     usuarios.map { |e| [e.nombre_completo, e.id] }
+  end
+
+  def edad
+    curp = "#{rfc}"
+    curp = curp.scan(/\d{6}/)
+    curp = curp.join
+    curp = Time.parse(curp)
+    hoy = Date.today
+    edad = hoy.year - curp.year
+  end
+
+  def sexo
+    sexo = "#{rfc}"
+    sexo = sexo.scan(/^.{10}[HM]/)
+    sexo = sexo.join
+    sexo = sexo[-1...11]
   end
 
   #Definición de los filtros para filterrific

@@ -1,20 +1,18 @@
-<h2 class="sub">Historial acad&eacute;mico</h2>
+<!--<h2 class="sub">Historial acad&eacute;mico</h2>
 <div class="row">
   <div class="col-md-8">
     <input type="button" id="btn-historial" value="Imprimir historial" class="btn btn-md btn-primary">
   </div>
 </div>
-<br>
+<br>-->
 <div id="historial_carta">
+  <div style="page-break-after: always;">
   <h5><strong>A QUIÉN CORRESPONDA:</strong></h5>
   <p>Con base a la documentación que obra en los expedientes de los Cursos Curriculares de Lenguas Extranjeras (CELEX) del Centro de Educación Continua
-     Ingeniero Eugenio Méndez Docurro, hace constar que el C. <%= @user.nombre_paterno_materno %>, con número de matrícula: , ha cursado los módulos
+     Ingeniero Eugenio Méndez Docurro, hace constar que <% if @user.sexo == "H" %>el C. <% elsif @user.sexo == "M" %>la C. <% end %><%= @user.nombre_paterno_materno %>,
+      <% if @user.matricula.present? %> con número de matrícula: <%= @user.matricula %>,<% end %> <% if @avanzado5.present? && @avanzado5.promedio >= 80 %>ha concluido los módulos <% end %>ha cursado los módulos
      del programa de Inglés de este Centro como a continuación se detalla:</p>
   </p>
-  <!--<p>El que suscribe, con base a la documentación que obra en los expedientes del archivo a cargo de Control
-    Escolar, y con el registro otorgado por la Dirección de Formación de Lenguas Extranjeras en su oficio DFLE-772-15
-    se hace constar que el C. <#%= @user.nombre_paterno_materno %> <#% if @examen_colocacion.present? %>realizando examen de
-    coloación en el nivel: <#%= @examen_colocacion.nivel_asignado %></p><#% else %>,estudió en este CELEX el idioma Inglés en los siguientes niveles:</p><#% end %>-->
   <table class="table table-bordered">
     <tr>
       <th>Módulo</th>
@@ -24,7 +22,6 @@
       <th>Horas</th>
       <th>Calificación</th>
     </tr>
-    <!--<#% @inscripcion_registros.each do |inscripcion_registro| %>-->
       <% if @basico1.nil? %>
       <tr>
         <td>B&aacute;sico 1</td>
@@ -41,7 +38,13 @@
         <td><%= @basico1.curso %></td>
         <td><%= @basico1.periodo %></td>
         <td>40</td>
+        <% if @basico1.examen_medio.present? == true && @basico1.examen_final.present?  == true && @basico1.promedio >= 80 %>
         <td><%= @basico1.promedio %></td>
+        <% elsif @basico1.examen_medio.present? == false && @basico1.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @basico1.examen_medio.present? == true && @basico1.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @basico2.nil? %>
@@ -60,7 +63,13 @@
         <td><%= @basico2.curso %></td>
         <td><%= @basico2.periodo_anio %></td>
         <td>40</td>
+        <% if @basico2.examen_medio.present? == true && @basico2.examen_final.present?  == true && @basico2.promedio >= 80 %>
         <td><%= @basico2.promedio %></td>
+        <% elsif @basico2.examen_medio.present? == false && @basico2.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @basico2.examen_medio.present? == true && @basico2.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @basico3.nil? %>
@@ -79,7 +88,13 @@
         <td><%= @basico3.curso %></td>
         <td><%= @basico3.periodo %></td>
         <td>40</td>
+        <% if @basico3.examen_medio.present? == true && @basico3.examen_final.present?  == true && @basico3.promedio >= 80 %>
         <td><%= @basico3.promedio %></td>
+        <% elsif @basico3.examen_medio.present? == false && @basico3.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @basico3.examen_medio.present? == true && @basico3.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @basico4.nil? %>
@@ -98,7 +113,13 @@
         <td><%= @basico4.curso %></td>
         <td><%= @basico4.periodo %></td>
         <td>40</td>
+        <% if @basico4.examen_medio.present? == true && @basico4.examen_final.present?  == true && @basico4.promedio >= 80 %>
         <td><%= @basico4.promedio %></td>
+        <% elsif @basico4.examen_medio.present? == false && @basico4.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @basico4.examen_medio.present? == true && @basico4.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @basico5.nil? %>
@@ -117,7 +138,13 @@
         <td><%= @basico5.curso %></td>
         <td><%= @basico5.periodo %></td>
         <td>40</td>
+        <% if @basico5.examen_medio.present? == true && @basico5.examen_final.present?  == true && @basico5.promedio >= 80 %>
         <td><%= @basico5.promedio %></td>
+        <% elsif @basico5.examen_medio.present? == false && @basico5.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @basico5.examen_medio.present? == true && @basico5.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @intermedio1.nil? %>
@@ -136,7 +163,13 @@
         <td><%= @intermedio1.curso %></td>
         <td><%= @intermedio1.periodo %></td>
         <td>40</td>
+        <% if @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present?  == true && @intermedio1.promedio >= 80 %>
         <td><%= @intermedio1.promedio %></td>
+        <% elsif @intermedio1.examen_medio.present? == false && @intermedio1.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @intermedio2.nil? %>
@@ -155,7 +188,13 @@
         <td><%= @intermedio2.curso %></td>
         <td><%= @intermedio2.periodo %></td>
         <td>40</td>
+        <% if @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present?  == true && @intermedio2.promedio >= 80 %>
         <td><%= @intermedio2.promedio %></td>
+        <% elsif @intermedio2.examen_medio.present? == false && @intermedio2.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @intermedio3.nil? %>
@@ -174,7 +213,13 @@
         <td><%= @intermedio3.curso %></td>
         <td><%= @intermedio3.periodo %></td>
         <td>40</td>
+        <% if @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present?  == true && @intermedio3.promedio >= 80 %>
         <td><%= @intermedio3.promedio %></td>
+        <% elsif @intermedio3.examen_medio.present? == false && @intermedio3.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @intermedio4.nil? %>
@@ -193,7 +238,13 @@
         <td><%= @intermedio4.curso %></td>
         <td><%= @intermedio4.periodo %></td>
         <td>40</td>
+        <% if @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present?  == true && @intermedio4.promedio >= 80 %>
         <td><%= @intermedio4.promedio %></td>
+        <% elsif @intermedio4.examen_medio.present? == false && @intermedio4.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @intermedio5.nil? %>
@@ -212,7 +263,13 @@
         <td><%= @intermedio5.curso %></td>
         <td><%= @intermedio5.periodo %></td>
         <td>40</td>
+        <% if @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present?  == true && @intermedio5.promedio >= 80 %>
         <td><%= @intermedio5.promedio %></td>
+        <% elsif @intermedio5.examen_medio.present? == false && @intermedio5.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @avanzado1.nil? %>
@@ -231,7 +288,13 @@
         <td><%= @avanzado1.curso %></td>
         <td><%= @avanzado1.periodo %></td>
         <td>40</td>
+        <% if @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present?  == true && @avanzado1.promedio >= 80 %>
         <td><%= @avanzado1.promedio %></td>
+        <% elsif @avanzado1.examen_medio.present? == false && @avanzado1.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @avanzado2.nil? %>
@@ -250,7 +313,13 @@
         <td><%= @avanzado2.curso %></td>
         <td><%= @avanzado2.periodo %></td>
         <td>40</td>
+        <% if @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present?  == true && @avanzado2.promedio >= 80 %>
         <td><%= @avanzado2.promedio %></td>
+        <% elsif @avanzado2.examen_medio.present? == false && @avanzado2.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @avanzado3.nil? %>
@@ -269,7 +338,13 @@
         <td><%= @avanzado3.curso %></td>
         <td><%= @avanzado3.periodo %></td>
         <td>40</td>
+        <% if @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present?  == true && @avanzado3.promedio >= 80 %>
         <td><%= @avanzado3.promedio %></td>
+        <% elsif @avanzado3.examen_medio.present? == false && @avanzado3.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @avanzado4.nil? %>
@@ -288,7 +363,13 @@
         <td><%= @avanzado4.curso %></td>
         <td><%= @avanzado4.periodo %></td>
         <td>40</td>
+        <% if @avanzado4.examen_medio.present? == true && @avanzado4.examen_final.present?  == true && @avanzado4.promedio >= 80 %>
         <td><%= @avanzado4.promedio %></td>
+        <% elsif @avanzado4.examen_medio.present? == false && @avanzado4.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @avanzado4.examen_medio.present? == true && @avanzado4.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
       <% if @avanzado5.nil? %>
@@ -307,21 +388,51 @@
         <td><%= @avanzado5.curso %></td>
         <td><%= @avanzado5.periodo %></td>
         <td>40</td>
+        <% if @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present?  == true && @avanzado5.promedio >= 80 %>
         <td><%= @avanzado5.promedio %></td>
+        <% elsif @avanzado5.examen_medio.present? == false && @avanzado5.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% elsif @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present? == false %>
+        <td>CURSANDO</td>
+        <% end %>
       </tr>
       <% end %>
-    <!--<#% end %>-->
+      <tr>
+        <td colspan="3"></td>
+        <td>Total de horas</td>
+        <td><%= @horas %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="6">Programa registrado ante la Dirección de Formación de Lenguas Extranjeras con el número: DFLE-CELEX02I-Act-15</td>
+      </tr>
   </table>
 
-  <p>El historial muestra que el usuario ha concluido los estudios correspondientes al nivel de acuerdo con el Marco Común Europeo de Referencia
+  <p>El historial muestra que el usuario se encuentra desarrollando los estudios correspondientes al nivel <%= @mcer %> de acuerdo con el Marco Común Europeo de Referencia
     para las Lenguas (MCER).<br>A petición del interesado y para los fines académicos que considere perninentes, se extiende la presente en la Ciudad de México
   a los <%= @dias %> del mes de <%= @mes %> del año <%= @anio %>.</p>
-
+  <center>
+    <table class="table borderless">
+      <tr>
+        <td>
+          <p align="center">_____________________________________<br>
+          M. en C. José Antonio Sixto Berrocal<br>
+          Subdirector de Servicios Educativos del CECIEMD</p>
+        </td>
+        <td>
+          <p align="center">_____________________________________<br>
+          Dr. Mauro Alberto Enciso Aguilar<br>
+          Director del CEC Ing. Eugenio Méndez Docurro</p>
+        </td>
+      </tr>
+    </table>
+  </center>
+  </div>
 </div>
-<script>
+<!--<script>
 $("#btn-historial").click(function () {
     //Se ocultan los demás elementos antes de imprimir.
     $("#historial_carta").show();
     window.print();
 });
-</script>
+</script>-->
