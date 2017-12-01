@@ -123,6 +123,7 @@ class Ability
         can :instructores, User
         can :historiales_ingles, User
         can :historial_ingles, User
+        can :historial_academico_ingles, User
         can :destroy, User
         can :update, User
         can :manage, :anexos_unicos
