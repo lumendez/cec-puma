@@ -38,15 +38,15 @@
   </div>
   <div class="form-group col-sm-2">
     <%= f.label :curso, "Curso" %>
-    <%= collection_select(:grupo, :curso, Calendario.where(estado: "Abierto"), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    <%= collection_select(:grupo, :curso, Calendario.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
   </div>
   <div class="form-group col-sm-2">
     <%= f.label :periodo, "Periodo" %>
-    <%= collection_select(:grupo, :periodo, Calendario.where(estado: "Abierto"), :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control') %>
+    <%= collection_select(:grupo, :periodo, Calendario.all, :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control') %>
   </div>
   <div class="form-group col-sm-2">
     <%= f.label :anio, 'Año' %><br>
-    <%= collection_select(:grupo, :anio, Calendario.where(estado: "Abierto"), :anio, :anio, {prompt: 'Seleccione'}, class: 'form-control') %>
+    <%= collection_select(:grupo, :anio, Calendario.all, :anio, :anio, {prompt: 'Seleccione'}, class: 'form-control') %>
   </div>
   <div class="form-group col-sm-2">
     <%= f.label :estado, "Estado" %>
