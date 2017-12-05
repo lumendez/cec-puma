@@ -266,22 +266,21 @@ class UsersController < ApplicationController
   end
 
   def historiales_ingles
-    #@users = User.all.order("paterno ASC").page params[:pagina]
-      @filterrific = initialize_filterrific(
-      User,
-      params[:filterrific],
-    ) or return
-    @users = @filterrific.find.page(params[:pagina])
+    @filterrific = initialize_filterrific(
+    User.alumnos.order(:paterno),
+    params[:filterrific],
+  ) or return
+  @users = @filterrific.find.page(params[:pagina])
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+  respond_to do |format|
+    format.html
+    format.js
+  end
 
-    rescue ActiveRecord::RecordNotFound => e
-    # There is an issue with the persisted param_set. Reset it.
-    puts "Had to reset filterrific params: #{ e.message }"
-    redirect_to(reset_filterrific_url(format: :html)) and return
+  rescue ActiveRecord::RecordNotFound => e
+  # There is an issue with the persisted param_set. Reset it.
+  puts "Had to reset filterrific params: #{ e.message }"
+  redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def historial_ingles
