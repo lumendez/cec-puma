@@ -1,20 +1,30 @@
 <h1 class="sub">Historiales acad&eacute;micos</h1>
-<table class="table table-bordered">
-  <tr>
-    <th>Nombre</th>
-    <th>Historiales</th>
-  </tr>
-  <% @users.each do |user| %>
-  <tr>
-    <td>
-      <%= user.nombre_upcase %>
-    </td>
-    <td>
-      <%#= link_to 'Ver historial de Inglés', historial_ingles_users_path(user) %>
-      <%= link_to "Ver historial de Inglés", historial_academico_ingles_users_path(user, format: :pdf) %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<%= form_for_filterrific @filterrific do |f| %>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.label :search_query, 'Buscar por nombre:' %>
+      <%= f.text_field(
+        :search_query,
+        class: 'filterrific-periodically-observed form-control'
+      ) %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-sm-3">
+        <%= link_to(
+          'Quitar filtros',
+          reset_filterrific_url,
+          class: 'btn btn-primary'
+        ) %>
+      </div>
+  </div>
+</div>
+<% end %>
 
-<%= paginate @users, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+<%= render(
+  partial: 'users/lista_historiales',
+  locals: { users: @users }
+) %>
