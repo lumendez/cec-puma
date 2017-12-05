@@ -13,7 +13,7 @@ class Unitario < ApplicationRecord
 
   paginates_per 25
 
-  has_attached_file :image, styles: { thumb: "100x150", medium: '200x250'}
+  has_attached_file :image, styles: { thumb: "100x125", medium: '200x250'}
 
   belongs_to :grupos_unitario
   validates :curp, :nombre, :paterno, :materno, :sexo, :nacimiento, :telefono_celular,
