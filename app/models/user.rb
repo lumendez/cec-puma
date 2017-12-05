@@ -166,11 +166,11 @@ class User < ApplicationRecord
     # Configura el numero de condiciones OR proporcionados (provision)
     # como argumentos de interpolación. Ajustar si se cambian el
     # número de condiciones OR.
-    num_or_conds = 2
+    num_or_conds = 3
 
     where(
       terms.map { |term|
-        "(LOWER(users.nombre) LIKE ? OR LOWER(users.paterno) LIKE ?)"
+        "(LOWER(users.nombre) LIKE ? OR LOWER(users.paterno) LIKE ? OR LOWER(users.materno) LIKE ?)"
       }.join(' AND '),
       *terms.map { |e| [e] * num_or_conds }.flatten
     )
