@@ -13,7 +13,8 @@ class UnitariosController < ApplicationController
     params[:filterrific],
     select_options: {
       with_grupos_unitario_id: GruposUnitario.where(estado: "Abierto").seleccion_curso_nombre,
-      with_documentos_validados: Unitario.options_for_documentos_validados
+      with_documentos_validados: Unitario.options_for_documentos_validados,
+      with_grupos_creados_id: GruposUnitario.all
     },
   ) or return
   @unitarios = @filterrific.find.page(params[:pagina])
