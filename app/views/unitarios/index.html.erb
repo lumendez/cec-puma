@@ -44,6 +44,17 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-md-3">
+      <%= f.label :with_grupos_unitario_id, 'Nombre del grupo' %>
+      <%= f.select(
+        :with_grupos_unitario_id,
+        @filterrific.select_options[:with_grupos_unitario_id],
+        { include_blank: '- Cualquiera -' }, class:'form-control'
+      ) %>
+      <br>
+    </div>
+  </div>
+  <div class="row">
       <div class="col-sm-3">
         <%= link_to(
           'Quitar filtros',

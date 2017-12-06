@@ -7,7 +7,8 @@ class Unitario < ApplicationRecord
              :with_grupos_unitario_id,
              :with_documentos_validados,
              :with_updated_at_gte,
-             :with_updated_at_lt
+             :with_updated_at_lt,
+             :with_grupos_creados_id
            ]
          )
 
@@ -94,6 +95,10 @@ class Unitario < ApplicationRecord
   scope :with_grupos_unitario_id, lambda { |grupos_unitario_ids|
     # Se filtra a los usuarios dependiendo del grupos_unitario_id dado
     where(grupos_unitario_id: [*grupos_unitario_ids])
+  }
+
+  scope :with_grupos_creados_id, lambda { |grupos_creados_ids|
+    where(grupos_creados_id: [*grupos_creados_ids])
   }
 
   scope :with_documentos_validados, lambda { |documentos_validados|
