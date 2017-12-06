@@ -13,6 +13,10 @@ class GruposUnitario < ApplicationRecord
     order('LOWER(nombre)').map { |e| [e.nombre, e.id] }
   end
 
+  def self.seleccion_grupo_nombre
+    order('LOWER(nombre)').map { |e| [e.nombre_grupo, e.id] }
+  end
+
   def nombre_grupo
     "#{nombre} #{seccion}"
   end
