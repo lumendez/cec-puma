@@ -19,7 +19,7 @@
 <div class="row jumbotron">
   <h4 class="subs"><strong>Oferta actual</strong></h4>
   <div class="row">
-    <div class="form-group col-sm-5">
+    <div class="form-group col-sm-7">
       <%= f.label :grupos_unitario_id, 'Nombre del curso' %>
       <%= collection_select(:unitario, :grupos_unitario_id, GruposUnitario.where(estado: 'Abierto'), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
     </div>
