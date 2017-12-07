@@ -97,8 +97,8 @@ class Unitario < ApplicationRecord
     where(grupos_unitario_id: [*grupos_unitario_ids])
   }
 
-  scope :with_grupos_creados_id, lambda { |grupos_creados_ids|
-    where(grupos_creados_id: [*grupos_creados_ids])
+  scope :with_grupos_creados_id, lambda { |grupos_unitario_ids|
+    where(grupos_unitario_id: [*grupos_unitario_ids])
   }
 
   scope :with_documentos_validados, lambda { |documentos_validados|
