@@ -1,0 +1,43 @@
+<h2 class="sub">Generar credenciales</h2>
+<%= form_tag(imprimir_credenciales_unitarios_path, method: :get) do %>
+<div class="row">
+  <div class="col-md-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+            <th></th>
+            <th>Apellido paterno</th>
+            <th>Apellido materno</th>
+            <th>Nombre</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <% @unitarios.each do |unitario| %>
+                <tr>
+                  <td><%= check_box_tag "unitario_ids[]", unitario.id %></td>
+                  <td><%= unitario.paterno %></td>
+                  <td><%= unitario.materno %></td>
+                  <td><%= unitario.nombre %></td>
+                </tr>
+            <% end %>
+        </tbody>
+      </table>
+      <input type="checkbox" id="selectAll" value="selectAll"><strong> Seleccionar / Deseleccionar todos</strong><br><br>
+      <script>
+      $('#selectAll').click(function() {
+         if (this.checked) {
+             $(':checkbox').each(function() {
+                 this.checked = true;
+             });
+         } else {
+            $(':checkbox').each(function() {
+                 this.checked = false;
+             });
+         }
+      });
+      </script>
+      <%= submit_tag 'Enviar', name: nil, class:'btn btn-md btn-primary' %>
+  </div>
+</div>
+<% end %>
+<br>

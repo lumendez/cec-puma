@@ -8,7 +8,7 @@
         <th>Nombre</th>
         <th>Documentos validados</th>
         <th>Fecha de creación</th>
-        <th>Última actualización</th>
+        <th>Fecha de validación</th>
         <th>Grupo</th>
         <th colspan="4">Opciones</th>
       </tr>
@@ -25,8 +25,12 @@
           <% else %>
             <td class="danger"><%= unitario.documentos_validados ? 'Si' : 'No' %></td>
           <% end %>
-          <td><%= unitario.creado %></td>
-          <td><%= unitario.actualizado %></td>
+            <td><%= unitario.creado %></td>
+          <% if unitario.fecha_validacion.nil? %>
+            <td>Sin fecha de validación</td>
+          <% else %>
+            <td><%= unitario.validado %></td>
+          <% end %>
           <td><%= unitario.grupos_unitario.nombre %></td>
           <td><%= link_to 'Carta', unitario %></td>
           <td><%= link_to 'Credencial', credenciales_media_unitarios_path(unitario, :format => :pdf) %></td>

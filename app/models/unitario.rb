@@ -6,9 +6,9 @@ class Unitario < ApplicationRecord
              :search_query,
              :with_grupos_unitario_id,
              :with_documentos_validados,
-             :with_updated_at_gte,
-             :with_updated_at_lt,
-             :with_grupos_creados_id
+             :with_grupos_creados_id,
+             :with_fecha_validacion,
+             :with_fecha_validacion_fin
            ]
          )
 
@@ -51,6 +51,10 @@ class Unitario < ApplicationRecord
 
   def actualizado
     self.updated_at.strftime("%d/%m/%y a las %T %P")
+  end
+
+  def validado
+    self.fecha_validacion.strftime("%d/%m/%y")
   end
 
   def filtro_dia
@@ -105,12 +109,12 @@ class Unitario < ApplicationRecord
     where(documentos_validados: [*documentos_validados])
   }
 
-  scope :with_updated_at_gte, lambda { |ref_date|
-    where('unitarios.updated_at >= ?', ref_date)
+  scope :with_fecha_validacion, lambda { |validacion|
+    where('unitarios.fecha_validacion >= ?', validacion)
   }
 
-  scope :with_updated_at_lt, lambda { |reference_time|
-    where('unitarios.updated_at < ?', reference_time)
+  scope :with_fecha_validacion_fin, lambda { |validacion|
+    where('unitarios.fecha_validacion < ?', validacion)
   }
 
   def self.options_for_documentos_validados

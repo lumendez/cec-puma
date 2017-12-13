@@ -72,7 +72,6 @@ class UnitariosController < ApplicationController
   def create
     @unitario = Unitario.new(unitario_params)
 
-
     # Esto redirecciona a 'show' para que en los cursos de preparación se pueda
     # imprimir la carta compromiso, para los demás cursos puede existir esa
     # opción pero de momento se les redirecciona a la página principal y se les
@@ -87,8 +86,8 @@ class UnitariosController < ApplicationController
           format.json { render json: @unitario.errors, status: :unprocessable_entity }
         end
       end
-    # Aquí se les redirecciona a los cursos que no son unitarios. Para los cursos
-    # no unitarios se les redirecciona al root.
+    # Si los cursos unitarios no son de media y superior se les redirecciona a la
+    # página principal de la aplicación.
     else
 
       respond_to do |format|
@@ -279,6 +278,26 @@ class UnitariosController < ApplicationController
     end
   end
 
+  def generar_credenciales
+    @unitarios = Unitario.all
+  end
+
+  def imprimir_credenciales
+    @unitarios = Unitario.all
+    respond_to do |format|
+     format.html
+     format.pdf do
+       render pdf: "credenciales_grupo",
+       disposition: "attachment",
+       template: "unitarios/imprimir_credenciales.html.erb",
+       layout: "credenciales_grupo_pdf.html",
+       background: true,
+       no_background: false,
+       margin: {top: 20}
+     end
+   end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_unitario
@@ -300,7 +319,7 @@ class UnitariosController < ApplicationController
       :telefono_celular, :telefono_fijo, :correo, :procedencia, :nombre_padre,
       :correo_padre, :telefono_padre, :grupos_unitario_id, :documentos_validados,
       :examen_final, :image, :familiar_ipn, :nombre_ipn, :unidad_ipn, :parentesco_ipn,
-      :bachillerato_ipn, :solicito_beca)
+      :bachillerato_ipn, :solicito_beca, :fecha_validacion)
     end
 
     def asignar_grupo_params
