@@ -133,7 +133,10 @@ class UnitariosController < ApplicationController
   end
 
   def reporte_dems
-    @unitarios = Unitario.where(documentos_validados: true).order('paterno DESC')
+    # Se utiliza la variable @unitarios para generar el documento en hoja de
+    # cálculo con todos los registros unitarios validados, tambien se puede
+    # utilizar en la vista
+    @unitarios = Unitario.where(documentos_validados: true).order('paterno ASC')
     respond_to do |format|
       format.html
       format.xlsx
