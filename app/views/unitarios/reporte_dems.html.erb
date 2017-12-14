@@ -73,4 +73,4 @@
 
 <%= paginate @unitarios, theme: 'twitter-bootstrap-3', param_name: :pagina %>
 <br>
-<%= link_to 'Descargar .xlsx', reporte_dems_unitarios_path(format: :xlsx), class:'btn btn-primary btn-lg' %>
+<%= link_to 'Descargar .xlsx', reporte_dems_unitarios_path(Unitario.where(documentos_validados: true), format: :xlsx), class:'btn btn-primary btn-lg' %>
