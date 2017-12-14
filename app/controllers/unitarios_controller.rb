@@ -133,7 +133,7 @@ class UnitariosController < ApplicationController
   end
 
   def reporte_dems
-    @unitarios = Unitario.where(documentos_validados: true).order('paterno DESC')
+    @unitarios = Unitario.where(documentos_validados: true).order('paterno DESC').page(params[:pagina])
     respond_to do |format|
       format.html
       format.xlsx
