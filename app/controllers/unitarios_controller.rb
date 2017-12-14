@@ -133,7 +133,7 @@ class UnitariosController < ApplicationController
   end
 
   def reporte_dems
-    @unitarios = Unitario.where(documentos_validados: true).order('paterno DESC').page(params[:pagina])
+    @unitarios = Unitario.where(documentos_validados: true).order('paterno DESC')
     respond_to do |format|
       format.html
       format.xlsx
@@ -229,10 +229,6 @@ class UnitariosController < ApplicationController
     end
   end
 
-  def seleccionar_credenciales_media
-      @unitarios = Unitario.all.order(:paterno)
-  end
-
   def carta_compromiso
     @mes = mes
     @unitario = Unitario.find(params[:id])
@@ -276,26 +272,6 @@ class UnitariosController < ApplicationController
        end
       end
     end
-  end
-
-  def generar_credenciales
-    @unitarios = Unitario.all
-  end
-
-  def imprimir_credenciales
-    @unitarios = Unitario.all
-    respond_to do |format|
-     format.html
-     format.pdf do
-       render pdf: "credenciales_grupo",
-       disposition: "attachment",
-       template: "unitarios/imprimir_credenciales.html.erb",
-       layout: "credenciales_grupo_pdf.html",
-       background: true,
-       no_background: false,
-       margin: {top: 20}
-     end
-   end
   end
 
   private
