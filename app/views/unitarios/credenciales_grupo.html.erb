@@ -1,0 +1,20 @@
+<table class="table table-bordered table-hover">
+  <thead>
+      <th></th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Nombre</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @unitarios.each do |unitario| %>
+          <tr>
+            <td><%= check_box_tag "unitario_ids[]", unitario.id %></td>
+            <td><%= unitario.paterno %></td>
+            <td><%= unitario.materno %></td>
+            <td><%= unitario.nombre %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>

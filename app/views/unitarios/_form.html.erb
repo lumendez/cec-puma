@@ -195,6 +195,15 @@
         <%= f.label :solicito_beca, "¿Solicitó beca?" %>
         <%= f.check_box :solicito_beca, class: 'form-control' %>
       </div>
+      <div class="form-group col-sm-2">
+        <%= f.label :fecha_validacion, 'Fecha de validación' %><br>
+        <div class="input-group date">
+          <%= f.text_field :fecha_validacion, class:'validacion form-control' %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
       <div class="form-group col-md-3">
         <%= f.label :image, 'Fotografía' %><br>
         <% if unitario.image.present? %>
@@ -393,14 +402,9 @@
 <script>
   $(document).ready(function(){
     $('.nacimiento').datepicker({language: 'es', format: 'd-M-yyyy'});
+    $('.validacion').datepicker({language: 'es', todayBtn: 'linked', todayHighlight: true});
   });
 </script>
-
-<!--<script type="text/javascript">
-   $(window).load(function(){
-     $('#entrada').modal('show');
-   });
- </script>-->
 
 <script>
 $("#unitario_grupos_unitario_id").on("change", function () {
