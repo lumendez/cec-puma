@@ -1,0 +1,22 @@
+<% @unitarios.each_with_index do |unitario, index| %>
+    <div class="fondo">
+      <table>
+        <tr>
+          <td rowspan="3"><br><br><%= wicked_pdf_image_tag unitario.image.url('thumb') %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="credencial_nombre" width="225px"><br><br><br><br><center><%= unitario.nombre %> <%= unitario.paterno %> <%= unitario.materno %></center></td>
+        </tr>
+        <tr>
+          <td class="curso" width="225px"><br><%= unitario.grupos_unitario.nombre_grupo.remove("Curso propedéutico para el examen de admisión al ")  %></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <% credencial = index + 1
+     if ((credencial) % @multiplo) == 0
+    %>
+    <div style="page-break-after: always;"></div>
+    <% end %>
+<% end %>
