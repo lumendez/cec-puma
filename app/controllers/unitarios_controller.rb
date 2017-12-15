@@ -143,6 +143,25 @@ class UnitariosController < ApplicationController
     end
   end
 
+  def generar_credenciales
+    @unitarios = Unitario.all
+  end
+
+  def imprimir_credenciales
+    @unitarios = Unitario.where(documentos_validados: true)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "credenciales",
+        disposition: "attachment",
+        template: "unitarios/credenciales.html.erb",
+        layout: "credenciales_pdf.html.erb",
+        margin: {top: 15}
+
+      end
+    end
+  end
+
   def validar_documentos
     respond_to do |format|
       if @unitario.update(validar_documentos_params)
