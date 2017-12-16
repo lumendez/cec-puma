@@ -148,7 +148,7 @@ class UnitariosController < ApplicationController
   end
 
   def imprimir_credenciales_media
-    @unitarios = Unitario.where(documentos_validados: true)
+    @unitarios = Unitario.where(documentos_validados: true).includes(:grupos_unitario).where(:grupos_unitarios => { nombre: "Curso propedéutico para el examen de admisión al Nivel Medio Superior" } ).all
     @multiplo = 4
     respond_to do |format|
       format.html
@@ -163,7 +163,7 @@ class UnitariosController < ApplicationController
   end
 
   def imprimir_credenciales_superior
-    @unitarios = Unitario.where(documentos_validados: true)
+    @unitarios = Unitario.where(documentos_validados: true).includes(:grupos_unitario).where(:grupos_unitarios => { nombre: "Curso de preparación para el examen de admisión al Nivel Superior" } ).all
     @multiplo = 4
     respond_to do |format|
       format.html

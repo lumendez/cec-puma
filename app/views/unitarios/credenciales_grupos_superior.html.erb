@@ -14,4 +14,9 @@
       </table>
     </div>
     <br>
+    <% credencial = index + 1
+     if ((credencial) % @multiplo) == 0
+    %>
+    <div style="page-break-after: always;"></div>
+    <% end %>
 <% end %>
