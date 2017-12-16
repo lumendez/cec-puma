@@ -147,17 +147,32 @@ class UnitariosController < ApplicationController
     @unitarios = Unitario.all
   end
 
-  def imprimir_credenciales
+  def imprimir_credenciales_media
     @unitarios = Unitario.where(documentos_validados: true)
+    @multiplo = 4
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: "credenciales",
         disposition: "attachment",
-        template: "unitarios/credenciales.html.erb",
-        layout: "credenciales_pdf.html.erb",
-        margin: {top: 15}
+        template: "unitarios/credenciales_grupos_media.html.erb",
+        layout: "credenciales_pdf.html.erb"
+        #margin: {top: 15}
+      end
+    end
+  end
 
+  def imprimir_credenciales_superior
+    @unitarios = Unitario.where(documentos_validados: true)
+    @multiplo = 4
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "credenciales",
+        disposition: "attachment",
+        template: "unitarios/credenciales_grupos_superior.html.erb",
+        layout: "credenciales_pdf.html.erb"
+        #margin: {top: 15}
       end
     end
   end
