@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  </head>
-  <body>
+
     <h1>Hola! <%= @inscripcion_registro.nombre_completo %></h1>
     <p>Le informamos que su inscipci&oacute;n en el grupo: <strong><%= @inscripcion_registro.grupo.nombre %></strong>
     <% if @inscripcion_registro.documentos_validados == true %>
@@ -14,5 +9,3 @@
     <p>
       Este correo se envía autom&aacute;ticamente, por favor no lo responda.
     </p>
-  </body>
-</html>
