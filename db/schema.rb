@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171213004734) do
 
-  create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nombre"
     t.string   "registro"
     t.string   "examen_colocacion"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.string   "estado"
   end
 
-  create_table "centros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "centros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,26 +39,26 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.string   "lugar"
   end
 
-  create_table "clave_catalogos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "clave_catalogos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "cuota", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "cuota", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.decimal  "cuota",      precision: 6, scale: 1
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
 
-  create_table "cuota_cursos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "cuota_cursos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "descripcion"
   end
 
-  create_table "curriculums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "curriculums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "calle"
     t.string   "colonia"
     t.string   "municipui"
@@ -80,13 +80,13 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.index ["user_id"], name: "index_curriculums_on_user_id", using: :btree
   end
 
-  create_table "curso_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "curso_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "datos_bancos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "datos_bancos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.string   "cuenta"
     t.string   "referencia"
@@ -95,13 +95,13 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "estados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "estados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "examen_colocacion_idiomas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "examen_colocacion_idiomas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.string   "paterno"
     t.string   "materno"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.index ["user_id"], name: "index_examen_colocacion_idiomas_on_user_id", using: :btree
   end
 
-  create_table "fr_inscripcion_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "fr_inscripcion_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.string   "paterno"
     t.string   "materno"
@@ -159,13 +159,13 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.index ["user_id"], name: "index_fr_inscripcion_registros_on_user_id", using: :btree
   end
 
-  create_table "generos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "generos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "genero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "grupos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "grupos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nombre"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -201,7 +201,7 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.index ["user_id"], name: "index_grupos_on_user_id", using: :btree
   end
 
-  create_table "grupos_unitarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "grupos_unitarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.string   "horario"
     t.string   "estado"
@@ -229,19 +229,19 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.string   "seccion"
   end
 
-  create_table "horarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "horarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "hora"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "idiomas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "idiomas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "idioma"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "inscripcion_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "inscripcion_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nombre"
     t.string   "idioma"
     t.string   "horario"
@@ -279,7 +279,7 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.index ["user_id"], name: "index_inscripcion_registros_on_user_id", using: :btree
   end
 
-  create_table "it_inscripcion_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "it_inscripcion_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.string   "paterno"
     t.string   "materno"
@@ -317,43 +317,43 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.index ["user_id"], name: "index_it_inscripcion_registros_on_user_id", using: :btree
   end
 
-  create_table "lugar_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "lugar_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "modalidad_oferta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "modalidad_oferta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "nivel_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "nivel_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nivel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "numero_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "numero_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "procedencia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "procedencia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "procedencia"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "proyectos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "proyectos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "registro_cursos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "registro_cursos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.string   "horas"
     t.string   "periodo"
@@ -371,26 +371,26 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.string   "proyecto"
   end
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nombre"
     t.string   "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "seccion_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "seccion_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tipo_oferta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "tipo_oferta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "unitarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "unitarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "curp"
     t.string   "nombre"
     t.string   "paterno"
@@ -427,7 +427,7 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.index ["grupos_unitario_id"], name: "index_unitarios_on_grupos_unitario_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "nombre"
     t.integer  "role_id"
     t.datetime "created_at",                          null: false
@@ -448,8 +448,6 @@ ActiveRecord::Schema.define(version: 20171213004734) do
     t.integer  "centro_id"
     t.string   "matricula"
     t.index ["centro_id"], name: "index_users_on_centro_id", using: :btree
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
