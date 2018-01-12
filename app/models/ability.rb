@@ -53,6 +53,7 @@ class Ability
         can :read, GruposUnitario
         can :create, GruposUnitario
         can :update, GruposUnitario
+        can :grupo_excel, GruposUnitario
       elsif user.control_cec?
         can :read, Calendario
         can :create, Calendario
