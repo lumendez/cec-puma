@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :grupos_unitarios
+  resources :grupos_unitarios do
+    collection do
+      get 'grupo_excel/:id', to: 'grupos_unitarios#grupo_excel', as: 'grupo_excel'
+    end
+  end
   resources :unitarios do
     collection do
       get 'asignar_calificaciones'
