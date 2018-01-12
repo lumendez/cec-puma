@@ -9,7 +9,7 @@
       <th>Periodo</th>
       <th>Año</th>
       <th>Estado</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -22,6 +22,7 @@
         <td><%= grupos_unitario.periodo %></td>
         <td><%= grupos_unitario.anio %></td>
         <td><%= grupos_unitario.estado %></td>
+        <td><%= link_to 'Descargar', grupo_excel_grupos_unitarios_path(grupos_unitario, format: :xlsx) %></td>
         <td><%= link_to 'Mostrar', grupos_unitario %></td>
         <td><%= link_to 'Editar', edit_grupos_unitario_path(grupos_unitario) %></td>
         <td><%= link_to 'Eliminar', grupos_unitario, method: :delete, data: { confirm: '¿Está seguro?' } %></td>

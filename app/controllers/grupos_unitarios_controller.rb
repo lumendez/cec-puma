@@ -7,7 +7,7 @@ class GruposUnitariosController < ApplicationController
   # GET /grupos_unitarios
   # GET /grupos_unitarios.json
   def index
-    @grupos_unitarios = GruposUnitario.all
+    @grupos_unitarios = GruposUnitario.order('nombre ASC')
   end
 
   # GET /grupos_unitarios/1
@@ -73,6 +73,17 @@ class GruposUnitariosController < ApplicationController
         format.html { redirect_to grupos_unitarios_url, notice: 'El grupo se eliminó correctamente.' }
         format.json { head :no_content }
       end
+    end
+  end
+
+  def grupo_excel
+    # Se utiliza la variable @unitarios para generar el documento en hoja de
+    # cálculo con todos los registros unitarios validados, tambien se puede
+    # utilizar en la vista
+    @unitarios = Unitario.where(documentos_validados: true, grupos_unitario_id: @grupos_unitario.id).order('paterno ASC, materno ASC, nombre ASC')
+    respond_to do |format|
+      format.html
+      format.xlsx
     end
   end
 
