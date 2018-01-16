@@ -61,11 +61,12 @@ class InscripcionRegistrosController < ApplicationController
       @inscripcion_registro = current_user.inscripcion_registros.build
     else
       #Cambiar months_ago(2) que es el valor original
-      if registro_anterior.curso.include?("Intensivo") && Date.today.months_ago(2) >= registro_anterior.created_at && registro_anterior.documentos_validados == false
+      # La documentacion pudo estar validada o no pero es irrelevante
+      if registro_anterior.curso.include?("Intensivo") && Date.today.months_ago(2) >= registro_anterior.created_at
         flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
         #Cambiar months_ago(2) que es el valor original
-      elsif registro_anterior.curso.include?("Sabatino") && Date.today.months_ago(2) >= registro_anterior.created_at && registro_anterior.documentos_validados == false
+      elsif registro_anterior.curso.include?("Sabatino") && Date.today.months_ago(2) >= registro_anterior.created_at
         flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
       elsif registros_no_aprobados.present? && registros_no_aprobados.count >= 3
