@@ -1,6 +1,6 @@
 <div id="grupos">
 <p><strong>Nombre del profesor:</strong> <%#= @grupo.user.nombre_completo %></p>
-<p><strong>Grupo:</strong> <%= @grupos_unitario.nombre %></p>
+<p><strong>Grupo:</strong> <%= @grupos_unitario.nombre_grupo %></p>
 <p><strong>Horario:</strong> <%= @grupos_unitario.horario %></p>
 <p><strong>Inscritos:</strong> <%= @inscritos %></p>
   <%= form_tag(asignar_calificaciones_unitarios_path, method: :get) do %>
