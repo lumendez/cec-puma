@@ -19,7 +19,8 @@ class Grupo < ApplicationRecord
       :sorted_by,
       :search_query,
       :with_curso,
-      :with_instructor
+      :with_instructor,
+      :with_nivel
     ]
   )
 
@@ -143,6 +144,10 @@ class Grupo < ApplicationRecord
 
   scope :with_instructor, lambda { |instructores|
     where(instructor: [*instructores])
+  }
+
+  scope :with_nivel, lambda { |niveles|
+    where(nivel: [*niveles])
   }
 
   def self.options_for_sorted_by
