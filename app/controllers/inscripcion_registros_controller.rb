@@ -201,6 +201,12 @@ class InscripcionRegistrosController < ApplicationController
     end
   end
 
+  # Se utiliza para crear registros de certificación sin tener que haber cursado algun nivel previo del idioma Inglés
+  def certificacion
+    @inscripcion_registro = current_user.inscripcion_registros.build
+    @grupos = Grupo.where('nivel LIKE ? AND idioma = ? AND estado = ?', "Certificación%", "Inglés", "Abierto")
+  end
+
   # GET /inscripcion_registros/1/edit
   def edit
     registro_anterior = InscripcionRegistro.where(user_id: @inscripcion_registro.user_id, idioma: "Inglés").last
