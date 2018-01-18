@@ -9,7 +9,8 @@ class InscripcionRegistro < ApplicationRecord
       :search_query,
       :with_curso,
       :with_grupo_id,
-      :with_documentos_validados
+      :with_documentos_validados,
+      :with_nivel
     ]
   )
 
@@ -134,6 +135,10 @@ class InscripcionRegistro < ApplicationRecord
 
   scope :with_grupo_id, lambda { |grupo_ids|
     where(grupo_id: [*grupo_ids])
+  }
+
+  scope :with_nivel, lambda { |niveles|
+    where(nivel: [*niveles])
   }
 
   scope :with_documentos_validados, lambda { |documentos_validados|
