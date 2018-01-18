@@ -177,6 +177,36 @@ class UnitariosController < ApplicationController
     end
   end
 
+  def imprimir_credenciales_media_grupo
+    @unitarios = Unitario.where(documentos_validados: true).includes(:grupos_unitario).order('seccion ASC').where(:grupos_unitarios => { nombre: "Curso propedéutico para el examen de admisión al Nivel Medio Superior" } ).order(:paterno)
+    @multiplo = 4
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "credenciales",
+        disposition: "attachment",
+        template: "unitarios/credenciales_grupos_media.html.erb",
+        layout: "credenciales_pdf.html.erb"
+        #margin: {top: 15}
+      end
+    end
+  end
+
+  def imprimir_credenciales_superior_grupo
+    @unitarios = Unitario.where(documentos_validados: true).includes(:grupos_unitario).order('seccion ASC').where(:grupos_unitarios => { nombre: "Curso de preparación para el examen de admisión al Nivel Superior" } ).order(:paterno)
+    @multiplo = 4
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "credenciales",
+        disposition: "attachment",
+        template: "unitarios/credenciales_grupos_superior.html.erb",
+        layout: "credenciales_pdf.html.erb"
+        #margin: {top: 15}
+      end
+    end
+  end
+
   def validar_documentos
     respond_to do |format|
       if @unitario.update(validar_documentos_params)

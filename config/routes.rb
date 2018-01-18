@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       get 'generar_credenciales'
       get 'imprimir_credenciales_media'
       get 'imprimir_credenciales_superior'
+      get 'imprimir_credenciales_media_grupo'
+      get 'imprimir_credenciales_superior_grupo'
     end
   end
   resources :anexos_unicos_examen do
