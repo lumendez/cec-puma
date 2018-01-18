@@ -15,7 +15,8 @@ class InscripcionRegistrosController < ApplicationController
       sorted_by: InscripcionRegistro.options_for_sorted_by,
       with_grupo_id: Grupo.where(estado: "Abierto").options_for_select,
       with_documentos_validados: InscripcionRegistro.options_for_documentos_validados,
-      with_curso: CursoNombre.options_for_select
+      with_curso: CursoNombre.options_for_select,
+      with_nivel: NivelNombre.options_for_select
     },
     ) or return
     #@inscripcion_registros = @filterrific.find.order("created_at DESC").where(examen_medio: nil, examen_final: nil).page(params[:pagina])
@@ -199,6 +200,12 @@ class InscripcionRegistrosController < ApplicationController
     elsif registro_anterior.nivel == 'Certificación del Nivel de Dominio B2.3' && registro_anterior.promedio < 80
       @grupos = Grupo.where(idioma: "Inglés", nivel: 'Certificación del Nivel de Dominio B2.3', estado: 'Abierto')
     end
+  end
+
+  # Se utiliza para crear registros de certificación sin tener que haber cursado algun nivel previo del idioma Inglés
+  def certificacion
+    @inscripcion_registro = current_user.inscripcion_registros.build
+    @grupos = Grupo.where('nivel LIKE ? AND idioma = ? AND estado = ?', "Certificación%", "Inglés", "Abierto")
   end
 
   # GET /inscripcion_registros/1/edit

@@ -143,6 +143,7 @@ Rails.application.routes.draw do
       patch 'actualizar_editar_datos'
       get 'caso_especial'
       post 'guardar_caso_especial'
+      get 'certificacion'
     end
   end
   resources :panel_alumnos do
