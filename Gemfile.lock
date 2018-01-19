@@ -163,6 +163,9 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    passenger (5.0.30)
+      rack
+      rake (>= 0.8.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -176,7 +179,6 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (2.0.5)
-    puma (3.9.1)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -316,9 +318,9 @@ DEPENDENCIES
   mysql2 (~> 0.3.11)
   paper_trail
   paperclip (~> 5.0.0)
+  passenger
   pry-byebug
   pry-stack_explorer
-  puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-i18n
   rqrcode_png
