@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get '/credenciales_media/:id', to: 'unitarios#credenciales_media', as: 'credenciales_media'
       get '/carta_compromiso/:id', to: 'unitarios#carta_compromiso', as: 'carta_compromiso'
       get 'reporte_dems'
+      get 'reporte_no_validados'
       get 'generar_credenciales'
       get 'imprimir_credenciales_media'
       get 'imprimir_credenciales_superior'

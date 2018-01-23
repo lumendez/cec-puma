@@ -143,6 +143,17 @@ class UnitariosController < ApplicationController
     end
   end
 
+  def reporte_no_validados
+    # Se utiliza la variable @unitarios para generar el documento en hoja de
+    # cálculo con todos los registros unitarios validados, tambien se puede
+    # utilizar en la vista
+    @unitarios = Unitario.where(documentos_validados: false).order('paterno ASC')
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+  end
+
   def generar_credenciales
     @unitarios = Unitario.all
   end
