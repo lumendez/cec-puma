@@ -81,47 +81,42 @@
 
   <div class="form-group col-md-4">
     <%= f.label :registro, "Número de registro del curso" %>
-    <%= collection_select(:grupo, :registro, NumeroRegistro.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    <%= collection_select(:grupo, :registro, RegistroCurso.all, :registro, :registro, {prompt: 'Seleccione'}, class: 'form-control') %>
   </div>
 
   <div class="form-group col-md-4">
     <%= f.label :tipo, "Tipo de oferta" %>
-    <%= collection_select(:grupo, :tipo, TipoOfertum.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    <%= collection_select(:grupo, :tipo, RegistroCurso.all, :tipo_oferta, :tipo_oferta, {prompt: 'Seleccione'}, class: 'form-control') %>
   </div>
 
   <div class="form-group col-md-4">
     <%= f.label :modalidad, "Modalidad de oferta" %>
-    <%= collection_select(:grupo, :modalidad, ModalidadOfertum.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+    <%= collection_select(:grupo, :modalidad, RegistroCurso.all, :modalidad, :modalidad, {prompt: 'Seleccione'}, class: 'form-control')  %>
   </div>
 
   <div class="form-group col-md-4">
     <%= f.label :cupo, "Cupo" %>
-    <%= f.text_field :cupo, class: 'form-control' %>
+    <%= collection_select(:grupo, :cupo, RegistroCurso.all, :cupo, :cupo, {prompt: 'Seleccione'}, class: 'form-control')  %>
   </div>
 
   <div class="form-group col-md-4">
     <%= f.label :duracion, "Duración del programa" %>
-    <%= f.text_field :duracion, class: 'form-control'  %>
-  </div>
-
-  <div class="form-group col-md-4">
-    <%= f.label :periodo, "Periodo de impartición" %>
-    <%= f.text_field :periodo, class: 'form-control'  %>
+    <%= collection_select(:grupo, :duracion, RegistroCurso.all, :horas, :horas, {prompt: 'Seleccione'}, class: 'form-control')  %>
   </div>
 
   <div class="form-group col-md-4">
     <%= f.label :cuota, "Cuota de recuperación" %>
-    <%= collection_select(:grupo, :cuota, CuotaCurso.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+      <%= collection_select(:grupo, :cuota, RegistroCurso.all, :cuota, :cuota, {prompt: 'Seleccione'}, class: 'form-control')  %>
   </div>
 
   <div class="form-group col-md-4">
     <%= f.label :clave, "Clave del catálogo fideicomiso" %>
-    <%= collection_select(:grupo, :clave, ClaveCatalogo.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+    <%= collection_select(:grupo, :clave, RegistroCurso.all, :clave_catalogo, :clave_catalogo, {prompt: 'Seleccione'}, class: 'form-control')  %>
   </div>
 
   <div class="form-group col-md-4">
     <%= f.label :proyecto, "Proyecto" %>
-    <%= collection_select(:grupo, :proyecto, Proyecto.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+      <%= collection_select(:grupo, :proyecto, RegistroCurso.all, :proyecto, :proyecto, {prompt: 'Seleccione'}, class: 'form-control')  %>
   </div>
 </div>
 <div class="row jumbotron">
@@ -384,6 +379,341 @@
     $('#grupo_instructor_correo').change(
       function() {
         matchUp($('#grupo_instructor_correo'), $('#grupo_user_id'));
+      }
+    );
+
+    $('#grupo_registro').change(
+      function() {
+        matchUp($('#grupo_registro'), $('#grupo_tipo'));
+      }
+    );
+
+    $('#grupo_tipo').change(
+      function() {
+        matchUp($('#grupo_tipo'), $('#grupo_registro'));
+      }
+    );
+
+    $('#grupo_registro').change(
+      function() {
+        matchUp($('#grupo_registro'), $('#grupo_modalidad'));
+      }
+    );
+
+    $('#grupo_modalidad').change(
+      function() {
+        matchUp($('#grupo_modalidad'), $('#grupo_registro'));
+      }
+    );
+
+    $('#grupo_registro').change(
+      function() {
+        matchUp($('#grupo_registro'), $('#grupo_cupo'));
+      }
+    );
+
+    $('#grupo_cupo').change(
+      function() {
+        matchUp($('#grupo_cupo'), $('#grupo_registro'));
+      }
+    );
+
+    $('#grupo_registro').change(
+      function() {
+        matchUp($('#grupo_registro'), $('#grupo_duracion'));
+      }
+    );
+
+    $('#grupo_duracion').change(
+      function() {
+        matchUp($('#grupo_duracion'), $('#grupo_registro'));
+      }
+    );
+
+    $('#grupo_registro').change(
+      function() {
+        matchUp($('#grupo_registro'), $('#grupo_cuota'));
+      }
+    );
+
+    $('#grupo_cuota').change(
+      function() {
+        matchUp($('#grupo_cuota'), $('#grupo_registro'));
+      }
+    );
+
+    $('#grupo_registro').change(
+      function() {
+        matchUp($('#grupo_registro'), $('#grupo_clave'));
+      }
+    );
+
+    $('#grupo_clave').change(
+      function() {
+        matchUp($('#grupo_clave'), $('#grupo_registro'));
+      }
+    );
+
+    $('#grupo_registro').change(
+      function() {
+        matchUp($('#grupo_registro'), $('#grupo_proyecto'));
+      }
+    );
+
+    $('#grupo_proyecto').change(
+      function() {
+        matchUp($('#grupo_proyecto'), $('#grupo_registro'));
+      }
+    );
+
+    $('#grupo_modalidad').change(
+      function() {
+        matchUp($('#grupo_modalidad'), $('#grupo_tipo'));
+      }
+    );
+
+    $('#grupo_tipo').change(
+      function() {
+        matchUp($('#grupo_tipo'), $('#grupo_modalidad'));
+      }
+    );
+
+    $('#grupo_cupo').change(
+      function() {
+        matchUp($('#grupo_cupo'), $('#grupo_tipo'));
+      }
+    );
+
+    $('#grupo_tipo').change(
+      function() {
+        matchUp($('#grupo_tipo'), $('#grupo_cupo'));
+      }
+    );
+
+    $('#grupo_duracion').change(
+      function() {
+        matchUp($('#grupo_duracion'), $('#grupo_tipo'));
+      }
+    );
+
+    $('#grupo_tipo').change(
+      function() {
+        matchUp($('#grupo_tipo'), $('#grupo_duracion'));
+      }
+    );
+
+    $('#grupo_cuota').change(
+      function() {
+        matchUp($('#grupo_cuota'), $('#grupo_tipo'));
+      }
+    );
+
+    $('#grupo_tipo').change(
+      function() {
+        matchUp($('#grupo_tipo'), $('#grupo_cuota'));
+      }
+    );
+
+    $('#grupo_clave').change(
+      function() {
+        matchUp($('#grupo_clave'), $('#grupo_tipo'));
+      }
+    );
+
+    $('#grupo_tipo').change(
+      function() {
+        matchUp($('#grupo_tipo'), $('#grupo_clave'));
+      }
+    );
+
+    $('#grupo_proyecto').change(
+      function() {
+        matchUp($('#grupo_proyecto'), $('#grupo_tipo'));
+      }
+    );
+
+    $('#grupo_tipo').change(
+      function() {
+        matchUp($('#grupo_tipo'), $('#grupo_proyecto'));
+      }
+    );
+
+    $('#grupo_modalidad').change(
+      function() {
+        matchUp($('#grupo_modalidad'), $('#grupo_cupo'));
+      }
+    );
+
+    $('#grupo_cupo').change(
+      function() {
+        matchUp($('#grupo_cupo'), $('#grupo_modalidad'));
+      }
+    );
+    $('#grupo_modalidad').change(
+      function() {
+        matchUp($('#grupo_modalidad'), $('#grupo_duracion'));
+      }
+    );
+
+    $('#grupo_duracion').change(
+      function() {
+        matchUp($('#grupo_duracion'), $('#grupo_modalidad'));
+      }
+    );
+
+    $('#grupo_modalidad').change(
+      function() {
+        matchUp($('#grupo_modalidad'), $('#grupo_cuota'));
+      }
+    );
+
+    $('#grupo_cuota').change(
+      function() {
+        matchUp($('#grupo_cuota'), $('#grupo_modalidad'));
+      }
+    );
+
+    $('#grupo_modalidad').change(
+      function() {
+        matchUp($('#grupo_modalidad'), $('#grupo_clave'));
+      }
+    );
+
+    $('#grupo_clave').change(
+      function() {
+        matchUp($('#grupo_clave'), $('#grupo_modalidad'));
+      }
+    );
+
+    $('#grupo_modalidad').change(
+      function() {
+        matchUp($('#grupo_modalidad'), $('#grupo_proyecto'));
+      }
+    );
+
+    $('#grupo_proyecto').change(
+      function() {
+        matchUp($('#grupo_proyecto'), $('#grupo_modalidad'));
+      }
+    );
+
+    $('#grupo_cupo').change(
+      function() {
+        matchUp($('#grupo_cupo'), $('#grupo_duracion'));
+      }
+    );
+
+    $('#grupo_duracion').change(
+      function() {
+        matchUp($('#grupo_duracion'), $('#grupo_cupo'));
+      }
+    );
+
+    $('#grupo_cupo').change(
+      function() {
+        matchUp($('#grupo_cupo'), $('#grupo_cuota'));
+      }
+    );
+
+    $('#grupo_cuota').change(
+      function() {
+        matchUp($('#grupo_cuota'), $('#grupo_cupo'));
+      }
+    );
+
+    $('#grupo_cupo').change(
+      function() {
+        matchUp($('#grupo_cupo'), $('#grupo_clave'));
+      }
+    );
+
+    $('#grupo_clave').change(
+      function() {
+        matchUp($('#grupo_clave'), $('#grupo_cupo'));
+      }
+    );
+
+    $('#grupo_cupo').change(
+      function() {
+        matchUp($('#grupo_cupo'), $('#grupo_proyecto'));
+      }
+    );
+
+    $('#grupo_proyecto').change(
+      function() {
+        matchUp($('#grupo_proyecto'), $('#grupo_cupo'));
+      }
+    );
+
+    $('#grupo_cuota').change(
+      function() {
+        matchUp($('#grupo_cuota'), $('#grupo_duracion'));
+      }
+    );
+
+    $('#grupo_duracion').change(
+      function() {
+        matchUp($('#grupo_duracion'), $('#grupo_cuota'));
+      }
+    );
+
+    $('#grupo_clave').change(
+      function() {
+        matchUp($('#grupo_clave'), $('#grupo_duracion'));
+      }
+    );
+
+    $('#grupo_duracion').change(
+      function() {
+        matchUp($('#grupo_duracion'), $('#grupo_clave'));
+      }
+    );
+
+    $('#grupo_proyecto').change(
+      function() {
+        matchUp($('#grupo_proyecto'), $('#grupo_duracion'));
+      }
+    );
+
+    $('#grupo_duracion').change(
+      function() {
+        matchUp($('#grupo_duracion'), $('#grupo_proyecto'));
+      }
+    );
+
+    $('#grupo_cuota').change(
+      function() {
+        matchUp($('#grupo_cuota'), $('#grupo_clave'));
+      }
+    );
+
+    $('#grupo_clave').change(
+      function() {
+        matchUp($('#grupo_clave'), $('#grupo_cuota'));
+      }
+    );
+
+    $('#grupo_cuota').change(
+      function() {
+        matchUp($('#grupo_cuota'), $('#grupo_proyecto'));
+      }
+    );
+
+    $('#grupo_proyecto').change(
+      function() {
+        matchUp($('#grupo_proyecto'), $('#grupo_cuota'));
+      }
+    );
+
+    $('#grupo_clave').change(
+      function() {
+        matchUp($('#grupo_clave'), $('#grupo_proyecto'));
+      }
+    );
+
+    $('#grupo_proyecto').change(
+      function() {
+        matchUp($('#grupo_proyecto'), $('#grupo_clave'));
       }
     );
   </script>

@@ -78,6 +78,6 @@ class RegistroCursosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def registro_curso_params
       params.require(:registro_curso).permit(:nombre, :horas, :periodo, :temas, :instructor,
-      :horario, :registro, :tipo_oferta, :modalidad, :cupo, :cuota, :clave_catalogo)
+      :horario, :registro, :tipo_oferta, :modalidad, :cupo, :cuota, :clave_catalogo, :proyecto)
     end
 end

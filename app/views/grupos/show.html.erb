@@ -5,7 +5,7 @@
 <p><strong>Horario:</strong> <%= @grupo.horario %></p>
 <p><strong>Inscritos:</strong> <%= @inscritos %></p>
 <% if @grupo.idioma == "Inglés"%>
-  <%= form_tag asignar_calificaciones_inscripcion_registros_path do %>
+  <%= form_tag asignar_calificaciones_inscripcion_registros_path, method: :get do %>
   <table class="table table-bordered table-hover">
     <thead>
       <% if can? :asignar_calificaciones, @grupo %>
@@ -28,7 +28,7 @@
             <tr>
               <% if can? :asignar_calificaciones, @grupo %>
                 <!--<#% if @grupo.estado == "Abierto" %>-->
-                  <td><%= check_box_tag "inscripcion_registro_ids[]", inscripcion_registro.id %></td>
+                  <td><%= check_box_tag "inscripcion_registro_ids[]", inscripcion_registro.id, false, required: true %></td>
                 <!--<#% end %>-->
               <% end %>
               <td><%= index + 1 %></td>
