@@ -138,7 +138,7 @@ Rails.application.routes.draw do
       get 'ver_constancias'
       get 'constancia/:id', to: 'inscripcion_registros#constancia',  as: 'constancia'
       post 'imprimir'
-      post 'asignar_calificaciones'
+      get 'asignar_calificaciones'
       patch 'actualizar_asignar_calificaciones'
       get 'reporte_curso'
       get 'reporte_dec'

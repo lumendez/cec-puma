@@ -13,7 +13,7 @@
   <div class="row">
   <div class="form-group col-sm-2">
     <%= f.label :nombre, 'Nombre del curso' %><br>
-    <%= collection_select(:calendario, :nombre, CursoNombre.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    <%= collection_select(:calendario, :nombre, CursoNombre.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
   </div>
 
   <div class="form-group col-sm-2">
@@ -40,7 +40,7 @@
   <div class="form-group col-sm-2">
     <%= f.label :registro, 'Fechas de registro' %><br>
     <div class="input-group date">
-      <%= f.text_field :registro, class:'registro form-control' %>
+      <%= f.text_field :registro, class:'registro form-control', required: true %>
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
@@ -50,7 +50,7 @@
   <div class="form-group col-sm-2">
     <%= f.label :examen_colocacion, 'Examen de colocación' %><br>
     <div class="input-group date">
-      <%= f.text_field :examen_colocacion, class:'examen_colocacion form-control' %>
+      <%= f.text_field :examen_colocacion, class:'examen_colocacion form-control', required: true %>
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
@@ -60,7 +60,7 @@
   <div class="form-group col-sm-2">
     <%= f.label :inicio_curso, 'Inicio de curso' %><br>
     <div class="input-group date">
-      <%= f.text_field :inicio_curso, class:'inicio_curso form-control' %>
+      <%= f.text_field :inicio_curso, class:'inicio_curso form-control', required: true %>
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
@@ -70,7 +70,7 @@
   <div class="form-group col-sm-2">
     <%= f.label :examen_medio, 'Examen medio' %><br>
     <div class="input-group date">
-      <%= f.text_field :examen_medio, class:'examen_medio form-control' %>
+      <%= f.text_field :examen_medio, class:'examen_medio form-control', required: true %>
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
@@ -80,7 +80,7 @@
   <div class="form-group col-sm-2">
     <%= f.label :examen_final, 'Examen final' %><br>
     <div class="input-group date">
-      <%= f.text_field :examen_final, class:'examen_final form-control' %>
+      <%= f.text_field :examen_final, class:'examen_final form-control', required: true %>
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>
@@ -90,7 +90,7 @@
   <div class="form-group col-sm-2">
     <%= f.label :entrega_boletas, 'Entrega de boletas' %><br>
     <div class="input-group date">
-      <%= f.text_field :entrega_boletas, class:'entrega_boletas form-control' %>
+      <%= f.text_field :entrega_boletas, class:'entrega_boletas form-control', required: true %>
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-calendar"></span>
       </span>

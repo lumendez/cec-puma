@@ -21,7 +21,7 @@
     <tbody>
       <% @grupos.each do |grupo| %>
         <tr>
-          <td><%= check_box_tag "grupo_ids[]", grupo.id %></td>
+          <td><%= check_box_tag "grupo_ids[]", grupo.id, true %></td>
           <!--<td><%#= grupo.nombre %></td>-->
           <td><%= grupo.idioma %></td>
           <td><%= grupo.curso %></td>
