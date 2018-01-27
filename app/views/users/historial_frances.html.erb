@@ -14,7 +14,7 @@
   <p align="justify">Con base a la documentación que obra en los expedientes de los Cursos Curriculares de Lenguas Extranjeras (CELEX) del Centro de Educación Continua
      Ingeniero Eugenio Méndez Docurro, hace constar que <% if @user.sexo == "H" %>el C. <% elsif @user.sexo == "M" %>la C. <% end %><strong><%= @user.nombre_completo %></strong>,
       <% if @user.matricula.present? %> con número de matrícula: <%= @user.matricula %>,<% end %> <% if @avanzado5.present? && @avanzado5.promedio >= 80 %>ha concluido los módulos <% end %>ha cursado los módulos
-     del programa de Inglés de este Centro como a continuación se detalla:</p>
+     del programa de Francés de este Centro como a continuación se detalla:</p>
   </p>
   <center>
     <table class="historial">
@@ -26,7 +26,7 @@
         <th>Horas</th>
         <th>Calificación</th>
       </tr>
-        <% if @basico1.nil? %>
+        <% if @basico1.nil? && @examen_basico1.nil? %>
         <tr>
           <td>B&aacute;sico 1</td>
           <td>A1 1/2</td>
@@ -35,7 +35,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @basico1.present? %>
         <tr>
           <td><%= @basico1.nivel %></td>
           <td>A1 1/2</td>
@@ -50,8 +50,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_basico1.present? %>
+        <tr>
+          <td><%= @examen_basico1.nivel_asignado %></td>
+          <td>A1 1/2</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_basico1.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @basico2.nil? %>
+        <% if @basico2.nil? && @examen_basico2.nil? %>
         <tr>
           <td>B&aacute;sico 2</td>
           <td>A1 2/2</td>
@@ -60,7 +69,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @basico2.present? %>
         <tr>
           <td><%= @basico2.nivel %></td>
           <td>A1 2/2</td>
@@ -75,8 +84,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_basico2 %>
+        <tr>
+          <td><%= @examen_basico2.nivel_asignado %></td>
+          <td>A1 2/2</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_basico2.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @basico3.nil? %>
+        <% if @basico3.nil? && @examen_basico3.nil? %>
         <tr>
           <td>B&aacute;sico 3</td>
           <td>A2 1/3</td>
@@ -85,7 +103,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @basico3.present? %>
         <tr>
           <td><%= @basico3.nivel %></td>
           <td>A2 1/3</td>
@@ -100,8 +118,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_basico3.present? %>
+        <tr>
+          <td><%= @examen_basico3.nivel_asignado %></td>
+          <td>A2 1/3</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_basico3.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @basico4.nil? %>
+        <% if @basico4.nil? && @examen_basico4.nil? %>
         <tr>
           <td>B&aacute;sico 4</td>
           <td>A2 2/3</td>
@@ -110,7 +137,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @basico4.present? %>
         <tr>
           <td><%= @basico4.nivel %></td>
           <td>A2 2/3</td>
@@ -125,8 +152,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_basico4.present? %>
+          <tr>
+            <td><%= @examen_basico4.nivel_asignado %></td>
+            <td>A2 2/3</td>
+            <td>Examen colocación</td>
+            <td><%= @examen_basico4.periodo %></td>
+            <td></td>
+            <td></td>
+          </tr>
         <% end %>
-        <% if @basico5.nil? %>
+        <% if @basico5.nil? && @examen_basico5.nil? %>
         <tr>
           <td>B&aacute;sico 5</td>
           <td>A2 3/3</td>
@@ -135,7 +171,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @basico5.present? %>
         <tr>
           <td><%= @basico5.nivel %></td>
           <td>A2 3/3</td>
@@ -150,8 +186,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_basico5.present? %>
+          <tr>
+            <td><%= @examen_basico5.nivel_asignado %></td>
+            <td>A2 3/3</td>
+            <td>Examen colocación</td>
+            <td><%= @examen_basico5.periodo %></td>
+            <td></td>
+            <td></td>
+          </tr>
         <% end %>
-        <% if @intermedio1.nil? %>
+        <% if @intermedio1.nil? && @examen_intermedio1.nil? %>
         <tr>
           <td>Intermedio 1</td>
           <td>B1 1/5</td>
@@ -160,7 +205,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @intermedio1.present? %>
         <tr>
           <td><%= @intermedio1.nivel %></td>
           <td>B1 1/5</td>
@@ -175,6 +220,15 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_intermedio1.present? %>
+        <tr>
+          <td><%= @examen_intermedio1.nivel_asignado %></td>
+          <td>B1 1/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_intermedio1.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
         <% if @intermedio2.nil? %>
         <tr>
@@ -185,7 +239,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @intermedio2.present? %>
         <tr>
           <td><%= @intermedio2.nivel %></td>
           <td>B1 2/5</td>
@@ -200,8 +254,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_intermedio2 %>
+        <tr>
+          <td><%= @examen_intermedio2.nivel_asignado %></td>
+          <td>B1 2/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_intermedio2.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @intermedio3.nil? %>
+        <% if @intermedio3.nil? && @examen_intermedio3.nil? %>
         <tr>
           <td>Intermedio 3</td>
           <td>B1 3/5</td>
@@ -210,7 +273,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @intermedio3.present? %>
         <tr>
           <td><%= @intermedio3.nivel %></td>
           <td>B1 3/5</td>
@@ -225,8 +288,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_intermedio3.present? %>
+        <tr>
+          <td><%= @examen_intermedio3.nivel_asignado %></td>
+          <td>B1 3/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_intermedio3.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @intermedio4.nil? %>
+        <% if @intermedio4.nil? && @examen_intermedio4.nil? %>
         <tr>
           <td>Intermedio 4</td>
           <td>B1 4/5</td>
@@ -235,7 +307,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @intermedio4.present? %>
         <tr>
           <td><%= @intermedio4.nivel %></td>
           <td>B1 4/5</td>
@@ -250,8 +322,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% @examen_intermedio4.present? %>
+        <tr>
+          <td><%= @examen_intermedio4.nivel_asignado %></td>
+          <td>B1 4/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_intermedio4.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @intermedio5.nil? %>
+        <% if @intermedio5.nil? && @examen_intermedio5.nil? %>
         <tr>
           <td>Intermedio 5</td>
           <td>B1 5/5</td>
@@ -260,7 +341,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @intermedio5.present? %>
         <tr>
           <td><%= @intermedio5.nivel %></td>
           <td>B1 5/5</td>
@@ -275,8 +356,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_intermedio5.present? %>
+        <tr>
+          <td><%= @examen_intermedio5.nivel_asignado %></td>
+          <td>B1 5/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_intermedio5.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @avanzado1.nil? %>
+        <% if @avanzado1.nil? && @examen_avanzado1.nil? %>
         <tr>
           <td>Avanzado 1</td>
           <td>B2 1/5</td>
@@ -285,7 +375,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @avanzado1.present? %>
         <tr>
           <td><%= @avanzado1.nivel %></td>
           <td>B2 1/5</td>
@@ -300,8 +390,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_avanzado1.present? %>
+        <tr>
+          <td><%= @examen_avanzado1.nivel_asignado %></td>
+          <td>B2 1/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_avanzado1.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @avanzado2.nil? %>
+        <% if @avanzado2.nil? && @examen_avanzado2.nil? %>
         <tr>
           <td>Avanzado 2</td>
           <td>B2 2/5</td>
@@ -310,7 +409,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @avanzado2.present? %>
         <tr>
           <td><%= @avanzado2.nivel %></td>
           <td>B2 2/5</td>
@@ -325,8 +424,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_avanzado2.present? %>
+        <tr>
+          <td><%= @examen_avanzado2.nivel_asignado %></td>
+          <td>B2 2/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_avanzado2.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @avanzado3.nil? %>
+        <% if @avanzado3.nil? && @examen_avanzado3.nil? %>
         <tr>
           <td>Avanzado 3</td>
           <td>B2 3/5</td>
@@ -335,7 +443,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @avanzado3.present? %>
         <tr>
           <td><%= @avanzado3.nivel %></td>
           <td>B2 3/5</td>
@@ -350,8 +458,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_avanzado3.present? %>
+        <tr>
+          <td><%= @examen_avanzado3.nivel_asignado %></td>
+          <td>B2 3/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_avanzado3.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @avanzado4.nil? %>
+        <% if @avanzado4.nil? && @examen_avanzado4.nil? %>
         <tr>
           <td>Avanzado 4</td>
           <td>B2 4/5</td>
@@ -360,7 +477,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @avanzado4.present? %>
         <tr>
           <td><%= @avanzado4.nivel %></td>
           <td>B2 4/5</td>
@@ -375,8 +492,17 @@
           <td>CURSANDO</td>
           <% end %>
         </tr>
+        <% elsif @examen_avanzado4.present? %>
+        <tr>
+          <td><%= @examen_avanzado4.nivel_asignado %></td>
+          <td>B2 4/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_avanzado4.periodo %></td>
+          <td></td>
+          <td></td>
+        </tr>
         <% end %>
-        <% if @avanzado5.nil? %>
+        <% if @avanzado5.nil? && @examen_avanzado5.nil? %>
         <tr>
           <td>Avanzado 5</td>
           <td>B2 5/5</td>
@@ -385,7 +511,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% else %>
+        <% elsif @avanzado5.present? %>
         <tr>
           <td><%= @avanzado5.nivel %></td>
           <td>B2 5/5</td>
@@ -399,6 +525,15 @@
           <% elsif @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% @examen_avanzado5.present? %>
+        <tr>
+          <td><%= @examen_avanzado5.nivel_asignado %></td>
+          <td>B2 5/5</td>
+          <td>Examen colocación</td>
+          <td><%= @examen_avanzado5.periodo %></td>
+          <td></td>
+          <td></td>
         </tr>
         <% end %>
         <tr>
