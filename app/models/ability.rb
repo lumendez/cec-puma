@@ -126,6 +126,9 @@ class Ability
         can :historiales_ingles, User
         can :historial_ingles, User
         can :historial_academico_ingles, User
+        can :historiales_frances, User
+        can :historial_frances, User
+        can :historial_academico_frances, User
         can :destroy, User
         can :update, User
         can :manage, :anexos_unicos

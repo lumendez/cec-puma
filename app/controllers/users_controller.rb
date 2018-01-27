@@ -288,7 +288,7 @@ class UsersController < ApplicationController
 
   def historial_academico_frances
     @fr_inscripcion_registros = FrInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés').last
-    @examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Francés')
+    @fr_examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Francés')
 
     @basico1 = FrInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel: "Básico 1").last
     @basico2 = FrInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel: "Básico 2").last
@@ -305,6 +305,22 @@ class UsersController < ApplicationController
     @avanzado3 = FrInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel: "Avanzado 3").last
     @avanzado4 = FrInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel: "Avanzado 4").last
     @avanzado5 = FrInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel: "Avanzado 5").last
+
+    @examen_basico1 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Básico 1").last
+    @examen_basico2 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Básico 2").last
+    @examen_basico3 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Básico 3").last
+    @examen_basico4 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Básico 4").last
+    @examen_basico5 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Básico 5").last
+    @examen_intermedio1 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Intermedio 1").last
+    @examen_intermedio2 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Intermedio 2").last
+    @examen_intermedio3 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Intermedio 3").last
+    @examen_intermedio4 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Intermedio 4").last
+    @examen_intermedio5 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Intermedio 5").last
+    @examen_avanzado1 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Avanzado 1").last
+    @examen_avanzado2 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Avanzado 2").last
+    @examen_avanzado3 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Avanzado 3").last
+    @examen_avanzado4 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Avanzado 4").last
+    @examen_avanzado5 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés', nivel_asignado: "Avanzado 5").last
 
     if @fr_inscripcion_registros.nil?
       @mcer = "Este usuario no tiene ningún registro de inscripción"
