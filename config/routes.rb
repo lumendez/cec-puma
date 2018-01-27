@@ -107,6 +107,9 @@ Rails.application.routes.draw do
       get 'datos_anexo_unico'
       get 'generar_anexo_unico'
       get 'historial_academico_ingles/:id', to: 'users#historial_academico_ingles', as: 'historial_academico_ingles'
+      get 'historiales_frances'
+      get 'historial_frances/:id', to: 'users#historial_frances', as: 'historial_frances'
+      get 'historial_academico_frances/:id', to: 'users#historial_academico_frances', as: 'historial_academico_frances'
     end
   end
   resources :estados
