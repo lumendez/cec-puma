@@ -60,11 +60,44 @@ class FrInscripcionRegistrosController < ApplicationController
       @fr_inscripcion_registro = current_user.fr_inscripcion_registros.build
     else
       #Cambiar months_ago(2) que es el valor original
-      if registro_anterior.curso.include?("Intensivo") && Date.today.months_ago(2) >= registro_anterior.created_at
+      if registro_anterior.curso == "Intensivo A" && Date.today.days_ago(128) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso == "Intensivo B" && Date.today.days_ago(128) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso == "Intensivo C" && Date.today.days_ago(128) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso == "Intensivo D" && Date.today.days_ago(128) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso == "Intensivo E" && Date.today.days_ago(128) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso == "Intensivo F" && Date.today.days_ago(128) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso == "Intensivo G" && Date.today.days_ago(128) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso == "Intensivo I" && Date.today.days_ago(128) >= registro_anterior.created_at
         flash[:error] = "Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
         #Cambiar months_ago(2) que es el valor original
-      elsif registro_anterior.curso.include?("Sabatino") && Date.today.months_ago(2) >= registro_anterior.created_at
+      elsif registro_anterior.curso.include?("Sabatino 1") && Date.today.days_ago(192) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso.include?("Sabatino 2") && Date.today.days_ago(192) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso.include?("Sabatino 3") && Date.today.days_ago(192) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso.include?("Sabatino 4") && Date.today.days_ago(192) >= registro_anterior.created_at
+        flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
+        redirect_to panel_alumnos_path
+      elsif registro_anterior.curso.include?("Sabatino 5") && Date.today.days_ago(192) >= registro_anterior.created_at
         flash[:error] = "Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación."
         redirect_to panel_alumnos_path
       elsif registros_no_aprobados.present? && registros_no_aprobados.count >= 3
