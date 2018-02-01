@@ -1,39 +1,30 @@
 <h1 class="sub">Solicitudes de ex&aacute;menes de colocaci&oacute;n</h1>
+<%= form_for_filterrific @filterrific do |f| %>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.label :search_query, 'Buscar registro por nombre' %>
+      <%= f.text_field(
+        :search_query,
+        class: 'filterrific-periodically-observed form-control'
+      ) %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-sm-3">
+        <%= link_to(
+          'Quitar filtros',
+          reset_filterrific_url,
+          class: 'btn btn-primary'
+        ) %>
+      </div>
+  </div>
+</div>
+<% end %>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Paterno</th>
-      <th>Materno</th>
-      <th>Idioma</th>
-      <th>Nivel asignado</th>
-      <th>Examinador</th>
-      <!--<th>Curso</th>
-      <th>Año</th>-->
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @examen_colocacion_idiomas.each do |examen_colocacion_idioma| %>
-      <tr>
-        <td><%= examen_colocacion_idioma.nombre %></td>
-        <td><%= examen_colocacion_idioma.paterno %></td>
-        <td><%= examen_colocacion_idioma.materno %></td>
-        <td><%= examen_colocacion_idioma.idioma %></td>
-        <td><%= examen_colocacion_idioma.nivel_asignado %></td>
-        <td><%= examen_colocacion_idioma.examinador %></td>
-        <!--<td><%#= examen_colocacion_idioma.curso %></td>
-        <td><%#= examen_colocacion_idioma.anio %></td>-->
-        <td><%= link_to 'Mostrar', examen_colocacion_idioma %></td>
-        <td><%= link_to 'Editar', edit_examen_colocacion_idioma_path(examen_colocacion_idioma) %></td>
-        <td><%= link_to 'Eliminar', examen_colocacion_idioma, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Nuevo examen de colocación', new_examen_colocacion_idioma_path %>
+<%= render(
+  partial: 'examen_colocacion_idiomas/lista',
+  locals: { examen_colocacion_idiomas: @examen_colocacion_idiomas }
+) %>
