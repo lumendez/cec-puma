@@ -110,6 +110,22 @@ class UsersController < ApplicationController
     @avanzado4 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 4").last
     @avanzado5 = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel: "Avanzado 5").last
 
+    @examen_basico1 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Básico 1").last
+    @examen_basico2 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Básico 2").last
+    @examen_basico3 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Básico 3").last
+    @examen_basico4 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Básico 4").last
+    @examen_basico5 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Básico 5").last
+    @examen_intermedio1 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Intermedio 1").last
+    @examen_intermedio2 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Intermedio 2").last
+    @examen_intermedio3 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Intermedio 3").last
+    @examen_intermedio4 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Intermedio 4").last
+    @examen_intermedio5 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Intermedio 5").last
+    @examen_avanzado1 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Avanzado 1").last
+    @examen_avanzado2 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Avanzado 2").last
+    @examen_avanzado3 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Avanzado 3").last
+    @examen_avanzado4 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Avanzado 4").last
+    @examen_avanzado5 = ExamenColocacionIdioma.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés', nivel_asignado: "Avanzado 5").last
+
     if @inscripcion_registros.nil?
       @mcer = "Este usuario no tiene ningún registro de inscripción"
     elsif @inscripcion_registros.nivel == "Básico 1" || @inscripcion_registros.nivel == "Básico 2"
