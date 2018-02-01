@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'examen_colocacion_idiomas/lista', locals: { examen_colocacion_idiomas: @examen_colocacion_idiomas })
+) %>
+$("#filterrific_results").html("<%= js %>");

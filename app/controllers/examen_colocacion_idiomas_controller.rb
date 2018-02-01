@@ -7,7 +7,23 @@ class ExamenColocacionIdiomasController < ApplicationController
   # GET /examen_colocacion_idiomas
   # GET /examen_colocacion_idiomas.json
   def index
-    @examen_colocacion_idiomas = ExamenColocacionIdioma.all
+    @filterrific = initialize_filterrific(
+    ExamenColocacionIdioma,
+    params[:filterrific],
+    ) or return
+    #@inscripcion_registros = @filterrific.find.order("created_at DESC").where(examen_medio: nil, examen_final: nil).page(params[:pagina])
+    @examen_colocacion_idiomas = @filterrific.find.order("created_at DESC").page(params[:pagina])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+    rescue ActiveRecord::RecordNotFound => e
+    # There is an issue with the persisted param_set. Reset it.
+    puts "Se tuvieron que restablecer los valores: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
+
   end
 
   # GET /examen_colocacion_idiomas/1
