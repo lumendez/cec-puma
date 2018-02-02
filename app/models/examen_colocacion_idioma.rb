@@ -21,6 +21,18 @@ class ExamenColocacionIdioma < ApplicationRecord
     self.created_at.advance(weeks: 8).strftime("%d/%m/%y")
   end
 
+  def nombres_upcase
+    self.nombre.parameterize(separator: ' ').upcase
+  end
+
+  def paterno_upcase
+    self.paterno.parameterize(separator: ' ').upcase
+  end
+
+  def materno_upcase
+    self.materno.parameterize(separator: ' ').upcase
+  end
+
   scope :search_query, lambda { |query|
 
     # Filters students whose name or email matches the query

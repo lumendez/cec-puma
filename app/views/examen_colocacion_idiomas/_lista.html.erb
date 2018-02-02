@@ -15,9 +15,9 @@
   <tbody>
     <% @examen_colocacion_idiomas.each do |examen_colocacion_idioma| %>
       <tr>
-        <td><%= examen_colocacion_idioma.nombre %></td>
-        <td><%= examen_colocacion_idioma.paterno %></td>
-        <td><%= examen_colocacion_idioma.materno %></td>
+        <td><%= examen_colocacion_idioma.nombres_upcase %></td>
+        <td><%= examen_colocacion_idioma.paterno_upcase %></td>
+        <td><%= examen_colocacion_idioma.materno_upcase %></td>
         <td><%= examen_colocacion_idioma.idioma %></td>
         <td><%= examen_colocacion_idioma.nivel_asignado %></td>
         <td><%= examen_colocacion_idioma.examinador %></td>
