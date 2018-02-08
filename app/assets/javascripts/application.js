@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require sweetalert
+//= require sweetalert2
+//= require sweet-alert2-rails
 //= require bootstrap-sprockets
 //= require filterrific/filterrific-jquery
 //= require jquery_ujs
@@ -20,3 +23,12 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= require lightbox-bootstrap
 //= require_tree .
+
+window.sweetAlertConfirmConfig = {
+  title: '¿Está seguro?',
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#d33',
+  confirmButtonText: 'Si, eliminar registro',
+  cancelButtonText: 'Cancelar'
+};
