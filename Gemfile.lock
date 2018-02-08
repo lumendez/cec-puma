@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.3)
       actionpack (= 5.0.3)
@@ -192,6 +193,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.3)
       sprockets-rails (>= 2.0.0)
+    rails-assets-es6-promise (4.1.1)
+    rails-assets-sweetalert2 (5.1.1)
+      rails-assets-es6-promise
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -255,6 +259,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sweet-alert2-rails (0.1.0)
+    sweetalert-rails (1.1.3)
+      railties (>= 3.1.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -320,12 +327,15 @@ DEPENDENCIES
   pry-stack_explorer
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  rails-assets-sweetalert2 (~> 5.1.1)!
   rails-i18n
   rqrcode_png
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   seed_dump
   sort_alphabetical
+  sweet-alert2-rails
+  sweetalert-rails
   therubyracer
   turbolinks (~> 5)
   tzinfo-data
