@@ -150,6 +150,7 @@ Rails.application.routes.draw do
       get 'caso_especial'
       post 'guardar_caso_especial'
       get 'certificacion'
+      get '/talon/:id', to: 'inscripcion_registros#talon', as: 'talon'
     end
   end
   resources :panel_alumnos do
