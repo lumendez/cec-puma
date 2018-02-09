@@ -25,6 +25,7 @@ class Ability
         can :create, InscripcionRegistro
         can :show, InscripcionRegistro
         can :certificacion, InscripcionRegistro
+        can :talon, InscripcionRegistro
         #can :update, InscripcionRegistro do |inscripcion_registro|
           #inscripcion_registro.try(:user) == user
         #end
