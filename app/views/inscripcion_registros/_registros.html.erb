@@ -27,7 +27,7 @@
           <td><%= inscripcion_registro.movimiento %></td>
           <% if inscripcion_registro.imagen.exists? %>
             <td>
-              <%= link_to inscripcion_registro.imagen.url(:medium), target: '_blank', class:'btn btn-comprobante' do %>
+              <%= link_to inscripcion_registro.imagen.url(:medium), target: '_blank', class:'btn btn-comprobante', data: {toggle: "lightbox", title: "Recibo"} do %>
                 <span class="glyphicon glyphicon-paperclip"></span> Comprobante
               <% end %>
             </td>
