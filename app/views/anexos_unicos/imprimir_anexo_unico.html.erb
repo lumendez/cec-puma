@@ -219,7 +219,7 @@
         ADMINISTRATIVOS Y TÉCNICOS<br>
         P R E S E N T E :</p>
       <p>Hago propicia la ocasión para informarle que el (la) <strong><u>Prof. <%= instructor.nombre_completo %> </u></strong></p>
-      <p>Cumplió satisfacortiamente el (los) curso (s) que a continuación detallo:
+      <p>Cumplió satisfactoriamente el (los) curso (s) que a continuación detallo:
       <p align="center"><strong>&nbsp;</strong></p>
         <% grupos= Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio]).order("horario ASC") %>
         <table class="table table-bordered conclusiones">
