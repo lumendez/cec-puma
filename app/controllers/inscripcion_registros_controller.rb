@@ -511,8 +511,52 @@ class InscripcionRegistrosController < ApplicationController
 
   end
 
-  def constancia
-    @qr = RQRCode::QRCode.new(request.original_url).to_img.resize(100, 100).to_data_url
+  def constancia_avanzado
+    @qr = RQRCode::QRCode.new("Visite http://celex.cec-mendezdocurro.ipn.mx e introduzca el folio: #{@inscripcion_registro.id} para confirmar su validez.").to_img.resize(100, 100).to_data_url
+
+    fecha = Date.today
+
+    @dias = fecha.day
+    if fecha.month == 1
+      @mes = "Enero"
+    elsif fecha.month == 2
+      @mes = "Febrero"
+    elsif fecha.month == 3
+      @mes = "Marzo"
+    elsif fecha.month == 4
+      @mes = "Abril"
+    elsif fecha.month == 5
+      @mes = "Mayo"
+    elsif fecha.month == 6
+      @mes = "Junio"
+    elsif fecha.month == 7
+      @mes = "Julio"
+    elsif fecha.month == 8
+      @mes = "Agosto"
+    elsif fecha.month == 9
+      @mes = "Septiembre"
+    elsif fecha.month == 10
+      @mes = "Octubre"
+    elsif fecha.month == 11
+      @mes = "Noviembre"
+    elsif fecha.month == 12
+      @mes = "Diciembre"
+    end
+
+    @anio = fecha.year
+
+    @inscripcion_registro = InscripcionRegistro.find(params[:id])
+    respond_to do |format|
+     format.pdf do
+       render pdf: "constancia_avanzado",
+       disposition: "attachment",
+       orientation: "Landscape",
+       template: "inscripcion_registros/constancia_avanzado.html.erb",
+       layout: "constancia_avanzado_pdf.html.erb",
+       margin:  { left: 5 } 
+     end
+    end
+
   end
 
   def imprimir
@@ -584,7 +628,6 @@ class InscripcionRegistrosController < ApplicationController
   end
 
   def actualizar_editar_datos
-    #@inscripcion_registros = InscripcionRegistro.find(params[:inscripcion_registro_ids])
     InscripcionRegistro.update(params[:inscripcion_registros].keys, params[:inscripcion_registros].values)
     flash[:notice] = "Datos guardados"
     redirect_to inscripcion_registros_path
