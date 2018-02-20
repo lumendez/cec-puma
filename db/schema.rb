@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127012526) do
+ActiveRecord::Schema.define(version: 20180216002458) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -276,6 +276,8 @@ ActiveRecord::Schema.define(version: 20180127012526) do
     t.boolean  "habilitar_historial"
     t.string   "oficio_prestacion"
     t.string   "monto_pagado"
+    t.boolean  "habilitar_tkt"
+    t.boolean  "habilitar_b2"
     t.index ["grupo_id"], name: "index_inscripcion_registros_on_grupo_id", using: :btree
     t.index ["user_id"], name: "index_inscripcion_registros_on_user_id", using: :btree
   end

@@ -152,6 +152,10 @@ Rails.application.routes.draw do
       get 'certificacion'
       get '/talon/:id', to: 'inscripcion_registros#talon', as: 'talon'
       get '/constancia_avanzado/:id', to: 'inscripcion_registros#constancia_avanzado', as: 'constancia_avanzado'
+      get 'ver_constancias_tkt'
+      get '/constancia_tkt/:id', to: 'inscripcion_registros#constancia_tkt', as: 'constancia_tkt'
+      get 'ver_constancias_b2'
+      get '/constancia_b2/:id', to: 'inscripcion_registros#constancia_b2', as: 'constancia_b2'
     end
   end
   resources :panel_alumnos do

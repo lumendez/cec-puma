@@ -492,7 +492,6 @@ class InscripcionRegistrosController < ApplicationController
   end
 
   def ver_constancias
-    #@inscripcion_registros = InscripcionRegistro.where(habilitar_constancia: true).order('paterno DESC').page params[:pagina]
     @filterrific = initialize_filterrific(
     InscripcionRegistro,
     params[:filterrific],
@@ -508,41 +507,50 @@ class InscripcionRegistrosController < ApplicationController
     # There is an issue with the persisted param_set. Reset it.
     puts "Se tuvieron que restablecer los valores: #{ e.message }"
     redirect_to(reset_filterrific_url(format: :html)) and return
+  end
 
+  def ver_constancias_tkt
+    @filterrific = initialize_filterrific(
+    InscripcionRegistro.where(habilitar_tkt: true),
+    params[:filterrific],
+    ) or return
+    @inscripcion_registros = @filterrific.find.page(params[:pagina])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+    rescue ActiveRecord::RecordNotFound => e
+    # There is an issue with the persisted param_set. Reset it.
+    puts "Se tuvieron que restablecer los valores: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
+  end
+
+  def ver_constancias_b2
+    @filterrific = initialize_filterrific(
+    InscripcionRegistro.where(habilitar_b2: true),
+    params[:filterrific],
+    ) or return
+    @inscripcion_registros = @filterrific.find.page(params[:pagina])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+    rescue ActiveRecord::RecordNotFound => e
+    # There is an issue with the persisted param_set. Reset it.
+    puts "Se tuvieron que restablecer los valores: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def constancia_avanzado
     @qr = RQRCode::QRCode.new("Visite http://celex.cec-mendezdocurro.ipn.mx e introduzca el folio: #{@inscripcion_registro.id} para confirmar su validez.").to_img.resize(100, 100).to_data_url
 
     fecha = Date.today
-
     @dias = fecha.day
-    if fecha.month == 1
-      @mes = "Enero"
-    elsif fecha.month == 2
-      @mes = "Febrero"
-    elsif fecha.month == 3
-      @mes = "Marzo"
-    elsif fecha.month == 4
-      @mes = "Abril"
-    elsif fecha.month == 5
-      @mes = "Mayo"
-    elsif fecha.month == 6
-      @mes = "Junio"
-    elsif fecha.month == 7
-      @mes = "Julio"
-    elsif fecha.month == 8
-      @mes = "Agosto"
-    elsif fecha.month == 9
-      @mes = "Septiembre"
-    elsif fecha.month == 10
-      @mes = "Octubre"
-    elsif fecha.month == 11
-      @mes = "Noviembre"
-    elsif fecha.month == 12
-      @mes = "Diciembre"
-    end
-
+    @mes = InscripcionRegistro.nombre_mes
     @anio = fecha.year
 
     @inscripcion_registro = InscripcionRegistro.find(params[:id])
@@ -553,7 +561,51 @@ class InscripcionRegistrosController < ApplicationController
        orientation: "Landscape",
        template: "inscripcion_registros/constancia_avanzado.html.erb",
        layout: "constancia_avanzado_pdf.html.erb",
-       margin:  { left: 5 } 
+       margin:  { left: 5 }
+     end
+    end
+
+  end
+
+  def constancia_tkt
+    @qr = RQRCode::QRCode.new("Visite http://celex.cec-mendezdocurro.ipn.mx e introduzca el folio: #{@inscripcion_registro.id} para confirmar su validez.").to_img.resize(100, 100).to_data_url
+
+    fecha = Date.today
+    @dias = fecha.day
+    @mes = InscripcionRegistro.nombre_mes
+    @anio = fecha.year
+
+    @inscripcion_registro = InscripcionRegistro.find(params[:id])
+    respond_to do |format|
+     format.pdf do
+       render pdf: "constancia_tkt",
+       disposition: "attachment",
+       orientation: "Landscape",
+       template: "inscripcion_registros/constancia_tkt.html.erb",
+       layout: "constancia_avanzado_pdf.html.erb",
+       margin:  { left: 5 }
+     end
+    end
+
+  end
+
+  def constancia_b2
+    @qr = RQRCode::QRCode.new("Visite http://celex.cec-mendezdocurro.ipn.mx e introduzca el folio: #{@inscripcion_registro.id} para confirmar su validez.").to_img.resize(100, 100).to_data_url
+
+    fecha = Date.today
+    @dias = fecha.day
+    @mes = InscripcionRegistro.nombre_mes
+    @anio = fecha.year
+
+    @inscripcion_registro = InscripcionRegistro.find(params[:id])
+    respond_to do |format|
+     format.pdf do
+       render pdf: "constancia_b2",
+       disposition: "attachment",
+       orientation: "Landscape",
+       template: "inscripcion_registros/constancia_b2.html.erb",
+       layout: "constancia_avanzado_pdf.html.erb",
+       margin:  { left: 5 }
      end
     end
 
@@ -653,8 +705,11 @@ class InscripcionRegistrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inscripcion_registro_params
-      params.require(:inscripcion_registro).permit(:nombre, :paterno, :materno, :idioma, :horario, :nivel, :curso, :opcion_uno, :opcion_dos, :telefono, :periodo, :correo, :sexo, :monto_pagado,
-       :cuota, :movimiento, :procedencia, :grupo_id, :examen_medio, :examen_final, :documentos_validados, :boleta, :imagen, :habilitar_historial, :habilitar_constancia, :oficio_prestacion, :user_id)
+      params.require(:inscripcion_registro).permit(:nombre, :paterno, :materno, :idioma,
+       :horario, :nivel, :curso, :opcion_uno, :opcion_dos, :telefono, :periodo, :correo,
+        :sexo, :monto_pagado, :cuota, :movimiento, :procedencia, :grupo_id, :examen_medio,
+        :examen_final, :documentos_validados, :boleta, :imagen, :habilitar_historial,
+        :habilitar_constancia, :oficio_prestacion, :user_id, :habilitar_tkt, :habilitar_b2)
     end
 
     def inscripcion_registro

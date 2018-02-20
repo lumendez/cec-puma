@@ -160,4 +160,35 @@ class InscripcionRegistro < ApplicationRecord
     ]
   end
 
+  # Se calcula el mes para los historiales académico
+  def self.nombre_mes
+    fecha = Date.today
+    if fecha.month == 1
+      mes = "Enero"
+    elsif fecha.month == 2
+      mes = "Febrero"
+    elsif fecha.month == 3
+      mes = "Marzo"
+    elsif fecha.month == 4
+      mes = "Abril"
+    elsif fecha.month == 5
+      mes = "Mayo"
+    elsif fecha.month == 6
+      mes = "Junio"
+    elsif fecha.month == 7
+      mes = "Julio"
+    elsif fecha.month == 8
+      mes = "Agosto"
+    elsif fecha.month == 9
+      mes = "Septiembre"
+    elsif fecha.month == 10
+      mes = "Octubre"
+    elsif fecha.month == 11
+      mes = "Noviembre"
+    elsif fecha.month == 12
+      mes = "Diciembre"
+    end
+  end
+
+
 end
