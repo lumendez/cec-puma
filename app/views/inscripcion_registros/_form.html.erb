@@ -304,12 +304,28 @@
       <%= f.label :monto_pagado %>
       <%= f.text_field :monto_pagado, class: 'form-control' %>
     </div>
+  </div>
+  <div class="row">
     <% if can? :habilitar_contancia, inscripcion_registro %>
       <div class="form-group col-sm-3">
-        <%= f.label :habilitar_constancia, "Constancia" %>
+        <%= f.label :habilitar_constancia, "Constancia de Nivel Avanzado" %>
         <%= f.check_box :habilitar_constancia, class: 'form-control' %>
       </div>
     <% end %>
+    <% if can? :habilitar_tkt, inscripcion_registro %>
+      <div class="form-group col-sm-3">
+        <%= f.label :habilitar_tkt, "Constancia TKT" %>
+        <%= f.check_box :habilitar_tkt, class: 'form-control' %>
+      </div>
+    <% end %>
+    <% if can? :habilitar_b2, inscripcion_registro %>
+      <div class="form-group col-sm-3">
+        <%= f.label :habilitar_b2, "Constancia de Nivel de Dominio B2" %>
+        <%= f.check_box :habilitar_b2, class: 'form-control' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
     <% if can? :evaluacion_media, inscripcion_registro %>
       <div class="form-group col-sm-2">
         <%= f.label :examen_medio %>

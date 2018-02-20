@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get '/carta_compromiso/:id', to: 'unitarios#carta_compromiso', as: 'carta_compromiso'
       get 'reporte_dems'
       get 'reporte_no_validados'
+      get 'reporte_contactos'
       get 'generar_credenciales'
       get 'imprimir_credenciales_media'
       get 'imprimir_credenciales_superior'
@@ -151,6 +152,11 @@ Rails.application.routes.draw do
       post 'guardar_caso_especial'
       get 'certificacion'
       get '/talon/:id', to: 'inscripcion_registros#talon', as: 'talon'
+      get '/constancia_avanzado/:id', to: 'inscripcion_registros#constancia_avanzado', as: 'constancia_avanzado'
+      get 'ver_constancias_tkt'
+      get '/constancia_tkt/:id', to: 'inscripcion_registros#constancia_tkt', as: 'constancia_tkt'
+      get 'ver_constancias_b2'
+      get '/constancia_b2/:id', to: 'inscripcion_registros#constancia_b2', as: 'constancia_b2'
     end
   end
   resources :panel_alumnos do

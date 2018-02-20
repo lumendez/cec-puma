@@ -132,10 +132,10 @@ class UnitariosController < ApplicationController
     end
   end
 
+  # Se utiliza la variable @unitarios para generar el documento en hoja de
+  # cálculo con todos los registros unitarios validados, tambien se puede
+  # utilizar en la vista
   def reporte_dems
-    # Se utiliza la variable @unitarios para generar el documento en hoja de
-    # cálculo con todos los registros unitarios validados, tambien se puede
-    # utilizar en la vista
     @unitarios = Unitario.where(documentos_validados: true).order('paterno ASC')
     respond_to do |format|
       format.html
@@ -143,11 +143,22 @@ class UnitariosController < ApplicationController
     end
   end
 
+  # Se utiliza la variable @unitarios para generar el documento en hoja de
+  # cálculo con todos los registros unitarios validados, tambien se puede
+  # utilizar en la vista
   def reporte_no_validados
-    # Se utiliza la variable @unitarios para generar el documento en hoja de
-    # cálculo con todos los registros unitarios validados, tambien se puede
-    # utilizar en la vista
     @unitarios = Unitario.where(documentos_validados: false).order('paterno ASC')
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+  end
+
+  # Se utiliza la variable @unitarios para generar el documento en hoja de
+  # cálculo con todos los contactos (padre o tutor) de los registros
+  # unitarios validados.
+  def reporte_contactos
+    @unitarios = Unitario.where(documentos_validados: true).order('paterno ASC')
     respond_to do |format|
       format.html
       format.xlsx

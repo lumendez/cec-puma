@@ -1,21 +1,6 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-table
-{
-  min-width: 100%;
-}
-
-table td
-{
-  /*border: 1px solid silver;*/
-  position: relative;
-}
-
-table td.crossed
-{
-   background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), #c9c9c9, transparent calc(50% + 1px));
-}
 
 #anexos-unicos p,ul,li {
   font-size: 10px;

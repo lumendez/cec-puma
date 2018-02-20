@@ -6,29 +6,22 @@ class Ability
     user ||= User.new # guest user (not logged in)
       if user.admin?
         can :manage, :all
-        #can :manage, InscripcionRegistro
-      #elsif user.invitado?
-        #can :create, InscripcionRegistro
-        #can :update, InscripcionRegistro
-        #can :subir_comprobante, InscripcionRegistro do |inscripcion_registro|
-          #inscripcion_registro.try(:imagen)
-        #end
         can :habilitar_constancia, InscripcionRegistro do |inscripcion_registro|
           habilitar_constancia.try(:habilitar_constancia) == false || habilitar_constancia.try(:habilitar_constancia) == true
         end
+      # Privilegios para el jefe del centro de educación continua
       elsif user.jefe_cec?
         can :manage, :all
+      # Privilegios para el jefe de educación continua
       elsif user.jefe_ec?
         can :manage, :all
+      # Privilegios para los usuarios del CELEX
       elsif user.invitado?
         #can :read, InscripcionRegistro
         can :create, InscripcionRegistro
         can :show, InscripcionRegistro
         can :certificacion, InscripcionRegistro
         can :talon, InscripcionRegistro
-        #can :update, InscripcionRegistro do |inscripcion_registro|
-          #inscripcion_registro.try(:user) == user
-        #end
         can :create, FrInscripcionRegistro
         can :show, FrInscripcionRegistro
         can :update, FrInscripcionRegistro do |fr_inscripcion_registro|
@@ -92,7 +85,11 @@ class Ability
         can :actualizar_editar_datos, InscripcionRegistro
         can :caso_especial, InscripcionRegistro
         can :guardar_caso_especial, InscripcionRegistro
-        #
+        can :habilitar_tkt, InscripcionRegistro
+        can :habilitar_b2, InscripcionRegistro
+        can :ver_constancias_tkt, InscripcionRegistro
+        can :constancia_tkt, InscripcionRegistro
+        # Privilegios para Francés
         can :read, FrInscripcionRegistro
         can :create, FrInscripcionRegistro
         can :update, FrInscripcionRegistro
@@ -107,7 +104,7 @@ class Ability
         can :imprimir, FrInscripcionRegistro
         can :editar_datos, FrInscripcionRegistro
         can :actualizar_editar_datos, FrInscripcionRegistro
-        #
+        # Privilegios para Italiano
         can :read, ItInscripcionRegistro
         can :create, ItInscripcionRegistro
         can :update, ItInscripcionRegistro
@@ -133,6 +130,7 @@ class Ability
         can :destroy, User
         can :update, User
         can :manage, :anexos_unicos
+      # Privilegios para los instructores de los CELEX
       elsif user.profesor?
         #can :read, InscripcionRegistro
         can :show, Grupo
@@ -154,6 +152,7 @@ class Ability
         can :update, ItInscripcionRegistro
         can :evaluacion_media, ItInscripcionRegistro
         can :evaluacion_final, ItInscripcionRegistro
+      # Privilegios para el coordinador del CELEX
       elsif user.coordinador_celex?
         can :read, Calendario
         can :create, Calendario
@@ -182,10 +181,6 @@ class Ability
         can :update, ExamenColocacionIdioma
         can :destroy, ExamenColocacionIdioma
         can :asignar_nivel, ExamenColocacionIdioma
-        can :read, ClaveCatalogo
-        can :create, ClaveCatalogo
-        can :update, ClaveCatalogo
-        can :destroy, ClaveCatalogo
         can :read, CuotaCurso
         can :create, CuotaCurso
         can :update, CuotaCurso
@@ -214,18 +209,10 @@ class Ability
         can :create, NivelNombre
         can :update, NivelNombre
         can :destroy, NivelNombre
-        can :read, NumeroRegistro
-        can :create, NumeroRegistro
-        can :update, NumeroRegistro
-        can :destroy, NumeroRegistro
         can :read, Procedencium
         can :create, Procedencium
         can :update, Procedencium
         can :destroy, Procedencium
-        can :read, Proyecto
-        can :create, Proyecto
-        can :update, Proyecto
-        can :destroy, Proyecto
         can :habilitar_constancias, Grupo
         can :crear_constancias, Grupo
         can :habilitar_multiples_constancias, InscripcionRegistro

@@ -1,0 +1,72 @@
+<div id="constancia_avanzado">
+  <div style="page-break-after: always;">
+  <table class="constancia">
+      <tr>
+        <td width="50%"><%= wicked_pdf_image_tag "SEP-LOGO.png", class:'escudo-sep' %></td>
+        <td></td>
+        <td></td>
+        <td width="50%"><%= wicked_pdf_image_tag "ipn_escudo.jpg", style: 'float: right; margin: 0px 0px 25px 0px;', class:'escudo-ipn' %><p class="texto-ipn">Instituto Polit&eacute;cnico Nacional<br>&ldquo;La t&eacute;cnica al servicio de la Patria&rdquo;</p></td>
+      </tr>
+  </table>
+  <p align="center" class="dependencia">Secretaría de Extensión e Integración Social<br>Dirección de Educación Continua</p>
+  <p align="center"><span class="dependencia">Otorga la presente</span><br><span class="constancia"><strong>CONSTANCIA</strong></span></p>
+  <p align="center" class="nombre_mayusculas">a: <%= @inscripcion_registro.nombre_completo %></p>
+  <p align="center">Por haber acreditado satisfactoriamente los módulos Avanzados del idioma Inglés correspondientes al Nivel B2<br>
+        del Marco Común Europeo de Referencia para las Lenguas, impartidos por el centro de Educación Continua Ingeniero Eugenio Méndez<br>
+        Docurro, equivalente a 200 horas y habiendo cumplido con los requisitos establecidos en el mismo</p>
+  <table class="constancia">
+      <tr>
+        <td width="50%"></td>
+        <td></td>
+        <td></td>
+        <td width="50%"><p class="fecha-constancia" align="center"><strong>"La Técnica al Servicio de la Patria"<br>
+        Ciudad de México, a <%= @dias %> de <%= @mes %> de <%= @anio %></strong></p></td>
+      </tr>
+      <tr>
+        <td colspan="4"><p align="center">____________________________________<br><br><strong>Ing. José Manuel Guillermo García Macías</strong><br>Director de Educación Continua<br></p></td>
+      </tr>
+  </table>
+  </div>
+  <div>
+  <p align="center" class="instituto"><strong>INSTITUTO POLIT&Eacute;NICO NACIONAL</strong><br>
+  <strong>SECRETAR&Iacute;A DE EXTENSI&Oacute;N E INTEGRACI&Oacute;N SOCIAL</strong><br>
+  <strong>DIRECCI&Oacute;N DE EDUCACI&Oacute;N CONTINUA</strong></p>
+  <p align="center" class="instituto">INGLÉS</p>
+  <p align="center" class="instituto"><%= @inscripcion_registro.grupo.registro %></p>
+  <p align="center" class="instituto"><strong>AVANZADO</strong></p>
+  <center>
+  <table class="constancia-avanzado" width="600">
+    <tr>
+      <td><p><strong>PROGRAMA TEMÁTICO</strong></p></td>
+    </tr>
+    <tr>
+      <td><p align="left" class="fecha-constancia">Es capaz de entender las ideas principales de textos concretos como abstractos, incluso si son de caracter técnico,<br>
+      siempre que estén dentro de su campo de especialización.<br>
+      Puede relacionarse con hablantes nativos con un grado suficiente de fluidez y naturalidad, de modo que la comunicación se realice sin esfuerzo por parte de<br>
+      los interlocutores.<br>
+      Puede producir textos claros y detallados sobre temas diversos, así como defender un punto de vista sobre temas generales, indicando los pros y los contras<br>
+      de las distintas opciones</p>
+      </td>
+    </tr>
+  </table>
+  </center>
+  <table>
+    <tr>
+      <td width="50%"><p align="left" class="fecha-constancia">Nombre del participante: <%= @inscripcion_registro.nombre_completo %></p></td>
+      <td width="50%"><p align="left" class="fecha-constancia">El Instituto Polit&eacute;cnico Nacional, a trav&eacute;s de la Direcci&oacute;n de Educaci&oacute;n Continua hace constrar que este Documento ha quedado registrado en sus archivos en el libro a&ntilde;o:</p></td>
+    </tr>
+  </table>
+  <table width="100%">
+  <tr>
+    <td colspan="2"><p align="center"><strong>AVALA EL REGISTRO:</strong></p></td>
+  </tr>
+  <tr>
+    <td width="50%"><p align="center">____________________________________<br><br><strong>Biol. Pilar Pi&ntilde;a Espallargas</strong><br>Directora de Formaci&oacute;n en Lenguas Extranjeras<br></p></td>
+    <td width="50%"><p align="center">____________________________________<br><br><strong>Dr. Mauro Alberto Enciso Aguilar</strong><br>Director del Centro de Educación Continua<br>Ingeniero Eugenio M&eacute;ndez Docurro</p></td>
+  </tr>
+  <tr>
+    <td width="100" colspan="2"><p align="right"><%= image_tag @qr %></p></td>
+  </tr>
+</table>
+</div>
+</div>

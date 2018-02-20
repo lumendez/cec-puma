@@ -674,18 +674,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', end
   color: #fff;
 }
 
-/* Estilos para constancias */
-.constancia td{
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 30px;
-}
-
-.dependencia {font-size: 1.8em; line-height: 30px;}
-.otorga {line-height: 25px;}
-.constancia {font-size: 3.8em;}
-.nombre_mayusculas {font-size: 1.8em; text-transform: uppercase;}
 
 /* Colores de roles */
 .administrador {background-color: #003E4F; color: #fff;}
@@ -697,11 +685,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', end
 .coordinador-celex{background-color: #3FB8AF; color: #fff;}
 .control-cec{background-color: #519548; color: #fff;}
 
-.texto-ipn {font-size: 14px; text-align: right;}
-
 div.vertical{
-  /*margin-left: -85px;*/
-  /*position: absolute;*/
   width: 165px;
   transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg); /* Safari/Chrome */
@@ -715,8 +699,6 @@ div.vertical{
 .vertical_validacion { margin-top: 60px; }
 
 td.vertical{
-  /*max-width: 50px;
-  height: 85px;*/
   line-height: 14px;
   padding-bottom: 20px;
   text-align: center;
@@ -863,3 +845,5 @@ td.vertical{
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
 }
+
+.fecha-constancia {font-size: 10px; line-height: 10px;}

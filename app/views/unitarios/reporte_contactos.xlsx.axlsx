@@ -1,0 +1,28 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Unitarios") do |sheet|
+sheet.add_row ["Unidad académica", "NMS", "NS", "Apellido Paterno",
+"Apellido Materno", "Nombre (s)", "Correo Electrónico", "Nombre del padre
+o tutor", "Coreo electrónico del padre o tutor", "Teléfono del padre o
+tutor"]
+@unitarios.each do |unitario|
+    sheet.add_row ["CECIEMD",
+    if unitario.grupos_unitario.nombre ==  "Curso propedéutico para el examen de admisión al Nivel Medio Superior"
+      "X"
+    else
+      ""
+    end,
+    if unitario.grupos_unitario.nombre ==  "Curso de preparación para el examen de admisión al Nivel Superior"
+      "X"
+    else
+      ""
+    end,
+    unitario.paterno,
+    unitario.materno,
+    unitario.nombre,
+    unitario.correo,
+    unitario.nombre_padre,
+    unitario.correo_padre,
+    unitario.telefono_padre
+    ]
+  end
+end
