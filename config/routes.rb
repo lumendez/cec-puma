@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get '/carta_compromiso/:id', to: 'unitarios#carta_compromiso', as: 'carta_compromiso'
       get 'reporte_dems'
       get 'reporte_no_validados'
+      get 'reporte_contactos'
       get 'generar_credenciales'
       get 'imprimir_credenciales_media'
       get 'imprimir_credenciales_superior'
