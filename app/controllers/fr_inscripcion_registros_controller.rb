@@ -534,7 +534,7 @@ class FrInscripcionRegistrosController < ApplicationController
     @fr_inscripcion_registro = FrInscripcionRegistro.find(params[:id])
     respond_to do |format|
      format.pdf do
-       render pdf: "talon_inscripcion",
+       render pdf: "talon_inscripcion_#{@fr_inscripcion_registro.nombre}_#{@fr_inscripcion_registro.paterno}_#{@fr_inscripcion_registro.materno}",
        disposition: "attachment",
        template: "fr_inscripcion_registros/talon.html.erb",
        layout: "talon_pdf.html.erb"
