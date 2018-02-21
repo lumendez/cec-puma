@@ -530,6 +530,18 @@ class FrInscripcionRegistrosController < ApplicationController
     redirect_to fr_inscripcion_registros_path
   end
 
+  def talon
+    @fr_inscripcion_registro = FrInscripcionRegistro.find(params[:id])
+    respond_to do |format|
+     format.pdf do
+       render pdf: "talon_inscripcion",
+       disposition: "attachment",
+       template: "fr_inscripcion_registros/talon.html.erb",
+       layout: "talon_pdf.html.erb"
+     end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fr_inscripcion_registro

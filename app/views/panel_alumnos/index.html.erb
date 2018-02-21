@@ -43,7 +43,7 @@
         <td><%= inscripcion_registro.grupo.periodo %></td>
         <td align="center"><%= inscripcion_registro.grupo.anio %></td>
         <% if inscripcion_registro.examen_medio.blank? || inscripcion_registro.examen_final.blank? %>
-          <td><%= link_to 'Talón', inscripcion_registro %></td>
+          <td><%= link_to 'Talón', talon_inscripcion_registros_path(inscripcion_registro, format: :pdf) %></td>
         <% else %>
           <td align="center"><%= inscripcion_registro.promedio %></td>
         <% end %>
@@ -94,8 +94,7 @@
         <td><%= fr_inscripcion_registro.grupo.periodo %></td>
         <td align="center"><%= fr_inscripcion_registro.grupo.anio %></td>
         <% if fr_inscripcion_registro.examen_medio.blank? || fr_inscripcion_registro.examen_final.blank? %>
-          <td><%= link_to 'Talón', fr_inscripcion_registro %></td>
-          <td><%= link_to 'Editar', edit_fr_inscripcion_registro_path(fr_inscripcion_registro) %></td>
+          <td><%= link_to 'Talón', talon_fr_inscripcion_registros_path(fr_inscripcion_registro, format: :pdf) %></td>
         <% else %>
           <td align="center"><%= fr_inscripcion_registro.promedio %></td>
         <% end %>
