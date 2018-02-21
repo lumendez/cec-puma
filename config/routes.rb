@@ -59,6 +59,7 @@ Rails.application.routes.draw do
       get 'reporte_dec'
       post 'editar_datos'
       patch 'actualizar_editar_datos'
+      get '/talon/:id', to: 'it_inscripcion_registros#talon', as: 'talon'
     end
   end
   resources :fr_inscripcion_registros do
@@ -75,6 +76,7 @@ Rails.application.routes.draw do
       get 'reporte_dec'
       post 'editar_datos'
       patch 'actualizar_editar_datos'
+      get '/talon/:id', to: 'fr_inscripcion_registros#talon', as: 'talon'
     end
   end
   resources :curriculums

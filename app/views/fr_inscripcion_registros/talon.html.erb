@@ -1,0 +1,201 @@
+<div class="row" id="talon">
+  <div class="col-md-8">
+    <table class="talon-tabla">
+			<tbody>
+        <tr>
+            <td><%= wicked_pdf_image_tag "ipnmin.png" %></td>
+            <td><p align="center" class="texto-cec"><strong>INSTITUTO POLIT&Eacute;CNICO NACIONAL</strong><br>
+            <span>CENTRO DE EDUCACIÓN CONTINUA<br>
+            Cursos Extracurriculares de Lenguas Extranjeras</span><br>
+            <strong>TALÓN DE INSCRIPCIÓN</strong></p></td>
+            <td><%= wicked_pdf_image_tag "celexmin.jpg" %> <%= wicked_pdf_image_tag "cecmin.jpg" %></td>
+        </tr>
+				<tr>
+					<td rowspan="8" style="width:3cm">
+						<p align="center" class="texto-cec">
+              <br>
+              <br>
+              <br>
+              <br>
+              Fotograf&iacute;a
+						</p>
+					</td>
+					<td colspan="2">
+							<strong>Nombre:</strong> <%= @fr_inscripcion_registro.nombre %> <%= @fr_inscripcion_registro.paterno %> <%= @fr_inscripcion_registro.materno %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+							<strong>Idioma:</strong> <%= @fr_inscripcion_registro.idioma %>
+					</td>
+					<td>
+							<strong>Horario:</strong> <%= @fr_inscripcion_registro.horario %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+							<strong>Nivel:</strong> <%= @fr_inscripcion_registro.nivel %>
+					</td>
+					<td>
+							<strong>Curso:</strong> <%= @fr_inscripcion_registro.curso %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+							<strong>Horario opcional 1:</strong> <%= @fr_inscripcion_registro.opcion_uno %>
+					</td>
+					<td>
+							<strong>Horario opcional 2:</strong> <%= @fr_inscripcion_registro.opcion_dos %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+							<strong>N&uacute;mero telef&oacute;nico:</strong> <%= @fr_inscripcion_registro.telefono %>
+					</td>
+					<td>
+							<strong>Periodo:</strong> <%= @fr_inscripcion_registro.periodo %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+							<strong>Correo electr&oacute;nico:</strong> <%= @fr_inscripcion_registro.correo %>
+					</td>
+					<td>
+							<strong>Sexo:</strong> <%= @fr_inscripcion_registro.sexo %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+							<strong>Cuota:</strong> $<%= @fr_inscripcion_registro.cuota %>
+					</td>
+					<td>
+							<strong>Movimiento bancario:</strong><%= @fr_inscripcion_registro.movimiento %>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+							<strong>Escuela de procedencia:</strong> <%= @fr_inscripcion_registro.procedencia %>
+					</td>
+				</tr>
+        <tr>
+          <td colspan="3"><p><strong>Usuario CELEX CEC IEMD.</strong><br>Le solicitamos de conserve este comprobante
+             de inscripci&oacute;n durante el desarrollo de su curso, este documento le servir&aacute; para poder tener acceso
+           al Centro de Educaci&oacute;n Continua.</p></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <p class="privacidad">
+               <strong>Pol&iacute;tica de privacidad y manejo de datos personales</strong>
+               <br>En cumplimiento con lo establecido por la Ley Federal de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica Gubernamental
+               te informamos nuestra pol&iacute;tica de privacidad y manejo de datos personales y hacemos el siguiente compromiso:
+            </p>
+            <ol type="1" class="privacidad">
+              <li>Los datos que te solicitamos en el formulario &uacute;nicamente ser&aacute;n utilizados para poder establecer contacto contigo en relaci&oacute;n a tu curso.</li>
+              <li>Los datos que ingreses en el formulario no ser&aacute;n difundidos, distribuidos o comercializados</li>
+            </ol>
+          </td>
+        </tr>
+			</tbody>
+		</table>
+  </div>
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  <div class="col-md-8">
+    <table class="talon-tabla">
+      <tbody>
+        <tr>
+            <td><%= wicked_pdf_image_tag "ipnmin.png" %></td>
+            <td><p align="center" class="texto-cec"><strong>INSTITUTO POLIT&Eacute;CNICO NACIONAL</strong><br>
+            <span>CENTRO DE EDUCACIÓN CONTINUA<br>
+            Cursos Extracurriculares de Lenguas Extranjeras</span><br>
+            <strong>TALÓN DE INSCRIPCIÓN</strong></p></td>
+            <td><%= wicked_pdf_image_tag "celexmin.jpg" %> <%= wicked_pdf_image_tag "cecmin.jpg" %></td>
+        </tr>
+        <tr>
+          <td rowspan="8" style="width:3cm">
+            <p align="center" class="texto-cec">
+              <br>
+              <br>
+              <br>
+              <br>
+            </p>
+          </td>
+          <td colspan="2">
+              <strong>Nombre:</strong> <%= @fr_inscripcion_registro.nombre %> <%= @fr_inscripcion_registro.paterno %> <%= @fr_inscripcion_registro.materno %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Idioma:</strong> <%= @fr_inscripcion_registro.idioma %>
+          </td>
+          <td>
+              <strong>Horario:</strong> <%= @fr_inscripcion_registro.horario %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Nivel:</strong> <%= @fr_inscripcion_registro.nivel %>
+          </td>
+          <td>
+              <strong>Curso:</strong> <%= @fr_inscripcion_registro.curso %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Horario opcional 1:</strong> <%= @fr_inscripcion_registro.opcion_uno %>
+          </td>
+          <td>
+              <strong>Horario opcional 2:</strong> <%= @fr_inscripcion_registro.opcion_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>N&uacute;mero telef&oacute;nico:</strong> <%= @fr_inscripcion_registro.telefono %>
+          </td>
+          <td>
+              <strong>Periodo:</strong> <%= @fr_inscripcion_registro.periodo %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Correo electr&oacute;nico:</strong> <%= @fr_inscripcion_registro.correo %>
+          </td>
+          <td>
+              <strong>Sexo:</strong> <%= @fr_inscripcion_registro.sexo %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+              <strong>Cuota:</strong> $<%= @fr_inscripcion_registro.cuota %>
+          </td>
+          <td>
+              <strong>Movimiento bancario:</strong><%= @fr_inscripcion_registro.movimiento %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+              <strong>Escuela de procedencia:</strong> <%= @fr_inscripcion_registro.procedencia %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3"><p><strong>Usuario CELEX CEC IEMD.</strong><br>Le solicitamos de conserve este comprobante
+             de inscripci&oacute;n durante el desarrollo de su curso, este documento le servir&aacute; para poder tener acceso
+           al Centro de Educaci&oacute;n Continua.</p><h4 align="center" class="jumbotron"><strong>Después de hacer el pago correspondiente deberá llevar el comprobante a la
+             coordinación de los CELEX para la validación de su inscripción.</strong></h4></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <p class="privacidad">
+               <strong>Pol&iacute;tica de privacidad y manejo de datos personales</strong>
+               <br>En cumplimiento con lo establecido por la Ley Federal de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica Gubernamental
+               te informamos nuestra pol&iacute;tica de privacidad y manejo de datos personales y hacemos el siguiente compromiso:
+            </p>
+            <ol type="1" class="privacidad">
+              <li>Los datos que te solicitamos en el formulario &uacute;nicamente ser&aacute;n utilizados para poder establecer contacto contigo en relaci&oacute;n a tu curso.</li>
+              <li>Los datos que ingreses en el formulario no ser&aacute;n difundidos, distribuidos o comercializados</li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
