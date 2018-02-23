@@ -91,6 +91,7 @@ class Ability
         can :habilitar_b2, InscripcionRegistro
         can :ver_constancias_tkt, InscripcionRegistro
         can :constancia_tkt, InscripcionRegistro
+        can :talon, InscripcionRegistro
         # Privilegios para Francés
         can :read, FrInscripcionRegistro
         can :create, FrInscripcionRegistro
@@ -106,6 +107,9 @@ class Ability
         can :imprimir, FrInscripcionRegistro
         can :editar_datos, FrInscripcionRegistro
         can :actualizar_editar_datos, FrInscripcionRegistro
+        can :caso_especial, FrInscripcionRegistro
+        can :guardar_caso_especial, FrInscripcionRegistro
+        can :talon, FrInscripcionRegistro
         # Privilegios para Italiano
         can :read, ItInscripcionRegistro
         can :create, ItInscripcionRegistro
@@ -121,6 +125,9 @@ class Ability
         can :imprimir, ItInscripcionRegistro
         can :editar_datos, ItInscripcionRegistro
         can :actualizar_editar_datos, ItInscripcionRegistro
+        can :caso_especial, ItInscripcionRegistro
+        can :guardar_caso_especial, ItInscripcionRegistro
+        can :talon, ItInscripcionRegistro
         can :read, User
         can :instructores, User
         can :historiales_ingles, User
