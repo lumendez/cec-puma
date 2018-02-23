@@ -12,7 +12,7 @@ class Unitario < ApplicationRecord
            ]
          )
 
-  paginates_per 25
+  paginates_per 25exit
 
   has_attached_file :image, styles: { thumb: "100x125", medium: '200x250'}
 

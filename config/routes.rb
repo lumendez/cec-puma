@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :grupos_unitarios do
     collection do
       get 'grupo_excel/:id', to: 'grupos_unitarios#grupo_excel', as: 'grupo_excel'
+      get 'grupo_correo/:id', to: 'grupos_unitarios#grupo_correo', as: 'grupo_correo'
     end
   end
   resources :unitarios do

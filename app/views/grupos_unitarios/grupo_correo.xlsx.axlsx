@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Grupo") do |sheet|
+sheet.add_row ["Número de lista", "Apellido paterno", "Apellido materno", "Nombre",
+"Correo electrónico"]
+@unitarios.each_with_index do |unitario, index|
+    sheet.add_row [index + 1, unitario.paterno, unitario.materno, unitario.nombre, unitario.correo]
+  end
+end
