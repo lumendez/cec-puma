@@ -1,0 +1,355 @@
+<%= form_for(ItInscripcionRegistro.new, url: guardar_caso_especial_it_inscripcion_registros_path) do |f| %>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Oferta actual</strong></h4>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :grupo_id, "Grupos" %>
+      <%= collection_select(:it_inscripcion_registro, :grupo_id, Grupo.where(estado: "Abierto", idioma: "Italiano"), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :idioma %>
+      <%= collection_select(:it_inscripcion_registro, :idioma, Grupo.where(estado: "Abierto", idioma: "Italiano"), :idioma, :idioma, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :horario %>
+      <%= collection_select(:it_inscripcion_registro, :horario, Grupo.where(estado: "Abierto", idioma: "Italiano"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :nivel %>
+      <%= collection_select(:it_inscripcion_registro, :nivel, Grupo.where(estado: "Abierto", idioma: "Italiano"), :nivel, :nivel, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :curso %>
+      <%= collection_select(:it_inscripcion_registro, :curso, Grupo.where(estado: "Abierto", idioma: "Italiano"), :curso, :curso, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :periodo %>
+      <%= collection_select(:it_inscripcion_registro, :periodo, Grupo.where(estado: "Abierto", idioma: "Italiano"), :periodo, :periodo, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :opcion_uno, 'Horario opcional 1' %>
+      <%= collection_select(:it_inscripcion_registro, :opcion_uno, Grupo.where(estado: "Abierto", idioma: "Italiano"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :opcion_dos, 'Horario opcional 2' %>
+      <%= collection_select(:it_inscripcion_registro, :opcion_dos, Grupo.where(estado: "Abierto", idioma: "Italiano"), :horario, :horario, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+</div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Datos personales</strong></h4>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :user_id, "Usuario" %>
+      <%= collection_select(:it_inscripcion_registro, :user_id, User.alumnos.order('paterno ASC'), :id, :nombre_paterno_materno, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :nombre, 'Nombre(s)' %>
+      <%= f.text_field :nombre, required: true, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :paterno, 'Apellido paterno' %>
+      <%= f.text_field :paterno, required: true, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :materno, 'Apellido materno' %>
+      <%= f.text_field :materno, required: true, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :telefono, "Teléfono" %>
+      <%= f.text_field :telefono, class: 'form-control'%>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :correo, "Correo electrónico" %>
+      <%= f.email_field :correo, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :sexo %>
+      <%= collection_select(:it_inscripcion_registro, :sexo, Genero.all, :genero, :genero, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-4">
+      <%= f.label :procedencia %>
+      <%= collection_select(:it_inscripcion_registro, :procedencia, Procedencium.all, :procedencia, :procedencia, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :cuota, 'Cuota (en pesos)' %>
+      <%= f.text_field :cuota, class:'form-control'  %>
+    </div>
+    <div class="form-group col-sm-2">
+      <%= f.label :movimiento, 'Movimiento bancario' %>
+      <%= f.text_field :movimiento, class: 'form-control' %>
+    </div>
+    <div class="form-group col-sm-2" style="display:none" id="prestacion">
+      <%= f.label :oficio_prestacion, 'Oficio de la prestación' %>
+      <%= f.text_field :oficio_prestacion, placeholder: 'No. de oficio', class:'form-control' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="actions col-sm-2">
+    <%= f.submit "Enviar", class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
+<% end %>
+
+<script>
+  function matchUp(selected, toselect)
+    {
+      var idx = selected.prop('selectedIndex');
+      toselect.prop('selectedIndex', idx);
+    }
+
+    $('#it_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_grupo_id'), $('#it_inscripcion_registro_idioma'));
+      }
+    );
+
+    $('#it_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_idioma'), $('#it_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#it_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_grupo_id'), $('#it_inscripcion_registro_horario'));
+      }
+    );
+
+    $('#it_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_horario'), $('#it_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#it_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_grupo_id'), $('#it_inscripcion_registro_nivel'));
+      }
+    );
+
+    $('#it_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_nivel'), $('#it_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#it_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_grupo_id'), $('#it_inscripcion_registro_curso'));
+      }
+    );
+
+    $('#it_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_curso'), $('#it_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#it_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_grupo_id'), $('#it_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#it_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_periodo'), $('#it_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#it_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_grupo_id'), $('#it_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    $('#it_inscripcion_registro_grupo_id').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_grupo_id'), $('#it_inscripcion_registro_grupo_id'));
+      }
+    );
+
+    <!-- -->
+
+    $('#it_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_idioma'), $('#it_inscripcion_registro_horario'));
+      }
+    );
+
+    $('#it_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_horario'), $('#it_inscripcion_registro_idioma'));
+      }
+    );
+
+    $('#it_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_idioma'), $('#it_inscripcion_registro_nivel'));
+      }
+    );
+
+    $('#it_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_nivel'), $('#it_inscripcion_registro_idioma'));
+      }
+    );
+
+    $('#it_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_idioma'), $('#it_inscripcion_registro_curso'));
+      }
+    );
+
+    $('#it_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_curso'), $('#it_inscripcion_registro_idioma'));
+      }
+    );
+
+    $('#it_inscripcion_registro_idioma').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_idioma'), $('#it_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#it_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_periodo'), $('#it_inscripcion_registro_idioma'));
+      }
+    );
+
+    <!-- -->
+
+    $('#it_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_horario'), $('#it_inscripcion_registro_nivel'));
+      }
+    );
+
+    $('#it_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_nivel'), $('#it_inscripcion_registro_horario'));
+      }
+    );
+
+    $('#it_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_horario'), $('#it_inscripcion_registro_curso'));
+      }
+    );
+
+    $('#it_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_curso'), $('#it_inscripcion_registro_horario'));
+      }
+    );
+
+    $('#it_inscripcion_registro_horario').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_horario'), $('#it_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#it_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_periodo'), $('#it_inscripcion_registro_horario'));
+      }
+    );
+
+    <!-- -->
+
+    $('#it_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_nivel'), $('#it_inscripcion_registro_curso'));
+      }
+    );
+
+    $('#it_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_curso'), $('#it_inscripcion_registro_nivel'));
+      }
+    );
+
+    $('#it_inscripcion_registro_nivel').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_nivel'), $('#it_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#it_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_periodo'), $('#it_inscripcion_registro_nivel'));
+      }
+    );
+
+    <!-- -->
+
+    $('#it_inscripcion_registro_curso').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_curso'), $('#it_inscripcion_registro_periodo'));
+      }
+    );
+
+    $('#it_inscripcion_registro_periodo').change(
+      function() {
+        matchUp($('#it_inscripcion_registro_periodo'), $('#it_inscripcion_registro_curso'));
+      }
+    );
+</script>
+<script>
+  function asignarCuota(){
+    var nivel = $("#it_inscripcion_registro_nivel").val();
+    var procedencia = $("#it_inscripcion_registro_procedencia").val();
+    var cuota;
+      if (procedencia == "Instituto Politécnico Nacional"  && (nivel.includes("Básico") || nivel.includes("Intermedio") || nivel.includes("Avanzado") )){
+        cuota = "544.00";
+      }
+      else if (procedencia == "Instituto Politécnico Nacional"  && (nivel.includes("Certificación") )){
+        cuota = "1241.00";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Básico")) ){
+        cuota = "1053.00";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Intermedio")) ){
+        cuota = "1053.00";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Avanzado")) ){
+        cuota = "1053.00";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Certificación")) ){
+        cuota = "1523.00";
+      }
+      else if (procedencia == "Prestación"  && (nivel.includes("Básico") || nivel.includes("Intermedio") || nivel.includes("Avanzado") )){
+        cuota = "0.00";
+        $('#prestacion').show();
+      }
+    $('#it_inscripcion_registro_cuota').val(cuota);
+  }
+
+  $("select").change( asignarCuota );
+  asignarCuota();
+</script>
+<script>
+function oficio(){
+  var prestacion = $('#it_inscripcion_registro_procedencia').val();
+  if (prestacion == "Prestación"){
+    $("#prestacion").show();
+  }
+  else {
+    $("#prestacion").hide();
+  }
+}
+$("select").change(oficio);
+oficio();
+</script>

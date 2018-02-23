@@ -414,8 +414,7 @@ class InscripcionRegistrosController < ApplicationController
         format.html { render :new }
         format.json { render json: @inscripcion_registro.errors, status: :unprocessable_entity }
       end
-  end
-
+    end
   end
 
   def control_escolar

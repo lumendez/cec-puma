@@ -360,6 +360,20 @@ class FrInscripcionRegistrosController < ApplicationController
     end
   end
 
+  def guardar_caso_especial
+    @fr_inscripcion_registro = FrInscripcionRegistro.new(fr_inscripcion_registro_params)
+
+    respond_to do |format|
+      if @fr_inscripcion_registro.save
+        format.html { redirect_to @fr_inscripcion_registro, notice: 'Su registro se creó correctamente.' }
+        format.json { render :show, status: :created, location: @fr_inscripcion_registro }
+      else
+        format.html { render :new }
+        format.json { render json: @fr_inscripcion_registro.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def control_escolar
     respond_to do |format|
       if @fr_inscripcion_registro.update(control_escolar_params)
@@ -534,7 +548,7 @@ class FrInscripcionRegistrosController < ApplicationController
     @fr_inscripcion_registro = FrInscripcionRegistro.find(params[:id])
     respond_to do |format|
      format.pdf do
-       render pdf: "talon_inscripcion_#{@fr_inscripcion_registro.nombre}_#{@fr_inscripcion_registro.paterno}_#{@fr_inscripcion_registro.materno}",
+       render pdf: "talon_inscripcion_frances_#{@fr_inscripcion_registro.nombre}_#{@fr_inscripcion_registro.paterno}_#{@fr_inscripcion_registro.materno}",
        disposition: "attachment",
        template: "fr_inscripcion_registros/talon.html.erb",
        layout: "talon_pdf.html.erb"
@@ -551,7 +565,7 @@ class FrInscripcionRegistrosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def fr_inscripcion_registro_params
       params.require(:fr_inscripcion_registro).permit(:nombre, :paterno, :materno, :idioma, :horario, :nivel, :curso, :opcion_uno, :opcion_dos, :telefono, :periodo, :correo, :sexo, :monto_pagado,
-       :cuota, :movimiento, :procedencia, :grupo_id, :examen_medio, :examen_final, :documentos_validados, :boleta, :imagen, :habilitar_historial, :habilitar_constancia, :oficio_prestacion)
+       :cuota, :movimiento, :procedencia, :grupo_id, :examen_medio, :examen_final, :documentos_validados, :boleta, :imagen, :habilitar_historial, :habilitar_constancia, :oficio_prestacion, :user_id)
     end
 
     def fr_inscripcion_registro

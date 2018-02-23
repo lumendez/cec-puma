@@ -47,7 +47,6 @@ Rails.application.routes.draw do
   end
   resources :it_inscripcion_registros do
     collection do
-      delete 'destroy_multiple'
       post 'habilitar_multiples_constancias'
       patch 'actualizar_multiples_constancias'
       get 'ver_constancias'
@@ -60,11 +59,12 @@ Rails.application.routes.draw do
       post 'editar_datos'
       patch 'actualizar_editar_datos'
       get '/talon/:id', to: 'it_inscripcion_registros#talon', as: 'talon'
+      get 'caso_especial'
+      post 'guardar_caso_especial'
     end
   end
   resources :fr_inscripcion_registros do
     collection do
-      delete 'destroy_multiple'
       post 'habilitar_multiples_constancias'
       patch 'actualizar_multiples_constancias'
       get 'ver_constancias'
@@ -77,6 +77,8 @@ Rails.application.routes.draw do
       post 'editar_datos'
       patch 'actualizar_editar_datos'
       get '/talon/:id', to: 'fr_inscripcion_registros#talon', as: 'talon'
+      get 'caso_especial'
+      post 'guardar_caso_especial'
     end
   end
   resources :curriculums
@@ -138,7 +140,6 @@ Rails.application.routes.draw do
   resources :horarios
   resources :inscripcion_registros do
     collection do
-      delete 'destroy_multiple'
       post 'habilitar_multiples_constancias'
       patch 'actualizar_multiples_constancias'
       get 'ver_constancias'
