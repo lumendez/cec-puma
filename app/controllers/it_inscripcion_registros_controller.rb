@@ -360,6 +360,20 @@ class ItInscripcionRegistrosController < ApplicationController
     end
   end
 
+  def guardar_caso_especial
+    @it_inscripcion_registro = ItInscripcionRegistro.new(it_inscripcion_registro_params)
+
+    respond_to do |format|
+      if @it_inscripcion_registro.save
+        format.html { redirect_to @it_inscripcion_registro, notice: 'Su registro se creó correctamente.' }
+        format.json { render :show, status: :created, location: @it_inscripcion_registro }
+      else
+        format.html { render :new }
+        format.json { render json: @it_inscripcion_registro.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def control_escolar
     respond_to do |format|
       if @it_inscripcion_registro.update(control_escolar_params)
@@ -551,7 +565,7 @@ class ItInscripcionRegistrosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def it_inscripcion_registro_params
       params.require(:it_inscripcion_registro).permit(:nombre, :paterno, :materno, :idioma, :horario, :nivel, :curso, :opcion_uno, :opcion_dos, :telefono, :periodo, :correo, :sexo, :monto_pagado,
-       :cuota, :movimiento, :procedencia, :grupo_id, :examen_medio, :examen_final, :documentos_validados, :boleta, :imagen, :habilitar_historial, :habilitar_constancia, :oficio_prestacion)
+       :cuota, :movimiento, :procedencia, :grupo_id, :examen_medio, :examen_final, :documentos_validados, :boleta, :imagen, :habilitar_historial, :habilitar_constancia, :oficio_prestacion, :user_id,)
     end
 
     def it_inscripcion_registro
