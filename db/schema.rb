@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216002458) do
+ActiveRecord::Schema.define(version: 20180302003529) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -93,6 +93,18 @@ ActiveRecord::Schema.define(version: 20180216002458) do
     t.string   "titular"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "diplomados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "nombre"
+    t.string   "dependencia"
+    t.string   "sede"
+    t.string   "registro"
+    t.string   "inicio"
+    t.string   "termino"
+    t.string   "horario"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "estados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -332,6 +344,17 @@ ActiveRecord::Schema.define(version: 20180216002458) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "modulo_diplomados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "diplomado_id"
+    t.string   "nombre"
+    t.string   "horas"
+    t.string   "periodo"
+    t.string   "instructor"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["diplomado_id"], name: "index_modulo_diplomados_on_diplomado_id", using: :btree
+  end
+
   create_table "nivel_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nivel"
     t.datetime "created_at", null: false
@@ -476,6 +499,7 @@ ActiveRecord::Schema.define(version: 20180216002458) do
   add_foreign_key "inscripcion_registros", "users"
   add_foreign_key "it_inscripcion_registros", "grupos"
   add_foreign_key "it_inscripcion_registros", "users"
+  add_foreign_key "modulo_diplomados", "diplomados"
   add_foreign_key "unitarios", "grupos_unitarios"
   add_foreign_key "users", "centros"
   add_foreign_key "users", "roles"

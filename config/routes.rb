@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :diplomados
   resources :buscar_cartas do
     collection do
       get :carta

@@ -1,0 +1,56 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @diplomado.nombre %>
+</p>
+
+<p>
+  <strong>Dependencia:</strong>
+  <%= @diplomado.dependencia %>
+</p>
+
+<p>
+  <strong>Sede:</strong>
+  <%= @diplomado.sede %>
+</p>
+
+<p>
+  <strong>Registro:</strong>
+  <%= @diplomado.registro %>
+</p>
+
+<p>
+  <strong>Inicio:</strong>
+  <%= @diplomado.inicio %>
+</p>
+
+<p>
+  <strong>Termino:</strong>
+  <%= @diplomado.termino %>
+</p>
+
+<p>
+  <strong>Horario:</strong>
+  <%= @diplomado.horario %>
+</p>
+
+<% @modulos.each do |modulo| %>
+<p>
+  <strong>Nombre del módulo</strong>
+  <%= modulo.nombre %>
+</p>
+<p>
+  <strong>Número de horas del módulo</strong>
+  <%= modulo.horas %>
+</p>
+<p>
+  <strong>Periodo de impartición del módulo</strong>
+  <%= modulo.periodo %>
+</p>
+<p>
+  <strong>Instructor del módulo</strong>
+  <%= modulo.instructor %>
+</p>
+<% end %>
+
+<%= link_to 'Editar', edit_diplomado_path(@diplomado) %> |
+<%= link_to 'Regresar', diplomados_path %>

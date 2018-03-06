@@ -1,0 +1,37 @@
+<h1 class="sub">Diplomados</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Dependencia</th>
+      <th>Sede</th>
+      <th>Registro</th>
+      <th>Inicio</th>
+      <th>Termino</th>
+      <th>Horario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diplomados.each do |diplomado| %>
+      <tr>
+        <td><%= diplomado.nombre %></td>
+        <td><%= diplomado.dependencia %></td>
+        <td><%= diplomado.sede %></td>
+        <td><%= diplomado.registro %></td>
+        <td><%= diplomado.inicio %></td>
+        <td><%= diplomado.termino %></td>
+        <td><%= diplomado.horario %></td>
+        <td><%= link_to 'Mostrar', diplomado %></td>
+        <td><%= link_to 'Editar', edit_diplomado_path(diplomado) %></td>
+        <td><%= link_to 'Eliminar', diplomado, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar diplomado', new_diplomado_path %>
