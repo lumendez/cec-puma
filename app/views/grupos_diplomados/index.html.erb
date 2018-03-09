@@ -1,0 +1,69 @@
+<h1 class="sub">Grupos de diplomados</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Horario</th>
+      <th>Estado</th>
+      <th>Anio</th>
+      <th>Inicio</th>
+      <th>Termino</th>
+      <th>Horario</th>
+      <th>Lugar</th>
+      <th>Fecha</th>
+      <th>Tipo</th>
+      <th>Modalidad</th>
+      <th>Cupo</th>
+      <th>Duracion</th>
+      <th>Cuota</th>
+      <th>Clave</th>
+      <th>Proyecto</th>
+      <th>Institucion bancaria</th>
+      <th>Cuenta</th>
+      <th>Titular</th>
+      <th>Jefe ec</th>
+      <th>Registro</th>
+      <th>Referencia</th>
+      <th>Habilitar constancias</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupos_diplomados.each do |grupos_diplomado| %>
+      <tr>
+        <td><%= grupos_diplomado.nombre %></td>
+        <td><%= grupos_diplomado.horario %></td>
+        <td><%= grupos_diplomado.estado %></td>
+        <td><%= grupos_diplomado.anio %></td>
+        <td><%= grupos_diplomado.inicio %></td>
+        <td><%= grupos_diplomado.termino %></td>
+        <td><%= grupos_diplomado.horario %></td>
+        <td><%= grupos_diplomado.lugar %></td>
+        <td><%= grupos_diplomado.fecha %></td>
+        <td><%= grupos_diplomado.tipo %></td>
+        <td><%= grupos_diplomado.modalidad %></td>
+        <td><%= grupos_diplomado.cupo %></td>
+        <td><%= grupos_diplomado.duracion %></td>
+        <td><%= grupos_diplomado.cuota %></td>
+        <td><%= grupos_diplomado.clave %></td>
+        <td><%= grupos_diplomado.proyecto %></td>
+        <td><%= grupos_diplomado.institucion_bancaria %></td>
+        <td><%= grupos_diplomado.cuenta %></td>
+        <td><%= grupos_diplomado.titular %></td>
+        <td><%= grupos_diplomado.jefe_ec %></td>
+        <td><%= grupos_diplomado.registro %></td>
+        <td><%= grupos_diplomado.referencia %></td>
+        <td><%= grupos_diplomado.habilitar_constancias %></td>
+        <td><%= link_to 'Mostrar', grupos_diplomado %></td>
+        <td><%= link_to 'Editar', edit_grupos_diplomado_path(grupos_diplomado) %></td>
+        <td><%= link_to 'Eliminar', grupos_diplomado, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo grupo de diplomado', new_grupos_diplomado_path %>

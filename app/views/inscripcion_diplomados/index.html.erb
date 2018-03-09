@@ -1,0 +1,31 @@
+<h1 class="sub">Inscripción a diplomados</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Paterno</th>
+      <th>Materno</th>
+      <th>Documentos validados</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inscripcion_diplomados.each do |inscripcion_diplomado| %>
+      <tr>
+        <td><%= inscripcion_diplomado.nombre %></td>
+        <td><%= inscripcion_diplomado.paterno %></td>
+        <td><%= inscripcion_diplomado.materno %></td>
+        <td><%= inscripcion_diplomado.documentos_validados %></td>
+        <td><%= link_to 'Mostrar', inscripcion_diplomado %></td>
+        <td><%= link_to 'Editar', edit_inscripcion_diplomado_path(inscripcion_diplomado) %></td>
+        <td><%= link_to 'Eliminar', inscripcion_diplomado, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva inscrpción a diplomado', new_inscripcion_diplomado_path %>

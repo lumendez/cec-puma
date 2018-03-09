@@ -1,0 +1,146 @@
+<%= form_for(grupos_diplomado) do |f| %>
+  <% if grupos_diplomado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grupos_diplomado.errors.count, "error") %> prohibited this grupos_diplomado from being saved:</h2>
+
+      <ul>
+      <% grupos_diplomado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row  jumbotron">
+    <h4 class="subs"><strong>Informaci&oacute;n general del grupo</strong></h4>
+    <div class="form-group col-sm-3">
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre, class:'form-control' %>
+    </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :horario %>
+    <%= f.text_field :horario, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :estado %>
+    <%= f.text_field :estado, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :anio %>
+    <%= f.text_field :anio, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :inicio %>
+    <%= f.text_field :inicio, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :termino %>
+    <%= f.text_field :termino, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :horario %>
+    <%= f.text_field :horario, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :registro %>
+    <%= f.text_field :registro, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :referencia %>
+    <%= f.text_field :referencia, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :habilitar_constancias %>
+    <%= f.check_box :habilitar_constancias, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row  jumbotron">
+  <h4 class="subs"><strong>Informaci&oacute;n de la oferta educativa</strong></h4>
+  <div class="form-group col-sm-3">
+    <%= f.label :lugar %>
+    <%= f.text_field :lugar, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :fecha %>
+    <%= f.text_field :fecha, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :tipo %>
+    <%= f.text_field :tipo, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :modalidad %>
+    <%= f.text_field :modalidad, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :cupo %>
+    <%= f.text_field :cupo, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :duracion %>
+    <%= f.text_field :duracion, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :cuota %>
+    <%= f.text_field :cuota, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :clave %>
+    <%= f.text_field :clave, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :proyecto %>
+    <%= f.text_field :proyecto, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row  jumbotron">
+  <h4 class="subs"><strong>Informaci&oacute;n bancaria</strong></h4>
+  <div class="form-group col-sm-3">
+    <%= f.label :institucion_bancaria %>
+    <%= f.text_field :institucion_bancaria, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :cuenta %>
+    <%= f.text_field :cuenta, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :titular %>
+    <%= f.text_field :titular, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row  jumbotron">
+  <h4 class="subs"><strong>Validaci&oacute;n</strong></h4>
+  <div class="form-group col-sm-3">
+    <%= f.label :jefe_ec %>
+    <%= f.text_field :jefe_ec, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit 'Enviar', class:'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

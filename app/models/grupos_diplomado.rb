@@ -1,0 +1,2 @@
+class GruposDiplomado < ApplicationRecord
+end

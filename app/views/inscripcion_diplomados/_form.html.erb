@@ -1,0 +1,120 @@
+<%= form_for(inscripcion_diplomado) do |f| %>
+  <% if inscripcion_diplomado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inscripcion_diplomado.errors.count, "error") %> prohibited this inscripcion_diplomado from being saved:</h2>
+
+      <ul>
+      <% inscripcion_diplomado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row jumbotron">
+    <h4 class="subs"><strong>Oferta actual</strong></h4>
+    <div class="row">
+      <div class="form-group col-sm-7">
+        <%= f.label :grupos_diplomado_id, 'Nombre del curso' %>
+        <%= collection_select(:inscripcion_diplomado, :grupos_diplomado_id, GruposDiplomado.where(estado: 'Abierto'), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row jumbotron">
+  <h4 class="subs"><strong>Información personal</strong></h4>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :curp, 'CURP' %><strong><%= link_to '  ¿No conoce su CURP?', 'http://consultas.curp.gob.mx', html_options = {target: '_blank'} %></strong>
+      <%= f.text_field :curp, class: 'form-control', required: true, maxlength: 18 %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :nombre, 'Nombre (s)' %>
+      <%= f.text_field :nombre, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :paterno, 'Apellido paterno' %>
+      <%= f.text_field :paterno, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :materno, 'Apellido materno' %>
+      <%= f.text_field :materno, class:'form-control', required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-2">
+      <%= f.label :sexo %>
+      <%= collection_select(:unitario, :sexo, Genero.all, :genero, :genero, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <%= f.label :nacimiento, 'Fecha de nacimiento' %><br>
+      <div class="input-group date">
+        <%= f.text_field :nacimiento, class:'nacimiento form-control' %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :domicilio, 'Domicilio (calle, número y colonia)' %>
+      <%= f.text_field :domicilio, class:'form-control', required: true %>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <%= f.label :codigo_postal, 'Código postal'  %>
+      <%= f.text_field :codigo_postal, class:'form-control', required: true, maxlength: 5, pattern: '[0-9]+' %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :entidad, 'Entidad federativa' %>
+      <%= f.text_field :entidad, class:'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :delegacion_municipio, 'Delegación o municipio' %>
+      <%= f.text_field :delegacion_municipio, class:'form-control' %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :telefono_celular, 'Teléfono celular' %>
+      <%= f.text_field :telefono_celular, class:'form-control', required: true, maxlength: 10, pattern: '[0-9]+' %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :correo, 'Correo electrónico' %>
+      <%= f.email_field :correo, class:'form-control', required: true %>
+    </div>
+  </div>
+</div>
+<div class="row jumbotron">
+  <h4 class="subs"><strong>Control Escolar</strong></h4>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :documentos_validados %>
+      <%= f.check_box :documentos_validados, class:'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <% @calificacion_modulos.each_with_index do |calificacion_modulo, index| %>
+      <%= fields_for 'calificaciones[]', calificacion_modulo do |f| %>
+        <div class="form-group col-sm-3">
+          <%= f.label :calificacion, "Calificación del módulo #{index + 1}" %>
+          <%= f.text_field :calificacion, class:'form-control' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="actions col-sm-2">
+    <%= f.submit 'Enviar', class:'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

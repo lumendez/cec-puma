@@ -39,27 +39,6 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="form-group col-sm-4">
-      <%= f.label :inicio %>
-      <%= f.text_field :inicio, class:'form-control' %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="form-group col-sm-4">
-      <%= f.label :termino %>
-      <%= f.text_field :termino, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="form-group col-sm-4">
-      <%= f.label :horario %>
-      <%= f.text_field :horario, class:'form-control' %>
-    </div>
-  </div>
-
   <div class="row jumbotron">
     <p><strong>Módulos</strong></p>
     <div class="form-group col-md-12 fields">
@@ -67,7 +46,7 @@
         <%= render 'modulo_diplomado', f: builder %>
       <% end %>
       </div>
-    </div>
+  </div>
 
     <div class="actions">
       <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>

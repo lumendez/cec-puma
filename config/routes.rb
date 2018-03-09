@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :inscripcion_diplomados
+  resources :grupos_diplomados
   resources :diplomados
   resources :buscar_cartas do
     collection do
