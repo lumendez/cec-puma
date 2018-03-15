@@ -47,7 +47,7 @@
   <div class="row">
     <div class="form-group col-sm-2">
       <%= f.label :sexo %>
-      <%= collection_select(:unitario, :sexo, Genero.all, :genero, :genero, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+      <%= collection_select(:inscripcion_diplomado, :sexo, Genero.all, :genero, :genero, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
     </div>
 
     <div class="form-group col-sm-2">
@@ -118,3 +118,9 @@
   </div>
 </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.nacimiento').datepicker({language: 'es', format: 'dd-mm-yyyy'});
+  });
+</script>

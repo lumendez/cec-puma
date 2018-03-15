@@ -70,10 +70,15 @@ class GruposDiplomadosController < ApplicationController
       @grupos_diplomado = GruposDiplomado.find(params[:id])
     end
 
+    def grupos_diplomado
+      @grupos_diplomado = GruposDiplomado.new(grupos_diplomado_params)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupos_diplomado_params
       params.require(:grupos_diplomado).permit(:nombre, :horario, :estado, :anio, :inicio, :termino,
       :horario, :lugar, :fecha, :tipo, :modalidad, :cupo, :duracion, :cuota, :clave, :proyecto,
-      :institucion_bancaria, :cuenta, :titular, :jefe_ec, :registro, :referencia, :habilitar_constancias)
+      :institucion_bancaria, :cuenta, :titular, :jefe_ec, :registro, :referencia, :habilitar_constancias,
+      :numero_modulos)
     end
 end

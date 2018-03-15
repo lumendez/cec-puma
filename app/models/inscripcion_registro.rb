@@ -67,14 +67,14 @@ class InscripcionRegistro < ApplicationRecord
      "#{periodo} de #{created_at.strftime("%Y")}"
   end
 
-  #Se obtiene el nombre del curso para mostrarlo en la pantalla de
-  #validaciones de los registros de inscripcion
+  # Se obtiene el nombre del curso para mostrarlo en la pantalla de
+  # validaciones de los registros de inscripcion
   def nombre_curso
     "#{idioma} #{nivel}"
   end
 
-  #Se obtiene la fecha en que fue creado el registros de inscripción
-  #para mostrarlo en en la supervisión
+  # Se obtiene la fecha en que fue creado el registros de inscripción
+  # para mostrarlo en en la supervisión
   def creado
     if self.created_at?
       true

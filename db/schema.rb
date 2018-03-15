@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308002836) do
+ActiveRecord::Schema.define(version: 20180315001430) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -244,6 +244,7 @@ ActiveRecord::Schema.define(version: 20180308002836) do
     t.boolean  "habilitar_constancias"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "numero_modulos"
   end
 
   create_table "grupos_unitarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -298,9 +299,7 @@ ActiveRecord::Schema.define(version: 20180308002836) do
     t.string   "entidad"
     t.string   "delegacion_municipio"
     t.string   "telefono_celular"
-    t.string   "telefono_fijo"
     t.string   "correo"
-    t.string   "procedencia"
     t.integer  "grupos_diplomado_id"
     t.boolean  "documentos_validados"
     t.datetime "created_at",             null: false

@@ -54,23 +54,13 @@
 </p>
 
 <p>
-  <strong>Telefono fijo:</strong>
-  <%= @inscripcion_diplomado.telefono_fijo %>
-</p>
-
-<p>
   <strong>Correo:</strong>
   <%= @inscripcion_diplomado.correo %>
 </p>
 
 <p>
-  <strong>Procedencia:</strong>
-  <%= @inscripcion_diplomado.procedencia %>
-</p>
-
-<p>
   <strong>Grupos diplomado:</strong>
-  <%= @inscripcion_diplomado.grupos_diplomado %>
+  <%= @inscripcion_diplomado.grupos_diplomado.nombre %>
 </p>
 
 <p>
@@ -78,5 +68,5 @@
   <%= @inscripcion_diplomado.documentos_validados %>
 </p>
 
-<%= link_to 'Edit', edit_inscripcion_diplomado_path(@inscripcion_diplomado) %> |
-<%= link_to 'Back', inscripcion_diplomados_path %>
+<%= link_to 'Editar', edit_inscripcion_diplomado_path(@inscripcion_diplomado) %> |
+<%= link_to 'Regresar', inscripcion_diplomados_path %>

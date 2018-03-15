@@ -20,9 +20,9 @@ class InscripcionDiplomadosController < ApplicationController
   def new
     @inscripcion_diplomado = InscripcionDiplomado.new
     @calificacion_modulos = []
-    5.times do
-      @calificacion_modulos << CalificacionModulo.new
-    end
+    #15.times do
+      #@calificacion_modulos << CalificacionModulo.new
+    #end
   end
 
   # GET /inscripcion_diplomados/1/edit
@@ -35,11 +35,16 @@ class InscripcionDiplomadosController < ApplicationController
   def create
 
     @inscripcion_diplomado = InscripcionDiplomado.new(inscripcion_diplomado_params)
+    # Se calcula el número de módulos que tiene el diplomado al que se inscribe
+    # el usuario para crear ese mismo número de campos de calificación.
+    modulos = inscripcion_diplomado.grupos_diplomado.numero_modulos
 
     respond_to do |format|
       if @inscripcion_diplomado.save
-        params["calificaciones"].each do |calificacion|
-          CalificacionModulo.create(calificacion: calificacion.values[0], inscripcion_diplomado_id: @inscripcion_diplomado.id)
+        # Se guardan al mismo tiempo los datos de la inscripción y el número de
+        # espacios de calificación para ese usuario.
+        modulos.times do
+          CalificacionModulo.create(calificacion: "", inscripcion_diplomado_id: @inscripcion_diplomado.id)
         end
         format.html { redirect_to @inscripcion_diplomado, notice: 'La inscripción al diplomado fue creada correctamente.' }
         format.json { render :show, status: :created, location: @inscripcion_diplomado }
@@ -55,6 +60,9 @@ class InscripcionDiplomadosController < ApplicationController
   def update
     respond_to do |format|
       if @inscripcion_diplomado.update(inscripcion_diplomado_params)
+        # Se guardan las calificaciones para cada uno de los módulos del
+        # diplomado
+        CalificacionModulo.update(params[:calificaciones].keys, params[:calificaciones].values)
         format.html { redirect_to @inscripcion_diplomado, notice: 'La inscripción al diplomado fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @inscripcion_diplomado }
       else
@@ -78,6 +86,10 @@ class InscripcionDiplomadosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_inscripcion_diplomado
       @inscripcion_diplomado = InscripcionDiplomado.find(params[:id])
+    end
+
+    def inscripcion_diplomado
+      @inscripcion_diplomado = InscripcionDiplomado.new(inscripcion_diplomado_params)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

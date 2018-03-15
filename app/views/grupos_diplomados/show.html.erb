@@ -98,20 +98,5 @@
   <%= @grupos_diplomado.jefe_ec %>
 </p>
 
-<p>
-  <strong>Registro:</strong>
-  <%= @grupos_diplomado.registro %>
-</p>
-
-<p>
-  <strong>Referencia:</strong>
-  <%= @grupos_diplomado.referencia %>
-</p>
-
-<p>
-  <strong>Habilitar constancias:</strong>
-  <%= @grupos_diplomado.habilitar_constancias %>
-</p>
-
-<%= link_to 'Edit', edit_grupos_diplomado_path(@grupos_diplomado) %> |
-<%= link_to 'Back', grupos_diplomados_path %>
+<%= link_to 'Editar', edit_grupos_diplomado_path(@grupos_diplomado) %> |
+<%= link_to 'Regresar', grupos_diplomados_path %>

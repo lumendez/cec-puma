@@ -17,9 +17,10 @@
   <strong>Registro:</strong>
   <%= @diplomado.registro %>
 </p>
+<br>
 
-
-<% @modulos.each do |modulo| %>
+<% @modulos.each_with_index do |modulo, index| %>
+<h4 class="sub">Módulo <%= index + 1 %></h3>
 <p>
   <strong>Nombre del módulo</strong>
   <%= modulo.nombre %>
@@ -36,6 +37,7 @@
   <strong>Instructor del módulo</strong>
   <%= modulo.instructor %>
 </p>
+<br>
 <% end %>
 
 <%= link_to 'Editar', edit_diplomado_path(@diplomado) %> |
