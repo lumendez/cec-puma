@@ -45,10 +45,6 @@ class Unitario < ApplicationRecord
     "#{nombre} #{paterno} #{materno}"
   end
 
-  def creado
-    self.created_at.strftime("%d/%m/%y a las %T %P")
-  end
-
   def actualizado
     self.updated_at.strftime("%d/%m/%y a las %T %P")
   end
@@ -96,6 +92,7 @@ class Unitario < ApplicationRecord
       *terms.map { |e| [e] * num_or_conds }.flatten
     )
   }
+
   scope :with_grupos_unitario_id, lambda { |grupos_unitario_ids|
     # Se filtra a los usuarios dependiendo del grupos_unitario_id dado
     where(grupos_unitario_id: [*grupos_unitario_ids])

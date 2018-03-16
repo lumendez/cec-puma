@@ -7,7 +7,27 @@ class InscripcionDiplomadosController < ApplicationController
   # GET /inscripcion_diplomados
   # GET /inscripcion_diplomados.json
   def index
-    @inscripcion_diplomados = InscripcionDiplomado.all
+    #@unitarios = Unitario.all
+    #@grupos_unitarios = GruposUnitario.all
+    @filterrific = initialize_filterrific(
+    InscripcionDiplomado,
+    params[:filterrific],
+    select_options: {
+      with_grupos_unitario_id: GruposDiplomado.seleccion_curso_nombre,
+      with_documentos_validados: InscripcionDiplomado.options_for_documentos_validados
+    },
+  ) or return
+  @inscripcion_diplomados = @filterrific.find.page(params[:pagina])
+
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
+  rescue ActiveRecord::RecordNotFound => e
+  # There is an issue with the persisted param_set. Reset it.
+  puts "Se restablecieron los parámetros: #{ e.message }"
+  redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   # GET /inscripcion_diplomados/1
