@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/panel_instructor_diplomados/', to: 'panel_instructor_diplomados#index'
+
   resources :inscripcion_diplomados
   resources :grupos_diplomados
   resources :diplomados

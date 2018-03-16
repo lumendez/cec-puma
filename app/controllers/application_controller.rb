@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
       redirect_to inscripcion_registros_path
     elsif current_user.role.nombre == 'Cursos control'
       redirect_to grupos_unitarios_path
+    elsif current_user.role.nombre == 'Diplomados control'
+      redirect_to inscripcion_diplomados_path
+    elsif current_user.role.nombre == 'Instructor diplomados'
+      redirect_to panel_instructor_diplomados_path
     else
       redirect_to root_path
     end
@@ -33,6 +37,10 @@ class ApplicationController < ActionController::Base
       inscripcion_registros_path
     elsif current_user.role.nombre == 'Cursos control'
       grupos_unitarios_path
+    elsif current_user.role.nombre == 'Diplomados control'
+      inscripcion_diplomados_path
+    elsif current_user.role.nombre == 'Instructor Diplomados'
+      panel_instructor_diplomados_path
     end
   end
 

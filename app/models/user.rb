@@ -85,6 +85,14 @@ class User < ApplicationRecord
     self.role.nombre == "Cursos control"
   end
 
+  def control_dp_ec?
+    self.role.nombre == "Diplomados control"
+  end
+
+  def instructor_dp?
+    self.role.nombre == "Instructor diplomados"
+  end
+
   #Se utiliza para mostrar el nombre completo de un usuario, principalmente de
   #los alumnos, de esta forma en las listas de registros de inscripción aparecen
   #primero por apellidos para que puedan buscarse de forma más sencilla
@@ -132,6 +140,7 @@ class User < ApplicationRecord
     usuarios.map { |e| [e.nombre_completo, e.id] }
   end
 
+  # Función que calcula la edad de una persona (usuario) a partir de su CURP
   def edad
     curp = "#{rfc}"
     curp = curp.scan(/\d{6}/)
@@ -141,6 +150,7 @@ class User < ApplicationRecord
     edad = hoy.year - curp.year
   end
 
+  # Función que determina el sexo de una persona (usuario) a partir de su CURP
   def sexo
     sexo = "#{rfc}"
     sexo = sexo.scan(/^.{10}[HM]/)
