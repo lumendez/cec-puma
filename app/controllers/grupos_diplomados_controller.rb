@@ -76,7 +76,7 @@ class GruposDiplomadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupos_diplomado_params
-      params.require(:grupos_diplomado).permit(:nombre, :horario, :estado, :anio, :inicio, :termino,
+      params.require(:grupos_diplomado).permit(:nombre, :diplomado_id, :horario, :estado, :anio, :inicio, :termino,
       :horario, :lugar, :fecha, :tipo, :modalidad, :cupo, :duracion, :cuota, :clave, :proyecto,
       :institucion_bancaria, :cuenta, :titular, :jefe_ec, :registro, :referencia, :habilitar_constancias,
       :numero_modulos)

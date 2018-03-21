@@ -169,8 +169,8 @@ class Ability
         can :update, ItInscripcionRegistro
         can :evaluacion_media, ItInscripcionRegistro
         can :evaluacion_final, ItInscripcionRegistro
-      elsif user.insctructor_dp?
-        manage :panel_instructor_diplomados
+      elsif user.instructor_dp?
+        can :manage, :panel_instructor_diplomados
       # Privilegios para el coordinador del CELEX
       elsif user.coordinador_celex?
         can :read, Calendario

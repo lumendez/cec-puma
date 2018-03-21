@@ -3,7 +3,8 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Nombre</th>
+      <th>Nombre del diplomado</th>
+      <th>Nombre del grupo</th>
       <th>Horario</th>
       <th>Estado</th>
       <th>Año</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @grupos_diplomados.each do |grupos_diplomado| %>
       <tr>
+        <td><%= grupos_diplomado.diplomado.nombre %></td>
         <td><%= grupos_diplomado.nombre %></td>
         <td><%= grupos_diplomado.horario %></td>
         <td><%= grupos_diplomado.estado %></td>

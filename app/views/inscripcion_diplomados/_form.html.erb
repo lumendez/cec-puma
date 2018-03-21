@@ -15,8 +15,8 @@
     <h4 class="subs"><strong>Oferta actual</strong></h4>
     <div class="row">
       <div class="form-group col-sm-7">
-        <%= f.label :grupos_diplomado_id, 'Nombre del curso' %>
-        <%= collection_select(:inscripcion_diplomado, :grupos_diplomado_id, GruposDiplomado.where(estado: 'Abierto'), :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
+        <%= f.label :diplomado_id, 'Nombre del diplomado' %>
+        <%= collection_select(:inscripcion_diplomado, :diplomado_id, GruposDiplomado.where(estado: 'Abierto'), :diplomado_id, :nombre_diplomado, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
       </div>
     </div>
   </div>

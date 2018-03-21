@@ -120,40 +120,7 @@ body {
 zz15_TopNavigationMenuV4 {
     background: #d3d3d3 none repeat scroll 0 0;
 }
-/*.menu-horizontal {
-    border-bottom: 1px solid gainsboro;
-    display: table;
-    height: 30px !important;
-    margin: auto;
-    max-width: 970px;
-    min-height: 100%;
-    width: 100%;
-}
-.menu-horizontal ul {
-    display: table !important;
-    height: 100%;
-    margin: auto;
-    width: auto;
-}
-/*.menu-horizontal ul li {
-    border-bottom: 2px solid transparent;
-    float: left;
-    margin: 0 1px;
-    position: relative;
-    transition: all 0.2s ease-in-out 0s;
-}*/
-/*.menu-horizontal ul li:hover, .menu-horizontal ul li.selected {
-    border-bottom: 2px solid #ff9933;
-}*/
-/*.menu-horizontal ul li > a.menu-item {
-    display: block;
-    height: auto !important;
-    padding: 8px !important;
-    text-align: center;
-}*/
-/*.menu-horizontal ul li > a.menu-item .menu-item-text {
-    color: black;
-}*/
+
 .PiePagina {
     display: table;
     width: 100%;
@@ -240,10 +207,7 @@ a.PieLink:hover {
     top: auto;
     width: 100%;
 }
-/*.escudoipn {
-    float: none;
-    margin: 2px auto;
-}*/
+
 }
 .elemen {
     background: red none repeat scroll 0 0;
@@ -251,7 +215,6 @@ a.PieLink:hover {
     width: 100%;
 }
 .PiePagina {
-    /*background: url("/Style%20Library/images/FooterFondo.png") repeat-x scroll center top #DDDDE2;*/
 	background: #DDDDE2 none repeat scroll 0 0;
   clear: both;
   color: #666666;
@@ -266,7 +229,6 @@ a.PieLink:hover {
     text-align: center;
 }
 .PiePagina h1{
-    /*display: block;*/
     font-size: 14px;
     font-weight: bold;
     margin-top: 20px;
@@ -317,8 +279,7 @@ a.PieLink:hover {
     text-shadow: 0 1px 1px #FFFFFF;
 }
 .sepi {
-    color:#6c1a42;
-    /*text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);*/
+  color:#6c1a42;
 	font-weight: bold;
 	font-size:24px;
 }
@@ -330,10 +291,6 @@ a.sepi, a.sepi:focus, a.sepi:hover, a.sepi:visited {
 .programas{
 	color: #ff9933; font-weight:bold;
 }
-
-/*.carousel-caption h3 {
-	background: rgba(0, 0, 0, 0.75) none repeat scroll 0 0;
-}*/
 
 h4.menu{
 	color: #222 !important;
@@ -494,7 +451,6 @@ table th{
 
 .navbar-inverse {
     background-color: #595c65 !important;
-    /*border-color: #595c65 !important;*/
 }
 
 .navbar-nav > li > a {
@@ -523,10 +479,6 @@ table th{
 .navbar-inverse {
     border-color: #dcdfe4 !important;
 }
-
-/*.navbar ul li a{
-  font-size: 14px !important;
-}*/
 
 .dropdown ul li{
 	border-top: 5px solid transparent;
@@ -625,7 +577,6 @@ background-color: white;
 
 .texto-inicio{padding-bottom:30px; font-weight:bold; font-size: 2.5em; color: rgba(0,0,0,0.7); text-shadow: 2px 2px 0px rgba(0,0,0,0.1);}
 
-/*table th {background-color: #DBE6EC;}*/
 
 .privacidad {
   color: #65727A;
@@ -679,11 +630,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', end
 .administrador {background-color: #003E4F; color: #fff;}
 .control-escolar {background-color: #33384E; color: #fff;}
 .profesor {background-color: #66324C; color: #fff;}
-.invitado {background-color: #F2A246; color: #fff;}
+.invitado {background-color: #025D8C; color: #fff;}
 .director-centro {background-color: #C02942; color: #fff;}
 .jefe-educacion {background-color: #EE5442; color: #fff;}
 .coordinador-celex{background-color: #3FB8AF; color: #fff;}
 .control-cec{background-color: #519548; color: #fff;}
+.diplomados-control {background: #88C425; color: #fff;}
+.instructor-diplomados {background: #216982; color: #fff;}
 
 div.vertical{
   width: 165px;

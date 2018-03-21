@@ -55,16 +55,19 @@ class InscripcionDiplomadosController < ApplicationController
   def create
 
     @inscripcion_diplomado = InscripcionDiplomado.new(inscripcion_diplomado_params)
+    grupo_id = GruposDiplomado.find_by(diplomado_id: @inscripcion_diplomado.diplomado_id).id
+    @inscripcion_diplomado.grupos_diplomado_id = grupo_id
     # Se calcula el número de módulos que tiene el diplomado al que se inscribe
     # el usuario para crear ese mismo número de campos de calificación.
-    modulos = inscripcion_diplomado.grupos_diplomado.numero_modulos
+    #modulos = inscripcion_diplomado.grupos_diplomado.numero_modulos
+    modulos = ModuloDiplomado.where(diplomado_id: @inscripcion_diplomado.diplomado_id)
 
     respond_to do |format|
       if @inscripcion_diplomado.save
         # Se guardan al mismo tiempo los datos de la inscripción y el número de
         # espacios de calificación para ese usuario.
-        modulos.times do
-          CalificacionModulo.create(calificacion: "", inscripcion_diplomado_id: @inscripcion_diplomado.id)
+        modulos.each do |modulo|
+          CalificacionModulo.create(calificacion: "", inscripcion_diplomado_id: @inscripcion_diplomado.id, instructor_id: modulo.instructor_id)
         end
         format.html { redirect_to @inscripcion_diplomado, notice: 'La inscripción al diplomado fue creada correctamente.' }
         format.json { render :show, status: :created, location: @inscripcion_diplomado }
@@ -114,7 +117,7 @@ class InscripcionDiplomadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inscripcion_diplomado_params
-      params.require(:inscripcion_diplomado).permit(:curp, :nombre, :paterno, :materno,
+      params.require(:inscripcion_diplomado).permit(:diplomado_id, :curp, :nombre, :paterno, :materno,
       :sexo, :nacimiento, :domicilio, :codigo_postal, :entidad, :delegacion_municipio,
       :telefono_celular, :telefono_fijo, :correo, :procedencia, :grupos_diplomado_id,
       :documentos_validados, calificacion_modulos_attributes: CalificacionModulo.attribute_names.map(&:to_sym).push(:_destroy))

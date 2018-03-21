@@ -15,25 +15,27 @@
     <h4 class="subs"><strong>Informaci&oacute;n general del grupo</strong></h4>
   <div class="row">
     <div class="form-group col-md-4">
-      <%= f.label :nombre %>
-      <%= collection_select(:grupos_diplomado, :nombre, Diplomado.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+      <%= f.label :diplomado_id, 'Nombre del diplomado' %>
+      <%= collection_select(:grupos_diplomado, :diplomado_id, Diplomado.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :nombre, 'Nombre del grupo' %>
+      <%= f.text_field :nombre, class:'form-control' %>
     </div>
     <div class="form-group col-md-2">
-      <%= f.label :numero_modulos %>
+      <%= f.label :numero_modulos, 'Número de módulos' %>
       <%= collection_select(:grupos_diplomado, :numero_modulos, Diplomado.all, :modulos, :modulos, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
     <div class="form-group col-sm-3">
       <%= f.label :horario %>
       <%= f.text_field :horario, class:'form-control' %>
     </div>
-
+  </div>
+  <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :estado %>
       <%= collection_select(:grupos_diplomado, :estado, Estado.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
-  </div>
-
-  <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :anio, 'Año' %><br>
       <div class="input-group date">
@@ -63,7 +65,9 @@
         </span>
       </div>
     </div>
+  </div>
 
+  <div class="row">
     <div class="form-group col-sm-3">
       <%= f.label :habilitar_constancias %>
       <%= f.check_box :habilitar_constancias, class:'form-control' %>

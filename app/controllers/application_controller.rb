@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
       grupos_unitarios_path
     elsif current_user.role.nombre == 'Diplomados control'
       inscripcion_diplomados_path
-    elsif current_user.role.nombre == 'Instructor Diplomados'
+    elsif current_user.role.nombre == 'Instructor diplomados'
       panel_instructor_diplomados_path
     end
   end

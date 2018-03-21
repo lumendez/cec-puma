@@ -163,6 +163,9 @@
           <li>
             <%= link_to "Curriculum instructores", curriculums_path %>
           </li>
+          <li>
+            <%= link_to "Roles", roles_path %>
+          </li>
         </ul>
     </li>
     <li class="dropdown">
@@ -208,9 +211,6 @@
             <%= link_to "Proyectos", proyectos_path %>
           </li>
           <li>
-            <%= link_to "Roles", roles_path %>
-          </li>
-          <li>
             <%= link_to "Tipo de oferta", tipo_oferta_path %>
           </li>
         </ul>
@@ -227,7 +227,7 @@
   </ul>
 <% elsif user_signed_in? && current_user.role.nombre == "Profesor" %>
   <ul class="nav navbar-nav navbar-right">
-    <li class="Selected"><a href="/">Inicio</a></li>
+    <li class="Selected"><%= link_to "Inicio", panel_profesores_path %></li>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><strong> Hola!</strong> <%= current_user.nombre %></a>
       <ul class="dropdown-menu">
@@ -252,6 +252,19 @@
             </li>
         </ul>
     </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><strong> Hola!</strong> <%= current_user.nombre %></a>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to "Salir", destroy_user_session_path, method: :delete %>
+          <%= link_to "Editar datos", edit_user_registration_path %>
+        </li>
+      </ul>
+    </li>
+  </ul>
+<% elsif user_signed_in? && current_user.role.nombre == "Instructor diplomados" %>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="Selected"><%= link_to "Inicio", panel_instructor_diplomados_path %></li>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><strong> Hola!</strong> <%= current_user.nombre %></a>
       <ul class="dropdown-menu">
