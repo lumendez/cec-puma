@@ -1,0 +1,40 @@
+<h3 class="sub"><%= @nombre_diplomado %></h3>
+<%= form_tag actualizar_calificaciones_calificacion_modulos_path, method: :patch do %>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @usuarios.each do |usuario| %>
+          <tr>
+            <td><%= usuario.paterno_materno_nombre %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Calificación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @calificacion_modulos.each do |calificacion_modulo| %>
+          <%= fields_for "calificaciones[]", calificacion_modulo do |f| %>
+            <tr>
+              <td><%= f.text_field :calificacion, value: calificacion_modulo.calificacion, class:'form-control' %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= submit_tag "Guardar calificaciones", class: 'btn btn-primary' %>
+<% end %>

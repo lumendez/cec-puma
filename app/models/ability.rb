@@ -171,6 +171,9 @@ class Ability
         can :evaluacion_final, ItInscripcionRegistro
       elsif user.instructor_dp?
         can :manage, :panel_instructor_diplomados
+        can :manage, :diplomados
+        can :update, CalificacionModulo
+        can :asignar_calificaciones, InscripcionDiplomado
       # Privilegios para el coordinador del CELEX
       elsif user.coordinador_celex?
         can :read, Calendario
