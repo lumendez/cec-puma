@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'panel_instructor_diplomados', to: 'panel_instructor_diplomados#index'
+  get 'calificacion_diplomados', to: 'panel_instructor_diplomados#calificacion_diplomados'
+
+  resources :inscripcion_diplomados
+  resources :calificacion_modulos do
+    collection do
+      patch 'actualizar_calificaciones'
+    end
+  end
+  resources :grupos_diplomados
+  resources :diplomados
   resources :buscar_cartas do
     collection do
       get :carta

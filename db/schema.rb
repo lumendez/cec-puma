@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216002458) do
+ActiveRecord::Schema.define(version: 20180403003650) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20180216002458) do
     t.string   "periodo"
     t.string   "anio"
     t.string   "estado"
+  end
+
+  create_table "calificacion_modulos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "calificacion"
+    t.integer  "inscripcion_diplomado_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "instructor_id"
+    t.string   "numero_modulo"
+    t.index ["inscripcion_diplomado_id"], name: "index_calificacion_modulos_on_inscripcion_diplomado_id", using: :btree
   end
 
   create_table "centros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -93,6 +103,15 @@ ActiveRecord::Schema.define(version: 20180216002458) do
     t.string   "titular"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "diplomados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "nombre"
+    t.string   "dependencia"
+    t.string   "sede"
+    t.string   "registro"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "estados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -202,6 +221,36 @@ ActiveRecord::Schema.define(version: 20180216002458) do
     t.index ["user_id"], name: "index_grupos_on_user_id", using: :btree
   end
 
+  create_table "grupos_diplomados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "nombre"
+    t.string   "horario"
+    t.string   "estado"
+    t.string   "anio"
+    t.string   "inicio"
+    t.string   "termino"
+    t.string   "lugar"
+    t.string   "fecha"
+    t.string   "tipo"
+    t.string   "modalidad"
+    t.string   "cupo"
+    t.string   "duracion"
+    t.string   "cuota"
+    t.string   "clave"
+    t.string   "proyecto"
+    t.string   "institucion_bancaria"
+    t.string   "cuenta"
+    t.string   "titular"
+    t.string   "jefe_ec"
+    t.string   "registro"
+    t.string   "referencia"
+    t.boolean  "habilitar_constancias"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "numero_modulos"
+    t.integer  "diplomado_id"
+    t.index ["diplomado_id"], name: "index_grupos_diplomados_on_diplomado_id", using: :btree
+  end
+
   create_table "grupos_unitarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
     t.string   "horario"
@@ -240,6 +289,30 @@ ActiveRecord::Schema.define(version: 20180216002458) do
     t.string   "idioma"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "inscripcion_diplomados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "curp"
+    t.string   "nombre"
+    t.string   "paterno"
+    t.string   "materno"
+    t.string   "sexo"
+    t.string   "nacimiento"
+    t.string   "domicilio"
+    t.string   "codigo_postal"
+    t.string   "entidad"
+    t.string   "delegacion_municipio"
+    t.string   "telefono_celular"
+    t.string   "correo"
+    t.integer  "grupos_diplomado_id"
+    t.boolean  "documentos_validados"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "calificacion_modulo_id"
+    t.integer  "diplomado_id"
+    t.index ["calificacion_modulo_id"], name: "index_inscripcion_diplomados_on_calificacion_modulo_id", using: :btree
+    t.index ["diplomado_id"], name: "index_inscripcion_diplomados_on_diplomado_id", using: :btree
+    t.index ["grupos_diplomado_id"], name: "index_inscripcion_diplomados_on_grupos_diplomado_id", using: :btree
   end
 
   create_table "inscripcion_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -330,6 +403,18 @@ ActiveRecord::Schema.define(version: 20180216002458) do
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "modulo_diplomados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "diplomado_id"
+    t.string   "nombre"
+    t.string   "horas"
+    t.string   "periodo"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "instructor_id"
+    t.string   "numero_modulo"
+    t.index ["diplomado_id"], name: "index_modulo_diplomados_on_diplomado_id", using: :btree
   end
 
   create_table "nivel_nombres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -467,15 +552,21 @@ ActiveRecord::Schema.define(version: 20180216002458) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   end
 
+  add_foreign_key "calificacion_modulos", "inscripcion_diplomados"
   add_foreign_key "curriculums", "users"
   add_foreign_key "examen_colocacion_idiomas", "users"
   add_foreign_key "fr_inscripcion_registros", "grupos"
   add_foreign_key "fr_inscripcion_registros", "users"
   add_foreign_key "grupos", "users"
+  add_foreign_key "grupos_diplomados", "diplomados"
+  add_foreign_key "inscripcion_diplomados", "calificacion_modulos"
+  add_foreign_key "inscripcion_diplomados", "diplomados"
+  add_foreign_key "inscripcion_diplomados", "grupos_diplomados"
   add_foreign_key "inscripcion_registros", "grupos"
   add_foreign_key "inscripcion_registros", "users"
   add_foreign_key "it_inscripcion_registros", "grupos"
   add_foreign_key "it_inscripcion_registros", "users"
+  add_foreign_key "modulo_diplomados", "diplomados"
   add_foreign_key "unitarios", "grupos_unitarios"
   add_foreign_key "users", "centros"
   add_foreign_key "users", "roles"

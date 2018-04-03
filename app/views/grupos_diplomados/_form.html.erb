@@ -1,0 +1,170 @@
+<%= form_for(grupos_diplomado) do |f| %>
+  <% if grupos_diplomado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grupos_diplomado.errors.count, "error") %> prohibited this grupos_diplomado from being saved:</h2>
+
+      <ul>
+      <% grupos_diplomado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row jumbotron">
+    <h4 class="subs"><strong>Informaci&oacute;n general del grupo</strong></h4>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :diplomado_id, 'Nombre del diplomado' %>
+      <%= collection_select(:grupos_diplomado, :diplomado_id, Diplomado.all, :id, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :nombre, 'Nombre del grupo' %>
+      <%= f.text_field :nombre, class:'form-control' %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= f.label :numero_modulos, 'Número de módulos' %>
+      <%= collection_select(:grupos_diplomado, :numero_modulos, Diplomado.all, :modulos, :modulos, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :horario %>
+      <%= f.text_field :horario, class:'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :estado %>
+      <%= collection_select(:grupos_diplomado, :estado, Estado.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+    <div class="form-group col-sm-3">
+      <%= f.label :anio, 'Año' %><br>
+      <div class="input-group date">
+        <%= f.text_field :anio, class:'anio form-control' %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :incio, 'Fecha de inicio' %><br>
+      <div class="input-group date">
+        <%= f.text_field :inicio, class:'fecha-inicio form-control' %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :termino, 'Fecha de termino' %><br>
+      <div class="input-group date">
+        <%= f.text_field :termino, class:'fecha-termino form-control' %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :habilitar_constancias %>
+      <%= f.check_box :habilitar_constancias, class:'form-control' %>
+    </div>
+  </div>
+</div>
+
+<div class="row  jumbotron">
+  <h4 class="subs"><strong>Informaci&oacute;n de la oferta educativa</strong></h4>
+  <div class="form-group col-sm-3">
+    <%= f.label :lugar %>
+    <%= f.text_field :lugar, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :fecha, 'Fecha' %><br>
+    <div class="input-group date">
+      <%= f.text_field :fecha, class:'fecha form-control' %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :tipo %>
+    <%= f.text_field :tipo, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :modalidad %>
+    <%= f.text_field :modalidad, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :cupo %>
+    <%= f.text_field :cupo, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :duracion %>
+    <%= f.text_field :duracion, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :cuota %>
+    <%= f.text_field :cuota, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :clave %>
+    <%= f.text_field :clave, class:'form-control' %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :proyecto %>
+    <%= f.text_field :proyecto, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row  jumbotron">
+  <h4 class="subs"><strong>Informaci&oacute;n bancaria</strong></h4>
+  <div class="form-group col-sm-3">
+    <%= f.label :institucion_bancaria %>
+    <%= collection_select(:grupos_diplomado, :institucion_bancaria, DatosBanco.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :cuenta %>
+    <%= collection_select(:grupos_diplomado, :cuenta, DatosBanco.all, :cuenta, :cuenta, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <%= f.label :titular %>
+    <%= collection_select(:grupos_diplomado, :titular, DatosBanco.all, :titular, :titular, {prompt: 'Seleccione'}, class: 'form-control')  %>
+  </div>
+</div>
+
+<div class="row  jumbotron">
+  <h4 class="subs"><strong>Validaci&oacute;n</strong></h4>
+  <div class="form-group col-sm-3">
+    <%= f.label :jefe_ec, "Jefe de Educación Continua" %>
+      <%= f.text_field :jefe_ec, value: grupos_diplomado.jefe_educacion_continua, class: 'form-control'  %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="actions col-sm-4">
+    <%= f.submit 'Enviar', class:'btn btn-primary' %>
+  </div>
+</div>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.anio').datepicker({language: 'es', format: 'yyyy', minViewMode: 'years'});
+    $('.fecha').datepicker({language: 'es', format: 'dd/mm/yyyy', todayHighlight: true});
+    $('.fecha-inicio').datepicker({language: 'es', format: 'dd/mm/yyyy'});
+    $('.fecha-termino').datepicker({language: 'es', format: 'dd/mm/yyyy'});
+  });
+</script>

@@ -1,0 +1,48 @@
+<h1 class="sub">Inscripción a diplomados</h1>
+
+<%= form_for_filterrific @filterrific do |f| %>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-3">
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.label :search_query, 'Búsqueda por nombre' %>
+      <%= f.text_field(
+        :search_query,
+        class: 'filterrific-periodically-observed form-control'
+      ) %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :with_grupos_unitario_id, 'Nombre del curso' %>
+      <%= f.select(
+        :with_grupos_unitario_id,
+        @filterrific.select_options[:with_grupos_unitario_id],
+        { include_blank: '- Cualquiera -' }, class:'form-control'
+      ) %>
+      <br>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :with_documentos_validados, 'Filtrar por estado' %>
+      <%= f.select(:with_documentos_validados, @filterrific.select_options[:with_documentos_validados], { include_blank: '- Por defecto -'}, class:'form-control') %>
+    </div>
+    <br>
+  </div>
+
+  <div class="row">
+      <div class="col-sm-3">
+        <%= link_to(
+          'Quitar filtros',
+          reset_filterrific_url,
+          class: 'btn btn-primary'
+        ) %>
+      </div>
+  </div>
+</div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+<% end %>
+
+<%= render(
+  partial: 'inscripcion_diplomados/registros',
+  locals: { inscripcion_diplomados: @inscripcion_diplomados }
+) %>
+
+<%= link_to 'Crear nueva inscrpción a diplomado', new_inscripcion_diplomado_path %>

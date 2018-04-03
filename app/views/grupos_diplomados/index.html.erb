@@ -1,0 +1,37 @@
+<h1 class="sub">Grupos de diplomados</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre del diplomado</th>
+      <th>Nombre del grupo</th>
+      <th>Horario</th>
+      <th>Estado</th>
+      <th>Año</th>
+      <th>Inicio</th>
+      <th>Termino</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupos_diplomados.each do |grupos_diplomado| %>
+      <tr>
+        <td><%= grupos_diplomado.diplomado.nombre %></td>
+        <td><%= grupos_diplomado.nombre %></td>
+        <td><%= grupos_diplomado.horario %></td>
+        <td><%= grupos_diplomado.estado %></td>
+        <td><%= grupos_diplomado.anio %></td>
+        <td><%= grupos_diplomado.inicio %></td>
+        <td><%= grupos_diplomado.termino %></td>
+        <td><%= link_to 'Mostrar', grupos_diplomado %></td>
+        <td><%= link_to 'Editar', edit_grupos_diplomado_path(grupos_diplomado) %></td>
+        <td><%= link_to 'Eliminar', grupos_diplomado, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo grupo de diplomado', new_grupos_diplomado_path %>

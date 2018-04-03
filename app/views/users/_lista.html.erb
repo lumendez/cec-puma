@@ -28,6 +28,10 @@
           <td class="director-centro"><%= user.role.nombre %></td>
         <% elsif user.role.nombre == "Cursos control" %>
           <td class="control-cec"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Diplomados control" %>
+          <td class="diplomados-control"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Instructor diplomados" %>
+          <td class="instructor-diplomados"><%= user.role.nombre %></td>
         <% end %>
         <td><%= user.email %></td>
         <% if can? :update, user %>

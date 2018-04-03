@@ -51,6 +51,14 @@ class Ability
         can :create, GruposUnitario
         can :update, GruposUnitario
         can :grupo_excel, GruposUnitario
+      elsif user.control_dp_ec?
+        can :validar_documentos, InscripcionDiplomado
+        can :habilitar_constancia, InscripcionDiplomado
+        can :read, InscripcionDiplomado
+        can :update, InscripcionDiplomado
+        can :read, GruposDiplomado
+        can :create, GruposDiplomado
+        can :update, GruposDiplomado
       elsif user.control_cec?
         can :read, Calendario
         can :create, Calendario
@@ -161,6 +169,11 @@ class Ability
         can :update, ItInscripcionRegistro
         can :evaluacion_media, ItInscripcionRegistro
         can :evaluacion_final, ItInscripcionRegistro
+      elsif user.instructor_dp?
+        can :manage, :panel_instructor_diplomados
+        can :manage, :diplomados
+        can :update, CalificacionModulo
+        can :asignar_calificaciones, InscripcionDiplomado
       # Privilegios para el coordinador del CELEX
       elsif user.coordinador_celex?
         can :read, Calendario

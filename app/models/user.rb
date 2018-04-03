@@ -4,11 +4,11 @@ class User < ApplicationRecord
 
   validates :nombre, :paterno, :rfc, presence: true
 
-  #Opciones de devise
+  # Opciones de devise
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #Filtros de filterrific
+  # Filtros de filterrific
          filterrific(
            available_filters: [
              :search_query,
@@ -16,7 +16,7 @@ class User < ApplicationRecord
            ]
          )
 
-  #Asociaciones con otros modelos
+  # Asociaciones con otros modelos
   belongs_to :role
 
   belongs_to :centro
@@ -39,20 +39,20 @@ class User < ApplicationRecord
 
   has_many :curriculums, dependent: :destroy
 
-  #Opciones de kaminari para la paginación de los registros del modelo (25 en este caso)
+  # Opciones de kaminari para la paginación de los registros del modelo (25 en este caso)
   paginates_per 50
 
-  #Definición de roles para devise
+  # Definición de roles para devise
   def assign_role
     self.role = Role.find_by nombre: "Invitado" if self.role.nil?
   end
 
-  #Definición de roles para devise
+  # Definición de roles para devise
   def assign_centro
     self.centro = Centro.find_by nombre: "Ingeniero Eugenio Méndez Docurro" if self.centro.nil?
   end
 
-  #Definiciones de los roles dentro del sistema
+  # Definiciones de los roles dentro del sistema
   def invitado?
     self.role.nombre == "Invitado"
   end
@@ -85,15 +85,23 @@ class User < ApplicationRecord
     self.role.nombre == "Cursos control"
   end
 
-  #Se utiliza para mostrar el nombre completo de un usuario, principalmente de
-  #los alumnos, de esta forma en las listas de registros de inscripción aparecen
-  #primero por apellidos para que puedan buscarse de forma más sencilla
+  def control_dp_ec?
+    self.role.nombre == "Diplomados control"
+  end
+
+  def instructor_dp?
+    self.role.nombre == "Instructor diplomados"
+  end
+
+  # Se utiliza para mostrar el nombre completo de un usuario, principalmente de
+  # los alumnos, de esta forma en las listas de registros de inscripción aparecen
+  # primero por apellidos para que puedan buscarse de forma más sencilla
   def nombre_completo
     "#{paterno} #{materno} #{nombre}"
   end
 
-  #Se usa para darle el formato "Nombre(s) Apellido Paterno Apellido Materno" a
-  #los usuarios en los historiales académicos y en las constancias de idioma.
+  # Se usa para darle el formato "Nombre(s) Apellido Paterno Apellido Materno" a
+  # los usuarios en los historiales académicos y en las constancias de idioma.
   def nombre_paterno_materno
     "#{nombre} #{paterno} #{materno}"
   end
@@ -102,27 +110,34 @@ class User < ApplicationRecord
     self.nombre_completo.parameterize(separator: ' ').upcase
   end
 
-  #Se utiliza para obtener del Jefe de Educación Continua actual, éste aparece
-  #principalmente en los formatos de apertura de grupos del Sistema de
-  #Gestión de Calidad, en los historiales acedémicos y en las listas del grupos
-  #que tienen el formato del Sistema de Gestión de Calidad.
+  # Se utiliza para obtener del Jefe de Educación Continua actual, éste aparece
+  # principalmente en los formatos de apertura de grupos del Sistema de
+  # Gestión de Calidad, en los historiales acedémicos y en las listas del grupos
+  # que tienen el formato del Sistema de Gestión de Calidad.
   def jefe_educacion_continua
     rol = Role.find_by(nombre: "Jefe Educación Continua").id
     usuarios = User.find_by(role: rol).nombre_paterno_materno
   end
 
-  #Se utiliza para filtrar a los alumnos en las listas para calificaciones,
-  #las listas del Sistema de Gestión de Calidad, para las constancias y
-  #para la lista de usuarios en el sistema.
+  # Se utiliza para filtrar a los alumnos en las listas para calificaciones,
+  # las listas del Sistema de Gestión de Calidad, para las constancias y
+  # para la lista de usuarios en el sistema.
   def self.alumnos
     rol = Role.find_by(nombre: "Invitado").id
     usuarios = User.where(role: rol)
   end
 
-  #Se utiliza para la lista de instructores en la lista de usuarios del sistema
-  #además, se utiliza para la lista de CV de instructores.
+  # Se utiliza para la lista de instructores en la lista de usuarios del sistema
+  # además, se utiliza para la lista de CV de instructores.
   def self.instructores
     rol = Role.find_by(nombre: "Profesor").id
+    usuarios = User.where(role: rol)
+  end
+
+  # Se utiliza para filtrar la lista de usuarios por instructores de diplomados
+  # en la vista de creacion de diplomados
+  def self.instructores_diplomados
+    rol = Role.find_by(nombre: "Instructor diplomados").id
     usuarios = User.where(role: rol)
   end
 
@@ -132,6 +147,7 @@ class User < ApplicationRecord
     usuarios.map { |e| [e.nombre_completo, e.id] }
   end
 
+  # Función que calcula la edad de una persona (usuario) a partir de su CURP
   def edad
     curp = "#{rfc}"
     curp = curp.scan(/\d{6}/)
@@ -141,6 +157,7 @@ class User < ApplicationRecord
     edad = hoy.year - curp.year
   end
 
+  # Función que determina el sexo de una persona (usuario) a partir de su CURP
   def sexo
     sexo = "#{rfc}"
     sexo = sexo.scan(/^.{10}[HM]/)
@@ -148,7 +165,7 @@ class User < ApplicationRecord
     sexo = sexo[-1...11]
   end
 
-  #Definición de los filtros para filterrific
+  # Definición de los filtros para filterrific
   scope :search_query, lambda { |query|
 
     # Filtra a los usuarios por nombre o apellido paterno

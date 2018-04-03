@@ -1,0 +1,55 @@
+<%= form_for(diplomado) do |f| %>
+  <% if diplomado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(diplomado.errors.count, "error") %> prohibited this diplomado from being saved:</h2>
+
+      <ul>
+      <% diplomado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :dependencia %>
+      <%= f.text_field :dependencia, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :sede %>
+      <%= f.text_field :sede, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :registro %>
+      <%= f.text_field :registro, class:'form-control' %>
+    </div>
+  </div>
+
+  <div class="row jumbotron">
+    <p><strong>Módulos</strong></p>
+    <div class="form-group col-md-12 fields">
+      <%= f.simple_fields_for :modulo_diplomados do |builder| %>
+        <%= render 'modulo_diplomado', f: builder %>
+      <% end %>
+      </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+    <%= link_to_add_row(' + Agregar módulo', f, :modulo_diplomados, class: 'btn btn-info') %>
+  </div>
+<% end %>

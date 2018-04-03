@@ -1,0 +1,72 @@
+<p>
+  <strong>Curp:</strong>
+  <%= @inscripcion_diplomado.curp %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @inscripcion_diplomado.nombre %>
+</p>
+
+<p>
+  <strong>Paterno:</strong>
+  <%= @inscripcion_diplomado.paterno %>
+</p>
+
+<p>
+  <strong>Materno:</strong>
+  <%= @inscripcion_diplomado.materno %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @inscripcion_diplomado.sexo %>
+</p>
+
+<p>
+  <strong>Nacimiento:</strong>
+  <%= @inscripcion_diplomado.nacimiento %>
+</p>
+
+<p>
+  <strong>Domicilio:</strong>
+  <%= @inscripcion_diplomado.domicilio %>
+</p>
+
+<p>
+  <strong>Codigo postal:</strong>
+  <%= @inscripcion_diplomado.codigo_postal %>
+</p>
+
+<p>
+  <strong>Entidad:</strong>
+  <%= @inscripcion_diplomado.entidad %>
+</p>
+
+<p>
+  <strong>Delegacion municipio:</strong>
+  <%= @inscripcion_diplomado.delegacion_municipio %>
+</p>
+
+<p>
+  <strong>Telefono celular:</strong>
+  <%= @inscripcion_diplomado.telefono_celular %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @inscripcion_diplomado.correo %>
+</p>
+
+<p>
+  <strong>Grupos diplomado:</strong>
+  <%= @inscripcion_diplomado.grupos_diplomado.nombre %>
+</p>
+
+<p>
+  <strong>Documentos validados:</strong>
+  <%= @inscripcion_diplomado.documentos_validados %>
+</p>
+
+<%= link_to 'Editar', edit_inscripcion_diplomado_path(@inscripcion_diplomado) %> |
+<%= link_to 'Regresar', inscripcion_diplomados_path %>
