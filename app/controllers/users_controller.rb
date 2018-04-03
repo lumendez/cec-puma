@@ -272,7 +272,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
      format.pdf do
-       render pdf: "historial_academico",
+       render pdf: "historial_academico_#{@inscripcion_registros.nombre}_#{@inscripcion_registros.paterno}_#{@inscripcion_registros.materno}",
        disposition: "attachment",
        template: "users/historial_ingles.html.erb",
        layout: "historial_academico_ingles.html.erb",
