@@ -1,2 +1,17 @@
-<h1>PanelInstructorDiplomados#index</h1>
-<p>Find me in app/views/panel_instructor_diplomados/index.html.erb</p>
+<h1 class="sub">Diplomados</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre del diplomado</th>
+      <th>Módulo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @nombres_diplomado.each do |nombre_diplomado| %>
+      <tr>
+        <td><%= nombre_diplomado.nombre %></td>
+        <td>Módulo</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321003909) do
+ActiveRecord::Schema.define(version: 20180403003650) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180321003909) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "instructor_id"
+    t.string   "numero_modulo"
     t.index ["inscripcion_diplomado_id"], name: "index_calificacion_modulos_on_inscripcion_diplomado_id", using: :btree
   end
 
@@ -412,6 +413,7 @@ ActiveRecord::Schema.define(version: 20180321003909) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "instructor_id"
+    t.string   "numero_modulo"
     t.index ["diplomado_id"], name: "index_modulo_diplomados_on_diplomado_id", using: :btree
   end
 
