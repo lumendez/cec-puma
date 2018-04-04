@@ -39,6 +39,13 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :estado %>
+      <%= collection_select(:diplomado, :estado, Estado.all, :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
+    </div>
+  </div>
+
   <div class="row jumbotron">
     <p><strong>Módulos</strong></p>
     <div class="form-group col-md-12 fields">

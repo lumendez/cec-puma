@@ -77,7 +77,7 @@ class DiplomadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diplomado_params
-      params.require(:diplomado).permit(:nombre, :dependencia, :sede, :registro, :inicio, :termino, :horario,
+      params.require(:diplomado).permit(:nombre, :dependencia, :sede, :registro, :inicio, :termino, :horario, :estado,
       modulo_diplomados_attributes: ModuloDiplomado.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end
