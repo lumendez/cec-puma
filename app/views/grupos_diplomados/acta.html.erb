@@ -1,0 +1,140 @@
+<h3>Coordinación General de Formación e Innovación Educativa</h3>
+<table class="table">
+  <tr>
+    <td><strong>Dependencia Politécnica Responsable:</strong> <%= @grupos_diplomado.diplomado.dependencia %></td>
+    <td colspan="2"></td>
+    <td><strong>Modalidad</strong></td>
+    <td><strong>Total de horas</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Nombre del diplomado:</strong> <%= @grupos_diplomado.diplomado.nombre %></td>
+    <td colspan="2"></td>
+    <td><strong><%= @grupos_diplomado.modalidad %></strong></td>
+    <td><strong><%= @grupos_diplomado.duracion %></strong> Horas</td>
+  </tr>
+  <tr>
+    <td><strong>Sede:</strong> <%= @grupos_diplomado.diplomado.sede %></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><strong>CUR:</strong> <%= @grupos_diplomado.diplomado.registro %></td>
+    <td colspan="2"></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><strong>Fecha de inicio del diplomado:</strong> <%= @grupos_diplomado.inicio %></td>
+    <td><strong>Fecha de término:</strong> <%= @grupos_diplomado.termino %></td>
+    <td><strong>Horario:</strong> <%= @grupos_diplomado.horario %></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<h4>Datos generales del diplomado</h4>
+<table class="table">
+  <tr>
+    <td rowspan="2">Nombre completo del módulo</td>
+    <td colspan="2">Duración</td>
+    <td rowspan="2">Periodo de impartición</td>
+    <td rowspan="2">Instructor(es)</td>
+    <td rowspan="2">No. de empleado</td>
+    <td rowspan="2">Firma</td>
+  </tr>
+  <tr>
+    <td>Horas presenciales</td>
+    <td>Horas en línea</td>
+  </tr>
+  <% @modulos.each do |modulo| %>
+  <tr>
+    <td><%= modulo.numero_modulo %>.- <%= modulo.nombre %></td>
+    <td><%= modulo.horas %></td>
+    <td></td>
+    <td><%= modulo.periodo %></td>
+    <td><%= User.find(modulo.instructor_id).nombre_paterno_materno %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% end %>
+</table>
+<table class="table">
+  <tr>
+    <td><%= User.jefe_educacion_continua %><br>Coordinadora académica del diplomado</td>
+    <td>Subdirector de servicios educativos del    Centro de Educación Continua Eugenio Méndez Docurro</td>
+    <td>Director del Centro de Educación    Continua Ingeniero Eugenio Méndez Docurro</td>
+    <td><br><br><br><br>CGFIE-F/FO/08/09/R1</td>
+  </tr>
+</table>
+<div class="row">
+  <div class="col-md-4">
+    <table class="table">
+      <tr>
+        <td>Folio</td>
+        <td>Número de empleado</td>
+        <td>Tipo de participante</td>
+        <td>Nombre del participante</td>
+        <td>Dependencia de adscripción</td>
+        <% @modulos.count.times do |numero_modulo| %>
+        <td colspan="2">Módulo <%= numero_modulo + 1 %></td>
+        <% end %>
+        <td>Calificacion final</td>
+        <td>Acredito/ No acredito</td>
+      </tr>
+      <tr>
+        <td colspan="5"></td>
+        <% @modulos.count.times do |numero_modulo| %>
+        <td>Asistencia</td>
+        <td>Calificación</td>
+        <% end %>
+      </tr>
+      <% @alumnos.each do |alumno| %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= alumno.nombre_paterno_materno %></td>
+        <td></td>
+        <% @calificaciones.each do |calificacion| %>
+          <% if calificacion.inscripcion_diplomado_id == alumno.id %>
+          <td>100%</td>
+          <td><%= calificacion.calificacion %></td>
+          <% end %>
+        <% end %>
+        <td><%= CalificacionModulo.promedio(alumno.id) %></td>
+        <% if CalificacionModulo.promedio(alumno.id) >= 8.00 %>
+        <td>Acreditó</td>
+        <% else %>
+        <td>No acreditó</td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<table class="table">
+  <tr>
+    <td colspan="3">Participantes atendidos</td>
+    <td colspan="3">Participantes acreditados</td>
+  </tr>
+  <tr>
+    <td>Hombres</td>
+    <td>Mujeres</td>
+    <td>Total</td>
+    <td>Hombres</td>
+    <td>Mujeres</td>
+    <td>Total</td>
+  </tr>
+  <tr>
+    <td><%= @hombres %></td>
+    <td><%= @mujeres %></td>
+    <td><%= @hombres + @mujeres %></td>
+    <td><%= @hombres_acreditados %></td>
+    <td><%= @mujeres_acreditadas %></td>
+    <td><%= @hombres_acreditados + @mujeres_acreditadas %></td>
+  </tr>
+</table>
+<div class="row">
+
+</div>

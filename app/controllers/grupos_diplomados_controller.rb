@@ -1,6 +1,6 @@
 class GruposDiplomadosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_grupos_diplomado, only: [:show, :edit, :update, :destroy]
+  before_action :set_grupos_diplomado, only: [:show, :edit, :update, :destroy, :acta]
   before_action :grupos_diplomado, only: :create
   load_and_authorize_resource
 
@@ -62,6 +62,32 @@ class GruposDiplomadosController < ApplicationController
       format.html { redirect_to grupos_diplomados_url, notice: 'El grupo se eliminó correctamente.' }
       format.json { head :no_content }
     end
+  end
+
+  # Los siguientes datos se utilizan para imprimir el "Acta Integral de Evaluación
+  # de Diplomados para el Personal del IPN"
+  def acta
+    @modulos = ModuloDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id)
+    @alumnos = InscripcionDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id)
+    alumnos_ids = @alumnos.pluck(:id)
+    @calificaciones = CalificacionModulo.where(inscripcion_diplomado_id: alumnos_ids)
+    @hombres = InscripcionDiplomado.where(grupos_diplomado_id: @grupos_diplomado,
+    sexo:"Masculino", documentos_validados: true).count
+    @mujeres = InscripcionDiplomado.where(grupos_diplomado_id: @grupos_diplomado,
+    sexo:"Femenino", documentos_validados: true).count
+    #@hombres_acreditados = InscripcionDiplomado.where('grupos_diplomado_id = ? AND
+    #sexo = ? AND documentos_validados = ? AND ').count
+    @hombres_acreditados = 0
+    @mujeres_acreditadas = 0
+    @alumnos.each do |alumno|
+      promedio = CalificacionModulo.promedio(alumno.id)
+      if alumno.sexo == "Masculino" && promedio >= 8.00
+        @hombres_acreditados = @hombres_acreditados + 1
+      elsif alumno.sexo == "Femenino" && promedio >= 8.00
+        @mujeres_acreditadas = @mujeres_acreditadas + 1
+      end
+    end
+
   end
 
   private
