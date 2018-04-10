@@ -9,7 +9,11 @@ Rails.application.routes.draw do
       patch 'actualizar_calificaciones'
     end
   end
-  resources :grupos_diplomados
+  resources :grupos_diplomados do
+    collection do
+      get 'acta/:id', to: 'grupos_diplomados#acta', as: 'acta'
+    end
+  end
   resources :diplomados
   resources :buscar_cartas do
     collection do

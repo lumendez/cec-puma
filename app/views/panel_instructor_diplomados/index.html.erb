@@ -3,15 +3,24 @@
   <thead>
     <tr>
       <th>Nombre del diplomado</th>
-      <th>Módulo</th>
+      <th>Estado</th>
     </tr>
   </thead>
   <tbody>
     <% @nombres_diplomado.each do |nombre_diplomado| %>
       <tr>
         <td><%= nombre_diplomado.nombre %></td>
-        <td>Módulo</td>
+        <% if nombre_diplomado.estado == 'Abierto' %>
+        <td class="success"><%= nombre_diplomado.estado %></td>
+        <% elsif nombre_diplomado.estado == 'Pendiente' %>
+        <td class="warning"><%= nombre_diplomado.estado %></td>
+        <% elsif nombre_diplomado.estado == 'Cerrado' %>
+        <td class="danger"><%= nombre_diplomado.estado %></td>
+        <% end %>
       </tr>
     <% end %>
+    <tr>
+      <td colspan="2"><strong><%= link_to 'Asignar calificaciones', calificacion_diplomados_path %></strong></td>
+    </tr>
   </tbody>
 </table>

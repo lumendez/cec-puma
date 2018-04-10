@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403003650) do
+ActiveRecord::Schema.define(version: 20180404003846) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20180403003650) do
     t.string   "registro"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "estado"
   end
 
   create_table "estados", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
