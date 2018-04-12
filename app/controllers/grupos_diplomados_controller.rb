@@ -87,6 +87,16 @@ class GruposDiplomadosController < ApplicationController
         @mujeres_acreditadas = @mujeres_acreditadas + 1
       end
     end
+    respond_to do |format|
+      format.pdf do
+      #render pdf: "talon_inscripcion_#{@inscripcion_registro.nombre}_#{@inscripcion_registro.paterno}_#{@inscripcion_registro.materno}",
+      render pdf: "Acta",
+      disposition: "attachment",
+      orientation: "Landscape",  
+      template: "grupos_diplomados/acta.html.erb",
+      layout: "acta_pdf.html.erb"
+     end
+    end
 
   end
 

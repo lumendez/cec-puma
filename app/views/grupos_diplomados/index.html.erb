@@ -24,7 +24,7 @@
         <td><%= grupos_diplomado.anio %></td>
         <td><%= grupos_diplomado.inicio %></td>
         <td><%= grupos_diplomado.termino %></td>
-        <td><%= link_to 'Acta', acta_grupos_diplomados_path(grupos_diplomado) %></td>
+        <td><%= link_to "Acta", acta_grupos_diplomados_path(grupos_diplomado.id, format: :pdf) %></td>
         <td><%= link_to 'Mostrar', grupos_diplomado %></td>
         <td><%= link_to 'Editar', edit_grupos_diplomado_path(grupos_diplomado) %></td>
         <td><%= link_to 'Eliminar', grupos_diplomado, method: :delete, data: { confirm: '¿Está seguro?' } %></td>

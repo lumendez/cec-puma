@@ -67,7 +67,8 @@ class InscripcionDiplomadosController < ApplicationController
         # Se guardan al mismo tiempo los datos de la inscripción y el número de
         # espacios de calificación para ese usuario.
         modulos.each do |modulo|
-          CalificacionModulo.create(calificacion: "", inscripcion_diplomado_id: @inscripcion_diplomado.id, instructor_id: modulo.instructor_id, numero_modulo: modulo.numero_modulo)
+          CalificacionModulo.create(calificacion: "", inscripcion_diplomado_id: @inscripcion_diplomado.id,
+          instructor_id: modulo.instructor_id, numero_modulo: modulo.numero_modulo, asistencia: "")
         end
         format.html { redirect_to @inscripcion_diplomado, notice: 'La inscripción al diplomado fue creada correctamente.' }
         format.json { render :show, status: :created, location: @inscripcion_diplomado }
