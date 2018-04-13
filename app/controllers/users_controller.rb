@@ -708,7 +708,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def historiales_frances
+  def historiales_italiano
     @filterrific = initialize_filterrific(
     User.alumnos.order(:paterno),
     params[:filterrific],
@@ -726,7 +726,7 @@ class UsersController < ApplicationController
   redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
-  def historial_frances
+  def historial_italiano
   end
 
 
