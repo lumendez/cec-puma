@@ -307,21 +307,21 @@ class UsersController < ApplicationController
     @fr_inscripcion_registros = FrInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Francés').last
     @fr_examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Francés')
 
-    @basico1 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 1").last
-    @basico2 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 2").last
-    @basico3 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 3").last
-    @basico4 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 4").last
-    @basico5 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 5").last
-    @intermedio1 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 1").last
-    @intermedio2 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 2").last
-    @intermedio3 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 3").last
-    @intermedio4 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 4").last
-    @intermedio5 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 5").last
-    @avanzado1 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 1").last
-    @avanzado2 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 2").last
-    @avanzado3 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 3").last
-    @avanzado4 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 4").last
-    @avanzado5 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 5").last
+    @basico1 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 1").last
+    @basico2 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 2").last
+    @basico3 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 3").last
+    @basico4 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 4").last
+    @basico5 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Básico 5").last
+    @intermedio1 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 1").last
+    @intermedio2 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 2").last
+    @intermedio3 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 3").last
+    @intermedio4 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 4").last
+    @intermedio5 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Intermedio 5").last
+    @avanzado1 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 1").last
+    @avanzado2 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 2").last
+    @avanzado3 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 3").last
+    @avanzado4 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 4").last
+    @avanzado5 = FrInscripcionRegistro.where(user_id: @user.id, idioma: 'Francés', nivel: "Avanzado 5").last
 
     @examen_basico1 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Francés', nivel_asignado: "Básico 1").last
     @examen_basico2 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Francés', nivel_asignado: "Básico 2").last
