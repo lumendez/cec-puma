@@ -68,17 +68,23 @@ class GruposDiplomadosController < ApplicationController
   # de Diplomados para el Personal del IPN"
   def acta
     @modulos = ModuloDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id)
+
     @alumnos = InscripcionDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id)
+
     alumnos_ids = @alumnos.pluck(:id)
+
     @calificaciones = CalificacionModulo.where(inscripcion_diplomado_id: alumnos_ids)
+
     @hombres = InscripcionDiplomado.where(grupos_diplomado_id: @grupos_diplomado,
     sexo:"Masculino", documentos_validados: true).count
+
     @mujeres = InscripcionDiplomado.where(grupos_diplomado_id: @grupos_diplomado,
     sexo:"Femenino", documentos_validados: true).count
-    #@hombres_acreditados = InscripcionDiplomado.where('grupos_diplomado_id = ? AND
-    #sexo = ? AND documentos_validados = ? AND ').count
+
     @hombres_acreditados = 0
+
     @mujeres_acreditadas = 0
+
     @alumnos.each do |alumno|
       promedio = CalificacionModulo.promedio(alumno.id)
       if alumno.sexo == "Masculino" && promedio >= 8.00
@@ -86,6 +92,52 @@ class GruposDiplomadosController < ApplicationController
       elsif alumno.sexo == "Femenino" && promedio >= 8.00
         @mujeres_acreditadas = @mujeres_acreditadas + 1
       end
+    end
+
+    respond_to do |format|
+      format.pdf do
+      render pdf: "Acta",
+      disposition: "attachment",
+      orientation: "Landscape",
+      template: "grupos_diplomados/acta.html.erb",
+      layout: "acta_pdf.html.erb"
+     end
+    end
+
+  end
+
+  def lista_dec
+    @modulos = ModuloDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id)
+    @alumnos = InscripcionDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id)
+    alumnos_ids = @alumnos.pluck(:id)
+    @calificaciones = CalificacionModulo.where(inscripcion_diplomado_id: alumnos_ids)
+    @hombres = InscripcionDiplomado.where(grupos_diplomado_id: @grupos_diplomado,
+    sexo:"Masculino", documentos_validados: true).count
+    @mujeres = InscripcionDiplomado.where(grupos_diplomado_id: @grupos_diplomado,
+    sexo:"Femenino", documentos_validados: true).count
+    @hombres_acreditados = 0
+    @mujeres_acreditadas = 0
+    @alumnos.each do |alumno|
+      promedio = CalificacionModulo.promedio(alumno.id)
+      if alumno.sexo == "Masculino" && promedio >= 80
+        @hombres_acreditados = @hombres_acreditados + 1
+      elsif alumno.sexo == "Femenino" && promedio >= 80
+        @mujeres_acreditadas = @mujeres_acreditadas + 1
+      end
+    end
+    instructores = ModuloDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id).pluck(:instructor_id).uniq
+    @nombre_instructores = User.where(id: instructores)
+    total_acreditados = (@hombres_acreditados + @mujeres_acreditadas)/(@hombres + @mujeres)
+    @porcentaje_acreditados = total_acreditados * 100
+
+    respond_to do |format|
+      format.pdf do
+      render pdf: "Lista de asistencia y calificaciones",
+      disposition: "attachment",
+      orientation: "Landscape",
+      template: "grupos_diplomados/lista_dec.html.erb",
+      layout: "acta_pdf.html.erb"
+     end
     end
 
   end
