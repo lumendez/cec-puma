@@ -485,9 +485,222 @@ class UsersController < ApplicationController
 
     respond_to do |format|
      format.pdf do
-       render pdf: "historial_academico",
+       render pdf: "historial_academico_#{@fr_inscripcion_registros.nombre}_#{@fr_inscripcion_registros.paterno}_#{@fr_inscripcion_registros.materno}",
        disposition: "attachment",
        template: "users/historial_frances.html.erb",
+       layout: "historial_academico_ingles.html.erb",
+       page_size: "Letter",
+       margin: {top: 8}
+     end
+    end
+  end
+
+  def historiales_frances
+    @filterrific = initialize_filterrific(
+    User.alumnos.order(:paterno),
+    params[:filterrific],
+  ) or return
+  @users = @filterrific.find.page(params[:pagina])
+
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
+  rescue ActiveRecord::RecordNotFound => e
+  # There is an issue with the persisted param_set. Reset it.
+  puts "Had to reset filterrific params: #{ e.message }"
+  redirect_to(reset_filterrific_url(format: :html)) and return
+  end
+
+  def historial_frances
+  end
+
+  def historial_academico_italiano
+    @It_inscripcion_registros = ItInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Italiano').last
+    @it_examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Italiano')
+
+    @basico1 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Básico 1").last
+    @basico2 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Básico 2").last
+    @basico3 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Básico 3").last
+    @basico4 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Básico 4").last
+    @basico5 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Básico 5").last
+    @intermedio1 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Intermedio 1").last
+    @intermedio2 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Intermedio 2").last
+    @intermedio3 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Intermedio 3").last
+    @intermedio4 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Intermedio 4").last
+    @intermedio5 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Intermedio 5").last
+    @avanzado1 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Avanzado 1").last
+    @avanzado2 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Avanzado 2").last
+    @avanzado3 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Avanzado 3").last
+    @avanzado4 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Avanzado 4").last
+    @avanzado5 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Avanzado 5").last
+
+    @examen_basico1 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Básico 1").last
+    @examen_basico2 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Básico 2").last
+    @examen_basico3 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Básico 3").last
+    @examen_basico4 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Básico 4").last
+    @examen_basico5 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Básico 5").last
+    @examen_intermedio1 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Intermedio 1").last
+    @examen_intermedio2 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Intermedio 2").last
+    @examen_intermedio3 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Intermedio 3").last
+    @examen_intermedio4 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Intermedio 4").last
+    @examen_intermedio5 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Intermedio 5").last
+    @examen_avanzado1 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Avanzado 1").last
+    @examen_avanzado2 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Avanzado 2").last
+    @examen_avanzado3 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Avanzado 3").last
+    @examen_avanzado4 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Avanzado 4").last
+    @examen_avanzado5 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Italiano', nivel_asignado: "Avanzado 5").last
+
+    if @it_inscripcion_registros.nil?
+      @mcer = "Este usuario no tiene ningún registro de inscripción"
+    elsif @it_inscripcion_registros.nivel == "Básico 1" || @it_inscripcion_registros.nivel == "Básico 2"
+      @mcer = "A1"
+    elsif @it_inscripcion_registros.nivel == "Básico 3" || @it_inscripcion_registros.nivel == "Básico 4" || @it_inscripcion_registros.nivel == "Básico 5"
+      @mcer = "A2"
+    elsif @it_inscripcion_registros.nivel == "Intemedio 1" || @it_inscripcion_registros.nivel == "Intermedio 2" || @it_inscripcion_registros.nivel == "Intermedio 3" || @it_inscripcion_registros.nivel == "Intermedio 4" || @it_inscripcion_registros.nivel == "Intermedio 5"
+      @mcer = "B1"
+    elsif @it_inscripcion_registros.nivel == "Avanzado 1" || @it_inscripcion_registros.nivel == "Avanzado 2" || @it_inscripcion_registros.nivel == "Avanzado 3" || @it_inscripcion_registros.nivel == "Avanzado 4" || @it_inscripcion_registros.nivel == "Avanzado 5"
+      @mcer = "B2"
+    end
+
+    if @it_inscripcion_registros.nil?
+      @mensaje_mcer = "Este usuario no tiene ningún registro de inscripción"
+    elsif @it_inscripcion_registros.nivel == "Básico 1" || @it_inscripcion_registros.nivel == "Básico 2" && @it_inscripcion_registros.promedio < 80
+      @mensaje_mcer = "se encuentra desarrollando los estudios correspondientes al nivel A1"
+    elsif @it_inscripcion_registros.nivel == "Básico 2" && @it_inscripcion_registros.promedio >= 80 || @it_inscripcion_registros.nivel == "Básico 3" || @it_inscripcion_registros.nivel == "Básico 4" || @it_inscripcion_registros.nivel == "Básico 5" && @it_inscripcion_registros.promedio < 80
+      @mensaje_mcer = "ha concuido los estudios correspondientes al nivel A1"
+    elsif @it_inscripcion_registros.nivel == "Básico 5" && @it_inscripcion_registros.promedio >= 80 || @it_inscripcion_registros.nivel == "Intemedio 1" || @it_inscripcion_registros.nivel == "Intermedio 2" || @it_inscripcion_registros.nivel == "Intermedio 3" || @it_inscripcion_registros.nivel == "Intermedio 4" || @it_inscripcion_registros.nivel == "Intermedio 5" && @it_inscripcion_registros.promedio < 80
+      @mensaje_mcer = "ha concuido los estudios correspondientes al nivel A2"
+    elsif @it_inscripcion_registros.nivel == "Intermedio 5" && @it_inscripcion_registros.promedio >= 80 || @it_inscripcion_registros.nivel == "Avanzado 1" || @it_inscripcion_registros.nivel == "Avanzado 2" || @it_inscripcion_registros.nivel == "Avanzado 3" || @it_inscripcion_registros.nivel == "Avanzado 4" || @it_inscripcion_registros.nivel == "Avanzado 5" && @it_inscripcion_registros.promedio < 80
+      @mensaje_mcer = "ha concuido los estudios correspondientes al nivel B1"
+    elsif @it_inscripcion_registros.nivel == "Avanzado 5" && @it_inscripcion_registros.promedio >= 80
+      @mensaje_mcer = "ha concuido los estudios correspondientes al nivel B2"
+    end
+
+    if @basico1.present?
+      b1horas = 40
+    else
+      b1horas = 0
+    end
+    if @basico2.present?
+      b2horas = 40
+    else
+      b2horas = 0
+    end
+    if @basico3.present?
+      b3horas = 40
+    else
+      b3horas = 0
+    end
+    if @basico4.present?
+      b4horas = 40
+    else
+      b4horas = 0
+    end
+    if @basico5.present?
+      b5horas = 40
+    else
+      b5horas = 0
+    end
+    if @intermedio1.present?
+      i1horas = 40
+    else
+      i1horas = 0
+    end
+    if @intermedio2.present?
+      i2horas = 40
+    else
+      i2horas = 0
+    end
+    if @intermedio3.present?
+      i3horas = 40
+    else
+      i3horas = 0
+    end
+    if @intermedio4.present?
+      i4horas = 40
+    else
+      i4horas = 0
+    end
+    if @intermedio5.present?
+      i5horas = 40
+    else
+      i5horas = 0
+    end
+    if @avanzado1.present?
+      a1horas = 40
+    else
+      a1horas = 0
+    end
+    if @avanzado2.present?
+      a2horas = 40
+    else
+      a2horas = 0
+    end
+    if @avanzado3.present?
+      a3horas = 40
+    else
+      a3horas = 0
+    end
+    if @avanzado4.present?
+      a4horas = 40
+    else
+      a4horas = 0
+    end
+    if @avanzado5.present?
+      a5horas = 40
+    else
+      a5horas = 0
+    end
+
+    @horas = b1horas + b2horas + b3horas + b4horas + b5horas + i1horas +
+    i2horas + i3horas + i4horas + i5horas + a1horas + a2horas + a3horas +
+    a4horas + a5horas
+
+    fecha = Date.today
+    @dias = fecha.day
+    if fecha.month == 1
+      @mes = "enero"
+    elsif fecha.month == 2
+      @mes = "febrero"
+    elsif fecha.month == 3
+      @mes = "marzo"
+    elsif fecha.month == 4
+      @mes = "abril"
+    elsif fecha.month == 5
+      @mes = "mayo"
+    elsif fecha.month == 6
+      @mes = "junio"
+    elsif fecha.month == 7
+      @mes = "julio"
+    elsif fecha.month == 8
+      @mes = "agosto"
+    elsif fecha.month == 9
+      @mes = "septiembre"
+    elsif fecha.month == 10
+      @mes = "octubre"
+    elsif fecha.month == 11
+      @mes = "noviembre"
+    elsif fecha.month == 12
+      @mes = "diciembre"
+    end
+
+    if fecha.year == 2017
+      @anio = "dos mil diecisiete"
+    elsif fecha.year == 2018
+      @anio = "dos mil dieciocho"
+    elsif fecha.year == 2019
+      @anio = "dos mil diecinueve"
+    elsif fecha.year == 2020
+      @anio = "dos mil veinte"
+    end
+
+    respond_to do |format|
+     format.pdf do
+       render pdf: "historial_academico_#{@it_inscripcion_registros.nombre}_#{@it_inscripcion_registros.paterno}_#{@it_inscripcion_registros.materno}",
+       disposition: "attachment",
+       template: "users/historial_italiano.html.erb",
        layout: "historial_academico_ingles.html.erb",
        page_size: "Letter",
        margin: {top: 8}

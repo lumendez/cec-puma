@@ -132,6 +132,9 @@ Rails.application.routes.draw do
       get 'historiales_frances'
       get 'historial_frances/:id', to: 'users#historial_frances', as: 'historial_frances'
       get 'historial_academico_frances/:id', to: 'users#historial_academico_frances', as: 'historial_academico_frances'
+      get 'historiales_italiano'
+      get 'historial_italiano/:id', to: 'users#historial_italiano', as: 'historial_italiano'
+      get 'historial_academico_italiano/:id', to: 'users#historial_academico_italiano', as: 'historial_academico_italiano'
     end
   end
   resources :estados
