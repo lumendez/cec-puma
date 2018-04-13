@@ -1,0 +1,30 @@
+<h1 class="sub">Historiales acad&eacute;micos de Italiano</h1>
+<%= form_for_filterrific @filterrific do |f| %>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.label :search_query, 'Buscar por nombre:' %>
+      <%= f.text_field(
+        :search_query,
+        class: 'filterrific-periodically-observed form-control'
+      ) %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-sm-3">
+        <%= link_to(
+          'Quitar filtros',
+          reset_filterrific_url,
+          class: 'btn btn-primary'
+        ) %>
+      </div>
+  </div>
+</div>
+<% end %>
+
+<%= render(
+  partial: 'users/lista_historiales_italiano',
+  locals: { users: @users }
+) %>

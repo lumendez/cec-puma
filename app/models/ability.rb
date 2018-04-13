@@ -144,6 +144,9 @@ class Ability
         can :historiales_frances, User
         can :historial_frances, User
         can :historial_academico_frances, User
+        can :historiales_italiano, User
+        can :historial_italiano, User
+        can :historial_academico_italiano, User
         can :destroy, User
         can :update, User
         can :manage, :anexos_unicos
