@@ -139,12 +139,12 @@
         <td></td>
         <% @calificaciones.each do |calificacion| %>
           <% if calificacion.inscripcion_diplomado_id == alumno.id %>
-            <td><%= calificacion.asistencia %></td>
+            <td><%= calificacion.asistencia %>%</td>
             <td><%= calificacion.calificacion %></td>
           <% end %>
         <% end %>
         <td><%= CalificacionModulo.promedio(alumno.id) %></td>
-        <% if CalificacionModulo.promedio(alumno.id) >= 8.00 %>
+        <% if CalificacionModulo.promedio(alumno.id) >= 80 %>
         <td>Acreditó</td>
         <% else %>
         <td>No acreditó</td>

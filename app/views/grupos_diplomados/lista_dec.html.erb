@@ -1,0 +1,105 @@
+<table class="tabla-modulos" style="width: 100%;">
+  <tbody>
+    <tr>
+      <td width="200">
+        <p align="center"><%= wicked_pdf_image_tag "LOGOTIPO_IPN.png", size:"50x70" %></p>
+      </td>
+      <td colspan="2" width="1400">
+        <p align="center">Instituto Polit&eacute;cnico Nacional<br>Secretar&iacute;a de Extensi&oacute;n e Integraci&oacute;n Social</p>
+        <p align="center">Direcci&oacute;n de Educaci&oacute;n Continua</p>
+        <p align="center">Lista de asistencia y de calificaciones</p>
+      </td>
+      <td width="200">
+        <p align="center"><%= wicked_pdf_image_tag "dec.png" %></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+&nbsp;
+<table class="tabla-modulos" style="width: 100%;">
+  <tr>
+    <td>NOMBRE DEL CURSO</td>
+    <td colspan="4"><%= @grupos_diplomado.diplomado.nombre %></td>
+  </tr>
+  <tr>
+    <td>CLAVE DE REGISTRO</td>
+    <td colspan="3"><%= @grupos_diplomado.diplomado.registro %></td>
+  </tr>
+  <tr>
+    <td>PERIODO</td>
+    <td><%= @grupos_diplomado.inicio %> a <%= @grupos_diplomado.termino %></td>
+    <td>HORARIO</td>
+    <td rowspan="2"></td>
+  </tr>
+  <tr>
+    <td>NOMBRE DEL INSTRUCTOR</td>
+    <td>
+    <% @nombre_instructores.each do |nombre_instructor| %>
+      <%= nombre_instructor.nombre_paterno_materno %>
+      <br>
+    <% end %>
+    </td>
+    <td><%= @grupos_diplomado.horario %></td>
+  </tr>
+</table>
+&nbsp;
+<table class="tabla-modulos" style="width: 100%;">
+  <tr>
+    <td rowspan="3">Num.</td>
+    <td colspan="3">USUARIO</td>
+    <td rowspan="3">RFC</td>
+    <td colspan="<%=@modulos.count + 1 %>">ASISTENCIA</td>
+    <td rowspan="2">Núm.</td>
+    <td rowspan="2">LETRA</td>
+  </tr>
+  <tr>
+    <td rowspan="2">APELLIDO PATERNO</td>
+    <td rowspan="2">APELLIDO MATERNO</td>
+    <td rowspan="2">NOMBRE(S)</td>
+    <td colspan="<%=@modulos.count + 1 %>">%</td>
+  </tr>
+  <tr>
+    <% @modulos.count.times do |numero_modulo| %>
+    <td>1</td>
+    <% end %>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% @alumnos.each_with_index do |alumno, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= alumno.paterno %></td>
+    <td><%= alumno.materno %></td>
+    <td><%= alumno.nombre %></td>
+    <td><%= alumno.curp %></td>
+    <% @calificaciones.each do |calificacion| %>
+      <% if calificacion.inscripcion_diplomado_id == alumno.id %>
+        <td><%= calificacion.asistencia %></td>
+      <% end %>
+    <% end %>
+    <td><%= CalificacionModulo.promedio_asistencia(alumno.id) %>%</td>
+    <td><%= CalificacionModulo.promedio(alumno.id) %></td>
+    <td><%= CalificacionModulo.promedio_texto(alumno.id) %></td>
+  </tr>
+  <% end %>
+</table>
+&nbsp;
+<table class="tabla-modulos" style="width: 100%;">
+  <tr>
+    <td>Participantes externos inscritos</td>
+    <td><%= @hombres + @mujeres %></td>
+    <td>Participantes acreditados</td>
+    <td><%= @hombres_acreditados + @mujeres_acreditadas %></td>
+    <td>Porcentaje de acreditados</td>
+    <td><%= @porcentaje_acreditados %>%</td>
+  </tr>
+</table>
+&nbsp;
+<table class="tabla-firmas" style="width: 100%;">
+  <tr style="text-align:center;text-transform: uppercase;">
+    <td><br><br><br>__________________________________________<br><br><%= User.jefe_educacion_continua %><br>Coordinadora del Diplomado</td>
+    <td><br><br><br>__________________________________________<br><%= User.jefe_educacion_continua %><br>Jefe del Departamento de Educación Continua</td>
+    <td><br><br><br>__________________________________________<br><br><br>Sello</td>
+  </tr>
+</table>
