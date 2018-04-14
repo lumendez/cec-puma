@@ -517,7 +517,7 @@ class UsersController < ApplicationController
   end
 
   def historial_academico_italiano
-    @It_inscripcion_registros = ItInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Italiano').last
+    @it_inscripcion_registros = ItInscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Italiano').last
     @it_examen_colocacion = ExamenColocacionIdioma.find_by(user_id: @user.id, idioma: 'Italiano')
 
     @basico1 = ItInscripcionRegistro.where(user_id: @user.id, idioma: 'Italiano', nivel: "Básico 1").last
