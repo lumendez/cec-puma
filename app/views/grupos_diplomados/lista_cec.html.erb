@@ -1,0 +1,77 @@
+<div class="lista-cec">
+  <table class="cabecera-tabla-lista-cec" style="width: 100%;">
+    <tbody>
+      <tr>
+        <td width="200">
+          <p align="center"><%= wicked_pdf_image_tag "LOGOTIPO_IPN.png", size:"50x70" %></p>
+        </td>
+        <td colspan="2" width="1400">
+          <p align="center"><span class="lista-cec-cabecera">I N S T I T U T O&nbsp;&nbsp;&nbsp;P O L I T É C N I C O&nbsp;&nbsp;&nbsp;N A C I O N A L</span>
+          <br><span class="lista-cec-cabecera">S e c r e t a r í a&nbsp;&nbsp;&nbsp;d e&nbsp;&nbsp;&nbsp;I n t e g r a c i ó n&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;&nbsp;E x t e n s i ó n S o c i a l
+          <br>D i r e c c i &oacute; n&nbsp;&nbsp;&nbsp;de&nbsp;&nbsp;&nbsp;E d u c a c i &oacute; n&nbsp;&nbsp;&nbsp;C o n t i n u a</span></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  &nbsp;
+  <h4 align="center" style="text-transform:uppercase;"><%= @grupos_diplomado.diplomado.nombre %></h4>
+  &nbsp;
+  <table class="contenido-tabla-lista-cec" style="width: 100%;">
+    <tr>
+      <td colspan="3" style="text-align:left !important;">EVENTO: <span class="celda-tabla-lista-cec"><%= @grupos_diplomado.diplomado.nombre %></span></td>
+      <td colspan="3 " style="text-align:left !important;">CLAVE: <span class="celda-tabla-lista-cec"><%= @grupos_diplomado.diplomado.registro %></span></td>
+    </tr>
+    <tr>
+      <td style="text-align:left !important;">SEDE: <span class="celda-tabla-lista-cec"><%= @grupos_diplomado.diplomado.sede %></span></td>
+      <td style="text-align:left !important;">INICIO: <span class="celda-tabla-lista-cec"><%= @grupos_diplomado.inicio %></span></td>
+      <td style="text-align:left !important;">TERMINO: <span class="celda-tabla-lista-cec"><%= @grupos_diplomado.termino %></span></td>
+      <td style="text-align:left !important;">DURACIÓN: <span class="celda-tabla-lista-cec"><%= @grupos_diplomado.duracion %> horas</span></td>
+      <td style="text-align:left !important;">PRESENCIALES: <span class="celda-tabla-lista-cec"><%= @grupos_diplomado.duracion %> horas</span></td>
+      <td style="text-align:left !important;">A DISTANCIA: <span class="celda-tabla-lista-cec">0</span></td>
+    </tr>
+  </table>
+  &nbsp;
+  <table class="tabla-modulos" style="width: 100%;">
+    <tr>
+      <td colspan="4" rowspan="2" style="text-align:center !important;">Nombre</td>
+      <td colspan="<%= @modulos.count %>" style="text-align:center !important;">Módulos</td>
+      <td rowspan="2" style="text-align:center !important;">% Asistencia</td>
+      <td rowspan="2" style="text-align:center !important;">Trabajo final</td>
+      <td rowspan="2" style="text-align:center !important;">Calificación final</td>
+    </tr>
+
+    <tr>
+      <% @modulos.count.times.with_index do |numero_modulo, index| %>
+      <td style="text-align:center !important;">0<%= index + 1 %></td>
+      <% end %>
+
+    </tr>
+    <% @alumnos.each_with_index do |alumno, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td colspan="3"><%= alumno.nombre_paterno_materno %></td>
+      <% @calificaciones.each do |calificacion| %>
+        <% if calificacion.inscripcion_diplomado_id == alumno.id %>
+          <td style="text-align:center !important;"><%= calificacion.calificacion %></td>
+        <% end %>
+      <% end %>
+      <td style="text-align:center !important;"><%= CalificacionModulo.promedio_asistencia(alumno.id) %></td>
+      <td style="text-align:center !important;"></td>
+      <td style="text-align:center !important;"></td>
+    </tr>
+    <% end %>
+  </table>
+  &nbsp;
+  <table class="tabla-firmas" style="width: 100%;">
+    <tr>
+      <td style="text-align:center !important;">COORDINADOR OPERATIVO</td>
+      <td style="text-align:center !important;">VALIDACIÓN DE INFORMACIÓN</td>
+      <td style="text-align:center !important;">UNIDAD RESPONSABLE</td>
+    </tr>
+    <tr style="text-align:center;text-transform: uppercase;">
+      <td><br><br><br>__________________________________________<br><br><%= User.jefe_educacion_continua %></td>
+      <td><br><br><br>__________________________________________<br><%= User.jefe_educacion_continua %><br>Jefe del Departamento de Educación Continua</td>
+      <td><br><br><br>__________________________________________<br><br>Director</td>
+    </tr>
+  </table>
+</div>
