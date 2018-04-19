@@ -10,7 +10,7 @@
       <th>Año</th>
       <th>Inicio</th>
       <th>Termino</th>
-      <th colspan="6"></th>
+      <th colspan="7"></th>
     </tr>
   </thead>
 
@@ -27,6 +27,7 @@
         <td><%= link_to "Acta", acta_grupos_diplomados_path(grupos_diplomado.id, format: :pdf) %></td>
         <td><%= link_to "Lista DEC", lista_dec_grupos_diplomados_path(grupos_diplomado.id, format: :pdf) %></td>
         <td><%= link_to "Lista CEC", lista_cec_grupos_diplomados_path(grupos_diplomado.id, format: :pdf) %></td>
+        <td><%= link_to "Expedición de diplomas", expedicion_diplomas_grupos_diplomados_path(grupos_diplomado.id, format: :pdf) %></td>
         <td><%= link_to 'Mostrar', grupos_diplomado %></td>
         <td><%= link_to 'Editar', edit_grupos_diplomado_path(grupos_diplomado) %></td>
         <td><%= link_to 'Eliminar', grupos_diplomado, method: :delete, data: { confirm: '¿Está seguro?' } %></td>

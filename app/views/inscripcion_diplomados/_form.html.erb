@@ -90,6 +90,38 @@
       <%= f.label :correo, 'Correo electrónico' %>
       <%= f.email_field :correo, class:'form-control', required: true %>
     </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :tipo_participante, 'Tipo de participante' %>
+      <%= f.text_field :tipo_participante, class:'form-control', required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <%= f.label :adscripcion, 'Adscripción' %>
+      <%= f.text_field :adscripcion, class:'form-control' %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :calificacion_final, 'Calificación final' %>
+      <%= f.text_field :calificacion_final, class:'form-control' %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :folio, 'Folio' %>
+      <%= f.text_field :folio, class:'form-control' %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :foja, 'Foja' %>
+      <%= f.text_field :foja, class:'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :proyecto_terminal, 'Proyecto terminal' %>
+      <%= f.text_field :proyecto_terminal, class:'form-control' %>
+    </div>
   </div>
 </div>
 <div class="row jumbotron">

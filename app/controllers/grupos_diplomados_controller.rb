@@ -158,6 +158,22 @@ class GruposDiplomadosController < ApplicationController
     end
   end
 
+  def expedicion_diplomas
+    @modulos = ModuloDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id)
+    @alumnos = InscripcionDiplomado.where(diplomado_id: @grupos_diplomado.diplomado_id)
+    alumnos_ids = @alumnos.pluck(:id)
+    @calificaciones = CalificacionModulo.where(inscripcion_diplomado_id: alumnos_ids)
+    respond_to do |format|
+      format.pdf do
+      render pdf: "Expedicion de diplomas",
+      disposition: "attachment",
+      orientation: "Landscape",
+      template: "grupos_diplomados/expedicion_diplomas.html.erb",
+      layout: "acta_pdf.html.erb"
+     end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_grupos_diplomado
@@ -173,6 +189,6 @@ class GruposDiplomadosController < ApplicationController
       params.require(:grupos_diplomado).permit(:nombre, :diplomado_id, :horario, :estado, :anio, :inicio, :termino,
       :horario, :lugar, :fecha, :tipo, :modalidad, :cupo, :duracion, :cuota, :clave, :proyecto,
       :institucion_bancaria, :cuenta, :titular, :jefe_ec, :registro, :referencia, :habilitar_constancias,
-      :numero_modulos)
+      :numero_modulos, :coordinador_academico, :coordinador_operativo)
     end
 end
