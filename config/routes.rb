@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     collection do
       get 'acta/:id', to: 'grupos_diplomados#acta', as: 'acta'
       get 'lista_dec/:id', to: 'grupos_diplomados#lista_dec', as: 'lista_dec'
+      get 'lista_cec/:id', to: 'grupos_diplomados#lista_cec', as: 'lista_cec'
+      get 'expedicion_diplomas/:id', to: 'grupos_diplomados#expedicion_diplomas', as: 'expedicion_diplomas'
     end
   end
   resources :diplomados

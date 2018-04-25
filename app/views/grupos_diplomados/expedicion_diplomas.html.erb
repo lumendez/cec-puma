@@ -1,0 +1,91 @@
+<div class="lista-cec">
+  <p><strong>INSTITUTO POLITÉCNICO NACIONAL<br>
+  SECRETARÍA DE EXTENSIÓN E INTEGRACIÓN SOCIAL</strong><br>
+  DIRECCIÓN DE EDUCACIÓN CONTINUA<br>
+  DIVISIÓN DE PROGRAMAS DE EDUCACIÓN CONTINUA<br>
+  DEPARTAMENTO DE PROGRAMAS Y PROYECTOS<br>
+  INFORMACIÓN QUE AVALA LA EXPEDICIÓN DE DIPLOMAS DEL DIPLOMADO <span style="text-transform:uppercase;"><%= @grupos_diplomado.diplomado.nombre %></span>
+  </p>
+  <hr>
+  &nbsp;
+  <h4 style="text-transform:uppercase;"><%= @grupos_diplomado.diplomado.nombre %></h4>
+  <h4 style="text-transform:uppercase;">UNIDAD RESPONSABLE <%= @grupos_diplomado.diplomado.sede %></h4>
+  &nbsp;
+  <table class="tabla-modulos" style="width:100%;">
+    <tr>
+      <td colspan="2" style="text-align:center">Folio y foja en el libro de registro DEC-LDI-40</td>
+      <td rowspan="2" style="text-align:center">Nombre del participante</td>
+      <td colspan="2" style="text-align:center">Calificacion</td>
+      <td rowspan="2" style="text-align:center">Asistencia</td>
+      <td rowspan="2" style="text-align:center">Nombre del proyecto terminal</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">Folio</td>
+      <td style="text-align:center">Foja</td>
+      <td style="text-align:center">Trabajo final</td>
+      <td style="text-align:center">Calificacion final</td>
+    </tr>
+    <% @alumnos.each_with_index do |alumno, index| %>
+    <tr>
+      <td style="text-align:center">1</td>
+      <% if index + 1 < 10 %>
+      <td style="text-align:center">
+        00<%= index + 1 %>
+      </td>
+      <% else %>
+      <td style="text-align:center">
+        0<%= index + 1 %>
+      </td>
+      <% end %>
+      <td><%= alumno.nombre_paterno_materno %></td>
+      <td style="text-align:center">Trabajo final</td>
+      <td style="text-align:center">Calificacion final</td>
+      <td style="text-align:center"><%= CalificacionModulo.promedio_asistencia(alumno.id) %>%</td>
+      <td>Nombre del proyecto terminal</td>
+    </tr>
+    <% end %>
+  </table>
+  <p align="right">
+    <br>
+    <br>
+    ________________________________________
+    <br>
+    JEFE DEL DEPARTAMENTO DE EDUCACIÓN CONTINUA
+  </p>
+  &nbsp;
+    <div>
+      <table style="float:left;width:30%;margin-right:5%;" class="tabla-modulos">
+      <tr>
+        <td style="text-align:center">Revisa la información</td>
+      </tr>
+      <tr>
+        <td><br><br><br><br></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">Coordinador Operativo<br><br></td>
+      </tr>
+    </table>
+    <table style="float:left;width:30%;margin-right:5%;" class="tabla-modulos">
+      <tr>
+        <td style="text-align:center">Avala la información</td>
+      </tr>
+      <tr>
+        <td><br><br><br><br></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">Jefe del Departamento de Educación<br>Continua</td>
+      </tr>
+    </table>
+    <table style="float:left;width:30%;" class="tabla-modulos">
+      <tr>
+        <td style="text-align:center">Titular de la entidad</td>
+      </tr>
+      <tr>
+        <td><br><br><br><br></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">Director<br><br></td>
+      </tr>
+    </table>
+  </div>
+</div>

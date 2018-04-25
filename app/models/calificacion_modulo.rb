@@ -6,6 +6,13 @@ class CalificacionModulo < ApplicationRecord
     promedio = calificaciones.sum / calificaciones.count
   end
 
+  def self.calificacion_final(alumno)
+    trabajo_final = InscripcionDiplomado.find(alumno).calificacion_final.to_i
+    calificaciones = self.where(inscripcion_diplomado_id: alumno).pluck(:calificacion).map(&:to_i)
+    promedio = calificaciones.sum / calificaciones.count
+    calificacion_final = promedio + trabajo_final / 2
+  end
+
   def self.promedio_asistencia(alumno)
     asistencia = self.where(inscripcion_diplomado_id: alumno).pluck(:asistencia).map(&:to_i)
     promedio = asistencia.sum / asistencia.count
@@ -14,7 +21,7 @@ class CalificacionModulo < ApplicationRecord
   def self.promedio_texto(alumno)
     calificaciones = self.where(inscripcion_diplomado_id: alumno).pluck(:calificacion).map(&:to_i)
     promedio = calificaciones.sum / calificaciones.count
-    
+
     if promedio == 80
       "OCHENTA"
     elsif promedio == 81

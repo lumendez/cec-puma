@@ -120,7 +120,8 @@ class InscripcionDiplomadosController < ApplicationController
     def inscripcion_diplomado_params
       params.require(:inscripcion_diplomado).permit(:diplomado_id, :curp, :nombre, :paterno, :materno,
       :sexo, :nacimiento, :domicilio, :codigo_postal, :entidad, :delegacion_municipio,
-      :telefono_celular, :telefono_fijo, :correo, :procedencia, :grupos_diplomado_id,
+      :telefono_celular, :telefono_fijo, :correo, :procedencia, :grupos_diplomado_id, :tipo_participante,
+      :adscripcion, :calificacion_final, :folio, :foja, :proyecto_terminal, :numero_empleado,
       :documentos_validados, calificacion_modulos_attributes: CalificacionModulo.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end
