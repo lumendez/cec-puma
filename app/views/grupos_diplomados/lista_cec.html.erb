@@ -56,8 +56,8 @@
         <% end %>
       <% end %>
       <td style="text-align:center !important;"><%= CalificacionModulo.promedio_asistencia(alumno.id) %></td>
-      <td style="text-align:center !important;"></td>
-      <td style="text-align:center !important;"></td>
+      <td style="text-align:center !important;"><%= alumno.calificacion_final %></td>
+      <td style="text-align:center !important;"><%= CalificacionModulo.calificacion_final(alumno.id) %></td>
     </tr>
     <% end %>
   </table>
@@ -69,7 +69,7 @@
       <td style="text-align:center !important;">UNIDAD RESPONSABLE</td>
     </tr>
     <tr style="text-align:center;text-transform: uppercase;">
-      <td><br><br><br>__________________________________________<br><br><%= User.jefe_educacion_continua %></td>
+      <td><br><br><br>__________________________________________<br><%= @grupos_diplomado.coordinador_operativo %><br></td>
       <td><br><br><br>__________________________________________<br><%= User.jefe_educacion_continua %><br>Jefe del Departamento de Educación Continua</td>
       <td><br><br><br>__________________________________________<br><br>Director</td>
     </tr>
