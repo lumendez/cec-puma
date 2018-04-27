@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419012241) do
+ActiveRecord::Schema.define(version: 20180426230823) do
 
   create_table "calendarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -546,6 +546,7 @@ ActiveRecord::Schema.define(version: 20180419012241) do
     t.string   "rfc"
     t.integer  "centro_id"
     t.string   "matricula"
+    t.string   "escolaridad"
     t.index ["centro_id"], name: "index_users_on_centro_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

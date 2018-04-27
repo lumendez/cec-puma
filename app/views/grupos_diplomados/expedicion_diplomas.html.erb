@@ -38,16 +38,17 @@
       </td>
       <% end %>
       <td><%= alumno.nombre_paterno_materno %></td>
-      <td style="text-align:center">Trabajo final</td>
-      <td style="text-align:center">Calificacion final</td>
+      <td style="text-align:center !important;"><%= alumno.calificacion_final %></td>
+      <td style="text-align:center !important;"><%= CalificacionModulo.calificacion_final(alumno.id) %></td>
       <td style="text-align:center"><%= CalificacionModulo.promedio_asistencia(alumno.id) %>%</td>
-      <td>Nombre del proyecto terminal</td>
+      <td><%= alumno.proyecto_terminal %></td>
     </tr>
     <% end %>
   </table>
   <p align="right">
     <br>
     <br>
+    <%= User.jefe_educacion_continua %><br>
     ________________________________________
     <br>
     JEFE DEL DEPARTAMENTO DE EDUCACIÓN CONTINUA
@@ -62,7 +63,7 @@
         <td><br><br><br><br></td>
       </tr>
       <tr>
-        <td style="text-align:center">Coordinador Operativo<br><br></td>
+        <td style="text-align:center"><%= @grupos_diplomado.coordinador_operativo %><br>Coordinador Operativo<br><br></td>
       </tr>
     </table>
     <table style="float:left;width:30%;margin-right:5%;" class="tabla-modulos">
@@ -73,7 +74,7 @@
         <td><br><br><br><br></td>
       </tr>
       <tr>
-        <td style="text-align:center">Jefe del Departamento de Educación<br>Continua</td>
+        <td style="text-align:center"><%= User.jefe_educacion_continua %><br>Jefe del Departamento de Educación<br>Continua</td>
       </tr>
     </table>
     <table style="float:left;width:30%;" class="tabla-modulos">
@@ -84,7 +85,7 @@
         <td><br><br><br><br></td>
       </tr>
       <tr>
-        <td style="text-align:center">Director<br><br></td>
+        <td style="text-align:center"><%= User.director %><br>Director<br><br></td>
       </tr>
     </table>
   </div>

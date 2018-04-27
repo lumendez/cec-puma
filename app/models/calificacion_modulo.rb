@@ -10,7 +10,7 @@ class CalificacionModulo < ApplicationRecord
     trabajo_final = InscripcionDiplomado.find(alumno).calificacion_final.to_i
     calificaciones = self.where(inscripcion_diplomado_id: alumno).pluck(:calificacion).map(&:to_i)
     promedio = calificaciones.sum / calificaciones.count
-    calificacion_final = promedio + trabajo_final / 2
+    calificacion_final = (promedio + trabajo_final) / 2
   end
 
   def self.promedio_asistencia(alumno)

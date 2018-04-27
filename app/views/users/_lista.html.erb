@@ -24,7 +24,9 @@
           <td class="coordinador-celex"><%= user.role.nombre %></td>
         <% elsif user.role.nombre == "Jefe Educación Continua" %>
           <td class="jefe-educacion"><%= user.role.nombre %></td>
-        <% elsif user.role.nombre == "Director del Centro" %>
+          <% elsif user.role.nombre == "Subdirector" %>
+            <td class="subdirector-centro"><%= user.role.nombre %></td>
+        <% elsif user.role.nombre == "Director" %>
           <td class="director-centro"><%= user.role.nombre %></td>
         <% elsif user.role.nombre == "Cursos control" %>
           <td class="control-cec"><%= user.role.nombre %></td>

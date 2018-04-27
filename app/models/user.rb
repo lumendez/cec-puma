@@ -110,13 +110,35 @@ class User < ApplicationRecord
     self.nombre_completo.parameterize(separator: ' ').upcase
   end
 
-  # Se utiliza para obtener del Jefe de Educación Continua actual, éste aparece
+  def escolaridad_nombre_paterno_materno
+    "#{escolaridad} #{nombre} #{paterno} #{materno}"
+  end
+
+  # Se utiliza para obtener al Director del centro, éste aparece
   # principalmente en los formatos de apertura de grupos del Sistema de
   # Gestión de Calidad, en los historiales acedémicos y en las listas del grupos
   # que tienen el formato del Sistema de Gestión de Calidad.
-  def jefe_educacion_continua
+  def self.director
+    rol = Role.find_by(nombre: "Director").id
+    usuarios = User.find_by(role: rol).escolaridad_nombre_paterno_materno
+  end
+
+  # Se utiliza para obtener al Director del centro, éste aparece
+  # principalmente en los formatos de apertura de grupos del Sistema de
+  # Gestión de Calidad, en los historiales acedémicos y en las listas del grupos
+  # que tienen el formato del Sistema de Gestión de Calidad.
+  def self.subdirector
+    rol = Role.find_by(nombre: "Subdirector").id
+    usuarios = User.find_by(role: rol).escolaridad_nombre_paterno_materno
+  end
+
+  # Se utiliza para obtener al Jefe de Educación Continua actual, éste aparece
+  # principalmente en los formatos de apertura de grupos del Sistema de
+  # Gestión de Calidad, en los historiales acedémicos y en las listas del grupos
+  # que tienen el formato del Sistema de Gestión de Calidad.
+  def self.jefe_educacion_continua
     rol = Role.find_by(nombre: "Jefe Educación Continua").id
-    usuarios = User.find_by(role: rol).nombre_paterno_materno
+    usuarios = User.find_by(role: rol).escolaridad_nombre_paterno_materno
   end
 
   # Se utiliza para filtrar a los alumnos en las listas para calificaciones,
@@ -138,7 +160,7 @@ class User < ApplicationRecord
   # en la vista de creacion de diplomados
   def self.instructores_diplomados
     rol = Role.find_by(nombre: "Instructor diplomados").id
-    usuarios = User.where(role: rol)
+    usuarios = User.where(role: rol).escolaridad_nombre_paterno_materno
   end
 
   def self.nombre_instructores
