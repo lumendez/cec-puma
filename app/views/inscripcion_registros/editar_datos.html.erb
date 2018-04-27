@@ -2,6 +2,7 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>Id de usuario</th>
       <th>Nombre</th>
       <th>Monto pagado</th>
       <th>Movimiento bancario</th>
@@ -12,6 +13,7 @@
       <% @inscripcion_registros.each_with_index do |inscripcion_registro, index| %>
           <%= fields_for "inscripcion_registros[]", inscripcion_registro do |f| %>
             <tr>
+              <td><%= f.text_field :user_id, value: inscripcion_registro.user_id, class:'form-control' %></td>
               <td><%= inscripcion_registro.nombre_paterno_materno %></td>
               <td><%= f.text_field :monto_pagado, value: inscripcion_registro.monto_pagado, class:'form-control' %></td>
               <td><%= f.text_field :movimiento, value: inscripcion_registro.movimiento, class:'form-control' %></td>

@@ -171,7 +171,7 @@ Rails.application.routes.draw do
       patch 'actualizar_asignar_calificaciones'
       get 'reporte_curso'
       get 'reporte_dec'
-      post 'editar_datos'
+      get 'editar_datos'
       patch 'actualizar_editar_datos'
       get 'caso_especial'
       post 'guardar_caso_especial'
