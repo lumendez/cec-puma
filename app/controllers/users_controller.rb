@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     @inscripcion_registros = InscripcionRegistro.where(user_id: @user.id)
     @fr_inscripcion_registros = FrInscripcionRegistro.where(user_id: @user.id)
     @it_inscripcion_registros = ItInscripcionRegistro.where(user_id: @user.id)
+    @examenes_colocacion = ExamenColocacionIdioma.where(user_id: @user.id).count
   end
 
   # GET /users/new
