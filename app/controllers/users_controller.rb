@@ -730,6 +730,199 @@ class UsersController < ApplicationController
   def historial_italiano
   end
 
+  def historial_academico_b2
+    @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés').last
+
+    @b21 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación B2.1").last
+    @b22 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación B2.2").last
+    @b23 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación B2.3").last
+
+
+    if @b21.present?
+      b1horas = 40
+    else
+      b1horas = 0
+    end
+    if @b22.present?
+      b2horas = 40
+    else
+      b2horas = 0
+    end
+    if @b23.present?
+      b3horas = 40
+    else
+      b3horas = 0
+    end
+
+    @horas = b1horas + b2horas + b3horas
+
+    fecha = Date.today
+    @dias = fecha.day
+    if fecha.month == 1
+      @mes = "enero"
+    elsif fecha.month == 2
+      @mes = "febrero"
+    elsif fecha.month == 3
+      @mes = "marzo"
+    elsif fecha.month == 4
+      @mes = "abril"
+    elsif fecha.month == 5
+      @mes = "mayo"
+    elsif fecha.month == 6
+      @mes = "junio"
+    elsif fecha.month == 7
+      @mes = "julio"
+    elsif fecha.month == 8
+      @mes = "agosto"
+    elsif fecha.month == 9
+      @mes = "septiembre"
+    elsif fecha.month == 10
+      @mes = "octubre"
+    elsif fecha.month == 11
+      @mes = "noviembre"
+    elsif fecha.month == 12
+      @mes = "diciembre"
+    end
+
+    if fecha.year == 2017
+      @anio = "dos mil diecisiete"
+    elsif fecha.year == 2018
+      @anio = "dos mil dieciocho"
+    elsif fecha.year == 2019
+      @anio = "dos mil diecinueve"
+    elsif fecha.year == 2020
+      @anio = "dos mil veinte"
+    end
+
+    respond_to do |format|
+     format.pdf do
+       render pdf: "historial_academico_#{@inscripcion_registros.nombre}_#{@inscripcion_registros.paterno}_#{@inscripcion_registros.materno}",
+       disposition: "attachment",
+       template: "users/historial_b2.html.erb",
+       layout: "historial_academico_ingles.html.erb",
+       page_size: "Letter",
+       margin: {top: 8}
+     end
+    end
+  end
+
+  def historiales_b2
+    @filterrific = initialize_filterrific(
+    User.alumnos.order(:paterno),
+    params[:filterrific],
+  ) or return
+  @users = @filterrific.find.page(params[:pagina])
+
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
+  rescue ActiveRecord::RecordNotFound => e
+  # There is an issue with the persisted param_set. Reset it.
+  puts "Had to reset filterrific params: #{ e.message }"
+  redirect_to(reset_filterrific_url(format: :html)) and return
+  end
+
+  def historial_b2
+  end
+
+  def historial_academico_tkt
+    @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés').last
+
+    @tkt1 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación de Metodología TKT 1").last
+    @tkt2 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación de Metodología TKT 2").last
+    @tkt3 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación de Metodología TKT 3").last
+
+
+    if @tkt1.present?
+      tkt1horas = 40
+    else
+      tkt1horas = 0
+    end
+    if @tkt2.present?
+      tkt2horas = 40
+    else
+      tkt2horas = 0
+    end
+    if @tkt3.present?
+      tkt3horas = 40
+    else
+      tkt3horas = 0
+    end
+
+    @horas = tkt1horas + tkt2horas + tkt3horas
+
+    fecha = Date.today
+    @dias = fecha.day
+    if fecha.month == 1
+      @mes = "enero"
+    elsif fecha.month == 2
+      @mes = "febrero"
+    elsif fecha.month == 3
+      @mes = "marzo"
+    elsif fecha.month == 4
+      @mes = "abril"
+    elsif fecha.month == 5
+      @mes = "mayo"
+    elsif fecha.month == 6
+      @mes = "junio"
+    elsif fecha.month == 7
+      @mes = "julio"
+    elsif fecha.month == 8
+      @mes = "agosto"
+    elsif fecha.month == 9
+      @mes = "septiembre"
+    elsif fecha.month == 10
+      @mes = "octubre"
+    elsif fecha.month == 11
+      @mes = "noviembre"
+    elsif fecha.month == 12
+      @mes = "diciembre"
+    end
+
+    if fecha.year == 2017
+      @anio = "dos mil diecisiete"
+    elsif fecha.year == 2018
+      @anio = "dos mil dieciocho"
+    elsif fecha.year == 2019
+      @anio = "dos mil diecinueve"
+    elsif fecha.year == 2020
+      @anio = "dos mil veinte"
+    end
+
+    respond_to do |format|
+     format.pdf do
+       render pdf: "historial_academico_#{@inscripcion_registros.nombre}_#{@inscripcion_registros.paterno}_#{@inscripcion_registros.materno}",
+       disposition: "attachment",
+       template: "users/historial_tkt.html.erb",
+       layout: "historial_academico_ingles.html.erb",
+       page_size: "Letter",
+       margin: {top: 8}
+     end
+    end
+  end
+
+  def historiales_tkt
+    @filterrific = initialize_filterrific(
+    User.alumnos.order(:paterno),
+    params[:filterrific],
+  ) or return
+  @users = @filterrific.find.page(params[:pagina])
+
+  respond_to do |format|
+    format.html
+    format.js
+  end
+
+  rescue ActiveRecord::RecordNotFound => e
+  # There is an issue with the persisted param_set. Reset it.
+  puts "Had to reset filterrific params: #{ e.message }"
+  redirect_to(reset_filterrific_url(format: :html)) and return
+  end
+
+  def historial_tkt
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
