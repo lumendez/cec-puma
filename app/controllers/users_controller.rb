@@ -733,9 +733,9 @@ class UsersController < ApplicationController
   def historial_academico_b2
     @inscripcion_registros = InscripcionRegistro.where(nombre: @user.nombre, paterno: @user.paterno, materno: @user.materno, idioma: 'Inglés').last
 
-    @b21 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación B2.1").last
-    @b22 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación B2.2").last
-    @b23 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación B2.3").last
+    @b21 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación del Nivel de Dominio B2.1").last
+    @b22 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación del Nivel de Dominio B2.2").last
+    @b23 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación del Nivel de Dominio B2.3").last
 
 
     if @b21.present?
