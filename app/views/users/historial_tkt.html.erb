@@ -1,0 +1,177 @@
+<div class="fondo-oficios">
+  <div id="historial_carta" style="page-break-after: always;">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p><strong>A QUIÉN CORRESPONDA:</strong></p>
+  <p align="justify">Con base a la documentación que obra en los expedientes de los Cursos Extracurriculares de Lenguas Extranjeras (CELEX)
+     del Centro de Educación Continua Ingeniero Eugenio Méndez Docurro, hace constar que <% if @user.sexo == "H" %>el C. <% elsif @user.sexo == "M" %>la C. <% end %><strong><%= @user.nombre_completo %></strong>,
+      <% if @user.matricula.present? %> con número de matrícula: <%= @user.matricula %>,<% end %> ha cursado los módulos del programa
+      Certificación de Metodología (Teaching Knowledge Test) de este Centro como a continuación se detalla:</p>
+  </p>
+  <center>
+    <table class="historial">
+      <tr>
+        <th>Módulo</th>
+        <th>Nivel MCER</th>
+        <th>Curso</th>
+        <th>Periodo  Año</th>
+        <th>Horas</th>
+        <th>Calificación</th>
+      </tr>
+        <% if @tkt1.nil? %>
+        <tr>
+          <td>TKT 1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% elsif @tkt1.present? %>
+        <tr>
+          <td><%= @tkt1.nivel %></td>
+          <td></td>
+          <td><%= @tkt1.curso[0..-3] %></td>
+          <td><%= @tkt1.periodo %></td>
+          <td>40</td>
+          <% if @tkt1.examen_medio.present? == true && @tkt1.examen_final.present?  == true && @tkt1.promedio >= 80 %>
+          <td><%= @tkt1.promedio %></td>
+          <% elsif @tkt1.examen_medio.present? == false && @tkt1.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% elsif @tkt1.examen_medio.present? == true && @tkt1.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% end %>
+        </tr>
+        <% end %>
+        <% if @tkt2.nil? %>
+        <tr>
+          <td>TKT 2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% elsif @tkt2.present? %>
+        <tr>
+          <td><%= @tkt2.nivel %></td>
+          <td></td>
+          <td><%= @tkt2.curso[0..-3] %></td>
+          <td><%= @tkt2.periodo %></td>
+          <td>40</td>
+          <% if @tkt2.examen_medio.present? == true && @tkt2.examen_final.present?  == true && @tkt2.promedio >= 80 %>
+          <td><%= @tkt2.promedio %></td>
+          <% elsif @tkt2.examen_medio.present? == false && @tkt2.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% elsif @tkt2.examen_medio.present? == true && @tkt2.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% end %>
+        </tr>
+        <% end %>
+        <% if @tkt3.nil? %>
+        <tr>
+          <td>TKT 3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% elsif @tkt3.present? %>
+        <tr>
+          <td><%= @tkt3.nivel %></td>
+          <td>B2</td>
+          <td><%= @tkt3.curso[0..-3] %></td>
+          <td><%= @tkt3.periodo %></td>
+          <td>40</td>
+          <% if @tkt3.examen_medio.present? == true && @tkt3.examen_final.present?  == true && @tkt3.promedio >= 80 %>
+          <td><%= @tkt3.promedio %></td>
+          <% elsif @tkt3.examen_medio.present? == false && @tkt3.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% elsif @tkt3.examen_medio.present? == true && @tkt3.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% end %>
+        </tr>
+        <% end %>
+        <tr>
+          <td colspan="3"></td>
+          <td>Total de horas</td>
+          <td><%= @horas %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="6">Programa registrado ante la Dirección de Formación den Lenguas Extranjeras con el número: DFLE-CURSO-CMTKT-CECIEMD-16</td>
+        </tr>
+    </table>
+  </center>
+
+  <p align="justify">El historial muestra que el usuario ha cursado con los estudios correspondientes a la preparación del examen Teaching Knowledge Test.
+    <br>A petición del interesado y para los fines académicos que considere pertinentes, se extiende la presente en la Ciudad de México
+  a los <%= @dias %> días del mes de <%= @mes %> del año <%= @anio %>.</p>
+  <center>
+    <table class="table borderless">
+      <tr>
+        <td colspan="4"><p align="center"><strong>A T E N T A M E N T E <br>"LA TÉCNICA AL SERVICIO DE LA PATRIA"<strong></p></td>
+      </tr>
+      <tr>
+        <td>
+          <p align="center"><br>
+          <strong>M. en C. José Antonio Sixto Berrocal<br>
+          Subdirector de Servicios Educativos del CECIEMD</strong></p>
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>
+          <p align="center"><br>
+          <strong><br>
+          Director del CEC Ing. Eugenio Méndez Docurro</strong></p>
+        </td>
+      </tr>
+    </table>
+  </center>
+  </div>
+</div>
+<div style="clear:both;" class="fondo-oficios">
+  <div id="historial_carta">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p align="center"><strong>Programa temático</strong></p>
+    <br>
+    <br>
+    <center>
+      <table class="historial" width="450">
+        <tr>
+          <td><p align="justify" style="font-size:8px;">Módulo 1: Bases para la enseñanza del idioma</p></td>
+        </tr>
+        <tr>
+          <td><p align="justify" style="font-size:8px;">Módulo 2: Planeación de la enseñanza</p></td>
+        </tr>
+        <tr>
+          <td><p align="justify" style="font-size:8px;">Módulo 3: Manejo del salón de clases</p></td>
+        </tr>
+      </table>
+    </center>
+  </div>
+</div>

@@ -1,0 +1,175 @@
+<div class="fondo-oficios">
+  <div id="historial_carta" style="page-break-after: always;">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p><strong>A QUIÉN CORRESPONDA:</strong></p>
+  <p align="justify">Con base a la documentación que obra en los expedientes de los Cursos Extracurriculares de Lenguas Extranjeras (CELEX)
+     del Centro de Educación Continua Ingeniero Eugenio Méndez Docurro, hace constar que <% if @user.sexo == "H" %>el C. <% elsif @user.sexo == "M" %>la C. <% end %><strong><%= @user.nombre_completo %></strong>,
+      <% if @user.matricula.present? %> con número de matrícula: <%= @user.matricula %>,<% end %> ha cursado los módulos del programa
+       Certificación del nivel de dominio B2 de este Centro como a continuación se detalla:</p>
+  </p>
+  <center>
+    <table class="historial">
+      <tr>
+        <th>Módulo</th>
+        <th>Nivel MCER</th>
+        <th>Curso</th>
+        <th>Periodo  Año</th>
+        <th>Horas</th>
+        <th>Calificación</th>
+      </tr>
+        <% if @b21.nil? %>
+        <tr>
+          <td>Certificación B2.1</td>
+          <td>B2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% elsif @b21.present? %>
+        <tr>
+          <td><%= @b21.nivel %></td>
+          <td>B2</td>
+          <td><%= @b21.curso[0..-3] %></td>
+          <td><%= @b21.periodo %></td>
+          <td>40</td>
+          <% if @b21.examen_medio.present? == true && @b21.examen_final.present?  == true && @b21.promedio >= 80 %>
+          <td><%= @b21.promedio %></td>
+          <% elsif @b21.examen_medio.present? == false && @b21.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% elsif @b21.examen_medio.present? == true && @b21.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% end %>
+        </tr>
+        <% end %>
+        <% if @b22.nil? %>
+        <tr>
+          <td>Certificación B2.2</td>
+          <td>B2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% elsif @b22.present? %>
+        <tr>
+          <td><%= @b22.nivel %></td>
+          <td>B2</td>
+          <td><%= @b22.curso[0..-3] %></td>
+          <td><%= @b22.periodo %></td>
+          <td>40</td>
+          <% if @b22.examen_medio.present? == true && @b22.examen_final.present?  == true && @b22.promedio >= 80 %>
+          <td><%= @b22.promedio %></td>
+          <% elsif @b22.examen_medio.present? == false && @b22.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% elsif @b22.examen_medio.present? == true && @b22.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% end %>
+        </tr>
+        <% end %>
+        <% if @b23.nil? %>
+        <tr>
+          <td>Certificación B2.3</td>
+          <td>B2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% elsif @b23.present? %>
+        <tr>
+          <td><%= @b23.nivel %></td>
+          <td>B2</td>
+          <td><%= @b23.curso[0..-3] %></td>
+          <td><%= @b23.periodo %></td>
+          <td>40</td>
+          <% if @b23.examen_medio.present? == true && @b23.examen_final.present?  == true && @b23.promedio >= 80 %>
+          <td><%= @b23.promedio %></td>
+          <% elsif @b23.examen_medio.present? == false && @b23.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% elsif @b23.examen_medio.present? == true && @b23.examen_final.present? == false %>
+          <td>CURSANDO</td>
+          <% end %>
+        </tr>
+        <% end %>
+        <tr>
+          <td colspan="3"></td>
+          <td>Total de horas</td>
+          <td><%= @horas %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="6">Programa registrado ante la Dirección de Formación den Lenguas Extranjeras con el número: DFLE-CURSO-CNDB2-CECIEMD-16</td>
+        </tr>
+    </table>
+  </center>
+
+  <p align="justify">El historial muestra que el usuario ha cursado con los estudios correspondientes al nivel B2 de acuerdo con el Marco Común Europeo de Referencia
+    para las Lenguas (MCER).<br>A petición del interesado y para los fines académicos que considere pertinentes, se extiende la presente en la Ciudad de México
+  a los <%= @dias %> días del mes de <%= @mes %> del año <%= @anio %>.</p>
+  <center>
+    <table class="table borderless">
+      <tr>
+        <td colspan="4"><p align="center"><strong>A T E N T A M E N T E <br>"LA TÉCNICA AL SERVICIO DE LA PATRIA"<strong></p></td>
+      </tr>
+      <tr>
+        <td>
+          <p align="center"><br>
+          <strong>M. en C. José Antonio Sixto Berrocal<br>
+          Subdirector de Servicios Educativos del CECIEMD</strong></p>
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>
+          <p align="center"><br>
+          <strong><br>
+          Director del CEC Ing. Eugenio Méndez Docurro</strong></p>
+        </td>
+      </tr>
+    </table>
+  </center>
+  </div>
+</div>
+<div style="clear:both;" class="fondo-oficios">
+  <div id="historial_carta">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p align="center"><strong>Descriptor</strong></p>
+    <br>
+    <br>
+    <center>
+      <table class="historial" width="450">
+        <tr class="mcer">
+          <td><p align="justify" style="font-size:8px;">Es capaz de entender las ideas principales de textos complejos que traten de temas
+            tanto concretos como abstractos, incluso si son de carácter técnico, siempre que estén dentro de su campo de especialización.
+            Puede relacionarse con hablantes nativos con un grado suficiente de fluidez y naturalidad, de modo que la comunicación se realice
+            son esfuerzo por parte de los interlocutores. Puede producir textos claros y detallados sobre temas diversos, así como defender un
+            punto de vista sobre temas generales, indicando los pros y los contras de las distintas opciones.</p></td>
+        </tr>
+      </table>
+    </center>
+  </div>
+</div>

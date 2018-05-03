@@ -137,6 +137,12 @@ Rails.application.routes.draw do
       get 'historiales_italiano'
       get 'historial_italiano/:id', to: 'users#historial_italiano', as: 'historial_italiano'
       get 'historial_academico_italiano/:id', to: 'users#historial_academico_italiano', as: 'historial_academico_italiano'
+      get 'historiales_b2'
+      get 'historial_b2/:id', to: 'users#historial_b2', as: 'historial_b2'
+      get 'historial_academico_b2/:id', to: 'users#historial_academico_b2', as: 'historial_academico_b2'
+      get 'historiales_tkt'
+      get 'historial_tkt/:id', to: 'users#historial_tkt', as: 'historial_tkt'
+      get 'historial_academico_tkt/:id', to: 'users#historial_academico_tkt', as: 'historial_academico_tkt'
     end
   end
   resources :estados
