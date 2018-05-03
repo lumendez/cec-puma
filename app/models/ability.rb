@@ -147,6 +147,12 @@ class Ability
         can :historiales_italiano, User
         can :historial_italiano, User
         can :historial_academico_italiano, User
+        can :historiales_b2, User
+        can :historial_b2, User
+        can :historial_academico_b2, User
+        can :historiales_tkt, User
+        can :historial_tkt, User
+        can :historial_academico_tkt, User
         can :destroy, User
         can :update, User
         can :manage, :anexos_unicos
