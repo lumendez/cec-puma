@@ -1,4 +1,4 @@
-<div class="fondo-oficios">
+<div class="fondo-oficios" style="line-height: 1.5;">
   <div id="historial_carta" style="page-break-after: always;">
   <br>
   <br>
@@ -18,13 +18,14 @@
       <% if @user.matricula.present? %> con número de matrícula: <%= @user.matricula %>,<% end %> ha cursado los módulos del programa
       Certificación de Metodología (Teaching Knowledge Test) de este Centro como a continuación se detalla:</p>
   </p>
+  <p>&nbsp;</p>
   <center>
-    <table class="historial">
+    <table class="historial" style="padding: 15px;" width="90%">
       <tr>
         <th>Módulo</th>
         <th>Nivel MCER</th>
         <th>Curso</th>
-        <th>Periodo  Año</th>
+        <th width="30%">Periodo  Año</th>
         <th>Horas</th>
         <th>Calificación</th>
       </tr>
@@ -114,7 +115,7 @@
         </tr>
     </table>
   </center>
-
+  <p>&nbsp;</p>
   <p align="justify">El historial muestra que el usuario ha cursado con los estudios correspondientes a la preparación del examen Teaching Knowledge Test.
     <br>A petición del interesado y para los fines académicos que considere pertinentes, se extiende la presente en la Ciudad de México
   a los <%= @dias %> días del mes de <%= @mes %> del año <%= @anio %>.</p>
@@ -125,14 +126,14 @@
       </tr>
       <tr>
         <td>
-          <p align="center"><br>
+          <p align="center"><br><br><br>
           <strong>M. en C. José Antonio Sixto Berrocal<br>
           Subdirector de Servicios Educativos del CECIEMD</strong></p>
         </td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td>
-          <p align="center"><br>
+          <p align="center"><br><br><br>
           <strong><br>
           Director del CEC Ing. Eugenio Méndez Docurro</strong></p>
         </td>
