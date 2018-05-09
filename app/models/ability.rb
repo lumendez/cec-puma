@@ -54,7 +54,11 @@ class Ability
       elsif user.control_dp_ec?
         can :validar_documentos, InscripcionDiplomado
         can :habilitar_constancia, InscripcionDiplomado
+        can :read, Diplomado
+        can :create, Diplomado
+        can :update, Diplomado
         can :read, InscripcionDiplomado
+        can :create, InscripcionDiplomado
         can :update, InscripcionDiplomado
         can :read, GruposDiplomado
         can :create, GruposDiplomado

@@ -143,6 +143,7 @@ Rails.application.routes.draw do
       get 'historiales_tkt'
       get 'historial_tkt/:id', to: 'users#historial_tkt', as: 'historial_tkt'
       get 'historial_academico_tkt/:id', to: 'users#historial_academico_tkt', as: 'historial_academico_tkt'
+      get 'historiales'
     end
   end
   resources :estados
