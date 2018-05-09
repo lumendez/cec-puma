@@ -259,12 +259,21 @@
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Diplomados  <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li>
-              <%= link_to "Crear grupo de diplomado", new_grupos_diplomado_path %>
-            </li>
-            <li>
-              <%= link_to "Ver registros de inscripción de diplomados", inscripcion_diplomados_path %>
-            </li>
+          <li>
+            <%= link_to "Ver diplomados", diplomados_path %>
+          </li>
+          <li>
+            <%= link_to "Crear diplomado", new_diplomado_path %>
+          </li>
+          <li>
+            <%= link_to "Ver grupos de diplomado", grupos_diplomados_path %>
+          </li>
+          <li>
+            <%= link_to "Crear grupo de diplomado", new_grupos_diplomado_path %>
+          </li>
+          <li>
+            <%= link_to "Ver registros de inscripción de diplomados", inscripcion_diplomados_path %>
+          </li>
         </ul>
     </li>
     <li class="dropdown">

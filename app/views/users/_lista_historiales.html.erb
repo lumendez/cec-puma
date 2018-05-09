@@ -2,7 +2,11 @@
   <table class="table table-bordered">
     <tr>
       <th>Nombre</th>
-      <th>Historiales</th>
+      <th>Inglés</th>
+      <th>Francés</th>
+      <th>Italiano</th>
+      <th>B2</th>
+      <th>TKT</th>
     </tr>
     <% @users.each do |user| %>
     <tr>
@@ -10,7 +14,19 @@
         <%= user.nombre_upcase %>
       </td>
       <td>
-        <%= link_to "Ver historial de Inglés", historial_academico_ingles_users_path(user, format: :pdf) %>
+        <%= link_to "Ver historial", historial_academico_ingles_users_path(user, format: :pdf) %>
+      </td>
+      <td>
+        <%= link_to "Ver historial", historial_academico_frances_users_path(user, format: :pdf) %>
+      </td>
+      <td>
+        <%= link_to "Ver historial", historial_academico_italiano_users_path(user, format: :pdf) %>
+      </td>
+      <td>
+        <%= link_to "Ver historial", historial_academico_b2_users_path(user, format: :pdf) %>
+      </td>
+      <td>
+        <%= link_to "Ver historial", historial_academico_tkt_users_path(user, format: :pdf) %>
       </td>
     </tr>
     <% end %>
