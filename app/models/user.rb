@@ -160,7 +160,7 @@ class User < ApplicationRecord
   # en la vista de creacion de diplomados
   def self.instructores_diplomados
     rol = Role.find_by(nombre: "Instructor diplomados").id
-    usuarios = User.where(role: rol).escolaridad_nombre_paterno_materno
+    usuarios = User.where(role: rol)
   end
 
   def self.nombre_instructores
