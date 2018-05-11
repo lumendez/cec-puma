@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-  default :from => "celex@ipn.mx"
+  default :from => "cec-ceciemd@ipn.mx"
 
   def email_bienvenida(user)
     @user = user
-    mail(to: user.email, subject: "Bienvenido al sistema CELEX")
+    mail(to: user.email, subject: "Bienvenido al sistema de Inscripciones de CECIEMD")
   end
 
   def email_inscripcion_registro(inscripcion_registro)
