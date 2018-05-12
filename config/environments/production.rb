@@ -24,7 +24,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-  config.assets.precompile += ['unitarios.scss', 'users.scss', 'inscripcion_registros.scss', 'grupos_unitarios.scss']
+  config.assets.precompile += ['unitarios.scss', 'users.scss', 'inscripcion_registros.scss', 'grupos_unitarios.scss', 'grupos_diplomados.scss']
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
