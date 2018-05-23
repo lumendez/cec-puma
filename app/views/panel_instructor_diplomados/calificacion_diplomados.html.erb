@@ -6,11 +6,13 @@
       <tr>
         <td><strong>Nombre</strong></td>
         <td>Calificación</td>
+        <td>Asistencia %</td>
       </tr>
       <tbody>
         <% @usuarios.each do |usuario| %>
           <tr>
             <td><%= usuario.paterno_materno_nombre %></td>
+            <td></td>
             <td></td>
             <% @calificacion_modulos.each do |calificacion_modulo| %>
               <% if usuario.id == calificacion_modulo.inscripcion_diplomado_id %>
@@ -18,6 +20,7 @@
                   <tr>
                     <td>Módulo <%= calificacion_modulo.numero_modulo %>
                     <td><%= f.text_field :calificacion, value: calificacion_modulo.calificacion, class:'form-control' %></td>
+                    <td><%= f.text_field :asistencia, value: calificacion_modulo.asistencia, class:'form-control' %></td>
                   </tr>
                 <% end %>
               <% end %>
