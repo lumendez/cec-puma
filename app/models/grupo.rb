@@ -158,8 +158,8 @@ class Grupo < ApplicationRecord
       ['Curso (Z-A)', 'curso_desc'],
       ['Estado (A-Z)', 'estado_asc'],
       ['Estado (Z-A)', 'estado_desc'],
-      ['Más reciente', 'created_at_asc'],
-      ['Más antiguo', 'created_at_desc']
+      ['Más antiguo', 'created_at_asc'],
+      ['Más reciente', 'created_at_desc']
     ]
   end
 
