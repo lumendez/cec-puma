@@ -16,7 +16,7 @@
       <%= f.text_field :periodo, class:'form-control' %>
     </div>
     <div class="form-group col-md-4">
-      <%= f.label :instructor, "Instructor del módulo" %>
+      <%= f.label :instructor_id, "Instructor del módulo" %>
       <%= f.collection_select(:instructor_id, User.instructores_diplomados.order("paterno ASC"),
       :id, :nombre_completo, {prompt: 'Seleccione'}, class: 'form-control', required: true) %>
     </div>
