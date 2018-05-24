@@ -63,6 +63,7 @@ class Ability
         can :read, GruposDiplomado
         can :create, GruposDiplomado
         can :update, GruposDiplomado
+        can :acta, GruposDiplomado
       elsif user.control_cec?
         can :read, Calendario
         can :create, Calendario
