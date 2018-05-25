@@ -18,7 +18,7 @@ class FrInscripcionRegistrosController < ApplicationController
       with_curso: CursoNombre.options_for_select
     },
     ) or return
-    @fr_inscripcion_registros = @filterrific.find.order("created_at DESC").where(examen_medio: nil, examen_final: nil).page(params[:pagina])
+    @fr_inscripcion_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
 
     respond_to do |format|
       format.html
