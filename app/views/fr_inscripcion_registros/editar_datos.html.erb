@@ -5,6 +5,7 @@
       <th>Id de usuario</th>
       <th>Nombre</th>
       <th>Monto pagado</th>
+      <th>Periodo</th>
       <th>Movimiento bancario</th>
       <th>Documentos validados</th>
     </tr>
@@ -16,6 +17,7 @@
               <td><%= f.text_field :user_id, value: fr_inscripcion_registro.user_id, class:'form-control' %></td>
               <td><%= fr_inscripcion_registro.nombre_paterno_materno %></td>
               <td><%= f.text_field :monto_pagado, value: fr_inscripcion_registro.monto_pagado, class:'form-control' %></td>
+              <td><%= f.text_field :periodo, value: fr_inscripcion_registro.periodo, class:'form-control' %></td>
               <td><%= f.text_field :movimiento, value: fr_inscripcion_registro.movimiento, class:'form-control' %></td>
               <td><%= f.check_box :documentos_validados, value: fr_inscripcion_registro.documentos_validados, class: 'form-control' %></td>
             </tr>
