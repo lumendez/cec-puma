@@ -110,6 +110,9 @@ class UsersController < ApplicationController
     @avanzado3 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Avanzado 3").last
     @avanzado4 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Avanzado 4").last
     @avanzado5 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Avanzado 5").last
+    @b21 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación del Nivel de Dominio B2.1").last
+    @b22 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación del Nivel de Dominio B2.2").last
+    @b23 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación del Nivel de Dominio B2.3").last
 
     @examen_basico1 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Inglés', nivel_asignado: "Básico 1").last
     @examen_basico2 = ExamenColocacionIdioma.where(user_id: @user.id, idioma: 'Inglés', nivel_asignado: "Básico 2").last
@@ -149,7 +152,7 @@ class UsersController < ApplicationController
       @mensaje_mcer = "ha concuido los estudios correspondientes al nivel A2"
     elsif @inscripcion_registros.nivel == "Intermedio 5" && @inscripcion_registros.promedio >= 80 || @inscripcion_registros.nivel == "Avanzado 1" || @inscripcion_registros.nivel == "Avanzado 2" || @inscripcion_registros.nivel == "Avanzado 3" || @inscripcion_registros.nivel == "Avanzado 4" || @inscripcion_registros.nivel == "Avanzado 5" && @inscripcion_registros.promedio < 80
       @mensaje_mcer = "ha concuido los estudios correspondientes al nivel B1"
-    elsif @inscripcion_registros.nivel == "Avanzado 5" && @inscripcion_registros.promedio >= 80
+    elsif @inscripcion_registros.nivel == "Avanzado 5" && @inscripcion_registros.promedio >= 80 ||  @inscripcion_registros.nivel == "Certificación del Nivel de Dominio B2.1" || @inscripcion_registros.nivel == "Certificación del Nivel de Dominio B2.2" || @inscripcion_registros.nivel == "Certificación del Nivel de Dominio B2.3"
       @mensaje_mcer = "ha concuido los estudios correspondientes al nivel B2"
     end
 
