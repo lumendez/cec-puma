@@ -90,7 +90,8 @@
       <%= f.label :correo, 'Correo electrónico' %>
       <%= f.email_field :correo, class:'form-control', required: true %>
     </div>
-
+    <% if user_signed_in? %>
+      <% if can? :validar_documentos, unitario %>
     <div class="form-group col-sm-3">
       <%= f.label :tipo_participante, 'Tipo de participante' %>
       <%= f.text_field :tipo_participante, class:'form-control', required: true %>
@@ -128,7 +129,11 @@
       <%= f.text_field :proyecto_terminal, class:'form-control' %>
     </div>
   </div>
+    <% end %>
+  <% end %>
 </div>
+<% if user_signed_in? %>
+  <% if can? :validar_documentos, unitario %>
 <div class="row jumbotron">
   <h4 class="subs"><strong>Control Escolar</strong></h4>
   <div class="row">
@@ -154,6 +159,8 @@
     <% end %>
   </div>
 </div>
+  <% end %>
+<% end %>
 
 <div class="row">
   <div class="actions col-sm-2">

@@ -1,7 +1,6 @@
 class UnitariosController < ApplicationController
   before_action :authenticate_user!, except: [:create, :new, :show, :carta_compromiso]
   before_action :set_unitario, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource
 
   # GET /unitarios
   # GET /unitarios.json

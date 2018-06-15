@@ -1,8 +1,7 @@
 class InscripcionDiplomadosController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:create, :new]
   before_action :set_inscripcion_diplomado, only: [:show, :edit, :update, :destroy]
-  before_action :inscripcion_diplomado, only: :create
-  load_and_authorize_resource
+
 
   # GET /inscripcion_diplomados
   # GET /inscripcion_diplomados.json
@@ -70,7 +69,7 @@ class InscripcionDiplomadosController < ApplicationController
           CalificacionModulo.create(calificacion: "", inscripcion_diplomado_id: @inscripcion_diplomado.id,
           instructor_id: modulo.instructor_id, numero_modulo: modulo.numero_modulo, asistencia: "")
         end
-        format.html { redirect_to @inscripcion_diplomado, notice: 'La inscripción al diplomado fue creada correctamente.' }
+        format.html { redirect_to new_inscripcion_diplomado_path, notice: 'La inscripción al diplomado fue creada correctamente.' }
         format.json { render :show, status: :created, location: @inscripcion_diplomado }
       else
         format.html { render :new }
