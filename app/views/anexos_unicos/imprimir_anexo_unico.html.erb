@@ -60,7 +60,7 @@
       <tr>
         <td width="217" colspan="3"><p><strong>Periodo:</strong>
 
-          <%= @curso %> <%= @periodo %><strong></strong></p></td>
+          <%= @curso %> <%= @periodo %> de <%= @anio %><strong></strong></p></td>
         <td width="123" colspan="3"><p><strong>Duración:</strong><br />
           40 horas x
           <%= grupos_ingles = Grupo.where(user_id: instructor.id, curso: params[:curso], anio: params[:anio], idioma: "Inglés").count
@@ -245,7 +245,7 @@
         <li><u>Desarrollo del enfoque basado en tareas (tarea integradora).</u></li>
         <li><u>Retroalimentación académica, entrega de boletas y reinscripción.</u></li>
       </ul>
-      <p>Durante el periodo <%= @periodo %>,
+      <p>Durante el periodo <%= @periodo %> de <%= @anio %>,
         <% if @curso.include? "Intensivo" %>
           <%= "de lunes a viernes," %>
         <% elsif @curso.include? "Sabatino" %>
