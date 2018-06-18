@@ -10,6 +10,7 @@ authorize_resource class: :anexos_unicos
     @instructores = User.where(id: params[:user_ids])
     @curso = CursoNombre.find_by(nombre: params[:curso]).nombre
     @periodo = Grupo.find_by(anio: params[:anio], curso: params[:curso]).periodo
+    @anio = Grupo.find_by(anio: params[:anio]).anio
     @mes = mes
   end
 
