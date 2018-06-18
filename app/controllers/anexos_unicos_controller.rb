@@ -9,7 +9,7 @@ authorize_resource class: :anexos_unicos
   def imprimir_anexo_unico
     @instructores = User.where(id: params[:user_ids])
     @curso = CursoNombre.find_by(nombre: params[:curso]).nombre
-    @periodo = Grupo.find_by(curso: params[:curso]).periodo
+    @periodo = Grupo.find_by(anio: params[:anio]).periodo
     @mes = mes
   end
 
