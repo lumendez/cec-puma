@@ -80,7 +80,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @basico2.present? %>
+        <% elsif @basico2.present? && @basico2.examen_medio.present? == true && @basico2.examen_final.present?  == true && @basico2.promedio >= 80 %>
         <tr>
           <td><%= @basico2.nivel %></td>
           <td>A1 2/2</td>
@@ -89,13 +89,20 @@
           <td>40</td>
           <% if @basico2.examen_medio.present? == true && @basico2.examen_final.present?  == true && @basico2.promedio >= 80 %>
           <td><%= @basico2.promedio %></td>
-          <% elsif @basico2.examen_medio.present? == true && @basico2.examen_final.present?  == true && @basico2.promedio < 80 %>
-          <td></td>
           <% elsif @basico2.examen_medio.present? == false && @basico2.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @basico2.examen_medio.present? == true && @basico2.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @basico2.present? && @basico2.examen_medio.present? == true && @basico2.examen_final.present?  == true && @basico2.promedio < 80 %>
+        <tr>
+          <td><%= @basico2.nivel %></td>
+          <td>A1 2/2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_basico2 %>
         <tr>
@@ -116,7 +123,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @basico3.present? %>
+        <% elsif @basico3.present? && @basico3.examen_medio.present? == true && @basico3.examen_final.present?  == true && @basico3.promedio >= 80 %>
         <tr>
           <td><%= @basico3.nivel %></td>
           <td>A2 1/3</td>
@@ -132,6 +139,15 @@
           <% elsif @basico3.examen_medio.present? == true && @basico3.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @baisco3.present? && @basico3.examen_medio.present? == true && @basico3.examen_final.present?  == true && @basico3.promedio < 80 %>
+        <tr>
+          <td><%= @basico3.nivel %></td>
+          <td>A2 1/3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_basico3.present? %>
         <tr>
@@ -152,7 +168,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @basico4.present? %>
+        <% elsif @basico4.present? && @basico4.examen_medio.present? == true && @basico4.examen_final.present?  == true && @basico4.promedio >= 80 %>
         <tr>
           <td><%= @basico4.nivel %></td>
           <td>A2 2/3</td>
@@ -161,13 +177,20 @@
           <td>40</td>
           <% if @basico4.examen_medio.present? == true && @basico4.examen_final.present?  == true && @basico4.promedio >= 80 %>
           <td><%= @basico4.promedio %></td>
-          <% elsif @basico4.examen_medio.present? == true && @basico4.examen_final.present?  == true && @basico4.promedio < 80 %>
-          <td></td>
           <% elsif @basico4.examen_medio.present? == false && @basico4.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @basico4.examen_medio.present? == true && @basico4.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @basico4.present? && @basico4.examen_medio.present? == true && @basico4.examen_final.present?  == true && @basico4.promedio < 80 %>
+        <tr>
+          <td><%= @basico4.nivel %></td>
+          <td>A2 2/3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_basico4.present? %>
           <tr>
@@ -188,7 +211,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @basico5.present? %>
+        <% elsif @basico5.present? && @basico5.examen_medio.present? == true && @basico5.examen_final.present?  == true && @basico5.promedio >= 80 %>
         <tr>
           <td><%= @basico5.nivel %></td>
           <td>A2 3/3</td>
@@ -197,13 +220,20 @@
           <td>40</td>
           <% if @basico5.examen_medio.present? == true && @basico5.examen_final.present?  == true && @basico5.promedio >= 80 %>
           <td><%= @basico5.promedio %></td>
-          <% elsif @basico5.examen_medio.present? == true && @basico5.examen_final.present?  == true && @basico5.promedio < 80 %>
-          <td></td>
           <% elsif @basico5.examen_medio.present? == false && @basico5.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @basico5.examen_medio.present? == true && @basico5.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif basico5.present? && @basico5.examen_medio.present? == true && @basico5.examen_final.present?  == true && @basico5.promedio < 80 %>
+        <tr>
+          <td><%= @basico5.nivel %></td>
+          <td>A2 3/3</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_basico5.present? %>
           <tr>
@@ -224,7 +254,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @intermedio1.present? %>
+        <% elsif @intermedio1.present? && @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present?  == true && @intermedio1.promedio >= 80 %>
         <tr>
           <td><%= @intermedio1.nivel %></td>
           <td>B1 1/5</td>
@@ -233,13 +263,20 @@
           <td>40</td>
           <% if @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present?  == true && @intermedio1.promedio >= 80 %>
           <td><%= @intermedio1.promedio %></td>
-          <% elsif @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present?  == true && @intermedio1.promedio < 80 %>
-          <td></td>
           <% elsif @intermedio1.examen_medio.present? == false && @intermedio1.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @intermedio1.present? && @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present?  == true && @intermedio1.promedio < 80 %>
+        <tr>
+          <td><%= @intermedio1.nivel %></td>
+          <td>B1 1/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_intermedio1.present? %>
         <tr>
@@ -269,15 +306,13 @@
           <td>40</td>
           <% if @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present?  == true && @intermedio2.promedio >= 80 %>
           <td><%= @intermedio2.promedio %></td>
-          <% elsif @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present?  == true && @intermedio2.promedio < 80 %>
-          <td></td>
           <% elsif @intermedio2.examen_medio.present? == false && @intermedio2.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
         </tr>
-        <% elsif @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present?  == true && @intermedio2.promedio < 80 %>
+        <% elsif @intermedio2.present? && @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present?  == true && @intermedio2.promedio < 80 %>
         <tr>
           <td><%= @intermedio2.nivel %></td>
           <td>B1 2/5</td>
@@ -305,7 +340,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @intermedio3.present? %>
+        <% elsif @intermedio3.present? && @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present?  == true && @intermedio3.promedio >= 80 %>
         <tr>
           <td><%= @intermedio3.nivel %></td>
           <td>B1 3/5</td>
@@ -314,13 +349,20 @@
           <td>40</td>
           <% if @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present?  == true && @intermedio3.promedio >= 80 %>
           <td><%= @intermedio3.promedio %></td>
-          <% elsif @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present?  == true && @intermedio3.promedio < 80 %>
-          <td></td>
           <% elsif @intermedio3.examen_medio.present? == false && @intermedio3.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @intermedio3.present? && @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present?  == true && @intermedio3.promedio < 80 %>
+        <tr>
+          <td><%= @intermedio3.nivel %></td>
+          <td>B1 3/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_intermedio3.present? %>
         <tr>
@@ -341,7 +383,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @intermedio4.present? %>
+        <% elsif @intermedio4.present? && @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present?  == true && @intermedio4.promedio >= 80 %>
         <tr>
           <td><%= @intermedio4.nivel %></td>
           <td>B1 4/5</td>
@@ -350,13 +392,20 @@
           <td>40</td>
           <% if @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present?  == true && @intermedio4.promedio >= 80 %>
           <td><%= @intermedio4.promedio %></td>
-          <% elsif @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present?  == true && @intermedio4.promedio < 80 %>
-          <td></td>
           <% elsif @intermedio4.examen_medio.present? == false && @intermedio4.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @intermedio4.present? && @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present?  == true && @intermedio4.promedio < 80 %>
+        <tr>
+          <td><%= @intermedio4.nivel %></td>
+          <td>B1 4/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_intermedio4.present? %>
         <tr>
@@ -377,7 +426,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @intermedio5.present? %>
+        <% elsif @intermedio5.present? && @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present?  == true && @intermedio5.promedio >= 80 %>
         <tr>
           <td><%= @intermedio5.nivel %></td>
           <td>B1 5/5</td>
@@ -386,13 +435,20 @@
           <td>40</td>
           <% if @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present?  == true && @intermedio5.promedio >= 80 %>
           <td><%= @intermedio5.promedio %></td>
-          <% elsif @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present?  == true && @intermedio5.promedio < 80 %>
-          <td></td>
           <% elsif @intermedio5.examen_medio.present? == false && @intermedio5.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @intermedio5.present? && @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present?  == true && @intermedio5.promedio < 80 %>
+        <tr>
+          <td><%= @intermedio5.nivel %></td>
+          <td>B1 5/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_intermedio5.present? %>
         <tr>
@@ -413,7 +469,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @avanzado1.present? %>
+        <% elsif @avanzado1.present? && @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present?  == true && @avanzado1.promedio >= 80 %>
         <tr>
           <td><%= @avanzado1.nivel %></td>
           <td>B2 1/5</td>
@@ -422,13 +478,20 @@
           <td>40</td>
           <% if @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present?  == true && @avanzado1.promedio >= 80 %>
           <td><%= @avanzado1.promedio %></td>
-          <% elsif @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present?  == true && @avanzado1.promedio < 80 %>
-          <td></td>
           <% elsif @avanzado1.examen_medio.present? == false && @avanzado1.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @avanzado1.present? && @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present?  == true && @avanzado1.promedio < 80 %>
+        <tr>
+          <td><%= @avanzado1.nivel %></td>
+          <td>B2 1/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_avanzado1.present? %>
         <tr>
@@ -449,7 +512,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @avanzado2.present? %>
+        <% elsif @avanzado2.present? && @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present?  == true && @avanzado2.promedio >= 80 %>
         <tr>
           <td><%= @avanzado2.nivel %></td>
           <td>B2 2/5</td>
@@ -458,13 +521,20 @@
           <td>40</td>
           <% if @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present?  == true && @avanzado2.promedio >= 80 %>
           <td><%= @avanzado2.promedio %></td>
-          <% elsif @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present?  == true && @avanzado2.promedio < 80 %>
-          <td></td>
           <% elsif @avanzado2.examen_medio.present? == false && @avanzado2.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @avanzado2.present? && @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present?  == true && @avanzado2.promedio < 80 %>
+        <tr>
+          <td><%= @avanzado2.nivel %></td>
+          <td>B2 2/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_avanzado2.present? %>
         <tr>
@@ -485,7 +555,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @avanzado3.present? %>
+        <% elsif @avanzado3.present? && @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present?  == true && @avanzado3.promedio >= 80 %>
         <tr>
           <td><%= @avanzado3.nivel %></td>
           <td>B2 3/5</td>
@@ -494,13 +564,20 @@
           <td>40</td>
           <% if @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present?  == true && @avanzado3.promedio >= 80 %>
           <td><%= @avanzado3.promedio %></td>
-          <% elsif @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present?  == true && @avanzado3.promedio < 80 %>
-          <td></td>
           <% elsif @avanzado3.examen_medio.present? == false && @avanzado3.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% elsif @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @avanzado3.present? && @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present?  == true && @avanzado3.promedio < 80 %>
+        <tr>
+          <td><%= @avanzado3.nivel %></td>
+          <td>B2 3/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_avanzado3.present? %>
         <tr>
@@ -521,7 +598,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @avanzado4.present? %>
+        <% elsif @avanzado4.present? && @avanzado4.examen_medio.present? == true && @avanzado4.examen_final.present?  == true && @avanzado4.promedio >= 80 %>
         <tr>
           <td><%= @avanzado4.nivel %></td>
           <td>B2 4/5</td>
@@ -537,6 +614,15 @@
           <% elsif @avanzado4.examen_medio.present? == true && @avanzado4.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @avanzado4.present? && @avanzado4.examen_medio.present? == true && @avanzado4.examen_final.present?  == true && @avanzado4.promedio < 80 %>
+        <tr>
+          <td><%= @avanzado4.nivel %></td>
+          <td>B2 4/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_avanzado4.present? %>
         <tr>
@@ -557,7 +643,7 @@
           <td></td>
           <td></td>
         </tr>
-        <% elsif @avanzado5.present? || @b21.present? || @b22.present? || @b23.present? %>
+        <% elsif @avanzado5.present? && @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present?  == true && @avanzado5.promedio >= 80 || @b21.present? || @b22.present? || @b23.present? %>
         <tr>
           <td><%= @avanzado5.nivel %></td>
           <td>B2 5/5</td>
@@ -573,6 +659,15 @@
           <% elsif @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present? == false %>
           <td>CURSANDO</td>
           <% end %>
+        </tr>
+        <% elsif @avanzado5.present? && @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present?  == true && @avanzado5.promedio < 80 %>
+        <tr>
+          <td><%= @avanzado5.nivel %></td>
+          <td>B2 5/5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <% elsif @examen_avanzado5.present? %>
         <tr>

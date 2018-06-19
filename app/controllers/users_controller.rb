@@ -369,77 +369,77 @@ class UsersController < ApplicationController
       @mensaje_mcer = "ha concuido los estudios correspondientes al nivel B2"
     end
 
-    if @basico1.present?
+    if @basico1.present? && @basico1.examen_medio.present? == true && @basico1.examen_final.present?  == true && @basico1.promedio >= 80
       b1horas = 40
     else
       b1horas = 0
     end
-    if @basico2.present?
+    if @basico2.present? && @basico2.examen_medio.present? == true && @basico2.examen_final.present?  == true && @basico2.promedio >= 80
       b2horas = 40
     else
       b2horas = 0
     end
-    if @basico3.present?
+    if @basico3.present? && @basico3.examen_medio.present? == true && @basico3.examen_final.present?  == true && @basico3.promedio >= 80
       b3horas = 40
     else
       b3horas = 0
     end
-    if @basico4.present?
+    if @basico4.present? && @basico4.examen_medio.present? == true && @basico4.examen_final.present?  == true && @basico4.promedio >= 80
       b4horas = 40
     else
       b4horas = 0
     end
-    if @basico5.present?
+    if @basico5.present? && @basico5.examen_medio.present? == true && @basico5.examen_final.present?  == true && @basico5.promedio >= 80
       b5horas = 40
     else
       b5horas = 0
     end
-    if @intermedio1.present?
+    if @intermedio1.present? && @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present?  == true && @intermedio1.promedio >= 80
       i1horas = 40
     else
       i1horas = 0
     end
-    if @intermedio2.present?
+    if @intermedio2.present? && @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present?  == true && @intermedio2.promedio >= 80
       i2horas = 40
     else
       i2horas = 0
     end
-    if @intermedio3.present?
+    if @intermedio3.present? && @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present?  == true && @intermedio3.promedio >= 80
       i3horas = 40
     else
       i3horas = 0
     end
-    if @intermedio4.present?
+    if @intermedio4.present? && @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present?  == true && @intermedio4.promedio >= 80
       i4horas = 40
     else
       i4horas = 0
     end
-    if @intermedio5.present?
+    if @intermedio5.present? && @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present?  == true && @intermedio5.promedio >= 80
       i5horas = 40
     else
       i5horas = 0
     end
-    if @avanzado1.present?
+    if @avanzado1.present? && @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present?  == true && @avanzado1.promedio >= 80
       a1horas = 40
     else
       a1horas = 0
     end
-    if @avanzado2.present?
+    if @avanzado2.present? && @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present?  == true && @avanzado2.promedio >= 80
       a2horas = 40
     else
       a2horas = 0
     end
-    if @avanzado3.present?
+    if @avanzado3.present? && @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present?  == true && @avanzado3.promedio >= 80
       a3horas = 40
     else
       a3horas = 0
     end
-    if @avanzado4.present?
+    if @avanzado4.present? && @avanzado4.examen_medio.present? == true && @avanzado4.examen_final.present?  == true && @avanzado4.promedio >= 80
       a4horas = 40
     else
       a4horas = 0
     end
-    if @avanzado5.present?
+    if @avanzado5.present? && @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present?  == true && @avanzado5.promedio >= 80
       a5horas = 40
     else
       a5horas = 0
@@ -582,77 +582,77 @@ class UsersController < ApplicationController
       @mensaje_mcer = "ha concuido los estudios correspondientes al nivel B2"
     end
 
-    if @basico1.present?
+    if @basico1.present? && @basico1.examen_medio.present? == true && @basico1.examen_final.present?  == true && @basico1.promedio >= 80
       b1horas = 40
     else
       b1horas = 0
     end
-    if @basico2.present?
+    if @basico2.present? && @basico2.examen_medio.present? == true && @basico2.examen_final.present?  == true && @basico2.promedio >= 80
       b2horas = 40
     else
       b2horas = 0
     end
-    if @basico3.present?
+    if @basico3.present? && @basico3.examen_medio.present? == true && @basico3.examen_final.present?  == true && @basico3.promedio >= 80
       b3horas = 40
     else
       b3horas = 0
     end
-    if @basico4.present?
+    if @basico4.present? && @basico4.examen_medio.present? == true && @basico4.examen_final.present?  == true && @basico4.promedio >= 80
       b4horas = 40
     else
       b4horas = 0
     end
-    if @basico5.present?
+    if @basico5.present? && @basico5.examen_medio.present? == true && @basico5.examen_final.present?  == true && @basico5.promedio >= 80
       b5horas = 40
     else
       b5horas = 0
     end
-    if @intermedio1.present?
+    if @intermedio1.present? && @intermedio1.examen_medio.present? == true && @intermedio1.examen_final.present?  == true && @intermedio1.promedio >= 80
       i1horas = 40
     else
       i1horas = 0
     end
-    if @intermedio2.present?
+    if @intermedio2.present? && @intermedio2.examen_medio.present? == true && @intermedio2.examen_final.present?  == true && @intermedio2.promedio >= 80
       i2horas = 40
     else
       i2horas = 0
     end
-    if @intermedio3.present?
+    if @intermedio3.present? && @intermedio3.examen_medio.present? == true && @intermedio3.examen_final.present?  == true && @intermedio3.promedio >= 80
       i3horas = 40
     else
       i3horas = 0
     end
-    if @intermedio4.present?
+    if @intermedio4.present? && @intermedio4.examen_medio.present? == true && @intermedio4.examen_final.present?  == true && @intermedio4.promedio >= 80
       i4horas = 40
     else
       i4horas = 0
     end
-    if @intermedio5.present?
+    if @intermedio5.present? && @intermedio5.examen_medio.present? == true && @intermedio5.examen_final.present?  == true && @intermedio5.promedio >= 80
       i5horas = 40
     else
       i5horas = 0
     end
-    if @avanzado1.present?
+    if @avanzado1.present? && @avanzado1.examen_medio.present? == true && @avanzado1.examen_final.present?  == true && @avanzado1.promedio >= 80
       a1horas = 40
     else
       a1horas = 0
     end
-    if @avanzado2.present?
+    if @avanzado2.present? && @avanzado2.examen_medio.present? == true && @avanzado2.examen_final.present?  == true && @avanzado2.promedio >= 80
       a2horas = 40
     else
       a2horas = 0
     end
-    if @avanzado3.present?
+    if @avanzado3.present? && @avanzado3.examen_medio.present? == true && @avanzado3.examen_final.present?  == true && @avanzado3.promedio >= 80
       a3horas = 40
     else
       a3horas = 0
     end
-    if @avanzado4.present?
+    if @avanzado4.present? && @avanzado4.examen_medio.present? == true && @avanzado4.examen_final.present?  == true && @avanzado4.promedio >= 80
       a4horas = 40
     else
       a4horas = 0
     end
-    if @avanzado5.present?
+    if @avanzado5.present? && @avanzado5.examen_medio.present? == true && @avanzado5.examen_final.present?  == true && @avanzado5.promedio >= 80
       a5horas = 40
     else
       a5horas = 0
@@ -741,17 +741,17 @@ class UsersController < ApplicationController
     @b23 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación del Nivel de Dominio B2.3").last
 
 
-    if @b21.present?
+    if @b21.present? && @b21.examen_medio.present? == true && @b21.examen_final.present?  == true && @b21.promedio >= 80
       b1horas = 40
     else
       b1horas = 0
     end
-    if @b22.present?
+    if @b22.present? && @b22.examen_medio.present? == true && @b22.examen_final.present?  == true && @b22.promedio >= 80
       b2horas = 40
     else
       b2horas = 0
     end
-    if @b23.present?
+    if @b23.present? && @b23.examen_medio.present? == true && @b23.examen_final.present?  == true && @b23.promedio >= 80
       b3horas = 40
     else
       b3horas = 0
@@ -838,17 +838,17 @@ class UsersController < ApplicationController
     @tkt3 = InscripcionRegistro.where(user_id: @user.id, idioma: 'Inglés', nivel: "Certificación de Metodología TKT 3").last
 
 
-    if @tkt1.present?
+    if @tkt1.present? && @tkt1.examen_medio.present? == true && @tkt1.examen_final.present?  == true && @tkt1.promedio >= 80
       tkt1horas = 40
     else
       tkt1horas = 0
     end
-    if @tkt2.present?
+    if @tkt2.present? && @tkt2.examen_medio.present? == true && @tkt2.examen_final.present?  == true && @tkt2.promedio >= 80
       tkt2horas = 40
     else
       tkt2horas = 0
     end
-    if @tkt3.present?
+    if @tkt3.present? && @tkt3.examen_medio.present? == true && @tkt3.examen_final.present?  == true && @tkt3.promedio >= 80
       tkt3horas = 40
     else
       tkt3horas = 0
