@@ -33,6 +33,14 @@
         { include_blank: '- Todos -' }, class:'form-control'
       ) %>
     </div>
+    <div class="col-md-4">
+      <%= f.label :with_anio, 'Filtrar por año' %>
+      <%= f.select(
+        :with_anio,
+        @filterrific.select_options[:with_anio],
+        { include_blank: '- Todos -' }, class:'form-control'
+      ) %>
+    </div>
   </div>
   <br>
   <div class="row">
@@ -45,13 +53,14 @@
       </div>
   </div>
 </div>
-  <%# add an automated spinner to your form when the list is refreshed %>
 <% end %>
-
+<strong><%= link_to 'Agregar grupo', new_grupo_path %></strong>
+<br>
+<br>
 <%= render(
   partial: 'grupos/lista',
   locals: { grupos: @grupos }
 ) %>
 
 <br>
-<%= link_to 'Agregar grupo', new_grupo_path %>
+<strong><%= link_to 'Agregar grupo', new_grupo_path %></strong>

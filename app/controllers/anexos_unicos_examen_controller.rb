@@ -1,5 +1,5 @@
 class AnexosUnicosExamenController < ApplicationController
-  
+
   def index
       @users = User.instructores.order(:paterno).page params[:pagina]
   end
@@ -7,7 +7,8 @@ class AnexosUnicosExamenController < ApplicationController
   def imprimir_anexo_unico
     @instructores = User.where(id: params[:user_ids])
     @curso = CursoNombre.find_by(nombre: params[:curso]).nombre
-    @periodo = Grupo.find_by(curso: params[:curso]).periodo
+    @periodo = Grupo.find_by(anio: params[:anio], curso: params[:curso]).periodo
+    @anio = Grupo.find_by(anio: params[:anio]).anio
     @mes = mes
   end
 

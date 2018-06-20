@@ -43,7 +43,7 @@
       <tr>
         <td width="217" colspan="3"><p><strong>Periodo:</strong>
 
-          <%= @curso %> <%= @periodo %><strong></strong></p></td>
+          <%= @curso %> <%= @periodo %> de <%= @anio %><strong></strong></p></td>
 
         <td width="189" colspan="3"><p><strong>Costo total.</strong><br />
           <%=
@@ -177,7 +177,7 @@
         <li><u>Aplicación de exámenes de colocación.</u></li>
       </ul>
       <p>&nbsp;</p>
-      <p>Durante el periodo <%= @periodo %>,
+      <p>Durante el periodo <%= @periodo %> de <%= @anio %>,
         <% if @curso.include? "Intensivo" %>
           <%= "de lunes a viernes," %>
         <% elsif @curso.include? "Sabatino" %>
