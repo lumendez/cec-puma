@@ -45,13 +45,14 @@
       </div>
   </div>
 </div>
-  <%# add an automated spinner to your form when the list is refreshed %>
 <% end %>
-
+<strong><%= link_to 'Agregar grupo', new_grupo_path %></strong>
+<br>
+<br>
 <%= render(
   partial: 'grupos/lista',
   locals: { grupos: @grupos }
 ) %>
 
 <br>
-<%= link_to 'Agregar grupo', new_grupo_path %>
+<strong><%= link_to 'Agregar grupo', new_grupo_path %></strong>
