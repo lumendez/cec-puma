@@ -143,19 +143,15 @@ class Ability
         can :talon, ItInscripcionRegistro
         can :read, User
         can :instructores, User
-        can :historiales_ingles, User
+        can :historiales
         can :historial_ingles, User
         can :historial_academico_ingles, User
-        can :historiales_frances, User
         can :historial_frances, User
         can :historial_academico_frances, User
-        can :historiales_italiano, User
         can :historial_italiano, User
         can :historial_academico_italiano, User
-        can :historiales_b2, User
         can :historial_b2, User
         can :historial_academico_b2, User
-        can :historiales_tkt, User
         can :historial_tkt, User
         can :historial_academico_tkt, User
         can :destroy, User
