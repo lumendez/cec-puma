@@ -33,6 +33,14 @@
         { include_blank: '- Todos -' }, class:'form-control'
       ) %>
     </div>
+    <div class="col-md-4">
+      <%= f.label :with_anio, 'Filtrar por año' %>
+      <%= f.select(
+        :with_anio,
+        @filterrific.select_options[:with_anio],
+        { include_blank: '- Todos -' }, class:'form-control'
+      ) %>
+    </div>
   </div>
   <br>
   <div class="row">

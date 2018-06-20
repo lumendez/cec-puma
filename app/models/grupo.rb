@@ -20,7 +20,8 @@ class Grupo < ApplicationRecord
       :search_query,
       :with_curso,
       :with_instructor,
-      :with_nivel
+      :with_nivel,
+      :with_anio
     ]
   )
 
@@ -149,6 +150,9 @@ class Grupo < ApplicationRecord
   scope :with_nivel, lambda { |niveles|
     where(nivel: [*niveles])
   }
+  scope :with_anio, lambda { |anios|
+    where(anio: [*anios])
+  }
 
   def self.options_for_sorted_by
     [
@@ -165,6 +169,10 @@ class Grupo < ApplicationRecord
 
   def self.options_for_select
     order('created_at').map { |e| [e.nombre, e.id] }
+  end
+
+  def self.options_for_anio
+    self.select(:anio).group(:anio).having("count(*) > 1").pluck(:anio)
   end
 
 end
