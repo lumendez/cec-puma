@@ -143,7 +143,7 @@ class Ability
         can :talon, ItInscripcionRegistro
         can :read, User
         can :instructores, User
-        can :historiales
+        can :historiales, User
         can :historial_ingles, User
         can :historial_academico_ingles, User
         can :historial_frances, User
