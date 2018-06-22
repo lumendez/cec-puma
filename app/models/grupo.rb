@@ -150,6 +150,7 @@ class Grupo < ApplicationRecord
   scope :with_nivel, lambda { |niveles|
     where(nivel: [*niveles])
   }
+
   scope :with_anio, lambda { |anios|
     where(anio: [*anios])
   }
@@ -172,7 +173,7 @@ class Grupo < ApplicationRecord
   end
 
   def self.options_for_anio
-    self.select(:anio).group(:anio).having("count(*) > 1").pluck(:anio)
+    self.select(:anio).group(:anio).having("count(*) >= 1").pluck(:anio)
   end
 
 end

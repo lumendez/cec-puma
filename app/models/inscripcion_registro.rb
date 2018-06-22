@@ -10,7 +10,8 @@ class InscripcionRegistro < ApplicationRecord
       :with_curso,
       :with_grupo_id,
       :with_documentos_validados,
-      :with_nivel
+      :with_nivel,
+      :with_anio
     ]
   )
 
