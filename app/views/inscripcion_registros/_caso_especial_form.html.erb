@@ -49,15 +49,15 @@
   <div class="row">
     <div class="form-group col-sm-4">
       <%= f.label :nombre, 'Nombre(s)' %>
-      <%= f.text_field :nombre, required: true, class: 'form-control' %>
+      <%= collection_select(:inscripcion_registro, :nombre, User.alumnos.order('id ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :paterno, 'Apellido paterno' %>
-      <%= f.text_field :paterno, required: true, class: 'form-control' %>
+      <%= collection_select(:inscripcion_registro, :paterno, User.alumnos.order('id ASC'), :paterno, :paterno, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
     <div class="form-group col-sm-4">
       <%= f.label :materno, 'Apellido materno' %>
-      <%= f.text_field :materno, required: true, class: 'form-control' %>
+      <%= collection_select(:inscripcion_registro, :materno, User.alumnos.order('id ASC'), :materno, :materno, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
   </div>
   <div class="row">
@@ -67,7 +67,7 @@
     </div>
     <div class="form-group col-sm-2">
       <%= f.label :correo, "Correo electrónico" %>
-      <%= f.email_field :correo, class: 'form-control' %>
+      <%= collection_select(:inscripcion_registro, :correo, User.alumnos.order('id ASC'), :email, :email, {prompt: 'Seleccione'}, class: 'form-control') %>
     </div>
     <div class="form-group col-sm-2">
       <%= f.label :sexo %>
@@ -304,6 +304,136 @@
     $('#inscripcion_registro_periodo').change(
       function() {
         matchUp($('#inscripcion_registro_periodo'), $('#inscripcion_registro_curso'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_user_id').change(
+      function(){
+        matchUp($('#inscripcion_registro_user_id'), $('#inscripcion_registro_nombre'));
+      }
+    );
+
+    $('#inscripcion_registro_nombre').change(
+      function(){
+        matchUp($('#inscripcion_registro_nombre'), $('#inscripcion_registro_user_id'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_user_id').change(
+      function(){
+        matchUp($('#inscripcion_registro_user_id'), $('#inscripcion_registro_paterno'));
+      }
+    );
+
+    $('#inscripcion_registro_paterno').change(
+      function(){
+        matchUp($('#inscripcion_registro_paterno'), $('#inscripcion_registro_user_id'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_user_id').change(
+      function(){
+        matchUp($('#inscripcion_registro_user_id'), $('#inscripcion_registro_materno'));
+      }
+    );
+
+    $('#inscripcion_registro_materno').change(
+      function(){
+        matchUp($('#inscripcion_registro_materno'), $('#inscripcion_registro_user_id'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_user_id').change(
+      function(){
+        matchUp($('#inscripcion_registro_user_id'), $('#inscripcion_registro_correo'));
+      }
+    );
+
+    $('#inscripcion_registro_correo').change(
+      function(){
+        matchUp($('#inscripcion_registro_correo'), $('#inscripcion_registro_user_id'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_nombre').change(
+      function(){
+        matchUp($('#inscripcion_registro_nombre'), $('#inscripcion_registro_paterno'));
+      }
+    );
+
+    $('#inscripcion_registro_paterno').change(
+      function(){
+        matchUp($('#inscripcion_registro_paterno'), $('#inscripcion_registro_nombre'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_nombre').change(
+      function(){
+        matchUp($('#inscripcion_registro_nombre'), $('#inscripcion_registro_materno'));
+      }
+    );
+
+    $('#inscripcion_registro_materno').change(
+      function(){
+        matchUp($('#inscripcion_registro_materno'), $('#inscripcion_registro_nombre'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_nombre').change(
+      function(){
+        matchUp($('#inscripcion_registro_nombre'), $('#inscripcion_registro_correo'));
+      }
+    );
+
+    $('#inscripcion_registro_correo').change(
+      function(){
+        matchUp($('#inscripcion_registro_correo'), $('#inscripcion_registro_nombre'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_paterno').change(
+      function(){
+        matchUp($('#inscripcion_registro_paterno'), $('#inscripcion_registro_materno'));
+      }
+    );
+
+    $('#inscripcion_registro_materno').change(
+      function(){
+        matchUp($('#inscripcion_registro_materno'), $('#inscripcion_registro_paterno'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_paterno').change(
+      function(){
+        matchUp($('#inscripcion_registro_paterno'), $('#inscripcion_registro_correo'));
+      }
+    );
+
+    $('#inscripcion_registro_correo').change(
+      function(){
+        matchUp($('#inscripcion_registro_correo'), $('#inscripcion_registro_paterno'));
+      }
+    );
+    <!-- -->
+
+    $('#inscripcion_registro_materno').change(
+      function(){
+        matchUp($('#inscripcion_registro_materno'), $('#inscripcion_registro_correo'));
+      }
+    );
+
+    $('#inscripcion_registro_correo').change(
+      function(){
+        matchUp($('#inscripcion_registro_correo'), $('#inscripcion_registro_materno'));
       }
     );
 </script>
