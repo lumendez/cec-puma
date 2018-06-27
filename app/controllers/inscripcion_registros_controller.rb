@@ -629,26 +629,13 @@ class InscripcionRegistrosController < ApplicationController
   end
 
   def reporte_curso
-    @filterrific = initialize_filterrific(
-    InscripcionRegistro,
-    params[:filterrific],
-    select_options:{
-      sorted_by: InscripcionRegistro.options_for_sorted_by,
-      with_curso: CursoNombre.options_for_select
-    },
-    ) or return
-    @inscripcion_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+    @inscripcion_registros = InscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
 
     respond_to do |format|
       format.html
-      format.js
       format.xlsx
     end
 
-    rescue ActiveRecord::RecordNotFound => e
-    # There is an issue with the persisted param_set. Reset it.
-    puts "Se tuvieron que restablecer los valores: #{ e.message }"
-    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def reporte_dec
