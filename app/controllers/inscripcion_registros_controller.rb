@@ -638,6 +638,26 @@ class InscripcionRegistrosController < ApplicationController
 
   end
 
+  def reporte_curso_frances
+    @fr_inscripcion_registros = FrInscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
+
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+
+  end
+
+  def reporte_curso_italiano
+    @it_inscripcion_registros = ItInscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
+
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+
+  end
+
   def reporte_dec
     @filterrific = initialize_filterrific(
     InscripcionRegistro,
