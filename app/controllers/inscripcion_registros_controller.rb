@@ -629,7 +629,7 @@ class InscripcionRegistrosController < ApplicationController
   end
 
   def reporte_curso
-    @inscripcion_registros = InscripcionRegistro.where(documentos_validados: true).order('created_at ASC')
+    @inscripcion_registros = InscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
 
     respond_to do |format|
       format.html
