@@ -1,0 +1,66 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Reporte DEC") do |sheet|
+sheet.add_row ["Paterno", "Materno", "Nombre(s)", "RFC", "Sexo", "Institución de procedencia", "No. Celular", "Correo", "Nivel", "Horario", "Idioma", "Cuota de recuperación",
+"No. de recibo o transferencia", "Periodo", "Año"]
+@fr_inscripcion_registros.each do |fr_inscripcion_registro|
+    sheet.add_row [
+      if fr_inscripcion_registro.paterno_upcase.nil?
+      else
+      fr_inscripcion_registro.paterno_upcase
+      end,
+      if fr_inscripcion_registro.materno_upcase.nil?
+      else
+      fr_inscripcion_registro.materno_upcase
+      end,
+      if fr_inscripcion_registro.nombre_upcase.nil?
+      else
+      fr_inscripcion_registro.nombre_upcase
+      end,
+      if fr_inscripcion_registro.user.rfc.nil?
+      else
+      fr_inscripcion_registro.user.rfc.upcase
+      end,
+      if fr_inscripcion_registro.sexo.nil?
+      else
+      fr_inscripcion_registro.sexo.upcase
+      end,
+      if fr_inscripcion_registro.procedencia.mb_chars.upcase.nil?
+      else
+      fr_inscripcion_registro.procedencia.mb_chars.upcase
+      end,
+      if fr_inscripcion_registro.telefono.nil?
+      else
+      fr_inscripcion_registro.telefono
+      end,
+      if fr_inscripcion_registro.correo.nil?
+      else
+      fr_inscripcion_registro.correo
+      end,
+      if fr_inscripcion_registro.nivel.mb_chars.upcase.nil?
+      else
+      fr_inscripcion_registro.nivel.mb_chars.upcase
+      end,
+      if fr_inscripcion_registro.horario.nil?
+      else
+      fr_inscripcion_registro.horario
+      end,
+      if fr_inscripcion_registro.idioma.mb_chars.upcase.nil?
+      else
+      fr_inscripcion_registro.idioma.mb_chars.upcase
+      end,
+      if fr_inscripcion_registro.monto_pagado.nil?
+      else
+      "$" + fr_inscripcion_registro.monto_pagado
+      end,
+      if fr_inscripcion_registro.movimiento.nil?
+      else
+      fr_inscripcion_registro.movimiento
+      end,
+      if fr_inscripcion_registro.curso.upcase.nil?
+      else
+      fr_inscripcion_registro.curso.upcase
+      end,
+      fr_inscripcion_registro.created_at.strftime("%Y")
+      ]
+    end
+  end
