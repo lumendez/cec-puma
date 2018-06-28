@@ -178,7 +178,11 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (2.0.5)
+<<<<<<< HEAD
     puma (3.11.2)
+=======
+    puma (3.11.3)
+>>>>>>> c84f8edb3f7ecbc58653c5c868270aa6774226f2
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)

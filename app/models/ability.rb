@@ -93,6 +93,8 @@ class Ability
         can :habilitar_contancia, InscripcionRegistro
         can :reporte_curso, InscripcionRegistro
         can :reporte_dec, InscripcionRegistro
+        can :reporte_dec_frances, InscripcionRegistro
+        can :reporte_dec_italiano, InscripcionRegistro
         can :ver_constancias, InscripcionRegistro
         can :constancia, InscripcionRegistro
         can :imprimir, InscripcionRegistro

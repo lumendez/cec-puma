@@ -628,7 +628,7 @@ class InscripcionRegistrosController < ApplicationController
     end
   end
 
-  def reporte_curso
+  def reporte_dec
     @inscripcion_registros = InscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
 
     respond_to do |format|
@@ -638,7 +638,7 @@ class InscripcionRegistrosController < ApplicationController
 
   end
 
-  def reporte_curso_frances
+  def reporte_dec_frances
     @fr_inscripcion_registros = FrInscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
 
     respond_to do |format|
@@ -648,7 +648,7 @@ class InscripcionRegistrosController < ApplicationController
 
   end
 
-  def reporte_curso_italiano
+  def reporte_dec_italiano
     @it_inscripcion_registros = ItInscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
 
     respond_to do |format|
@@ -658,16 +658,12 @@ class InscripcionRegistrosController < ApplicationController
 
   end
 
-  def reporte_dec
-    @filterrific = initialize_filterrific(
-    InscripcionRegistro,
-    params[:filterrific],
-    select_options:{
-      sorted_by: InscripcionRegistro.options_for_sorted_by,
-      with_curso: CursoNombre.options_for_select
-    },
-    ) or return
-    @inscripcion_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+  def reporte_curso
+    ingles = InscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
+    frances = FrInscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
+    italiano = ItInscripcionRegistro.where(documentos_validados: true).order('created_at DESC')
+
+    @inscripcion_registros = ingles + frances + italiano
 
     respond_to do |format|
       format.html
@@ -675,10 +671,6 @@ class InscripcionRegistrosController < ApplicationController
       format.xlsx
     end
 
-    rescue ActiveRecord::RecordNotFound => e
-    # There is an issue with the persisted param_set. Reset it.
-    puts "Se tuvieron que restablecer los valores: #{ e.message }"
-    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def editar_datos
