@@ -1,34 +1,9 @@
 <h1 class="sub">Reporte DEC</h1>
-<%= form_for_filterrific @filterrific do |f| %>
-<div class="jumbotron">
-  <div class="row">
-    <div class="col-md-2">
-      <%= f.label :with_curso, 'Filtrar por curso' %>
-      <%= f.select(
-        :with_curso,
-        @filterrific.select_options[:with_curso],
-        { include_blank: '- Todos -' }, class:'form-control'
-      ) %>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-      <div class="col-sm-3">
-        <%= link_to(
-          'Quitar filtros',
-          reset_filterrific_url,
-          class: 'btn btn-primary'
-        ) %>
-      </div>
-  </div>
-</div>
-  <%# add an automated spinner to your form when the list is refreshed %>
-<% end %>
-
-<%= render(
-  partial: 'inscripcion_registros/lista_reporte_dec',
-  locals: { inscripcion_registros: @inscripcion_registros }
-) %>
-
 <br>
-<%= link_to 'Descargar .xlsx', reporte_dec_inscripcion_registros_path(format: :xlsx), class:'btn btn-primary btn-lg' %>
+<%= link_to 'Descargar .xlsx Inglés', reporte_dec_inscripcion_registros_path(format: :xlsx), class:'btn btn-primary btn-lg' %>
+<br>
+<br>
+<%= link_to 'Descargar .xlsx Francés', reporte_dec_frances_inscripcion_registros_path(format: :xlsx), class:'btn btn-info btn-lg' %>
+<br>
+<br>
+<%= link_to 'Descargar .xlsx Italiano', reporte_dec_italiano_inscripcion_registros_path(format: :xlsx), class:'btn btn-success btn-lg' %>

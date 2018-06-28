@@ -1,66 +1,46 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Reporte DEC") do |sheet|
-sheet.add_row ["Paterno", "Materno", "Nombre(s)", "RFC", "Sexo", "Institución de procedencia", "No. Celular", "Correo", "Nivel", "Horario", "Idioma", "Cuota de recuperación",
-"No. de recibo o transferencia", "Periodo", "Año"]
+sheet.add_row ["Paterno", "Materno", "Nombre(s)", "Nivel", "Horario", "Idioma", "Cantidad depositada", "Fecha de depósito", "Movimiento", "Comunidad", "Observaciones"]
 @inscripcion_registros.each do |inscripcion_registro|
     sheet.add_row [
-      if inscripcion_registro.paterno_upcase.nil?
-      else
-      inscripcion_registro.paterno_upcase
-      end,
-      if inscripcion_registro.materno_upcase.nil?
-      else
-      inscripcion_registro.materno_upcase
-      end,
-      if inscripcion_registro.nombre_upcase.nil?
-      else
-      inscripcion_registro.nombre_upcase
-      end,
-      if inscripcion_registro.user.rfc.nil?
-      else
-      inscripcion_registro.user.rfc.upcase
-      end,
-      if inscripcion_registro.sexo.nil?
-      else
-      inscripcion_registro.sexo.upcase
-      end,
-      if inscripcion_registro.procedencia.mb_chars.upcase.nil?
-      else
-      inscripcion_registro.procedencia.mb_chars.upcase
-      end,
-      if inscripcion_registro.telefono.nil?
-      else
-      inscripcion_registro.telefono
-      end,
-      if inscripcion_registro.correo.nil?
-      else
-      inscripcion_registro.correo
-      end,
-      if inscripcion_registro.nivel.mb_chars.upcase.nil?
-      else
-      inscripcion_registro.nivel.mb_chars.upcase
-      end,
-      if inscripcion_registro.horario.nil?
-      else
-      inscripcion_registro.horario
-      end,
-      if inscripcion_registro.idioma.mb_chars.upcase.nil?
-      else
-      inscripcion_registro.idioma.mb_chars.upcase
-      end,
-      if inscripcion_registro.monto_pagado.nil?
-      else
-      "$" + inscripcion_registro.monto_pagado
-      end,
-      if inscripcion_registro.movimiento.nil?
-      else
-      inscripcion_registro.movimiento
-      end,
-      if inscripcion_registro.curso.upcase.nil?
-      else
-      inscripcion_registro.curso.upcase
-      end,
-      inscripcion_registro.created_at.strftime("%Y")
-      ]
-    end
+    if inscripcion_registro.paterno_upcase.nil?
+    else
+    inscripcion_registro.paterno_upcase
+    end,
+    if inscripcion_registro.materno_upcase.nil?
+    else
+    inscripcion_registro.materno_upcase
+    end,
+    if inscripcion_registro.nombre_upcase.nil?
+    else
+    inscripcion_registro.nombre_upcase
+    end,
+    if inscripcion_registro.nivel.mb_chars.upcase.nil?
+    else
+    inscripcion_registro.nivel.mb_chars.upcase
+    end,
+    if inscripcion_registro.horario.nil?
+    else
+    inscripcion_registro.horario + "HORAS"
+    end,
+    if inscripcion_registro.idioma.mb_chars.upcase.nil?
+    else
+    inscripcion_registro.idioma.mb_chars.upcase
+    end,
+    if inscripcion_registro.cuota.nil?
+    else
+    "$" + inscripcion_registro.cuota
+    end,
+    "",
+    if inscripcion_registro.movimiento.nil?
+    else
+    inscripcion_registro.movimiento
+    end,
+    if inscripcion_registro.procedencia.mb_chars.upcase.nil?
+    else
+    inscripcion_registro.procedencia.mb_chars.upcase
+    end,
+    ""
+    ]
   end
+end
