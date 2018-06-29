@@ -21,9 +21,9 @@
 .byebug_history
 
 #Ignore files from paperclip
-public/system/curriculums/*
-public/system/examen_colocacion_idiomas/*
-public/system/fr_inscripcion_registros/*
-public/system/inscripcion_registros/*
-public/system/it_inscripcion_registros/*
-public/system/unitarios/*
+#public/system/curriculums/*
+#public/system/examen_colocacion_idiomas/*
+#public/system/fr_inscripcion_registros/*
+#public/system/inscripcion_registros/*
+#public/system/it_inscripcion_registros/*
+#public/system/unitarios/*
