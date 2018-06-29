@@ -115,8 +115,6 @@ class Ability
         can :destroy, FrInscripcionRegistro
         can :habilitar_historial_academico, FrInscripcionRegistro
         can :habilitar_contancia, FrInscripcionRegistro
-        can :reporte_curso, FrInscripcionRegistro
-        can :reporte_dec, FrInscripcionRegistro
         can :ver_constancias, FrInscripcionRegistro
         can :constancia, FrInscripcionRegistro
         can :imprimir, FrInscripcionRegistro
@@ -133,8 +131,6 @@ class Ability
         can :destroy, ItInscripcionRegistro
         can :habilitar_historial_academico, ItInscripcionRegistro
         can :habilitar_contancia, ItInscripcionRegistro
-        can :reporte_curso, ItInscripcionRegistro
-        can :reporte_dec, ItInscripcionRegistro
         can :ver_constancias, ItInscripcionRegistro
         can :constancia, ItInscripcionRegistro
         can :imprimir, ItInscripcionRegistro
