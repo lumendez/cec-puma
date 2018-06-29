@@ -28,6 +28,6 @@ test:
 
 production:
   <<: *default
-  database: myapp_production
-  username: <%= ENV['mysql_cec'] %>
-  password: <%= ENV['mysql_pass'] %>
+  database: db_cec
+  username: cecapp
+  password: 5nigrlz1*
