@@ -57,7 +57,7 @@ gem 'rails-i18n'
 
 gem 'devise-i18n'
 
-gem 'capybara'
+gem 'capybara', "~> 2.14.2"
 
 gem "paperclip", "~> 5.0.0"
 
@@ -73,7 +73,7 @@ gem 'filterrific'
 
 gem 'rqrcode_png'
 
-gem 'paper_trail'
+gem 'paper_trail', "~> 7.0.3"
 
 gem 'yaml_db'
 
