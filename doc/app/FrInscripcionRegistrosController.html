@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class FrInscripcionRegistrosController - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-actualizar_asignar_calificaciones">#actualizar_asignar_calificaciones</a>
+    
+    <li ><a href="#method-i-actualizar_editar_datos">#actualizar_editar_datos</a>
+    
+    <li ><a href="#method-i-actualizar_multiples_constancias">#actualizar_multiples_constancias</a>
+    
+    <li ><a href="#method-i-asignar_calificaciones">#asignar_calificaciones</a>
+    
+    <li ><a href="#method-i-constancia">#constancia</a>
+    
+    <li ><a href="#method-i-control_escolar">#control_escolar</a>
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-destroy">#destroy</a>
+    
+    <li ><a href="#method-i-edit">#edit</a>
+    
+    <li ><a href="#method-i-editar_datos">#editar_datos</a>
+    
+    <li ><a href="#method-i-evaluacion_final">#evaluacion_final</a>
+    
+    <li ><a href="#method-i-evaluacion_media">#evaluacion_media</a>
+    
+    <li ><a href="#method-i-habiliar_historial_academico">#habiliar_historial_academico</a>
+    
+    <li ><a href="#method-i-habilitar_constancia">#habilitar_constancia</a>
+    
+    <li ><a href="#method-i-habilitar_multiples_constancias">#habilitar_multiples_constancias</a>
+    
+    <li ><a href="#method-i-imprimir">#imprimir</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-new">#new</a>
+    
+    <li ><a href="#method-i-reporte_curso">#reporte_curso</a>
+    
+    <li ><a href="#method-i-reporte_dec">#reporte_dec</a>
+    
+    <li ><a href="#method-i-show">#show</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+    <li ><a href="#method-i-ver_constancias">#ver_constancias</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FrInscripcionRegistrosController">
+  <h1 id="class-FrInscripcionRegistrosController" class="class">
+    class FrInscripcionRegistrosController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-actualizar_asignar_calificaciones" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actualizar_asignar_calificaciones</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="actualizar_asignar_calificaciones-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 435</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">actualizar_asignar_calificaciones</span>
+  <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registros</span>].<span class="ruby-identifier">keys</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registros</span>].<span class="ruby-identifier">values</span>)
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Calificaciones guardadas&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Profesor&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">panel_profesores_path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">grupos_path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-actualizar_editar_datos" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actualizar_editar_datos</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="actualizar_editar_datos-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 493</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">actualizar_editar_datos</span>
+  <span class="ruby-comment">#@fr_inscripcion_registros = FrInscripcionRegistro.find(params[:fr_inscripcion_registro_ids])</span>
+  <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registros</span>].<span class="ruby-identifier">keys</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registros</span>].<span class="ruby-identifier">values</span>)
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Datos guardados&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">fr_inscripcion_registros_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-actualizar_multiples_constancias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actualizar_multiples_constancias</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="actualizar_multiples_constancias-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">actualizar_multiples_constancias</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registro_ids</span>])
+  <span class="ruby-ivar">@fr_inscripcion_registros</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fr_inscripcion_registro</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">fr_inscripcion_registro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">habilitar_constancia_params</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">&quot;Constancias habilitadas!&quot;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">ver_constancias_fr_inscripcion_registros_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-asignar_calificaciones" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">asignar_calificaciones</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="asignar_calificaciones-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 431</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">asignar_calificaciones</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registro_ids</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-constancia" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">constancia</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="constancia-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 423</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">constancia</span>
+  <span class="ruby-ivar">@qr</span> = <span class="ruby-constant">RQRCode</span><span class="ruby-operator">::</span><span class="ruby-constant">QRCode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">original_url</span>).<span class="ruby-identifier">to_img</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">100</span>, <span class="ruby-value">100</span>).<span class="ruby-identifier">to_data_url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-control_escolar" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">control_escolar</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="control_escolar-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">control_escolar</span>
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">control_escolar_params</span>)
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se actualizó correctamente.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /fr_inscripcion_registros POST /fr_inscripcion_registros.json</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+
+
+    <span class="ruby-ivar">@fr_inscripcion_registro</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">fr_inscripcion_registros</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">fr_inscripcion_registro_params</span>)
+
+    <span class="ruby-comment">#Se cuenta cuantas personas se han preinscrito a un grupo. Se cuenta con todos los registros no</span>
+    <span class="ruby-comment">#importando que éstos no hayan sido validados. El dato se obtiene a través de todos los registros</span>
+    <span class="ruby-comment">#de preinscripción, el id para el grupo actual se obtiene con @fr_inscripcion_registro.grupo_id</span>
+    <span class="ruby-identifier">cupos</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">grupo_id</span>).<span class="ruby-identifier">count</span>
+
+    <span class="ruby-comment">#Se localiza si el usuatio tiene un id previo con ese mismo grupo. Si existe se le envia un mensaje</span>
+    <span class="ruby-comment"># y no se permite guardar el registro por segunda ocasión.</span>
+    <span class="ruby-identifier">usuario</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-identifier">registro</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">usuario</span>, <span class="ruby-identifier">grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">grupo_id</span>)
+
+    <span class="ruby-comment">#Si el cupo del grupo excede los 25 alunos se le muestra un mensaje al usuario donde se le indica</span>
+    <span class="ruby-comment">#que deberá elegir un grupo distinto, el registro de inscripción no se guardará en la base dde datos_bancos</span>
+    <span class="ruby-comment">#hay que agregar este metodo a las rb de el modelo correspondiente.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">cupos</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">40</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_fr_inscripcion_registro_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;El grupo ha alcanzado su ocupación máxima. Por favor elija otro grupo&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro</span>.<span class="ruby-identifier">grupo_id</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">grupo_id</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">panel_alumnos_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Usted ya tiene registrada una solicitud con este grupo.&quot;</span>
+    <span class="ruby-keyword">else</span>
+
+    <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se creó correctamente.&#39;</span> }
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span> }
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span> }
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>DELETE /fr_inscripcion_registros/1 DELETE /fr_inscripcion_registros/1.json</p>
+          
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+  <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">fr_inscripcion_registros_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se eliminó correctamente.&#39;</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /fr_inscripcion_registros/1/edit</p>
+          
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-identifier">registro_anterior</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>).<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">examen_colocacion</span> = <span class="ruby-constant">ExamenColocacionIdioma</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ? AND created_at &gt;= ?&quot;</span>, <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">user_id</span>, <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>.<span class="ruby-identifier">months_ago</span>(<span class="ruby-value">2</span>)).<span class="ruby-identifier">last</span>
+  <span class="ruby-comment">#Las siguientes condiciones aplican para que el usuario pueda editar su registro</span>
+  <span class="ruby-comment">#de preinscrición sin que le aparezcan otros grupos que no correspondan con su nivel.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 1&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 1&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 2&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 3&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 4&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 5&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 1&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 2&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 3&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 4&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 5&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-editar_datos" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">editar_datos</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="editar_datos-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 489</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">editar_datos</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registro_ids</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-evaluacion_final" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">evaluacion_final</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="evaluacion_final-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 354</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">evaluacion_final</span>
+  <span class="ruby-comment">#respond_to do |format|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">evaluacion_final_params</span>)
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se actualizó correctamente.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-evaluacion_media" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">evaluacion_media</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="evaluacion_media-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">evaluacion_media</span>
+  <span class="ruby-comment">#respond_to do |format|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">evaluacion_media_params</span>)
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se actualizó correctamente.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-habiliar_historial_academico" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">habiliar_historial_academico</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="habiliar_historial_academico-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 378</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">habiliar_historial_academico</span>
+  <span class="ruby-comment">#respond_to do |format|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">habilitar_historial_academico_params</span>)
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Se ha habilitado el historial para este registro.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-habilitar_constancia" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">habilitar_constancia</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="habilitar_constancia-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 366</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">habilitar_constancia</span>
+  <span class="ruby-comment">#respond_to do |format|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">habiliar_constancia_params</span>)
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Se ha habilitado la constancia para este registro.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-habilitar_multiples_constancias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">habilitar_multiples_constancias</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="habilitar_multiples_constancias-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 390</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">habilitar_multiples_constancias</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registro_ids</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-imprimir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">imprimir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="imprimir-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 427</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">imprimir</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:fr_inscripcion_registro_ids</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /fr_inscripcion_registros GET /fr_inscripcion_registros.json</p>
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-ivar">@filterrific</span> = <span class="ruby-identifier">initialize_filterrific</span>(
+  <span class="ruby-constant">FrInscripcionRegistro</span>,
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:filterrific</span>],
+  <span class="ruby-identifier">select_options</span>{{
+    <span class="ruby-identifier">sorted_by</span><span class="ruby-operator">:</span> <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">options_for_sorted_by</span>,
+    <span class="ruby-identifier">with_grupo_id</span><span class="ruby-operator">:</span> <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Abierto&quot;</span>).<span class="ruby-identifier">options_for_select</span>,
+    <span class="ruby-identifier">with_documentos_validados</span><span class="ruby-operator">:</span> <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">options_for_documentos_validados</span>,
+    <span class="ruby-identifier">with_curso</span><span class="ruby-operator">:</span> <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">options_for_select</span>
+  },
+  ) <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-ivar">@filterrific</span>.<span class="ruby-identifier">find</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;created_at DESC&quot;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-identifier">examen_medio</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">examen_final</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:pagina</span>])
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-comment"># There is an issue with the persisted param_set. Reset it.</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Se tuvieron que restablecer los valores: #{ e.message }&quot;</span>
+  <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">reset_filterrific_url</span>(<span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:html</span>)) <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /fr_inscripcion_registros/new</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-comment">#Definición de las condiciones para un usuario pueda registrarse. @registro_anterior</span>
+  <span class="ruby-comment">#corresponde al último registro que haya tenido el usuario en el sistema. @registros_no_aprobados</span>
+  <span class="ruby-comment">#cuenta los registro que el usuario tenga previamente reprobados y examen_colocacion si tiene</span>
+  <span class="ruby-comment">#algún examen y que nivel alcanzó a través de él.</span>
+
+  <span class="ruby-comment">#Se recupera el ultimo registro sin distincion del idioma</span>
+  <span class="ruby-identifier">registro_anterior</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>).<span class="ruby-identifier">last</span>
+
+  <span class="ruby-comment">#Se utiliza para aplicar la condición de que si tiene 3 cursos reprobados tendrá que iniciar desde básico 1 o hacer examen de colocación</span>
+  <span class="ruby-identifier">registros_no_aprobados</span> = <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ? AND examen_medio &lt; ? AND examen_final &lt; ? AND idioma = ? AND nivel LIKE ? OR ? OR ? OR ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">80</span>, <span class="ruby-value">80</span>, <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-string">&quot;%Básico%&quot;</span>, <span class="ruby-string">&quot;%Intermedio%&quot;</span>, <span class="ruby-string">&quot;%Avanzado%&quot;</span>, <span class="ruby-string">&quot;%Certificación&quot;</span>).<span class="ruby-identifier">last</span>(<span class="ruby-value">3</span>)
+
+  <span class="ruby-comment">#Se utiliza para saber si está vigente el examen de colocación y mostrar la oferta</span>
+  <span class="ruby-identifier">examen_colocacion</span> = <span class="ruby-constant">ExamenColocacionIdioma</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;user_id = ? AND created_at &gt;= ?&quot;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>.<span class="ruby-identifier">months_ago</span>(<span class="ruby-value">2</span>)).<span class="ruby-identifier">last</span>
+
+  <span class="ruby-comment">#Se revisa si el usuario no tiene un registro anterior y además, sino tiene registros anteriores</span>
+  <span class="ruby-comment">#no aprobados. Si ambas condiciones se satisfacen, entonces se le permitirá crear un registro</span>
+  <span class="ruby-comment">#de inscripción.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registros_no_aprobados</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-ivar">@fr_inscripcion_registro</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">fr_inscripcion_registros</span>.<span class="ruby-identifier">build</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment">#Cambiar months_ago(2) que es el valor original</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">curso</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Intensivo&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>.<span class="ruby-identifier">months_ago</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">created_at</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">documentos_validados</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Ha dejado pasar dos cursos intensivos, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación.&quot;</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">panel_alumnos_path</span>
+      <span class="ruby-comment">#Cambiar months_ago(2) que es el valor original</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">curso</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;Sabatino&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>.<span class="ruby-identifier">months_ago</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">created_at</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">documentos_validados</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Ha dejado pasar un curso sabatino, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación.&quot;</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">panel_alumnos_path</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registros_no_aprobados</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registros_no_aprobados</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">3</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">&quot;Usted no ha aprobado los últimos tres cursos en este nivel, tendrá que comenzar nuevamente desde básico 1 o presentar examen de colocación.&quot;</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">panel_alumnos_path</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@fr_inscripcion_registro</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">fr_inscripcion_registros</span>.<span class="ruby-identifier">build</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#Las siguientes condiciones aplican si el usuario es de nuevo ingreso pero a través</span>
+  <span class="ruby-comment">#de un examen de colocación quedó en cualquiera de los niveles señalados. Revisando</span>
+  <span class="ruby-comment">#primero si existe algún registro previo y posteriormente si posee un examen de</span>
+  <span class="ruby-comment">#colocación.</span>
+
+  <span class="ruby-comment"># En este caso se muestra básico 1 porque no existe antecedente de examen de</span>
+  <span class="ruby-comment"># colocación o de algún registro previo.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">examen_colocacion</span>.<span class="ruby-identifier">nivel_asignado</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-comment"># Aquí se presentan los niveles basados en si existen registros anteriores y</span>
+  <span class="ruby-comment"># si están aprobados. Si están aprobados se les muestra el siguiente nivel,</span>
+  <span class="ruby-comment"># sino, se le presenta el mismo nivel en el que estaba.</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 1&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 1&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 2&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 2&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 3&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 3&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 4&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 4&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 5&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Básico 5&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Básico 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Intermedio 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 1&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 2&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 3&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 4&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">nivel</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">registro_anterior</span>.<span class="ruby-identifier">promedio</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">80</span>
+    <span class="ruby-ivar">@grupos</span> = <span class="ruby-constant">Grupo</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">idioma</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Francés&quot;</span>, <span class="ruby-identifier">nivel</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Avanzado 5&#39;</span>, <span class="ruby-identifier">estado</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Abierto&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reporte_curso" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reporte_curso</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reporte_curso-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 445</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reporte_curso</span>
+  <span class="ruby-ivar">@filterrific</span> = <span class="ruby-identifier">initialize_filterrific</span>(
+  <span class="ruby-constant">FrInscripcionRegistro</span>,
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:filterrific</span>],
+  <span class="ruby-identifier">select_options</span>{{
+    <span class="ruby-identifier">sorted_by</span><span class="ruby-operator">:</span> <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">options_for_sorted_by</span>,
+    <span class="ruby-identifier">with_curso</span><span class="ruby-operator">:</span> <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">options_for_select</span>
+  },
+  ) <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-ivar">@filterrific</span>.<span class="ruby-identifier">find</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;created_at DESC&quot;</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:pagina</span>])
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-comment"># There is an issue with the persisted param_set. Reset it.</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Se tuvieron que restablecer los valores: #{ e.message }&quot;</span>
+  <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">reset_filterrific_url</span>(<span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:html</span>)) <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reporte_dec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reporte_dec</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reporte_dec-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 467</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reporte_dec</span>
+  <span class="ruby-ivar">@filterrific</span> = <span class="ruby-identifier">initialize_filterrific</span>(
+  <span class="ruby-constant">FrInscripcionRegistro</span>,
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:filterrific</span>],
+  <span class="ruby-identifier">select_options</span>{{
+    <span class="ruby-identifier">sorted_by</span><span class="ruby-operator">:</span> <span class="ruby-constant">FrInscripcionRegistro</span>.<span class="ruby-identifier">options_for_sorted_by</span>,
+    <span class="ruby-identifier">with_curso</span><span class="ruby-operator">:</span> <span class="ruby-constant">CursoNombre</span>.<span class="ruby-identifier">options_for_select</span>
+  },
+  ) <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-ivar">@filterrific</span>.<span class="ruby-identifier">find</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;created_at DESC&quot;</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:pagina</span>])
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-comment"># There is an issue with the persisted param_set. Reset it.</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Se tuvieron que restablecer los valores: #{ e.message }&quot;</span>
+  <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">reset_filterrific_url</span>(<span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:html</span>)) <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /fr_inscripcion_registros/1 GET /fr_inscripcion_registros/1.json</p>
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>PATCH/PUT /fr_inscripcion_registros/1 PATCH/PUT
+/fr_inscripcion_registros/1.json</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-comment">#respond_to do |format|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">fr_inscripcion_registro_params</span>)
+      <span class="ruby-comment">#Se envia un correo al usuario indicándole que su inscripción ha sido modificada en alguno de los</span>
+      <span class="ruby-comment">#siguientes casos: la inscripción fue validada, su inscripción fue invalidada o, se le cambio de</span>
+      <span class="ruby-comment">#grupo.</span>
+      <span class="ruby-comment">#UserMailer.email_fr_inscripcion_registro(fr_inscripcion_registro).deliver</span>
+      <span class="ruby-comment">#Se redirige al usuario usuario que ha iniciado sesión con un mensaje diferente según sea el caso.</span>
+      <span class="ruby-comment">#Si se agrega el otro rol al sistema se deberá de agregar también una nueva redirección y un nuevo</span>
+      <span class="ruby-comment">#mensaje.</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Control escolar&quot;</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">fr_inscripcion_registros_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se actualizó correctamente.&#39;</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Profesor&quot;</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">grupos_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;La calificación se guardó correctamente.&#39;</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Administrador&quot;</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">fr_inscripcion_registros_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se actualizó correctamente.&#39;</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">role</span>.<span class="ruby-identifier">nombre</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Invitado&quot;</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">panel_alumnos_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se actualizó correctamente.&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;El registro de inscripción se actualizó correctamente.&#39;</span> }
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:show</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:ok</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span> }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@fr_inscripcion_registro</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ver_constancias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ver_constancias</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ver_constancias-source">
+            <pre><span class="ruby-comment"># File app/controllers/fr_inscripcion_registros_controller.rb, line 403</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ver_constancias</span>
+  <span class="ruby-comment">#@fr_inscripcion_registros = FrInscripcionRegistro.where(habilitar_constancia: true).order(&#39;paterno DESC&#39;).page params[:pagina]</span>
+  <span class="ruby-ivar">@filterrific</span> = <span class="ruby-identifier">initialize_filterrific</span>(
+  <span class="ruby-constant">FrInscripcionRegistro</span>,
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:filterrific</span>],
+  ) <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span>
+  <span class="ruby-ivar">@fr_inscripcion_registros</span> = <span class="ruby-ivar">@filterrific</span>.<span class="ruby-identifier">find</span>.<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:pagina</span>])
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-comment"># There is an issue with the persisted param_set. Reset it.</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Se tuvieron que restablecer los valores: #{ e.message }&quot;</span>
+  <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">reset_filterrific_url</span>(<span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:html</span>)) <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
