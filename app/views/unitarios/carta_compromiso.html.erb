@@ -1,20 +1,20 @@
 <div class="row">
   <div id="carta">
       <div style="page-break-after: always;">
-      <h2 align="center"><strong><%= @unitario.grupos_unitario.nombre.parameterize(separator: ' ').upcase %></strong></h3>
+      <!--<h2 align="center"><strong><%#= @unitario.grupos_unitario.nombre.parameterize(separator: ' ').upcase %></strong></h3>-->
       <h3 align="center"><strong>CARTA COMPROMISO</strong></h4>
-      <h4>FOLIO <%= @unitario.id %></h4>
+      <!--<h4>FOLIO <%#= @unitario.id %></h4>-->
       <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
       <p class="carta"><strong>DR. RICARDO OCTAVIO ARTURO MOTA PALOMINO<br>
       DIRECTOR DEL CENTRO DE EDUCACIÓN CONTINUA<br>
-      INGENIERO EUGENIO MÉNDEZ DOCURRO DEL IPN<br>
-      P R E S E N T E</strong></p>
-      <center>
+      INGENIERO EUGENIO MÉNDEZ DOCURRO DEL<br>
+      <!--P R E S E N T E-->
+      INSTITUTO POLITÉCNICO NACIONAL</strong></p>
+      <!--<center>
         <p>Datos del interesado</p>
         <table class="table table-bordered">
           <tr>
             <td rowspan="3"><p align="center"><strong>El que suscribe</strong></p></td>
-            <!--<td colspan="3"><p align="center"><strong>Datos del interesado</strong></p></td>-->
           </tr>
           <tr>
             <td><p align="center"><%= @unitario.paterno %>
@@ -25,162 +25,216 @@
             <br><strong>Nombres(s)</strong></p></td>
           </tr>
         </table>
-      </center>
-    <p>Me comprometo con el Centro de Educación Continua Ingeniero Eugenio Méndez Docurro
+      </center>-->
+    <!--<p>Me comprometo con el Centro de Educación Continua Ingeniero Eugenio Méndez Docurro
       del Instituto Politécnico Nacional, que usted dignamente dirige, a acatar las
       disposiciones reglamentarias y de disciplina que rigen la vida institucional;
       en el entendido de que si quebranto la normatividad, aceptaré las sanciones a que
       me haga acreedor, incluyendo en su caso, reparar de inmediato cualquier desperfecto
       ocasionado al inmueble, instalaciones o equipamiento; o en su caso, cubrir el total
-      del importe derivado de dicha reparación.</p>
-      <p>Cabe mencionar que estoy plenamente consciente de que el hecho de inscribirme,
+      del importe derivado de dicha reparación.</p>-->
+      <p align="justify">
+        Yo  <%= @unitario.nombre %>  <%= @unitario.paterno %>  <%= @unitario.materno %>,
+        participante del  <%= @unitario.grupos_unitario.nombre %>, manifiesto que he leído los Lineamientos
+        de Conducta, los comprendo y me comprometo a cumplir las disposiciones reglamentarias y de
+        disciplina que rigen la vida institucional del Centro de Educación Continua Ingeniero Eugenio
+        Méndez Docurro del Instituto Politécnico Nacional. En el entendido de que sí quebranto alguna
+        disposición, aceptaré las sanciones a que me haga acreedor, incluyendo la expulsión inmediata
+        del curso. De igual manera me comprometo a reparar de forma inmediata cualquier desperfecto
+        ocasionado al inmueble o al mobiliario, cubriendo el importe total de recursos económicos
+        que se deriven de dicha reparación.
+      </p>
+      <p align="justify">
+        Adicionalmente, comprendo que participar en el curso antes referido, no me otorga el derecho de
+        obtener un lugar para ingresar al Instituto Politécnico Nacional, ni en ninguna otra institución
+        educativa para el ciclo escolar 2019 – 2020.
+      </p>
+      <!--<p>Cabe mencionar que estoy plenamente consciente de que el hecho de inscribirme,
         sustentar y acreditar este curso propedéutico, de ninguna manera implica la aceptación
         automática en el Instituto Politécnico Nacional ni en ninguna otra institución educativa
-        para el ciclo escolar 2018-2019.</p>
+        para el ciclo escolar 2018-2019.</p>-->
       <p align="center">A T E N T A M E N T E</p>
       <br>
       <p align="center">_____________________________________<br>
       <%= @unitario.nombre_paterno_materno %><br>
-      Firma del Interesado</p>
+      Folio de inscripción: <%= @unitario.id %></p>
       <br>
       <p align="center">_____________________________________<br>
       <%= @unitario.nombre_padre %><br>
       Firma del Padre o tutor</p>
       </div>
       <div style="page-break-after: always;">
+      <h2 align="center"><strong><%= @unitario.grupos_unitario.nombre.parameterize(separator: ' ').upcase %></strong></h3>
       <h2 align="center">LINEAMIENTOS DE CONDUCTA</h2>
-      <p>La comunidad del Centro de Educación Continua Ingeniero Eugenio Méndez Docurro del
-        Instituto Politécnico Nacional les da la más cordial bienvenida.</p>
-      <p>Con la finalidad de que las actividades académicas se desarrollen de una manera
-        cordial, seguridad y bienestar, orientados a propiciar un ambiente de aprendizaje
-        con valores y responsabilidad social hacemos de su conocimiento los lineamientos
-        de comportamiento que deberán observar al interior de las instalaciones:
+      <p>
+        Estimado estudiante del “<%= @unitario.grupos_unitario.nombre %>”, el equipo de profesores, prefectos, coordinadores
+        académicos y autoridades del Centro de Educación Continua Ingeniero Eugenio
+        Méndez Docurro del Instituto Politécnico Nacional, te damos la más cordial
+        bienvenida y un fraternal saludo <strong><i>Politécnico</i></strong>. Con la finalidad de que nuestras
+        actividades académicas se desarrollen en un marco de respeto, cordialidad y
+        seguridad, en un ambiente de aprendizaje con valores y responsabilidad, te
+        invitamos a que cumplas los lineamientos de comportamiento al interior de
+        nuestras instalaciones siguientes:
       </p>
       <ol type="1">
         <li>
-          <p>Mostrar la credencial para ingresar a las instalaciones y cuando el
-          personal del Centro se los solicite</p>
+          <p>Muestra tu credencial para poder ingresar a las instalaciones y cuando el personal del Centro te lo solicite.</p>
+        </li>
+        <% if @unitario.grupos_unitario.nombre.include? "Curso de Preparación para el Examen de Admisión al Nivel Superior" %>
+        <li>
+          <p>Permanece en las instalaciones sólo en tu horario, la entrada es de las 14:40 a las 15:00 horas y la salida de las 20:40 a las 21:00 horas.</p>
+        </li>
+        <li><p>Sí te es necesario salir de las instalaciones, puedes hacerlo bajo tu responsabilidad, únicamente en el primer receso.</p>
         </li>
         <li>
-          <p>El acceso a las instalaciones será de acuerdo a los siguientes horarios:</p>
+          <p>En el caso de que nuestro Servicio Médico considere que debes retirarte por cuestiones de salud, se notificará a algún
+            familiar, padre o tutor, por lo cual se te solicita dejar un número telefónico donde sea fácil su localización.
+          </p>
         </li>
+        <li>
+          <p>Dirigete con respeto para con tus compañeros, tus profesores, personal y autoridades del Centro.
+          </p>
+        </li>
+        <li>
+          <p>Mantén orden y disciplina en tu aula, así como en las instalaciones.</p>
+        </li>
+        <li>
+          <p>No consumas alimentos ni bebidas al interior de las aulas. Evita masticar chicle.</p>
+        </li>
+        <li>
+          <p>Cuida nuestras instalaciones, no rayes ni maltrates mobiliario en general o equipo
+            de cómputo. Sí lo haces, deberás cubrir con tus recursos económicos el total del monto del daño ocasionado.
+          </p>
+        </li>
+        <li>
+          <p>Queda estrictamente prohibido introducir al Centro objetos punzocortantes,
+            armas de fuego, bebidas alcohólicas, drogas y juegos de azar.</p>
+        </li>
+        <li>
+          <p>No traigas contigo pelotas, patinetas, patines, entre otros. No contamos con espacios propicios para jugar o correr.</p>
+        </li>
+        <li>
+          <p>Evita acercarte a las bardas del estacionamiento y al socavón.</p>
+        </li>
+        <li>
+          <p>Reserva expresar tus muestras de cariño a compañeros para cuando estés fuera de las instalaciones.</p>
+        </li>
+        <li>
+          <p>Queda prohibido el uso de celulares y/o dispositivos móviles durante las clases. El Centro
+            se deslinda de cualquier responsabilidad por la pérdida o mal uso de celulares y dispositivos móviles.</p>
+        </li>
+        <li>
+          <p>
+            Es motivo de expulsión del curso, lo siguiente:
+          </p>
+          <ol type="a">
+            <li>
+              <p>El uso de lenguaje agresivo, muestras de indisciplina, falta de respeto hacia tus compañeros, profesores y/o personal del Centro.</p>
+            </li>
+            <li>
+              <p>Fumar o consumir cualquier sustancia que altere tu estado físico o emocional.</p>
+            </li>
+            <li>
+              <p>Traer objetos punzocortantes, armas de fuego o cualquier otro objeto que resulte peligroso para los demás participantes.</p>
+            </li>
+            <li><p>Propiciar o participar en peleas al interior del Centro.</p></li>
+            <li><p>Participar o generar apuestas en juegos de azar (cartas, dados, poliana-poleana), etc.</p>
+            </li>
+            <li><p>Tomar bienes que no sean de su propiedad.</p></li>
+          </ol>
+        </li>
+      </ol>
+      <p>Sabemos que juntos lograremos una formación integral de sus hijos, gracias por su confianza.</p>
+      <% elsif @unitario.grupos_unitario.nombre.include? "Curso de Preparación para el Examen de Admisión al Nivel Medio Superior" %>
+      <li>
+        <p>Permanece en las instalaciones sólo en tu horario de clases, la entrada es de las
+          07:40 a las 08:00 horas y la salida de las 13:40 a las 14:00 horas.</p>
+      </li>
+      <li><p>Se te recomienda traer tus alimentos y bebidas para consumirlos en los descansos,
+        una vez que ingresas no se te permitirá que salgas de las instalaciones.</p>
+      </li>
+      <li><p>Puedes retirarte antes de que concluyan tus clases, mediante solicitud de
+        permiso de tu padre o tutor por escrito y que sea el mismo quién venga por ti. La
+        solicitud de permiso tendrá que ser dirigida al director de este Centro con atención al Coordinador Académico Ing. Armando Aparicio Pérez.</p>
+      </li>
+      <li><p>En el caso de que nuestro Servicio Médico considere que debes retirarte por
+        cuestiones de salud, se localizará a tu padre o tutor para que venga por ti, por
+        lo cual se te solicita dejar un número telefónico donde sea fácil su localización.</p>
+      </li>
+      <li>
+        <p>Dirigite con respeto para con tus compañeros, tus profesores, personal y autoridades del Centro.
+        </p>
+      </li>
+      <li>
+        <p>Mantén orden y disciplina en tu aula, así como en las instalaciones.
+        </p>
+      </li>
+      <li>
+        <p>No consumas alimentos ni bebidas al interior de las aulas. Evita masticar chicle.</p>
+      </li>
+      <li>
+        <p>Cuida nuestras instalaciones, no rayes ni maltrates mobiliario en general o equipo
+          de cómputo. Sí lo haces, deberás cubrir con tus recursos económicos el total del monto del daño ocasionado.
+        </p>
+      </li>
+      <li>
+        <p>Queda estrictamente prohibido introducir al Centro objetos punzocortantes,
+          armas de fuego, bebidas alcohólicas, drogas y juegos de azar.</p>
+      </li>
+      <li>
+        <p>No traigas contigo pelotas, patinetas, patines, entre otros. No contamos con espacios propicios para jugar o correr.</p>
+      </li>
+      <li>
+        <p>Evita acercarte a las bardas del estacionamiento y al socavón.</p>
+      </li>
+      <li>
+        <p>Reserva expresar tus muestras de cariño a compañeros para cuando estés fuera de las instalaciones.</p>
+      </li>
+      <li>
+        <p>Queda prohibido el uso de celulares y/o dispositivos móviles durante las clases. El Centro
+          se deslinda de cualquier responsabilidad por la pérdida o mal uso de celulares y dispositivos móviles.</p>
+      </li>
+      <li>
+        <p>
+          Es motivo de expulsión del curso, lo siguiente:
+        </p>
         <ol type="a">
           <li>
-            <p>De las 07:45 a las 8:30 horas para el Curso Propedéutico para el
-            Examen de Admisión al Nivel Medio Superior “Nivel Medio Superior”.</p>
+            <p>El uso de lenguaje agresivo, muestras de indisciplina, falta de respeto hacia tus compañeros, profesores y/o personal del Centro.</p>
           </li>
           <li>
-            <p>De las 14:45 a las 15:30 horas para el Curso de Preparación para
-              el Examen de Admisión al Nivel Superior “Nivel Superior”, en el
-              caso de las sesiones extraordinarias de las 07:45 a las 8:30 horas.</p>
+            <p>Fumar o consumir cualquier sustancia que altere tu estado físico o emocional.</p>
           </li>
+          <li>
+            <p>Traer objetos punzocortantes, armas de fuego o cualquier otro objeto que resulte peligroso para los demás participantes.</p>
+          </li>
+          <li><p>Propiciar o participar en peleas al interior del Centro.</p></li>
+          <li><p>Participar o generar apuestas en juegos de azar (cartas, dados, poliana-poleana), etc.</p>
+          </li>
+          <li><p>Tomar bienes que no sean de su propiedad.</p></li>
         </ol>
-        <li><p>Los usuarios del Nivel Medio Superior no podrán salir del Centro
-          durante los recesos; se les recomienda traer sus alimentos y agua para
-          consumirlos en los descansos.</p>
-        </li>
-        <li>
-          <p>Los usuarios del Nivel Superior en caso de ser necesario sólo podrán
-            salir de las instalaciones en el primer receso, debiendo regresar
-            antes de que concluya este.
-          </p>
-        </li>
-        <li>
-          <p>Los usuarios del Nivel Medio Superior podrán retirarse, cuando sus
-            padres soliciten el permiso por escrito y sean ellos quienes pasen a
-            recogerlos. El permiso tendrá que ser dirigido al Coordinador Académico
-            Ing. Armando Aparicio Pérez.
-          </p>
-        </li>
-        <li>
-          <p>En el caso de que algún usuario del Nivel Medio Superior se sienta
-            mal de salud y los Servicios Médicos consideren que debe retirarse,
-            se llamará a los padres para que pasen a recogerlo. Por lo cual se
-            les solicita dejar un número telefónico donde sea fácil su localización.
-          </p>
-        </li>
-        <li>
-          <p>Observar buen comportamiento personal y de respeto para con sus
-            compañeros, instructores, trabajadores, autoridades y personal del Centro.
-          </p>
-        </li>
-        <li>
-          <p>Mantener orden y disciplina en el aula, así como en las instalaciones.</p>
-        </li>
-        <li>
-          <p>No consumir alimentos, ni bebidas, ni masticar chicle al interior de las aulas.</p>
-        </li>
-        <li>
-          <p>Conservar y cuidar las instalaciones (paredes, ventanas, pizarrones,
-            lámparas, ventiladores, equipo de cómputo, videoproyectores,
-            mobiliario en general), servicios sanitarios, jardines y demás áreas
-            del Centro.
-          </p>
-        </li>
-        <li>
-          <p>Queda estrictamente prohibido  introducir al Centro objetos punzocortantes,
-            armas de fuego bebidas alcohólicas, y juegos de azar.</p>
-        </li>
-        <li>
-          <p>No introducir al Centro pelotas, patinetas, patines, etc.  No se cuenta con
-            espacios para jugar o correr.</p>
-        </li>
-        <li>
-          <p>En los descansos evitar acercarse a las bardas del estacionamiento y al socavón.</p>
-        </li>
-        <li>
-          <p>Evitar muestras de cariño entre usuarios. Reserven estas muestras
-            fuera de las instalaciones del Centro.</p>
-        </li>
-        <li>
-          <p>Abstenerse de usar celulares y/o dispositivos móviles durante las clases.
-            Es responsabilidad de cada usuario el uso y el cuidado de sus celulares
-            y dispositivos móviles, por lo que el Centro no se hace responsable de
-            la pérdida o  mal uso.</p>
-        </li>
-      </ol>
-      <p>Sera motivo para suspensión del curso, lo siguiente: </p>
-      <ol type="A">
-        <li>
-          <p>Mostrar indisciplina dentro de las aulas e instalaciones así como falta
-            de respeto hacia sus compañeros, profesores y personal del Centro.</p>
-        </li>
-        <li>
-          <p>Las instalaciones del Centro son libres de humo de tabaco, por lo
-            tanto queda estrictamente prohibido fumar. Queda prohibido consumir
-            cualquier sustancia nociva para la salud (bebidas alcohólicas, drogas, etc.)
-            dentro del Centro.</p>
-        </li>
-        <li>
-          <p>Traer objetos punzocortantes o cualquier otro que resulte peligroso
-            para los demás usuarios.</p>
-        </li>
-        <li><p>Participar en peleas al interior del Centro.</p></li>
-        <li><p>Participar o generar apuestas en juegos de azar (cartas, dados,
-          poliana o poleana), etc.</p>
-        </li>
-        <li><p>Tomar bienes que no sean de su propiedad.</p></li>
-      </ol>
-      <p>Sabemos que juntos lograremos una formación integral de sus hijos,
-        gracias por su confianza.</p>
-        <center>
+      </li>
+    </ol>
+    <p>Sabemos que juntos lograremos una formación integral de sus hijos, gracias por su confianza.</p>
+    <% end %>
+        <!--<center>
           <table class="table borderless">
             <tr>
               <td>
                 <p align="center">_____________________________________<br>
-                <%= @unitario.nombre_paterno_materno %><br>
+                <%#= @unitario.nombre_paterno_materno %><br>
                 Firma del Interesado</p>
               </td>
               <td>
                 <p align="center">_____________________________________<br>
-                <%= @unitario.nombre_padre %><br>
+                <%#= @unitario.nombre_padre %><br>
                 Firma del Padre o tutor</p>
               </td>
             </tr>
           </table>
-        </center>
+        </center>-->
       </div>
-        <h3 align="center"><strong>Indicaciones</strong></h3>
+        <!--<h3 align="center"><strong>Indicaciones</strong></h3>
         <ol type="1">
           <li>
             <p>Captura tus datos personales <strong>a partir del 16 de noviembre de 2017 y hasta el viernes 27 de enero de 2018</strong>.</p>
@@ -190,11 +244,11 @@
           </li>
           <li>
             <p>Efectua el pago exacto de la cuota por una cantidad de
-              <% if @unitario.grupos_unitario.nombre == "Curso propedéutico para el examen de admisión al Nivel Medio Superior" %>
+              <%# if @unitario.grupos_unitario.nombre == "Curso propedéutico para el examen de admisión al Nivel Medio Superior" %>
                 <strong>$2,185.00 (dos mil ciento ochenta y cinco pesos 00/100 M. N.)</strong>
-              <% elsif @unitario.grupos_unitario.nombre == "Curso de preparación para el examen de admisión al Nivel Superior" %>
+              <%# elsif @unitario.grupos_unitario.nombre == "Curso de preparación para el examen de admisión al Nivel Superior" %>
                 <strong>$2,711.00 (dos mil setecientos once pesos 00/100 M. N.)</strong>
-              <% end %>
+              <%# end %>
                  al número de cuenta
             <strong>01 68 35 82 73</strong> de BBVA Bancomer S. A., a nombre del <strong>Fondo de Investigación Científica y Desarrollo Tecnológico del Instituto
             Politécnico Nacional</strong> ó por transferencia interbancaria a la CLABE: <strong>012 180 00168358273 9</strong> de BBVA Bancomer S. A..</p>
@@ -229,13 +283,13 @@
           </div>
         </ol>
         <br>
-        <% if @unitario.grupos_unitario.nombre == "Curso propedéutico para el examen de admisión al Nivel Medio Superior" %>
+        <%# if @unitario.grupos_unitario.nombre == "Curso propedéutico para el examen de admisión al Nivel Medio Superior" %>
         <h3>Duración</h3>
         <p><u>20 sesiones, cada sesión tiene una duración de 6 horas y hacen un total de 120 horas. Se imparte los dias domingos en el turno matutino de 08:00 a 14:00 hrs. Inicia
           el día 28 de enero.</u></p>
-        <% elsif @unitario.grupos_unitario.nombre == "Curso de preparación para el examen de admisión al Nivel Superior" %>
+        <%# elsif @unitario.grupos_unitario.nombre == "Curso de preparación para el examen de admisión al Nivel Superior" %>
         <p><u>20 sesiones, cada sesión tiene una duración de 6 horas y hacen un total de 120 horas. Se imparte los dias sábados en el turno vespertino de 15:00 a 21:00 hrs. Inicia
           el día 20 de enero.</u></p>
-        <% end %>
+        <%# end %>-->
   </div>
 </div>
