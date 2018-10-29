@@ -9,13 +9,13 @@
       </ul>
     </div>
   <% end %>
-<!--<div class="row">
+<div class="row">
   <div class="col-md-12">
     <div class="bs-callout bs-callout-warning" >
       <strong><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <%#= link_to '¿Perdiste tu carta compromiso? Reimprímela', buscar_cartas_path %></strong>
     </div>
   </div>
-</div>-->
+</div>
 <div class="row jumbotron">
   <h4 class="subs"><strong>Oferta actual</strong></h4>
   <div class="row">
@@ -120,10 +120,10 @@
       <%= f.text_field :procedencia, class:'form-control' %>
     </div>
 
-    <!--<div class="form-group col-sm-4">
-      <%#= f.label :familiar_ipn, 'Familiar (directo) que trabaje en el IPN' %>
-      <%#= f.check_box :familiar_ipn, class:'form-control' %>
-    </div>-->
+    <div class="form-group col-sm-4">
+      <%= f.label :familiar_ipn, 'Familiar (directo) que trabaje en el IPN' %>
+      <%= f.check_box :familiar_ipn, class:'form-control' %>
+    </div>
   </div>
   <div class="row" id="datos_familiar_ipn" style="display:none">
     <div class="form-group col-sm-4">
@@ -139,29 +139,29 @@
       <%= f.select :parentesco_ipn, options_for_select([["Seleccione",""],["Hermana","Hermana"],["Hermano","Hermano"],["Madre","Madre"],["Padre","Padre"]]), {}, {class: 'form-control'} %>
     </div>
   </div>
-  <!--<div class="row">
+  <div class="row">
     <div class="form-group col-sm-4">
-      <%#= f.label :nombre_padre, 'Nombre completo del padre o tutor' %>
-      <%#= f.text_field :nombre_padre, class:'form-control', required: true %>
+      <%= f.label :nombre_padre, 'Nombre completo del padre o tutor' %>
+      <%= f.text_field :nombre_padre, class:'form-control', required: true %>
     </div>
 
     <div class="form-group col-sm-4">
-      <%#= f.label :correo_padre, 'Correo electrónico del padre o tutor' %>
-      <%#= f.email_field :correo_padre, class:'form-control' %>
+      <%= f.label :correo_padre, 'Correo electrónico del padre o tutor' %>
+      <%= f.email_field :correo_padre, class:'form-control' %>
     </div>
 
     <div class="form-group col-sm-4">
-      <%#= f.label :telefono_padre, 'Teléfono del padre o tutor' %>
-      <%#= f.text_field :telefono_padre, class:'form-control', required: true, maxlength: 10, pattern: '[0-9]+' %>
+      <%= f.label :telefono_padre, 'Teléfono del padre o tutor' %>
+      <%= f.text_field :telefono_padre, class:'form-control', required: true, maxlength: 10, pattern: '[0-9]+' %>
     </div>
-  </div>-->
+  </div>
   <strong><%= link_to 'Aviso de privacidad', 'https://www.gob.mx/privacidad', html_options = {target: '_blank'} %></strong>
 </div>
-<!--<div class="row">
+<div class="row">
   <div class="modal-header unitarios-foto">
   </div>
-</div>-->
-<!--<div class="row jumbotron">
+</div>
+<<div class="row jumbotron">
   <h4 class="subs"><strong>Incluir Fotografía para credencial</strong></h4>
   <div class="form-group col-md-6">
     <div class="bs-callout bs-callout-info" style="background: #fff;">
@@ -170,20 +170,20 @@
       <p class="info-foto">El archivo deberá ser menor a 1 MB</p>
       <p class="info-foto">No utilizar imágenes que contengan firmas, textos o  sellos</p>
       <p class="info-foto"><strong>Ejemplos:</strong></p>
-        <%#= image_tag "hombre.png", alt:"Ejemplo hombre" %> &nbsp; <%#= image_tag "mujer.png", alt:"Ejemplo mujer" %>
+        <%= image_tag "hombre.png", alt:"Ejemplo hombre" %> &nbsp; <%= image_tag "mujer.png", alt:"Ejemplo mujer" %>
         <br>
         <br>
     </div>
-    <%#= f.label :image, 'Suba su fotografía' %>
-    <%#= f.file_field :image, class:'btn btn-lg btn-default' %>
+    <%= f.label :image, 'Suba su fotografía' %>
+    <%= f.file_field :image, class:'btn btn-lg btn-default' %>
   </div>
 
   <div class="form-group col-md-6">
     <center>
-      <%#= link_to image_tag("pasos_p.png"), "/assets/pasos_g-9510116fca58ed1fc56d8b439b93f81d5e051b67c0b90bf5942e570c12ac4660.png", data: {toggle: "lightbox", title: " "} %>
+      <%= link_to image_tag("pasos_p.png"), "/assets/pasos_g-9510116fca58ed1fc56d8b439b93f81d5e051b67c0b90bf5942e570c12ac4660.png", data: {toggle: "lightbox", title: " "} %>
     </center>
   </div>
-</div>-->
+</div>
 <% if user_signed_in? %>
   <% if can? :validar_documentos, unitario %>
   <div class="row jumbotron">
@@ -245,11 +245,11 @@
             <div class="modal-body">
                 <p>Antes de validar asegúrese de que <strong>no falta ninguno</strong> de los siguientes documentos:</p>
                 <ul>
-                    <!--<li><p>La fotografía en el sistema</p></li>
+                    <li><p>La fotografía en el sistema</p></li>
                     <li><p>CURP</p></li>
-                    <li><p>Pago de la guía de estudios</p></li>-->
+                    <li><p>Pago de la guía de estudios</p></li>
                     <li><p>Ficha de pago con los datos correctos</p></li>
-                    <!--<li><p>Carta compromiso y carta de lineamientos debidamente firmada</p></li>-->
+                    <li><p>Carta compromiso y carta de lineamientos debidamente firmada</p></li>
                 </ul>
             </div>
             <div class="modal-footer">
@@ -399,11 +399,11 @@
           </div>
         </div>
 
-<!--<script type="text/javascript">
+<script type="text/javascript">
   $(window).load(function(){
     $('#entrada').modal('show');
   });
-</script> -->
+</script>
 
 <script>
   $(document).ready(function(){
