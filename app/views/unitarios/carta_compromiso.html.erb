@@ -2,7 +2,7 @@
   <div id="carta">
       <div style="page-break-after: always;">
       <!--<h2 align="center"><strong><%#= @unitario.grupos_unitario.nombre.parameterize(separator: ' ').upcase %></strong></h3>-->
-      <h3 align="center"><strong>CARTA COMPROMISO</strong></h4>
+      <h3 align="center"><strong>CARTA COMPROMISO</strong></h3>
       <!--<h4>FOLIO <%#= @unitario.id %></h4>-->
       <p align="right"><strong>Ciudad de México, a <%= Date.today.strftime("%d") %> de  <%= @mes %> de <%= Date.today.strftime("%Y") %></strong></p>
       <p class="carta"><strong>DR. RICARDO OCTAVIO ARTURO MOTA PALOMINO<br>
@@ -64,7 +64,7 @@
       Firma del Padre o tutor</p>
       </div>
       <div style="page-break-after: always;">
-      <h2 align="center"><strong><%= @unitario.grupos_unitario.nombre.parameterize(separator: ' ').upcase %></strong></h3>
+      <h2 align="center"><strong><%= @unitario.grupos_unitario.nombre.parameterize(separator: ' ').upcase %></strong></h2>
       <h2 align="center">LINEAMIENTOS DE CONDUCTA</h2>
       <p>
         Estimado estudiante del “<%= @unitario.grupos_unitario.nombre %>”, el equipo de profesores, prefectos, coordinadores
@@ -217,79 +217,93 @@
     </ol>
     <p>Sabemos que juntos lograremos una formación integral de sus hijos, gracias por su confianza.</p>
     <% end %>
-        <!--<center>
-          <table class="table borderless">
-            <tr>
-              <td>
-                <p align="center">_____________________________________<br>
-                <%#= @unitario.nombre_paterno_materno %><br>
-                Firma del Interesado</p>
-              </td>
-              <td>
-                <p align="center">_____________________________________<br>
-                <%#= @unitario.nombre_padre %><br>
-                Firma del Padre o tutor</p>
-              </td>
-            </tr>
-          </table>
-        </center>-->
       </div>
-        <!--<h3 align="center"><strong>Indicaciones</strong></h3>
-        <ol type="1">
-          <li>
-            <p>Captura tus datos personales <strong>a partir del 16 de noviembre de 2017 y hasta el viernes 27 de enero de 2018</strong>.</p>
-          </li>
-          <li>
-            <p>Imprime la Carta Compromiso y la Carta de Lineamientos anexa en el sistema, verifica que tus datos sean correctos, fírmala y pide a tu padre o tutor que la firme.</p>
-          </li>
-          <li>
-            <p>Efectua el pago exacto de la cuota por una cantidad de
-              <%# if @unitario.grupos_unitario.nombre == "Curso propedéutico para el examen de admisión al Nivel Medio Superior" %>
-                <strong>$2,185.00 (dos mil ciento ochenta y cinco pesos 00/100 M. N.)</strong>
-              <%# elsif @unitario.grupos_unitario.nombre == "Curso de preparación para el examen de admisión al Nivel Superior" %>
-                <strong>$2,711.00 (dos mil setecientos once pesos 00/100 M. N.)</strong>
-              <%# end %>
-                 al número de cuenta
-            <strong>01 68 35 82 73</strong> de BBVA Bancomer S. A., a nombre del <strong>Fondo de Investigación Científica y Desarrollo Tecnológico del Instituto
-            Politécnico Nacional</strong> ó por transferencia interbancaria a la CLABE: <strong>012 180 00168358273 9</strong> de BBVA Bancomer S. A..</p>
-            <div class="bs-callout bs-callout-info">
-              <p>En el caso de utilizar de la transferencia interbancaria deberá realizar una impresión de pantalla para verificar su pago.</p>
-            </div>
-          </li>
-          <li>
-            <p><strong>El día que te presentes a inscribirte, deberás pagar en efectivo</strong> la cuota de <strong>$298.00 (doscientos noventa y ocho pesos 00/100 M. N.)</strong> para la
-              guía de estudios.</p>
-             <div class="bs-callout bs-callout-danger">
-              <p>El pago de las cuotas te dan derecho a participar en el curso, a la guía de estudios que emite el Instituto Politénico Nacional, al material didáctico
-              que elaboramos para ti, a las evaluaciones diagnóstica y piloto, entre otros materiales que se te proporcionarán durante el desarrollo del curso.</p>
-              <p><strong>Nota: estas cuotas tienen vigencia hasta el 31 de diciembre de 2017, a partir del 01 de enero de 2018 tendrán un incremento que establecerá
-               la Secretaría de Hacienda y Crédito Público.</strong></p>
-             </div>
-          </li>
-          <li>
-            <p><strong>Acude a inscribirte</strong> a nuestras instalaciones ubicadas en Allende número 38 (entrada por Belisario Domínguez número 22), Colonia Centro, Delegación Cuauhtémoc,
-            Ciudad de México, Código Postal 06010 <strong>a partir del 16 de noviembre de 2017 y hasta el día 27 de enero de 2018, en un horario de 10:00 a 14:00 y de 15:00 a
-            19:00 horas de lunes a viernes</strong>.</p>
-          </li>
-          <li>
-            <p>Si necesitas más información puedes llamar al 57-29-6000, extensiones 64623 y 64646.</p>
-          </li>
-          <div class="well">
-            <p><strong>Entrega la siguiente documentación al inscribirte:</strong></p>
-            <p>1 original y 2 copias de la ficha de depósito. </p>
-            <p>Efectivo para el pago de la guía de estudios de $298.00 (doscientos noventa y ocho pesos 00/100 M. N.).</p>
-            <p>1 copia de tu CURP.</p>
-            <p>Carta compromiso y carta de lineamientos debidamente firmadas.</p>
-          </div>
-        </ol>
-        <br>
-        <%# if @unitario.grupos_unitario.nombre == "Curso propedéutico para el examen de admisión al Nivel Medio Superior" %>
-        <h3>Duración</h3>
-        <p><u>20 sesiones, cada sesión tiene una duración de 6 horas y hacen un total de 120 horas. Se imparte los dias domingos en el turno matutino de 08:00 a 14:00 hrs. Inicia
-          el día 28 de enero.</u></p>
-        <%# elsif @unitario.grupos_unitario.nombre == "Curso de preparación para el examen de admisión al Nivel Superior" %>
-        <p><u>20 sesiones, cada sesión tiene una duración de 6 horas y hacen un total de 120 horas. Se imparte los dias sábados en el turno vespertino de 15:00 a 21:00 hrs. Inicia
-          el día 20 de enero.</u></p>
-        <%# end %>-->
+    <% if @unitario.grupos_unitario.nombre.include? "Curso de Preparación para el Examen de Admisión al Nivel Superior" %>
+      <h3>CURSO DE PREPARACIÓN PARA EL EXAMEN DE ADMISIÓN A NIVEL SUPERIOR 2019</h3>
+      <p><strong>Objetivo:</strong> Te ofrecemos este curso con el objetivo de que refuerces tus conocimientos
+        previamente adquiridos, al mismo tiempo que obtendrás nuevos conocimientos,
+        habilidades y estrategias para la resolución de preguntas tipo, en las diferentes
+        áreas del conocimiento para que seas competitivo al realizar el examen de
+        admisión y estés en posibilidad de obtener un lugar en la opción de tu preferencia.</p>
+      <p><strong>Duración:</strong> 20 sesiones de 6 horas cada una. Duración total 120 horas</p>
+      <p><strong>Horario:</strong> Sábado de 15:00 a 21:00 horas.</p>
+      <p><strong>Sede:</strong> Centro de Educación Continua Ingeniero Eugenio Méndez Docurro.
+      Belisario Domínguez No. 22 Col. Centro, Alcaldía Cuauhtémoc C.P. 06010.</p>
+      <p><strong>Fecha de inicio:</strong> 12 de enero de 2019</p>
+      <p><strong>Fecha de término:</strong> 18 de mayo de 2019</p>
+      <p><strong>Cuota del curso:</strong> $2,711.00 (Dos mil setecientos once pesos 0/100 MN).
+      Se paga en el banco en la <strong>cuenta 01 68 35 82 73 de BBVA Bancomer</strong>,
+      o bien por transferencia bancaria en la cuenta <strong>CLABE 012 180 00168358273 9
+      de BBVA Bancomer</strong> a nombre del Fondo de Investigación Científica y
+      Desarrollo Tecnológico del Instituto Politécnico Nacional.</p>
+      <p><strong>Cuota de la Guía de Estudio:</strong> $298.00 (Doscientos noventa y ocho pesos 0/100 MN).
+      Se paga en <strong>efectivo</strong> en el Departamento de Servicios Administrativos del Centro.</p>
+      <p><i>El pago de las cuotas dan derecho a participar en el curso, a la guía
+      de estudios que emite el IPN, al material didáctico que se elabora, a las
+      evaluaciones diagnóstica y piloto, entre otros materiales que se proporcionan durante el desarrollo del curso.</i></p>
+      <p><strong>Inscripciones en:</strong> www.cec-mendezdocurro.ipn.mx (A partir del 22 de octubre de 2018).</p>
+      <p><strong>Procedimiento:</strong></p>
+      <ol type="1">
+        <li>Ingresar a la página www.cec-mendezdocurro.ipn.mx y acceder al link del Curso de Preparación Para el Examen de Admisión a Nivel Superior 2019</li>
+        <li>Registrar datos solicitados y subir fotografía</li>
+        <li>Imprimir Lineamientos de Conducta y Carta Compromiso y firmarla</li>
+        <li>Realizar el pago del curso en el banco o transferencia bancaria</li>
+        <li>Para validar y confirmar inscripción presentarse en el Departamento de Educación Continua del CECIEM con la siguiente documentación:
+          <ul>
+            <li>Original y 2 copias del comprobante de pago</li>
+            <li>Copia de la CURP</li>
+            <li>Carta compromiso firmada</li>
+            <li>$298.00 en efectivo para el pago de la Guía de Estudio</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Recepción de documentos: A partir del 05 de noviembre de 2018 de 10:00 a
+        15:00 hrs. y de 16:00 a 19:00 hrs.</p>
+      <p>Mayores informes: 5729 6000 Exts. 64641, 64646, 64623</p>
+    <% elsif @unitario.grupos_unitario.nombre.include? "Curso de Preparación para el Examen de Admisión al Nivel Medio Superior" %>
+    <h3>CURSO DE PREPARACIÓN PARA EL EXAMEN DE ADMISIÓN A NIVEL SUPERIOR 2019</h3>
+    <p><strong>Objetivo:</strong> Te ofrecemos este curso con el objetivo de que refuerces
+      tus conocimientos previamente adquiridos, al mismo tiempo que obtendrás nuevos conocimientos,
+      habilidades y estrategias para la resolución de preguntas tipo, en las diferentes
+      áreas del conocimiento para que seas competitivo en el concurso de asignación de
+      la Educación Media Superior y estés en posibilidad de obtener el lugar de tu
+      preferencia en las opciones educativas que ofrecen las instituciones que integran
+      la Comisión Metropolitana de Instituciones Públicas de Educación Media Superior (COMIPEMS).</p>
+    <p><strong>Duración:</strong> 20 sesiones de 6 horas cada una. Duración total 120 horas</p>
+    <p><strong>Horario:</strong> Domingo de 8:00 a 14:00 horas.</p>
+    <p><strong>Sede:</strong> Centro de Educación Continua Ingeniero Eugenio Méndez Docurro.
+    Belisario Domínguez No. 22 Col. Centro, Alcaldía Cuauhtémoc C.P. 06010.</p>
+    <p><strong>Fecha de inicio:</strong> 27 de enero de 2019</p>
+    <p><strong>Fecha de término:</strong> 23 de junio de 2019</p>
+    <p><strong>Cuota del curso:</strong> $2,185.00 (Dos mil ciento ochenta y cinco pesos 0/100 MN).
+    Se paga en el banco en la <strong>cuenta 01 68 35 82 73 de BBVA Bancomer</strong>,
+    o bien por transferencia bancaria en la cuenta <strong>CLABE 012 180 00168358273 9
+    de BBVA Bancomer</strong> a nombre del Fondo de Investigación Científica y
+    Desarrollo Tecnológico del Instituto Politécnico Nacional.</p>
+    <p><strong>Cuota de la Guía de Estudio:</strong> $298.00 (Doscientos noventa y ocho pesos 0/100 MN).
+    Se paga en <strong>efectivo</strong> en el Departamento de Servicios Administrativos del Centro.</p>
+    <p><i>El pago de las cuotas dan derecho a participar en el curso, a la guía
+    de estudios que emite el IPN, al material didáctico que se elabora, a las
+    evaluaciones diagnóstica y piloto, entre otros materiales que se proporcionan durante el desarrollo del curso.</i></p>
+    <p><strong>Inscripciones en:</strong> www.cec-mendezdocurro.ipn.mx (A partir del 22 de octubre de 2018).</p>
+    <p><strong>Procedimiento:</strong></p>
+    <ol type="1">
+      <li>Ingresar a la página www.cec-mendezdocurro.ipn.mx y acceder al link del Curso de Preparación Para el Examen de Admisión a Nivel Medio Superior 2019</li>
+      <li>Registrar datos solicitados y subir fotografía</li>
+      <li>Imprimir Lineamientos de Conducta y Carta Compromiso y firmarla</li>
+      <li>Realizar el pago del curso en el banco o transferencia bancaria</li>
+      <li>Para validar y confirmar inscripción presentarse en el Departamento de Educación Continua del CECIEM con la siguiente documentación:
+        <ul>
+          <li>Original y 2 copias del comprobante de pago</li>
+          <li>Copia de la CURP</li>
+          <li>Carta compromiso firmada</li>
+          <li>$298.00 en efectivo para el pago de la Guía de Estudio</li>
+        </ul>
+      </li>
+    </ol>
+    <p>Recepción de documentos: A partir del 05 de noviembre de 2018 de 10:00 a
+      15:00 hrs. y de 16:00 a 19:00 hrs.</p>
+    <p>Mayores informes: 5729 6000 Exts. 64641, 64646, 64623</p>
+    <% end %>
   </div>
 </div>
