@@ -2,14 +2,20 @@
     <div class="fondo-superior">
       <table>
         <tr>
-          <td rowspan="3"><br><br><%= wicked_pdf_image_tag unitario.image.url('thumb') %></td>
+          <td rowspan="5"><br><br><%= wicked_pdf_image_tag unitario.image.url('thumb') %></td>
           <td></td>
         </tr>
         <tr>
           <td class="credencial_nombre" width="225px"><br><br><br><br><center><%= unitario.nombre %> <%= unitario.paterno %> <%= unitario.materno %></center></td>
         </tr>
         <tr>
-          <td class="curso" width="225px"><br><%= unitario.grupos_unitario.nombre_grupo.remove("Curso de preparación para el examen de admisión al ")  %></td>
+          <td class="credencial_curso" width="225px"><%= unitario.grupos_unitario.nombre_grupo.remove("Curso de Preparación para el Examen de Admisión al ")  %></td>
+        </tr>
+        <tr>
+          <td class="credencial_padre" width="225px"><%= unitario.nombre_padre %></td>
+        </tr>
+        <tr>
+          <td class="credencial_telefono" width="225px"><%= unitario.telefono_padre %></td>
         </tr>
       </table>
     </div>

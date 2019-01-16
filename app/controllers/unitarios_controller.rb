@@ -184,7 +184,7 @@ class UnitariosController < ApplicationController
   end
 
   def imprimir_credenciales_superior
-    @unitarios = Unitario.where(documentos_validados: true).includes(:grupos_unitario).where(:grupos_unitarios => { nombre: "Curso de preparación para el examen de admisión al Nivel Superior" } ).order(:paterno)
+    @unitarios = Unitario.where(documentos_validados: true).includes(:grupos_unitario).where(:grupos_unitarios => { nombre: "Curso de Preparación para el Examen de Admisión al Nivel Superior 2019" } ).order(:paterno)
     @multiplo = 4
     respond_to do |format|
       format.html
