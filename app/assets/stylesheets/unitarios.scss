@@ -5,7 +5,8 @@
   background-image: url('credencial_medio2018.jpg');
   background-size: contain;
   background-repeat: no-repeat;
-  height: 213px;
+  /*height: 213px;*/
+  height: 250px;
 }
 
 .fondo-superior{
@@ -15,10 +16,10 @@
   height: 213px;
 }
 
-.credencial_nombre, td {padding-top: 34px; text-align: center; font-size: 12px}
+.credencial_nombre, td {padding-top: 60px; padding-left: 25px;text-align: center; font-size: 12px}
 /*.credencial_curso, td {padding-top: 36px; text-align: center; font-size: 12px}*/
 .credencial_curso, td {padding-top: 10px; text-align: center; font-size: 12px}
-.credencial_padre, td {padding-top: 12px; text-align: center; font-size: 12px}
+.credencial_padre, td {padding-top: 20px; text-align: center; font-size: 12px}
 .credencial_telefono, td {padding-top: 8px; text-align: center; font-size: 12px}
 #carta p {font-size: 10px;}
 #carta h2 {font-size: 18px;}
