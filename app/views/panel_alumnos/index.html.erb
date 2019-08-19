@@ -70,7 +70,7 @@
         <% if fr_inscripcion_registro.examen_medio.blank? || fr_inscripcion_registro.examen_final.blank? %>
         <th colspan="2">Opciones</th>
         <% else %>
-        <th>Calificación final</td>
+        <th>Calificación final</th>
         <% end %>
       </thead>
       <tr>
@@ -120,7 +120,7 @@
         <% if it_inscripcion_registro.examen_medio.blank? || it_inscripcion_registro.examen_final.blank? %>
         <th colspan="2">Opciones</th>
         <% else %>
-        <th>Calificación final</td>
+        <th>Calificación final</th>
         <% end %>
       </thead>
       <tr>
@@ -228,17 +228,17 @@
           </thead>
           <tr>
             <td>Comunidad Polit&eacute;cnica.</td>
-            <td>$544.00</td>
-            <td>$544.00</td>
-            <td>$544.00</td>
-            <td>$1,241.00</td>
+            <td>$<%= @cuota_ipn %></td>
+            <td>$<%= @cuota_ipn %></td>
+            <td>$<%= @cuota_ipn %></td>
+            <td>$<%= @cuota_ipn_cert %></td>
           </tr>
           <tr>
             <td>P&uacute;blico general.</td>
-            <td>$1,053.00</td>
-            <td>$1,053.00</td>
-            <td>$1,053.00</td>
-            <td>$1,523.00</td>
+            <td>$<%= @cuota_externos %></td>
+            <td>$<%= @cuota_externos %></td>
+            <td>$<%= @cuota_externos %></td>
+            <td>$<%= @cuota_externos_cert %></td>
           </tr>
         </table>
         <table class="table table-bordered">
