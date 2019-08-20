@@ -9,6 +9,8 @@ class PanelAlumnosController < ApplicationController
     @cuota_ipn = CuotaCurso.find_by(descripcion: "Cuota IPN").nombre
     @cuota_externos = CuotaCurso.find_by(descripcion: "Cuota externos").nombre
     @cuota_ipn_cert = CuotaCurso.find_by(descripcion: "Certificación IPN").nombre
-    @cuota_externos_cert = CuotaCurso.find_by(descripcion: "Certificación externos").nombre
+    @cuota_externos_cert = CuotaCurso.find_by(descripcion: "Certificación externo").nombre
+    @examen_ipn = CuotaCurso.find_by(descripcion: "Examen IPN").nombre
+    @examen_externos = CuotaCurso.find_by(descripcion: "Examen externo").nombre
   end
 end
