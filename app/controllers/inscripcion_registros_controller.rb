@@ -44,6 +44,8 @@ class InscripcionRegistrosController < ApplicationController
     #Se obtienen los montos actualizados de las cuotas.
     @cuota_ipn = CuotaCurso.find_by(descripcion: "Cuota IPN").nombre
     @cuota_externos = CuotaCurso.find_by(descripcion: "Cuota externos").nombre
+    @cuota_ipn_cert = CuotaCurso.find_by(descripcion: "Certificación IPN").nombre
+    @cuota_externos_cert = CuotaCurso.find_by(descripcion: "Certificación externo").nombre
     #Definición de las condiciones para un usuario pueda registrarse. @registro_anterior
     #corresponde al último registro que haya tenido el usuario en el sistema. @registros_no_aprobados
     #cuenta los registro que el usuario tenga previamente reprobados y examen_colocacion si tiene

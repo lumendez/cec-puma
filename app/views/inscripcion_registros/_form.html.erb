@@ -579,8 +579,14 @@ $('#new_inscripcion_registro').submit(function() {
       if (procedencia == "Instituto Politécnico Nacional"){
         cuota = "<%= @cuota_ipn %>";
       }
+      else if (procedencia == "Instituto Politécnico Nacional"  && (nivel.includes("Certificación") )){
+        cuota = "<%= @cuota_ipn_cert %>";
+      }
       else if (procedencia == "Otro" ){
         cuota = "<%= @cuota_externos %>";
+      }
+      else if ( (procedencia == "Otro") && (nivel.includes("Certificación")) ){
+        cuota = "<%= @cuota_externos_cert %>";
       }
       else if (procedencia == "Prestación"){
         cuota = "0.00";
