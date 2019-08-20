@@ -9,46 +9,89 @@
   </head>
 
   <body>
-    <div id="Cabecera"><!--Inicio Header-->
-      <div class="MenuAuxiliar"><!--Inicio menú utilerias-->
-          <ul>
-          <li style="float:left"><a href="http://www.gob.mx"><img src="https://framework-gb.cdn.gob.mx/assets/images/gobmxlogo.svg" /></a></li>
-          <li itemprop="event"><a href="http://www.ipn.mx/Paginas/Calendario-Academico.aspx" itemprop="url">CALENDARIO</a></li>
-          <li itemprop = "email"><a href="http://www.ipn.mx/Paginas/Correo-Electronico.aspx" itemprop="url">CORREO ELECTRÓNICO</a></li>
-          <li itemprop = "contactPoint"><a href="http://www.ipn.mx/Paginas/directorio.aspx" itemprop="url">DIRECTORIO</a></li>
-        </ul>
-      </div><!--Fin Menú utilerias-->
-        <div class="CabeceraTitulo"><!--Inicio Banner IPN-->
-          <div class="CabeceraContenido">
-            <div class="LogoSEP" itemprop = "logo"></div>
-              <div class="LogoIPN" itemprop = "logo">
-                  <a href="http://www.ipn.mx"><div class="EscudoIPN"></div></a>
-                  <span><a href="http://www.ipn.mx" itemprop = "url">Instituto Politécnico Nacional
-                    <span>"La Técnica al Servicio de la Patria"</span></a>
-                    </span>
-                 </div>
 
-                  <%= render 'layouts/escudo' %>
+    <header class="d-none d-md-block">
+            <nav class="navbar fixed-top" role="navigation" id="barraGobmx">
+                <div class="container u-noPaddingContainer">
+                    <a class="navbar-brand" style="padding-left: 8px;" href="https://www.gob.mx/">
+                        <%= image_tag "gobmxlogo.svg", alt:"Página de inicio, Gobierno de México", height:29 %>
+                    </a>
+                    <div class="text-right barraGobmx-enlaces">
+                        <a href="https://www.gob.mx/tramites" title="Trámites" class="nav-link">
+                            Trámites
+                        </a>
+                        <a href="https://www.gob.mx/gobierno" title="Gobierno" class="nav-link">
+                            Gobierno
+                        </a>
+                        <a href="https://www.gob.mx/participa" title="Participación Ciudadana" class="nav-link">
+                            Participa
+                        </a>
+                        <a href="https://datos.gob.mx" title="Datos Abiertos" class="nav-link">
+                            Datos
+                        </a>
+                        <a href="https://www.gob.mx/busqueda">
+                        <span class="sr-only" class="nav-link">Búsqueda</span><i class="fas fa-search"></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-             </div>
-         </div><!--Fin Banner IPN-->
-         <div class="navbar navbar-inverse navbar-static-top">
+    <div class="u-noPaddingContainer contenedorGobierno">
             <div class="container">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div>
-              <div class="navbar-collapse collapse borde">
-                <%= render 'layouts/menu' %>
-              </div>
-              <!--/.navbar-collapse -->
+                <div class="row no-gutters">
+                    <div class="col-md-12">
+                        <div class="d-inline-block ipnLogo-enlace">
+                            <%= image_tag "pleca-gob.png", alt:"", class:"plecaGob gob" %>
+                            <a href="https://www.ipn.mx" class="">
+                                <%= image_tag "pleca-ipn.png", alt:"", class:"plecaGob" %>
+                                <p class="d-inline-block tituloLogo">
+                                    Instituto Politécnico Nacional <br>
+                                    <span class="sm">"La Técnica al Servicio de la Patria"</span>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="utileriasIpn">
+                    <ul class="barra-enlaces">
+                        <li>
+                            <a href="https://www.ipn.mx/directorio.html">DIRECTORIO</a> |
+                        </li>
+                        <li>
+                            <a href="https://www.ipn.mx/correo-electronico.html">CORREO ELECTRÓNICO</a> |
+                        </li>
+                        <li>
+                            <a href="https://www.ipn.mx/calendario-academico.html">CALENDARIO</a> |
+                        </li>
+                        <li>
+                            <a href="https://www.ipn.mx/buzon.html">BUZÓN</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Opciones de accesibilidad -->
+                <div class="contenedorAccesibilidad">
+                    <div class="idiomas text-right">
+
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="navbar-collapse collapse borde">
+              <%= render 'layouts/menu' %>
+            </div>
+            <!--/.navbar-collapse -->
           </div>
-    </div>
-    </div><!--Fin Header-->
+        </div>
     <div class="container">
       <div class="row">
         <div id="flash">
