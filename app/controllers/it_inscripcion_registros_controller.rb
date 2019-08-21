@@ -363,6 +363,13 @@ class ItInscripcionRegistrosController < ApplicationController
     end
   end
 
+  def caso_especial
+    @cuota_ipn = CuotaCurso.find_by(descripcion: "Cuota IPN").nombre
+    @cuota_externos = CuotaCurso.find_by(descripcion: "Cuota externos").nombre
+    @cuota_ipn_cert = CuotaCurso.find_by(descripcion: "Certificación IPN").nombre
+    @cuota_externos_cert = CuotaCurso.find_by(descripcion: "Certificación externo").nombre
+  end
+
   def guardar_caso_especial
     @it_inscripcion_registro = ItInscripcionRegistro.new(it_inscripcion_registro_params)
 
