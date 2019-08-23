@@ -85,6 +85,18 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   #Host para recuperar la contraseña
-  config.action_mailer.default_url_options = {:host => 'http://celex.cec-mendezdocurro.ipn.mx'}
+  config.action_mailer.default_url_options = {:host => 'https://celex.cec-mendezdocurro.ipn.mx'}
   config.time_zone = 'America/Mexico_City'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+    address: "correo.ipn.mx",
+    port: 587,
+    domain: "ACTIVEDIRECTORY",
+    authentication: "login",
+    enable_starttls_auto: true,
+    user_name: ENV['ipn_username'],
+    password: ENV['ipn_password']
+}
 end
