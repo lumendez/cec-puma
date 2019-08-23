@@ -90,13 +90,5 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.smtp_settings = {
-    address: "correo.ipn.mx",
-    port: 587,
-    domain: "ACTIVEDIRECTORY",
-    authentication: "login",
-    enable_starttls_auto: true,
-    user_name: ENV['ipn_username'],
-    password: ENV['ipn_password']
-}
+
 end
