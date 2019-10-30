@@ -58,7 +58,7 @@ gem 'devise-i18n'
 
 gem 'capybara', "~> 2.14.2"
 
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.0"
 
 gem 'kaminari'
 
